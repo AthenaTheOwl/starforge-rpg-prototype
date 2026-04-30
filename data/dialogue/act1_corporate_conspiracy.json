@@ -1,0 +1,207 @@
+{
+	"start_node": "start",
+	"nodes": {
+		"start": {
+			"speaker": "SYSTEM",
+			"text": "[i]Jalen's workshop. Datapads scattered across the table, glowing with corporate feeds, manifests, financial trails. He looks up when you enter. His expression is wrong—not fear, but something worse. Certainty.[/i]",
+			"next": "jalen_greeting"
+		},
+		"jalen_greeting": {
+			"speaker": "Jalen",
+			"text": "Avyanna. Good. You should hear this. [i][He gestures to a chair.][/i] Sit down.",
+			"next": "avyanna_concern"
+		},
+		"avyanna_concern": {
+			"speaker": "Avyanna",
+			"text": "What's wrong?",
+			"next": "jalen_reveal_start"
+		},
+		"jalen_reveal_start": {
+			"speaker": "Jalen",
+			"text": "I've been tracking corporate filings. Cross-referencing Aurum Extraction's debt recovery claims with Compact medical research permits. [i][He turns a datapad toward you.][/i] Look at this.",
+			"next": "data_display"
+		},
+		"data_display": {
+			"speaker": "SYSTEM",
+			"text": "[i]The screen shows a web of connections: Aurum Extraction, three medical research fronts, a Debtor shell corporation, and—buried at the center—a single word. [b]Primordial.[/b][/i]",
+			"next": "jalen_explanation_1"
+		},
+		"jalen_explanation_1": {
+			"speaker": "Jalen",
+			"text": "Aurum wasn't mining aurum at Site K-9. They were excavating [b]Primordial relics[/b]. The ore was cover. The real operation was Lattice extraction.",
+			"next": "jalen_explanation_2"
+		},
+		"jalen_explanation_2": {
+			"speaker": "Jalen",
+			"text": "They found something down there. Something old. Pre-Synthetic. And when you touched it—[i][He looks at you.][/i]—you became their primary asset.",
+			"next": "avyanna_processing"
+		},
+		"avyanna_processing": {
+			"speaker": "Avyanna",
+			"text": "[i]Voice thin.[/i] They knew. They knew what it was.",
+			"next": "jalen_confirmation"
+		},
+		"jalen_confirmation": {
+			"speaker": "Jalen",
+			"text": "They knew. And they let you touch it anyway. [i][He swipes to another file.][/i] Here—medical recovery permits filed three days after we extracted you. [b]'Debt recovery and asset reclamation.'[/b]",
+			"next": "conspiracy_depth"
+		},
+		"conspiracy_depth": {
+			"speaker": "Jalen",
+			"text": "It gets worse. The Debtor shell corporation owns a majority stake in Aurum. They're not just extracting ore—they're extracting [b]Primordial fragments to study resistance to the Synthetic overlay[/b].",
+			"next": "conspiracy_target"
+		},
+		"conspiracy_target": {
+			"speaker": "Jalen",
+			"text": "You're not just a debt. You're a [b]research target[/b]. They want the shard. They want to know how it bonded. They want to replicate it.",
+			"next": "elia_arrives"
+		},
+		"elia_arrives": {
+			"speaker": "SYSTEM",
+			"text": "[i]The workshop door slides open. Elia steps in, a datapad clutched in one hand. She's read something — her jaw is tight, eyes sharp with a cold fury you haven't seen before.[/i]",
+			"next": "elia_reaction_01"
+		},
+		"elia_reaction_01": {
+			"speaker": "Elia",
+			"text": "Jalen sent me a copy. [i][She sets the datapad down, carefully, like she's afraid she'll break it if she doesn't.][/i] I've seen corporate ugliness before. Wage theft, forced labor, AI exploitation. But this...",
+			"next": "elia_reaction_02"
+		},
+		"elia_reaction_02": {
+			"speaker": "Elia",
+			"text": "They [i]engineered[/i] the exposure. The safety protocols at K-9 were deliberately downgraded three weeks before your shift rotation. Jalen found the maintenance order — signed by someone in Aurum's 'research division.' They [i]wanted[/i] someone to touch it.",
+			"next": "elia_reaction_03"
+		},
+		"elia_reaction_03": {
+			"speaker": "Elia",
+			"text": "[i]Her voice drops, hard and quiet.[/i] You weren't an accident, Avyanna. You were an experiment. And they didn't even have the decency to tell you.",
+			"next": "new_evidence_discovery"
+		},
+		"new_evidence_discovery": {
+			"speaker": "Jalen",
+			"text": "[i][He pulls up one more file — this one encrypted, recently cracked.][/i] There's something else. I found a shipping manifest routed through a Compact waystation. Aurum was moving sealed crates labeled 'geological samples' to a black-site facility in the Reach Terminus sector.",
+			"next": "new_evidence_02"
+		},
+		"new_evidence_02": {
+			"speaker": "Jalen",
+			"text": "The crate weights don't match geological samples. They match [b]cryogenic containment units[/b]. Someone — or some [i]thing[/i] — was being transported alongside those relics. And the manifests were filed under your employee ID, Avyanna. Backdated.",
+			"next": "new_evidence_03"
+		},
+		"new_evidence_03": {
+			"speaker": "Avyanna",
+			"text": "[i]A cold knot in the stomach.[/i] They used my credentials. To cover their tracks. If anyone investigates, [i]I'm[/i] the one who signed for illegal cargo.",
+			"next": "bee_analysis"
+		},
+		"bee_analysis": {
+			"speaker": "SYSTEM",
+			"text": "{BEE:: Corporate data cross-reference complete | STATUS: Pattern confirmed | DETAIL: Aurum Extraction, Debtor Holdings, and Compact Medical Research Division 7 share 14 board members. Shell corporation nesting depth: 6 layers. Financial trail terminates at a classified Consortium defense account. This is not corporate greed — this is state-sponsored weapons research using Primordial artifacts as substrate.}",
+			"next": "jalen_bee_react"
+		},
+		"jalen_bee_react": {
+			"speaker": "Jalen",
+			"text": "[i][Reading the BEE output, his face goes pale.][/i] Consortium defense. This goes higher than corporate. This is [i]government[/i].",
+			"next": "player_choice"
+		},
+		"player_choice": {
+			"speaker": "SYSTEM",
+			"text": "[i]The weight of it settles. You're not free. You're fugitive property carrying contraband. The choice is how you respond.[/i]",
+			"choices": [
+				{
+					"text": "[Caution] We hide. Stay off grids. Don't give them a target.",
+					"next": "caution_response",
+					"set_flag": "conspiracy_revealed",
+					"reputation": {"corporate_heat": 0}
+				},
+				{
+					"text": "[Aggression] We hit them first. Expose this publicly.",
+					"next": "aggression_response",
+					"set_flag": "conspiracy_revealed",
+					"reputation": {"corporate_heat": 2}
+				},
+				{
+					"text": "[Investigation] We need more data. Find their weak points.",
+					"next": "investigation_response",
+					"set_flag": "conspiracy_revealed",
+					"reputation": {"corporate_heat": 1}
+				},
+				{
+					"text": "[Defiance] They made me into a weapon. Fine. Let them regret it.",
+					"next": "defiance_response",
+					"set_flag": "conspiracy_revealed",
+					"reputation": {"corporate_heat": 1}
+				}
+			]
+		},
+		"caution_response": {
+			"speaker": "Jalen",
+			"text": "[i]Nodding slowly.[/i] Smart. We stay mobile. Minimal station time. No Compact medical scans. I can scrub our trails—make us harder to track.",
+			"next": "caution_vesper"
+		},
+		"caution_vesper": {
+			"speaker": "Vesper",
+			"text": "[i]From the doorway—when did she arrive?[/i] Caution buys time. Time lets us prepare. I'll vet contracts more carefully—no clients with corporate ties.",
+			"next": "caution_outcome"
+		},
+		"caution_outcome": {
+			"speaker": "Jalen",
+			"text": "It's not a permanent solution. But it's survivable. [i][He looks at you.][/i] You okay with being a ghost?",
+			"next": "end"
+		},
+		"aggression_response": {
+			"speaker": "Jalen",
+			"text": "[i]Eyebrows raised.[/i] Bold. And risky. If we go public, they'll accelerate extraction. Legal enforcement, bounty hunters—everything.",
+			"next": "aggression_vesper"
+		},
+		"aggression_vesper": {
+			"speaker": "Vesper",
+			"text": "[i]Stepping into the room.[/i] But public exposure limits their options. They can't quietly disappear you if the galaxy is watching. [i][Beat.][/i] We'd need ironclad evidence. And a platform they can't suppress.",
+			"next": "aggression_jalen"
+		},
+		"aggression_jalen": {
+			"speaker": "Jalen",
+			"text": "I can build the case. Manifests, permits, financial trails. But once we file, there's no taking it back. [i][He looks at you.][/i] You'd be painting a target on your back.",
+			"next": "aggression_choice"
+		},
+		"aggression_choice": {
+			"speaker": "Avyanna",
+			"text": "[i]Jaw set.[/i] I've been a target since I touched that shard. At least this way, I'm fighting back.",
+			"next": "end"
+		},
+		"investigation_response": {
+			"speaker": "Jalen",
+			"text": "[i]A grim smile.[/i] My preferred approach. We need more than suspicion—we need proof. Names, dates, contracts. Everything that makes this stick.",
+			"next": "investigation_vesper"
+		},
+		"investigation_vesper": {
+			"speaker": "Vesper",
+			"text": "[i]Joining the table.[/i] Investigation takes time. And resources. But it gives us leverage—something to negotiate with if they come for us.",
+			"next": "investigation_plan"
+		},
+		"investigation_plan": {
+			"speaker": "Jalen",
+			"text": "I'll keep digging. Financial networks, shell corporations, research permits. We find the weak points—the places where exposure would cost them more than extraction.",
+			"next": "investigation_vesper_addition"
+		},
+		"investigation_vesper_addition": {
+			"speaker": "Vesper",
+			"text": "And I'll start building exit strategies. Safe houses, alternate identities, extraction routes. If this goes wrong, we need options. [i][She looks at you.][/i] You're not going back.",
+			"next": "end"
+		},
+		"defiance_response": {
+			"speaker": "Avyanna",
+			"text": "[i]Something shifts in her posture. Not anger — resolve. The kind forged in the same furnace as the shard in her chest.[/i] They made me into a weapon. They spent resources, manipulated safety protocols, ruined my life to create... this. Fine.",
+			"next": "defiance_elia"
+		},
+		"defiance_elia": {
+			"speaker": "Elia",
+			"text": "[i]A sharp look — measuring, then approving.[/i] That's not recklessness talking. That's someone who's done being afraid.",
+			"next": "defiance_jalen"
+		},
+		"defiance_jalen": {
+			"speaker": "Jalen",
+			"text": "[i]Quietly.[/i] Defiance without strategy is just noise. But defiance [i]with[/i] strategy... that's revolution. [i][He leans forward.][/i] Tell me what you need. I'll make it happen.",
+			"next": "end",
+			"set_flag": "chose_defiance",
+			"reputation": {"Elia": 1, "Jalen": 1}
+		}
+	}
+}

@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8pause_menu01"]
+
+[ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.0784314, 0.0784314, 0.156863, 0.95)
+content_margin_left = 32.0
+content_margin_top = 24.0
+content_margin_right = 32.0
+content_margin_bottom = 24.0
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="PauseMenu" type="CanvasLayer"]
+layer = 100
+process_mode = 3
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="CenterContainer" type="CenterContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Background/CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="VBox" type="VBoxContainer" parent="Background/CenterContainer/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Background/CenterContainer/Panel/VBox"]
+layout_mode = 2
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="Sep" type="HSeparator" parent="Background/CenterContainer/Panel/VBox"]
+layout_mode = 2
+
+[node name="ResumeBtn" type="Button" parent="Background/CenterContainer/Panel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(220, 40)
+text = "Resume"
+
+[node name="PartyBtn" type="Button" parent="Background/CenterContainer/Panel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(220, 40)
+text = "Party"
+
+[node name="SaveBtn" type="Button" parent="Background/CenterContainer/Panel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(220, 40)
+text = "Save"
+
+[node name="SettingsBtn" type="Button" parent="Background/CenterContainer/Panel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(220, 40)
+text = "Settings"
+
+[node name="QuitBtn" type="Button" parent="Background/CenterContainer/Panel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(220, 40)
+text = "Quit to Title"

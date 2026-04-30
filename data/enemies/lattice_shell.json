@@ -1,0 +1,39 @@
+{
+  "id": "lattice_shell",
+  "name": "Lattice Shell",
+  "family": "husks",
+  "description": "A massive lattice construct with heavy ward plating. Slow but extremely durable, it anchors lattice anomalies in place.",
+  "hp_max": 65,
+  "speed": 4,
+  "attack": 10,
+  "armor": 0,
+  "shields": 0,
+  "wards": 14,
+  "weakness": "",
+  "abilities": [
+    {
+      "name": "Crushing Impact",
+      "base_damage": 14,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "statuses": []
+    },
+    {
+      "name": "Ward Reconstitute",
+      "base_damage": 0,
+      "damage_type": "resonance",
+      "heat_cost": 0,
+      "uses_lattice": true,
+      "cli_cost": 0,
+      "target": "self",
+      "statuses": [
+        {
+          "name": "wards_up",
+          "value": 7
+        }
+      ]
+    }
+  ]
+}

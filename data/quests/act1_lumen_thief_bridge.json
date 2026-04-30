@@ -1,0 +1,33 @@
+{
+	"id": "act1_lumen_thief_bridge",
+	"name": "Lumen Thief — Bridge",
+	"description": "The bridge is compact and functional — consoles arranged in a semicircle around the pilot's station, holographic displays casting pale light across every surface. Conduit bundles hang where paneling used to be. The air tastes like recycled everything and the faint chemical ghost of a coolant leak they fixed six months ago.\n\nJalen occupies the pilot's chair like it grew around them, muttering at trajectory readouts. Navigation charts glow on the main display — routes that probably shouldn't exist, mapped by someone the galaxy calls 'Ghost Lane.'\n\nThrough the forward viewport, stars drift with the lazy patience of things that will outlive everything aboard.",
+	"actions": [
+		{
+			"type": "examine",
+			"label": "Check navigation displays",
+			"examine_text": "The navigation readouts show a web of transit routes — standard lanes in white, restricted corridors in amber, and a handful of paths in faint green that don't appear on any official chart.\n\nJalen's handwriting is scrawled on a physical note taped to the console: 'The routes just like me better than them.'\n\n[i]Current heading: Guild Station Kael-7. ETA: 14 hours. Compact patrol activity in sector: elevated.[/i]"
+		},
+		{
+			"type": "talk",
+			"label": "Talk to Jalen",
+			"dialogue_id": "act1_first_watch",
+			"tooltip": "Ask about navigation and the ship"
+		},
+		{
+			"type": "examine",
+			"label": "View the starmap",
+			"examine_text": "The holographic starmap expands at your touch — a three-dimensional web of systems, routes, and hazard markers. Guild stations pulse in blue. Compact territory shimmers in official silver. And scattered through the margins, in dim gold: Aurum Extraction holdings.\n\nSite K-9 is there. A tiny dot. One of hundreds.\n\n[i](Each one of those dots is a Kennel. Each one has workers who will never pay off their debt. The math doesn't allow escape. The math is the point.)[/i]"
+		},
+		{
+			"type": "examine",
+			"label": "Check ship status",
+			"examine_text": "LUMEN THIEF — VESSEL STATUS\nHull Integrity: 94% (starboard cargo repair pending)\nPower: Nominal\nAtmosphere: Clean (AI-managed)\nCrew Complement: 6 human, 3 AI citizens, 1 trainee\n\nThe ship hums beneath your feet — alive in a way the Kennel never was. Not just functioning. Going somewhere."
+		},
+		{
+			"type": "move",
+			"label": "Head to the corridors",
+			"target_location": "act1_lumen_thief_corridors"
+		}
+	]
+}

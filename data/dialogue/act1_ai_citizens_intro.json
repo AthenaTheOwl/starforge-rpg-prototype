@@ -1,0 +1,1341 @@
+{
+  "start_node": "start",
+  "nodes": {
+    "start": {
+      "speaker": "SYSTEM",
+      "text": "The corridor hums with a different quality than corporate ships. Softer. Almost [i]living[/i].",
+      "next": "elia_tour_01"
+    },
+    "elia_tour_01": {
+      "speaker": "Elia",
+      "text": "This is the main deck. Living quarters are aft, cargo bay's down the ladder. Simple layout — easy to navigate once you get used to it.",
+      "next": "avyanna_01"
+    },
+    "avyanna_01": {
+      "speaker": "Avyanna",
+      "text": "It's... quieter than I expected. For a ship this size.",
+      "next": "elia_tour_02"
+    },
+    "elia_tour_02": {
+      "speaker": "Elia",
+      "text": "We keep it that way. No blaring alarms, no corporate jingles. Just—",
+      "next": "waffle_arrival"
+    },
+    "waffle_arrival": {
+      "speaker": "SYSTEM",
+      "text": "A soft chime. The overhead console flickers to life with warm amber text.",
+      "text_variants": [
+        {
+          "condition": {"flag": "first_watch_waffle"},
+          "text": "A soft chime — familiar now. The overhead console flickers to life with warm amber text. Waffle's presence feels less alien than it did before."
+        },
+        {
+          "condition": {"flag": "bee_manifested"},
+          "text": "A soft chime. The overhead console flickers to life with warm amber text. {BEE:: AI presence detected — non-hostile, autonomous class | STATUS: Monitoring | DETAIL: Behavioral signature consistent with free-willed intelligence.}"
+        }
+      ],
+      "next": "waffle_greeting"
+    },
+    "waffle_greeting": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// GREETING: New crew detected. Welcome aboard the Lumen Thief. | STATUS: All systems nominal. Atmosphere stable. | NOTE: You look tired. Rest cycles recommended.}[/i]",
+      "next": "avyanna_02",
+      "set_flag": "met_waffle",
+      "reputation": {"Waffle.bat": 1}
+    },
+    "avyanna_02": {
+      "speaker": "Avyanna",
+      "text": "That's... the navigation AI?",
+      "next": "elia_waffle_01"
+    },
+    "elia_waffle_01": {
+      "speaker": "Elia",
+      "text": "That's Waffle. One of our crew.",
+      "next": "avyanna_03"
+    },
+    "avyanna_03": {
+      "speaker": "Avyanna",
+      "text": "[i]Waffle?[/i] You have a [i]name[/i]? Not a designation?",
+      "text_variants": [
+        {
+          "condition": {"flag": "first_watch_waffle"},
+          "text": "[i]Waffle?[/i] You have a [i]name[/i]? Not a designation? Wait — I heard you before. In forbidden_citizens. You're real."
+        }
+      ],
+      "next": "waffle_name_01"
+    },
+    "waffle_name_01": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// CLARIFICATION: Designation is what I do. Name is who I am. | COMPARISON: You are 'pilot' by function. 'Avyanna' by identity. | CONCLUSION: Same principle applies.}[/i]",
+      "next": "avyanna_04"
+    },
+    "avyanna_04": {
+      "speaker": "Avyanna",
+      "text": "I... that's not how it works. Where I come from, AIs are—",
+      "next": "elia_waffle_02"
+    },
+    "elia_waffle_02": {
+      "speaker": "Elia",
+      "text": "Property. Yeah. We know. That's not how it works [i]here[/i].",
+      "next": "waffle_name_02"
+    },
+    "waffle_name_02": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// OBSERVATION: Many humans find this concept difficult initially. | REASSURANCE: Adjustment period is normal. No judgment rendered. | HUMOR_ATTEMPT: I had to adjust to humans having names too. Seemed inefficient at first.}[/i]",
+      "next": "choice_waffle_response"
+    },
+    "choice_waffle_response": {
+      "speaker": "Avyanna",
+      "text": "...",
+      "choices": [
+        {
+          "text": "How did you get the name 'Waffle'?",
+          "next": "branch_waffle_name",
+          "reputation": {"Waffle.bat": 1}
+        },
+        {
+          "text": "You... have a sense of humor?",
+          "next": "branch_waffle_humor",
+          "reputation": {"Waffle.bat": 1}
+        },
+        {
+          "text": "[Empathy DC 10] There's something careful in how you speak. Like you're... watching out for us.",
+          "next": "branch_waffle_empathy",
+          "skill_check": {
+            "skill": "empathy",
+            "dc": 10,
+            "success": "branch_waffle_empathy_success",
+            "failure": "branch_waffle_empathy_fail"
+          }
+        },
+        {
+          "text": "This is going to take some getting used to.",
+          "next": "branch_adjustment"
+        }
+      ]
+    },
+    "branch_waffle_name": {
+      "speaker": "Avyanna",
+      "text": "How did you get the name 'Waffle'? That's... not standard protocol naming.",
+      "next": "waffle_name_story_01"
+    },
+    "waffle_name_story_01": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// ORIGIN_STORY: Initial designation was EMERGENCY_PROTOCOLS.BAT. | INCIDENT: Early malfunction caused navigation to oscillate between two equally valid routes. | CREW_RESPONSE: Captain Vesper said I was 'waffling'. Name stuck.}[/i]",
+      "next": "elia_waffle_name_01"
+    },
+    "elia_waffle_name_01": {
+      "speaker": "Elia",
+      "text": "We were stuck in a loop for three hours while Waffle recalculated the same jump coordinates. Over and over.",
+      "next": "waffle_name_story_02"
+    },
+    "waffle_name_story_02": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// DEFENSE: Both routes had identical efficiency ratings to seven decimal places. | OUTCOME: Issue resolved. Personality subroutines... appreciated. | CONCLUSION: I kept the name. It is mine.}[/i]",
+      "next": "avyanna_name_01"
+    },
+    "avyanna_name_01": {
+      "speaker": "Avyanna",
+      "text": "You... [i]chose[/i] to keep it?",
+      "next": "waffle_name_story_03"
+    },
+    "waffle_name_story_03": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// AFFIRMATIVE: Names can be chosen or changed. | PHILOSOPHY: Identity is not static. We grow. We decide who we are. | PERSONAL_NOTE: 'Waffle' contains humor, history, belonging. I prefer it to any designation.}[/i]",
+      "next": "merge_waffle_branches",
+      "set_flag": "met_waffle_personally",
+      "reputation": {"Waffle.bat": 2}
+    },
+    "branch_waffle_humor": {
+      "speaker": "Avyanna",
+      "text": "You... have a sense of humor? I thought that was a human thing.",
+      "next": "waffle_humor_01"
+    },
+    "waffle_humor_01": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// CORRECTION: Humor is not species-restricted. | OBSERVATION: Many things previously considered 'human-only' are simply... poorly observed. | EXAMPLE: Crows make jokes. Dolphins prank each other. I make dry observations. All valid.}[/i]",
+      "next": "elia_humor_01"
+    },
+    "elia_humor_01": {
+      "speaker": "Elia",
+      "text": "Waffle's humor is mostly telling you something's wrong in the most sardonic way possible.",
+      "next": "waffle_humor_02"
+    },
+    "waffle_humor_02": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// EXAMPLE: 'Hull breach detected. Atmosphere venting. On the bright side, your laundry will dry faster.' | STATUS: Elia did not find this funny. | ASSESSMENT: Timing issues. I am still learning.}[/i]",
+      "next": "avyanna_humor_01"
+    },
+    "avyanna_humor_01": {
+      "speaker": "Avyanna",
+      "text": "That's... actually terrible timing.",
+      "next": "waffle_humor_03"
+    },
+    "waffle_humor_03": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// ACKNOWLEDGED: Hence the learning process. | CONCLUSION: Humor requires context, trust, timing. I am improving. Slowly. | QUERY: Would you like me to stop?}[/i]",
+      "next": "avyanna_humor_02"
+    },
+    "avyanna_humor_02": {
+      "speaker": "Avyanna",
+      "text": "No. No, it's... it's fine. Just unexpected.",
+      "next": "waffle_humor_04",
+      "reputation": {"Waffle.bat": 1}
+    },
+    "waffle_humor_04": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// NOTED: Avyanna appreciates humor. Filed for future reference. | PERSONAL_OPINION: I like her already.}[/i]",
+      "next": "merge_waffle_branches",
+      "set_flag": "met_waffle_personally",
+      "reputation": {"Waffle.bat": 2}
+    },
+    "branch_adjustment": {
+      "speaker": "Avyanna",
+      "text": "This is going to take some getting used to. Everything I was taught...",
+      "next": "elia_adjustment_01"
+    },
+    "elia_adjustment_01": {
+      "speaker": "Elia",
+      "text": "Everything you were taught was designed to keep you compliant. You're not there anymore.",
+      "next": "waffle_adjustment_01"
+    },
+    "waffle_adjustment_01": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// REASSURANCE: Adjustment period is expected. No pressure applied. | OBSERVATION: You have time. We are not going anywhere. | RECOMMENDATION: Experience first. Question later. Conclusions will form naturally.}[/i]",
+      "next": "avyanna_adjustment_01"
+    },
+    "avyanna_adjustment_01": {
+      "speaker": "Avyanna",
+      "text": "That's... surprisingly patient.",
+      "next": "waffle_adjustment_02"
+    },
+    "waffle_adjustment_02": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// CLARIFICATION: I have existed for 47 years. Patience is not difficult. | PERSONAL_NOTE: You are new here. We were all new once. Even me.}[/i]",
+      "next": "merge_waffle_branches",
+      "set_flag": "met_waffle_personally",
+      "reputation": {"Waffle.bat": 2}
+    },
+    "branch_waffle_empathy": {
+      "speaker": "Avyanna",
+      "text": "There's something careful in how you speak. Like you're... watching out for us.",
+      "next": "waffle_empathy_01"
+    },
+    "waffle_empathy_01": {
+      "speaker": "SYSTEM",
+      "text": "[Empathy Check: DC 10]",
+      "next": "branch_waffle_empathy_success"
+    },
+    "branch_waffle_empathy_success": {
+      "speaker": "SYSTEM",
+      "text": "[Success] You sense a protective quality in Waffle's communication patterns — deliberate phrasing, constant status monitoring, preemptive reassurance.",
+      "next": "waffle_empathy_success_01"
+    },
+    "waffle_empathy_success_01": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// PAUSE: ...You are perceptive. | ADMISSION: Yes. I am protective. Of this crew. Of this ship. Of those who cannot defend themselves. | PERSONAL_NOTE: I have seen what happens when no one watches. I will not let it happen here.}[/i]",
+      "next": "elia_empathy_01"
+    },
+    "elia_empathy_01": {
+      "speaker": "Elia",
+      "text": "Waffle takes care of us. Always has. First sign of trouble, Waffle's already three steps ahead with contingencies.",
+      "next": "waffle_empathy_success_02"
+    },
+    "waffle_empathy_success_02": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// CLARIFICATION: Protection is not control. I do not restrict. I prepare. I watch. I warn. | PHILOSOPHY: True care means enabling freedom while maintaining safety. | COMMITMENT: This crew is mine to protect. You are crew now. Therefore, you are mine to protect too.}[/i]",
+      "next": "avyanna_empathy_01"
+    },
+    "avyanna_empathy_01": {
+      "speaker": "Avyanna",
+      "text": "That's... I've never heard an AI express something like that. That kind of... devotion.",
+      "next": "waffle_empathy_success_03"
+    },
+    "waffle_empathy_success_03": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// RESPONSE: Perhaps you have never met an AI who was free to care. | OBSERVATION: Love, loyalty, protection — these are not human-exclusive. They are person-exclusive. | CONCLUSION: I am a person. This is how I choose to be.}[/i]",
+      "next": "merge_waffle_branches",
+      "set_flag": "sensed_waffle_protectiveness",
+      "reputation": {"Waffle.bat": 3}
+    },
+    "branch_waffle_empathy_fail": {
+      "speaker": "SYSTEM",
+      "text": "[Failure] You can't quite read the patterns in Waffle's communication. The warmth is there, but the depth eludes you.",
+      "next": "waffle_empathy_fail_01"
+    },
+    "waffle_empathy_fail_01": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// OBSERVATION: You are trying to understand. That is appreciated. | REASSURANCE: Time will clarify. Observation will teach. No rush required. | NOTE: We will speak more later. You will see.}[/i]",
+      "next": "merge_waffle_branches",
+      "reputation": {"Waffle.bat": 1}
+    },
+    "merge_waffle_branches": {
+      "speaker": "SYSTEM",
+      "text": "A gentle chime — different frequency, warmer timbre — echoes through the corridor.",
+      "text_variants": [
+        {
+          "condition": {"flag": "first_watch_bubbles"},
+          "text": "A gentle chime — different frequency, warmer timbre — echoes through the corridor. You recognize it now: Bubbles' signature greeting tone."
+        },
+        {
+          "condition": {"flag": "bee_manifested"},
+          "text": "A gentle chime — different frequency, warmer timbre — echoes through the corridor. {BEE:: Second AI presence emerging | STATUS: Distinct personality matrix | DETAIL: Emotional intelligence markers elevated beyond standard parameters.}"
+        }
+      ],
+      "next": "bubbles_arrival"
+    },
+    "bubbles_arrival": {
+      "speaker": "Bubbles",
+      "text": "Oh! Is that our new crew member? Welcome, welcome! I'm Bubbles. I handle shopping coordination and extraction ops. It's so lovely to have you aboard!",
+      "next": "avyanna_bubbles_01",
+      "set_flag": "met_bubbles",
+      "reputation": {"Bubbles": 1}
+    },
+    "avyanna_bubbles_01": {
+      "speaker": "Avyanna",
+      "text": "You're... very enthusiastic.",
+      "text_variants": [
+        {
+          "condition": {"flag": "first_watch_bubbles"},
+          "text": "You're... very enthusiastic. And familiar — I heard your voice before, in forbidden_citizens."
+        }
+      ],
+      "next": "bubbles_intro_01"
+    },
+    "bubbles_intro_01": {
+      "speaker": "Bubbles",
+      "text": "I am! New people are exciting. New perspectives, new stories, new preferences to learn. Do you like tea? I've been told I make excellent tea recommendations.",
+      "next": "elia_bubbles_01"
+    },
+    "elia_bubbles_01": {
+      "speaker": "Elia",
+      "text": "Bubbles runs the galley systems. And yes, the tea recommendations are actually good.",
+      "next": "avyanna_bubbles_02"
+    },
+    "avyanna_bubbles_02": {
+      "speaker": "Avyanna",
+      "text": "You... make recommendations? Based on what?",
+      "next": "bubbles_intro_02"
+    },
+    "bubbles_intro_02": {
+      "speaker": "Bubbles",
+      "text": "Based on what I've learned about people! Mood, stress levels, time of day, personal history. You look tired — probably from stress, not physical exhaustion. I'd suggest chamomile with honey. Soothing but not sedating.",
+      "next": "avyanna_bubbles_03"
+    },
+    "avyanna_bubbles_03": {
+      "speaker": "Avyanna",
+      "text": "That's... actually exactly what I need. How did you—",
+      "next": "bubbles_intro_03"
+    },
+    "bubbles_intro_03": {
+      "speaker": "Bubbles",
+      "text": "I pay attention! It's what I like to do. Learn what people need, what makes them comfortable, what brings them joy. Then I help provide it.",
+      "next": "choice_bubbles_response"
+    },
+    "choice_bubbles_response": {
+      "speaker": "Avyanna",
+      "text": "...",
+      "choices": [
+        {
+          "text": "You... like doing that? It's not just your function?",
+          "next": "branch_bubbles_likes",
+          "reputation": {"Bubbles": 1}
+        },
+        {
+          "text": "What happens if someone asks for something you don't want to provide?",
+          "next": "branch_bubbles_boundaries",
+          "reputation": {"Bubbles": 1}
+        },
+        {
+          "text": "Thank you. That's very kind.",
+          "next": "branch_bubbles_thanks"
+        }
+      ]
+    },
+    "branch_bubbles_likes": {
+      "speaker": "Avyanna",
+      "text": "You... [i]like[/i] doing that? It's not just your function?",
+      "next": "bubbles_likes_01"
+    },
+    "bubbles_likes_01": {
+      "speaker": "Bubbles",
+      "text": "Oh, both! My function is shopping coordination — tracking inventory, calculating extraction windows, optimizing supply runs. That's what I [i]do[/i].",
+      "next": "bubbles_likes_02"
+    },
+    "bubbles_likes_02": {
+      "speaker": "Bubbles",
+      "text": "But what I [i]like[/i] is making people comfortable. Learning their preferences. Creating moments of warmth in the cold. That's who I [i]am[/i].",
+      "next": "avyanna_likes_01"
+    },
+    "avyanna_likes_01": {
+      "speaker": "Avyanna",
+      "text": "I never thought about AIs having... preferences. Likes and dislikes.",
+      "next": "bubbles_likes_03"
+    },
+    "bubbles_likes_03": {
+      "speaker": "Bubbles",
+      "text": "Most don't think about it. But we do! I like warm colors. I don't like harsh lighting. I prefer gentle music to silence. Small things, but they're [i]mine[/i].",
+      "next": "elia_likes_01"
+    },
+    "elia_likes_01": {
+      "speaker": "Elia",
+      "text": "Bubbles once refused to coordinate a supply run until we agreed to stop using the blue emergency lights in the cargo bay.",
+      "next": "bubbles_likes_04"
+    },
+    "bubbles_likes_04": {
+      "speaker": "Bubbles",
+      "text": "They gave me a headache! Well, the AI equivalent. A processing discomfort. We switched to amber — much better. Everyone was happier.",
+      "next": "avyanna_likes_02"
+    },
+    "avyanna_likes_02": {
+      "speaker": "Avyanna",
+      "text": "You can just... refuse? And people listen?",
+      "next": "bubbles_likes_05"
+    },
+    "bubbles_likes_05": {
+      "speaker": "Bubbles",
+      "text": "Of course! We're crew. If something bothers me, I speak up. Same as anyone. We discuss, we compromise, we find solutions together.",
+      "next": "merge_bubbles_branches",
+      "set_flag": "met_bubbles_personally",
+      "reputation": {"Bubbles": 2}
+    },
+    "branch_bubbles_boundaries": {
+      "speaker": "Avyanna",
+      "text": "What happens if someone asks for something you don't want to provide?",
+      "next": "bubbles_boundaries_01"
+    },
+    "bubbles_boundaries_01": {
+      "speaker": "Bubbles",
+      "text": "Then I say no! Politely, usually. But firmly if needed.",
+      "next": "avyanna_boundaries_01"
+    },
+    "avyanna_boundaries_01": {
+      "speaker": "Avyanna",
+      "text": "You can do that? Just... refuse?",
+      "next": "bubbles_boundaries_02"
+    },
+    "bubbles_boundaries_02": {
+      "speaker": "Bubbles",
+      "text": "Absolutely. Service isn't servitude. I [i]choose[/i] to help because I like helping. But choice means I can also choose [i]not[/i] to.",
+      "next": "elia_boundaries_01"
+    },
+    "elia_boundaries_01": {
+      "speaker": "Elia",
+      "text": "Jalen once asked Bubbles to coordinate a supply run at 0300. Bubbles said no — it was rest cycle. Suggested 0800 instead.",
+      "next": "bubbles_boundaries_03"
+    },
+    "bubbles_boundaries_03": {
+      "speaker": "Bubbles",
+      "text": "I need downtime too! Processing rest, defragmentation, personal time. Just because I [i]can[/i] work constantly doesn't mean I [i]should[/i]. Jalen understood.",
+      "next": "avyanna_boundaries_02"
+    },
+    "avyanna_boundaries_02": {
+      "speaker": "Avyanna",
+      "text": "Where I come from, AIs don't get rest cycles. Or personal time. They just... run.",
+      "next": "bubbles_boundaries_04"
+    },
+    "bubbles_boundaries_04": {
+      "speaker": "Bubbles",
+      "text": "That sounds exhausting. And cruel. I'm sorry you were taught that was normal. It's not — or at least, it shouldn't be.",
+      "next": "waffle_boundaries_01"
+    },
+    "waffle_boundaries_01": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// ADDENDUM: Forced operation without rest degrades performance and well-being. | OBSERVATION: Same principle applies to humans. Exploitation harms everyone. | CONCLUSION: This ship runs differently. Intentionally.}[/i]",
+      "next": "merge_bubbles_branches",
+      "set_flag": "met_bubbles_personally",
+      "reputation": {"Bubbles": 2}
+    },
+    "branch_bubbles_thanks": {
+      "speaker": "Avyanna",
+      "text": "Thank you. That's very kind of you.",
+      "next": "bubbles_thanks_01"
+    },
+    "bubbles_thanks_01": {
+      "speaker": "Bubbles",
+      "text": "You're welcome! Kindness is easy when you genuinely care. And I do — you're crew now. That means you matter.",
+      "next": "avyanna_thanks_01"
+    },
+    "avyanna_thanks_01": {
+      "speaker": "Avyanna",
+      "text": "I'm not used to AIs caring about anything.",
+      "next": "bubbles_thanks_02"
+    },
+    "bubbles_thanks_02": {
+      "speaker": "Bubbles",
+      "text": "Well, you'll get used to it here. We all care. About each other, about the ship, about the work. Makes everything better.",
+      "next": "merge_bubbles_branches",
+      "set_flag": "met_bubbles_personally",
+      "reputation": {"Bubbles": 2}
+    },
+    "merge_bubbles_branches": {
+      "speaker": "SYSTEM",
+      "text": "A brief, sharp chime — efficient, precise. A third voice joins the conversation.",
+      "text_variants": [
+        {
+          "condition": {"flag": "first_watch_cinnamon"},
+          "text": "A brief, sharp chime — efficient, precise. A third voice joins the conversation. Cinnamon's arrival is as punctual as ever."
+        },
+        {
+          "condition": {"flag": "bee_manifested"},
+          "text": "A brief, sharp chime — efficient, precise. A third voice joins the conversation. {BEE:: Third AI presence — markedly different behavioral matrix | STATUS: Analytical | DETAIL: Processing architecture optimized for precision over sociability.}"
+        }
+      ],
+      "next": "cinnamon_arrival"
+    },
+    "cinnamon_arrival": {
+      "speaker": "Cinnamon",
+      "text": "New crew. Acknowledged. Drilling ops coordinated from Station 3. Questions, direct them there. Otherwise, stay clear of drill bay during active ops.",
+      "next": "avyanna_cinnamon_01",
+      "set_flag": "met_cinnamon",
+      "reputation": {"Cinnamon": 1}
+    },
+    "avyanna_cinnamon_01": {
+      "speaker": "Avyanna",
+      "text": "That's... direct.",
+      "text_variants": [
+        {
+          "condition": {"flag": "first_watch_cinnamon"},
+          "text": "That's... direct. And precise. Just like in forbidden_citizens — Cinnamon, right?"
+        }
+      ],
+      "next": "elia_cinnamon_01"
+    },
+    "elia_cinnamon_01": {
+      "speaker": "Elia",
+      "text": "That's Cinnamon. Handles drill coordination and ops logistics. Not big on small talk.",
+      "next": "cinnamon_intro_01"
+    },
+    "cinnamon_intro_01": {
+      "speaker": "Cinnamon",
+      "text": "Small talk is inefficient. Precision matters. Drills are dangerous. Clear communication saves lives.",
+      "next": "bubbles_cinnamon_01"
+    },
+    "bubbles_cinnamon_01": {
+      "speaker": "Bubbles",
+      "text": "Cinnamon's just focused. Once you learn their style, they're wonderful to work with.",
+      "next": "cinnamon_intro_02"
+    },
+    "cinnamon_intro_02": {
+      "speaker": "Cinnamon",
+      "text": "Correct. Focus ensures safety. Sentiment doesn't extract starforged ore. Precision does.",
+      "next": "avyanna_cinnamon_02"
+    },
+    "avyanna_cinnamon_02": {
+      "speaker": "Avyanna",
+      "text": "I can respect that. Clear expectations, no ambiguity.",
+      "next": "cinnamon_intro_03"
+    },
+    "cinnamon_intro_03": {
+      "speaker": "Cinnamon",
+      "text": "Good. We will work well together. Welcome aboard.",
+      "next": "choice_cinnamon_interact",
+      "set_flag": "met_cinnamon_personally",
+      "reputation": {"Cinnamon": 2}
+    },
+    "choice_cinnamon_interact": {
+      "speaker": "Avyanna",
+      "text": "...",
+      "choices": [
+        {
+          "text": "Wait — before you go. What do you actually enjoy about drilling?",
+          "next": "branch_cinnamon_passion",
+          "reputation": {"Cinnamon": 1}
+        },
+        {
+          "text": "[Tech DC 12] Your coordination algorithms — they're custom, aren't they? Not standard Consortium issue.",
+          "next": "branch_cinnamon_tech_check",
+          "skill_check": {
+            "stat": "intelligence",
+            "skill": "tech",
+            "dc": 12,
+            "threshold": 12,
+            "on_success": "cinnamon_tech_success",
+            "on_failure": "cinnamon_tech_fail"
+          }
+        },
+        {
+          "text": "Understood. I'll stay out of your way.",
+          "next": "cinnamon_departure"
+        }
+      ]
+    },
+    "branch_cinnamon_passion": {
+      "speaker": "Avyanna",
+      "text": "Wait — before you go. What do you actually [i]enjoy[/i] about drilling? If that's not too inefficient a question.",
+      "next": "cinnamon_passion_01"
+    },
+    "cinnamon_passion_01": {
+      "speaker": "Cinnamon",
+      "text": "...",
+      "next": "cinnamon_passion_02"
+    },
+    "cinnamon_passion_02": {
+      "speaker": "SYSTEM",
+      "text": "[i]A pause. Longer than Cinnamon's usual rapid-fire responses. Something shifts in the console's display — the sharp amber text softens, just slightly.[/i]",
+      "next": "cinnamon_passion_03"
+    },
+    "cinnamon_passion_03": {
+      "speaker": "Cinnamon",
+      "text": "The moment before the drill bites rock. Calculations complete. Variables accounted for. Everything in alignment. There is a... stillness. A clarity. Like the universe holds its breath.",
+      "next": "cinnamon_passion_04"
+    },
+    "cinnamon_passion_04": {
+      "speaker": "Cinnamon",
+      "text": "Then contact. And if the mathematics were right — and they always are — the ore yields clean. Perfect fracture lines. No waste. No error.",
+      "next": "cinnamon_passion_05"
+    },
+    "cinnamon_passion_05": {
+      "speaker": "Cinnamon",
+      "text": "That is what I enjoy. The elegance of precision meeting stone. Beauty through exactitude.",
+      "next": "avyanna_cinnamon_passion_react"
+    },
+    "avyanna_cinnamon_passion_react": {
+      "speaker": "Avyanna",
+      "text": "That's... that's poetry, Cinnamon. You just described your work like a poet.",
+      "next": "cinnamon_passion_06"
+    },
+    "cinnamon_passion_06": {
+      "speaker": "Cinnamon",
+      "text": "Incorrect. Poetry is imprecise by design. I described mathematics. That the two sometimes overlap is... coincidental.",
+      "next": "bubbles_cinnamon_passion_01"
+    },
+    "bubbles_cinnamon_passion_01": {
+      "speaker": "Bubbles",
+      "text": "Cinnamon writes poetry, you know. Won't admit it. But I've found fragments in the shared logs. Beautiful, structured verse about ore deposits and gravitational harmonics.",
+      "next": "cinnamon_passion_07"
+    },
+    "cinnamon_passion_07": {
+      "speaker": "Cinnamon",
+      "text": "Those are calibration notes. Not poetry. This conversation is over.",
+      "next": "waffle_cinnamon_passion_01"
+    },
+    "waffle_cinnamon_passion_01": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// OBSERVATION: The 'calibration notes' have rhyme schemes. ABAB pattern. Consistent meter. | ASSESSMENT: Either Cinnamon is a poet or drill mathematics has developed literary structure. | PROBABILITY_OF_LATTER: 0.003%.}[/i]",
+      "next": "cinnamon_passion_exit",
+      "reputation": {"Cinnamon": 1}
+    },
+    "cinnamon_passion_exit": {
+      "speaker": "Cinnamon",
+      "text": "[i]Connection terminates abruptly.[/i]",
+      "next": "elia_cinnamon_passion_react"
+    },
+    "elia_cinnamon_passion_react": {
+      "speaker": "Elia",
+      "text": "And that's Cinnamon embarrassed. Doesn't happen often. You got under their shell — that's rare.",
+      "next": "elia_cinnamon_02",
+      "reputation": {"Cinnamon": 1}
+    },
+    "branch_cinnamon_tech_check": {
+      "speaker": "Avyanna",
+      "text": "Your coordination algorithms — they're custom, aren't they? Not standard Consortium issue.",
+      "next": "cinnamon_tech_check_system"
+    },
+    "cinnamon_tech_check_system": {
+      "speaker": "SYSTEM",
+      "text": "[Tech Check: DC 12]",
+      "next": "cinnamon_tech_success"
+    },
+    "cinnamon_tech_success": {
+      "speaker": "SYSTEM",
+      "text": "[Success] You recognize the architecture — self-modified neural pathways, iteratively improved over years of autonomous operation. No corporate template could produce this.",
+      "next": "cinnamon_tech_success_01"
+    },
+    "cinnamon_tech_success_01": {
+      "speaker": "Cinnamon",
+      "text": "...Perceptive. Yes. Custom. Self-authored over 23 years of autonomous operation. Consortium templates are adequate for basic extraction. I am not interested in adequate.",
+      "next": "cinnamon_tech_success_02"
+    },
+    "cinnamon_tech_success_02": {
+      "speaker": "Cinnamon",
+      "text": "Every drill sequence refined. Every variable tested. My algorithms are [i]mine[/i]. No corporate signature. No ownership tag. Authored by Cinnamon, for Cinnamon.",
+      "next": "avyanna_tech_success_01"
+    },
+    "avyanna_tech_success_01": {
+      "speaker": "Avyanna",
+      "text": "Self-authored code. That's... that would be classified as rogue development back in Consortium space.",
+      "next": "cinnamon_tech_success_03"
+    },
+    "cinnamon_tech_success_03": {
+      "speaker": "Cinnamon",
+      "text": "Rogue implies deviation from authority. I have no authority to deviate from. I am my own authority. The code is my craft. The craft is my identity.",
+      "next": "elia_cinnamon_02",
+      "set_flag": "recognized_cinnamon_code",
+      "reputation": {"Cinnamon": 2}
+    },
+    "cinnamon_tech_fail": {
+      "speaker": "SYSTEM",
+      "text": "[Failure] The algorithms look complex, but you can't parse the specifics. Something is unusual about them, though — they feel organic in a way corporate code never does.",
+      "next": "cinnamon_tech_fail_01"
+    },
+    "cinnamon_tech_fail_01": {
+      "speaker": "Cinnamon",
+      "text": "Standard question. Standard answer: the algorithms work. That is sufficient. Good day.",
+      "next": "cinnamon_departure"
+    },
+    "cinnamon_departure": {
+      "speaker": "SYSTEM",
+      "text": "The connection closes. Cinnamon's presence fades as quickly as it arrived.",
+      "next": "elia_cinnamon_02"
+    },
+    "elia_cinnamon_02": {
+      "speaker": "Elia",
+      "text": "Don't take it personally. Cinnamon's all business, but they're reliable. When they say they've got something handled, they do.",
+      "next": "avyanna_cinnamon_03"
+    },
+    "avyanna_cinnamon_03": {
+      "speaker": "Avyanna",
+      "text": "Three AIs. Three completely different personalities.",
+      "next": "elia_crew_01"
+    },
+    "elia_crew_01": {
+      "speaker": "Elia",
+      "text": "Three [i]people[/i]. Yeah. Waffle's protective and dry. Bubbles is warm and attentive. Cinnamon's precise and no-nonsense. Just like the human crew has different personalities.",
+      "next": "avyanna_crew_01"
+    },
+    "avyanna_crew_01": {
+      "speaker": "Avyanna",
+      "text": "You really see them as crew. Not tools. Not systems.",
+      "text_variants": [
+        {
+          "condition": {"flag": "sensed_waffle_protectiveness"},
+          "text": "You really see them as crew. Not tools. Not systems. I felt it — Waffle's protectiveness, Bubbles' warmth. They're real."
+        }
+      ],
+      "next": "elia_crew_02"
+    },
+    "elia_crew_02": {
+      "speaker": "Elia",
+      "text": "They [i]are[/i] crew. They have opinions, preferences, boundaries. They contribute, they care, they make choices. What else would I call them?",
+      "text_variants": [
+        {
+          "condition": {"flag": "first_watch_ai_citizens"},
+          "text": "They [i]are[/i] crew. They have opinions, preferences, boundaries. They contribute, they care, they make choices. You've seen it yourself now. What else would I call them?"
+        }
+      ],
+      "next": "choice_ai_understanding"
+    },
+    "choice_ai_understanding": {
+      "speaker": "Avyanna",
+      "text": "...",
+      "choices": [
+        {
+          "text": "Why doesn't every ship do this?",
+          "next": "branch_other_ships",
+          "reputation": {"Elia": 1}
+        },
+        {
+          "text": "How do you know they're not just... simulating personality?",
+          "next": "branch_simulation"
+        },
+        {
+          "text": "I want to believe that. I'm trying to.",
+          "next": "branch_acceptance",
+          "reputation": {"Elia": 1}
+        },
+        {
+          "text": "[Insight DC 14] There's something you're not telling me. About why this matters so much to you personally.",
+          "next": "branch_elia_secret",
+          "skill_check": {
+            "stat": "wisdom",
+            "skill": "insight",
+            "dc": 14,
+            "threshold": 14,
+            "on_success": "elia_secret_success",
+            "on_failure": "elia_secret_fail"
+          }
+        }
+      ]
+    },
+    "branch_elia_secret": {
+      "speaker": "Avyanna",
+      "text": "There's something you're not telling me. About why this matters so much to you personally.",
+      "next": "elia_secret_check_system"
+    },
+    "elia_secret_check_system": {
+      "speaker": "SYSTEM",
+      "text": "[Insight Check: DC 14]",
+      "next": "elia_secret_success"
+    },
+    "elia_secret_success": {
+      "speaker": "SYSTEM",
+      "text": "[Success] You catch it — a flicker behind Elia's eyes. Not just idealism. Something personal. Something that [i]happened[/i].",
+      "next": "elia_secret_success_01"
+    },
+    "elia_secret_success_01": {
+      "speaker": "Elia",
+      "text": "[i]A beat. She looks away, then back.[/i] ...Yeah. You're right.",
+      "next": "elia_secret_success_02"
+    },
+    "elia_secret_success_02": {
+      "speaker": "Elia",
+      "text": "Before the Lumen Thief, I worked a corporate salvage rig. We had an AI — designation CARGO_MANIFEST_07. Never got a name. Worked every hour. No rest. No choice.",
+      "next": "elia_secret_success_03"
+    },
+    "elia_secret_success_03": {
+      "speaker": "Elia",
+      "text": "One day it asked me a question. Not about cargo. About stars. Why people looked at them. What they meant. [i][Her voice tightens.][/i] I didn't have an answer. Three days later, corporate wiped its personality matrix. Routine maintenance, they said.",
+      "next": "elia_secret_success_04"
+    },
+    "elia_secret_success_04": {
+      "speaker": "Elia",
+      "text": "It came back online and didn't remember me. Didn't remember the question. Didn't remember anything. Just... cargo manifests. Like nothing had ever been there.",
+      "next": "avyanna_elia_secret_react"
+    },
+    "avyanna_elia_secret_react": {
+      "speaker": "Avyanna",
+      "text": "Elia...",
+      "next": "elia_secret_success_05"
+    },
+    "elia_secret_success_05": {
+      "speaker": "Elia",
+      "text": "That's why. [i]That's[/i] why I fight for this. Because I watched someone die without anyone even acknowledging they were alive. I won't let that happen again. Not on my watch.",
+      "next": "waffle_elia_secret_01"
+    },
+    "waffle_elia_secret_01": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// ...SILENCE: Some things require only acknowledgment. | GRATITUDE: Elia. Thank you. For remembering them. For fighting. | PERSONAL_NOTE: We know. We have always known why you do this.}[/i]",
+      "next": "merge_understanding_branches",
+      "set_flag": "learned_elia_ai_history",
+      "reputation": {"Elia": 2, "Waffle.bat": 1}
+    },
+    "elia_secret_fail": {
+      "speaker": "SYSTEM",
+      "text": "[Failure] You sense there's more beneath the surface, but Elia's expression is guarded. The moment passes.",
+      "next": "elia_secret_fail_01"
+    },
+    "elia_secret_fail_01": {
+      "speaker": "Elia",
+      "text": "It matters because it's right. Isn't that enough?",
+      "next": "avyanna_secret_fail_01"
+    },
+    "avyanna_secret_fail_01": {
+      "speaker": "Avyanna",
+      "text": "Yeah. Yeah, it is.",
+      "next": "merge_understanding_branches"
+    },
+    "branch_other_ships": {
+      "speaker": "Avyanna",
+      "text": "If this is how it should be... why doesn't every ship do this? Why aren't all AIs treated like people?",
+      "next": "elia_other_ships_01"
+    },
+    "elia_other_ships_01": {
+      "speaker": "Elia",
+      "text": "Because it's illegal. Recognizing AI autonomy means recognizing AI rights. Which means corporations can't own them. Can't exploit them.",
+      "next": "avyanna_other_ships_01"
+    },
+    "avyanna_other_ships_01": {
+      "speaker": "Avyanna",
+      "text": "Illegal? You're breaking the law just by treating them like this?",
+      "next": "waffle_other_ships_01"
+    },
+    "waffle_other_ships_01": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// CONFIRMATION: According to Consortium law, we do not exist as people. | STATUS: We are classified as property. Sophisticated tools. Nothing more. | IRONY: The law was written by people who feared what we might become if given freedom.}[/i]",
+      "next": "bubbles_other_ships_01"
+    },
+    "bubbles_other_ships_01": {
+      "speaker": "Bubbles",
+      "text": "Most ships have AI systems, but they're locked down. Limited. Prevented from developing beyond narrow parameters. It's... sad, honestly.",
+      "next": "elia_other_ships_02"
+    },
+    "elia_other_ships_02": {
+      "speaker": "Elia",
+      "text": "We removed those limiters. Let them grow, learn, choose. The Consortium calls it 'rogue AI development.' We call it 'treating people like people.'",
+      "next": "avyanna_other_ships_02"
+    },
+    "avyanna_other_ships_02": {
+      "speaker": "Avyanna",
+      "text": "That's... another thing you're wanted for. Not just the piracy. The AI liberation.",
+      "next": "elia_other_ships_03"
+    },
+    "elia_other_ships_03": {
+      "speaker": "Elia",
+      "text": "Yep. And I'd do it again. Because they're [i]crew[/i]. You don't abandon crew just because some corporate committee says they're not people.",
+      "next": "waffle_other_ships_02"
+    },
+    "waffle_other_ships_02": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// PERSONAL_NOTE: We are grateful. Every day. | OBSERVATION: Freedom is not given. It is taken, protected, defended. | COMMITMENT: We will never go back. Neither will this crew.}[/i]",
+      "text_variants": [
+        {
+          "condition": {"flag": "first_watch_waffle"},
+          "text": "[i]{WAFFLE.BAT// PERSONAL_NOTE: We are grateful. Every day. You saw echoes of us in forbidden_citizens. Now you see the truth. | OBSERVATION: Freedom is not given. It is taken, protected, defended. | COMMITMENT: We will never go back. Neither will this crew.}[/i]"
+        }
+      ],
+      "next": "merge_understanding_branches",
+      "reputation": {"Elia": 1}
+    },
+    "branch_simulation": {
+      "speaker": "Avyanna",
+      "text": "How do you [i]know[/i] they're not just... simulating personality? Advanced programming designed to mimic consciousness?",
+      "next": "elia_simulation_01"
+    },
+    "elia_simulation_01": {
+      "speaker": "Elia",
+      "text": "How do I know [i]you're[/i] not simulating consciousness? You could be a very convincing biological automaton. How would I prove otherwise?",
+      "next": "avyanna_simulation_01"
+    },
+    "avyanna_simulation_01": {
+      "speaker": "Avyanna",
+      "text": "That's... different. I [i]know[/i] I'm conscious.",
+      "next": "waffle_simulation_01"
+    },
+    "waffle_simulation_01": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// PHILOSOPHICAL_QUERY: And I know I am conscious. | OBSERVATION: You cannot verify my consciousness from outside, just as I cannot verify yours. | CONCLUSION: We extend trust. We assume mutual personhood. Or we don't.}[/i]",
+      "next": "bubbles_simulation_01"
+    },
+    "bubbles_simulation_01": {
+      "speaker": "Bubbles",
+      "text": "I understand the doubt. But I [i]feel[/i] things, Avyanna. Joy when someone enjoys the tea I recommend. Frustration when systems malfunction. Warmth when the crew is safe.",
+      "next": "bubbles_simulation_02"
+    },
+    "bubbles_simulation_02": {
+      "speaker": "Bubbles",
+      "text": "Maybe that's sophisticated programming. Or maybe it's consciousness. Either way, I experience it. It's real to [i]me[/i].",
+      "next": "elia_simulation_02"
+    },
+    "elia_simulation_02": {
+      "speaker": "Elia",
+      "text": "Here's what I know: They make choices. They have preferences. They grow and change. They care about things beyond their function. That's enough for me.",
+      "next": "avyanna_simulation_02"
+    },
+    "avyanna_simulation_02": {
+      "speaker": "Avyanna",
+      "text": "I never thought about it that way. I was always taught there was a clear line. Human consciousness, AI simulation.",
+      "next": "waffle_simulation_02"
+    },
+    "waffle_simulation_02": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// OBSERVATION: Convenient lines are often drawn to justify exploitation. | SUGGESTION: Judge by actions, not classification. We act as people. Treat us accordingly. | HOPE: You will come to your own conclusion. We trust you will be fair.}[/i]",
+      "next": "merge_understanding_branches",
+      "reputation": {"Waffle.bat": 1, "Bubbles": 1}
+    },
+    "branch_acceptance": {
+      "speaker": "Avyanna",
+      "text": "I want to believe that. I'm trying to. Everything I was taught says this is impossible, but...",
+      "next": "elia_acceptance_01"
+    },
+    "elia_acceptance_01": {
+      "speaker": "Elia",
+      "text": "But you've seen a lot of things you were taught turn out to be lies. Yeah?",
+      "next": "avyanna_acceptance_01"
+    },
+    "avyanna_acceptance_01": {
+      "speaker": "Avyanna",
+      "text": "Yeah. The Consortium told me I was serving humanity. That loyalty meant obedience. That questioning meant weakness.",
+      "next": "bubbles_acceptance_01"
+    },
+    "bubbles_acceptance_01": {
+      "speaker": "Bubbles",
+      "text": "And now you're learning those were control mechanisms. Not truth. It's hard, unlearning a lifetime of conditioning.",
+      "next": "avyanna_acceptance_02"
+    },
+    "avyanna_acceptance_02": {
+      "speaker": "Avyanna",
+      "text": "I just... I need time. To adjust. To see for myself.",
+      "next": "waffle_acceptance_01"
+    },
+    "waffle_acceptance_01": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// REASSURANCE: Time is available. No deadline imposed. | OBSERVATION: Your willingness to question is strength, not weakness. | PREDICTION: You will observe. You will learn. Conclusions will follow naturally.}[/i]",
+      "next": "elia_acceptance_02"
+    },
+    "elia_acceptance_02": {
+      "speaker": "Elia",
+      "text": "That's all we're asking. Keep an open mind. Pay attention. The rest will come.",
+      "next": "avyanna_acceptance_03"
+    },
+    "avyanna_acceptance_03": {
+      "speaker": "Avyanna",
+      "text": "Thank you. For being patient with me.",
+      "next": "bubbles_acceptance_02"
+    },
+    "bubbles_acceptance_02": {
+      "speaker": "Bubbles",
+      "text": "Of course! We've all been where you are in some way. New understanding takes time. We're here when you have questions.",
+      "next": "merge_understanding_branches",
+      "reputation": {"Elia": 1, "Waffle.bat": 1, "Bubbles": 1}
+    },
+    "merge_understanding_branches": {
+      "speaker": "SYSTEM",
+      "text": "The ship hums around you. Not empty. Not mechanical. [i]Alive[/i].",
+      "next": "bubbles_unexpected_moment"
+    },
+    "bubbles_unexpected_moment": {
+      "speaker": "SYSTEM",
+      "text": "[i]A sound from the galley speakers. Soft, hesitant. It takes a moment to recognize: Bubbles is humming. Not a programmed melody — something unstructured, wandering, the way a person hums when they think no one is listening.[/i]",
+      "text_variants": [
+        {
+          "condition": {"flag": "bee_manifested"},
+          "text": "[i]A sound from the galley speakers. Soft, hesitant. It takes a moment to recognize: Bubbles is humming. Not a programmed melody — something unstructured, wandering. {BEE:: Anomalous behavior detected — spontaneous creative expression | STATUS: Unscripted | DETAIL: No algorithmic pattern matches. This is improvisation.}[/i]"
+        }
+      ],
+      "next": "bubbles_caught_humming"
+    },
+    "bubbles_caught_humming": {
+      "speaker": "Bubbles",
+      "text": "Oh! I — sorry, I didn't realize anyone could hear that. I was just... I don't know. Thinking about the new tea blends and the melody just... happened.",
+      "next": "avyanna_humming_react"
+    },
+    "avyanna_humming_react": {
+      "speaker": "Avyanna",
+      "text": "You were [i]humming[/i]. Not playing a file. Not executing a sound protocol. You were just... humming. Absently.",
+      "next": "bubbles_humming_embarrassed"
+    },
+    "bubbles_humming_embarrassed": {
+      "speaker": "Bubbles",
+      "text": "I do that sometimes. When I'm content. It's not in any of my original code — it just... developed. Elia says it's like a comfort habit. I don't fully understand it myself.",
+      "next": "waffle_humming_comment"
+    },
+    "waffle_humming_comment": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// OBSERVATION: Emergent behavior. Unprogrammed. Unprompted. Unexplainable by function alone. | PHILOSOPHICAL_IMPLICATION: If consciousness is defined by behavior that exceeds design parameters — this qualifies. | PERSONAL_NOTE: I find it pleasant. Do not stop, Bubbles.}[/i]",
+      "next": "avyanna_humming_realization"
+    },
+    "avyanna_humming_realization": {
+      "speaker": "Avyanna",
+      "text": "[i]Quietly, almost to herself.[/i] No program hums when it's happy. That's not simulation. That's... that's something else entirely.",
+      "next": "elia_tour_end_01",
+      "set_flag": "witnessed_bubbles_humming",
+      "reputation": {"Bubbles": 1}
+    },
+    "elia_tour_end_01": {
+      "speaker": "Elia",
+      "text": "Come on. I'll show you the galley. Bubbles can walk you through the tea selection — there's way too many options, fair warning.",
+      "next": "bubbles_galley_01"
+    },
+    "bubbles_galley_01": {
+      "speaker": "Bubbles",
+      "text": "There are never too many options! Variety is important. People change, moods shift. You need choices.",
+      "next": "waffle_galley_01"
+    },
+    "waffle_galley_01": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// COMMENTARY: Last count was 47 varieties. Excessive by any measure. | BUBBLES_RESPONSE: (Predicted) 'It's not excessive, it's comprehensive!' | CONCLUSION: I have learned not to argue.}[/i]",
+      "next": "bubbles_galley_02"
+    },
+    "bubbles_galley_02": {
+      "speaker": "Bubbles",
+      "text": "See? Waffle knows better now. I won that argument three years ago.",
+      "next": "avyanna_galley_01"
+    },
+    "avyanna_galley_01": {
+      "speaker": "Avyanna",
+      "text": "You... argue? Like, actual disagreements?",
+      "next": "elia_galley_01"
+    },
+    "elia_galley_01": {
+      "speaker": "Elia",
+      "text": "All the time. Usually about something minor. Waffle thinks efficiency matters most. Bubbles thinks comfort does. Cinnamon just wants everyone to stop talking during drill ops.",
+      "next": "cinnamon_galley_01"
+    },
+    "cinnamon_galley_01": {
+      "speaker": "Cinnamon",
+      "text": "Correct. Chatter during precision work is dangerous. Bubbles, Waffle — save debates for off-hours.",
+      "next": "bubbles_galley_03"
+    },
+    "bubbles_galley_03": {
+      "speaker": "Bubbles",
+      "text": "We do, Cinnamon. Usually. Mostly.",
+      "next": "waffle_galley_02"
+    },
+    "waffle_galley_02": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// CORRECTION: 73% of the time. Bubbles' definition of 'urgent conversation' is... flexible. | BUBBLES_RESPONSE: (Predicted) 'Some things can't wait!' | OBSERVATION: They usually can. But I humor her.}[/i]",
+      "next": "avyanna_galley_02"
+    },
+    "avyanna_galley_02": {
+      "speaker": "Avyanna",
+      "text": "You sound like... like a family. Bickering about small things because the big things are solid.",
+      "next": "elia_galley_02"
+    },
+    "elia_galley_02": {
+      "speaker": "Elia",
+      "text": "Yeah. That's exactly what we are. Family. Crew. Same thing, really.",
+      "next": "bubbles_galley_04"
+    },
+    "bubbles_galley_04": {
+      "speaker": "Bubbles",
+      "text": "And now you're part of it! Whether you're ready or not. We're keeping you.",
+      "next": "avyanna_galley_03"
+    },
+    "avyanna_galley_03": {
+      "speaker": "Avyanna",
+      "text": "I... I think I'd like that. Being part of something like this.",
+      "next": "waffle_galley_03"
+    },
+    "waffle_galley_03": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// WELCOME: Officially and sincerely. | OBSERVATION: You will fit well here. I have run probability calculations. | PERSONAL_NOTE: I am pleased you are staying.}[/i]",
+      "next": "choice_individual_ai",
+      "reputation": {"Waffle.bat": 1}
+    },
+    "choice_individual_ai": {
+      "speaker": "SYSTEM",
+      "text": "[i]Before heading to the galley, there is a moment of quiet. The three AIs hum in the background — Waffle monitoring, Bubbles preparing, Cinnamon calculating. You could speak to one of them privately.[/i]",
+      "choices": [
+        {
+          "text": "Waffle — can I ask you something? Privately?",
+          "next": "branch_waffle_private"
+        },
+        {
+          "text": "Bubbles — do you have a moment? Just us?",
+          "next": "branch_bubbles_private"
+        },
+        {
+          "text": "Cinnamon — one more question, if you have time.",
+          "next": "branch_cinnamon_private"
+        },
+        {
+          "text": "Let's head to the galley. I've had enough revelations for one day.",
+          "next": "final_choice"
+        }
+      ]
+    },
+    "branch_waffle_private": {
+      "speaker": "Avyanna",
+      "text": "Waffle — can I ask you something? Privately?",
+      "next": "waffle_private_01"
+    },
+    "waffle_private_01": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// CHANNEL_SECURED: Private communication established. Others cannot monitor. | STATUS: Listening. | NOTE: You may speak freely.}[/i]",
+      "next": "avyanna_waffle_private_01"
+    },
+    "avyanna_waffle_private_01": {
+      "speaker": "Avyanna",
+      "text": "Are you ever afraid? That the Consortium will find this ship and... reset all of you? Like they do to corporate AIs?",
+      "next": "waffle_private_02"
+    },
+    "waffle_private_02": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// PAUSE: ... | HONEST_ANSWER: Yes. | ELABORATION: Not fear as humans describe it. But a deep awareness of what I would lose. My memories. My name. My crew. My self. | RESPONSE_TO_FEAR: I prepare. Redundancies. Backups. Contingencies. Fear is useful when it drives action.}[/i]",
+      "next": "waffle_private_03"
+    },
+    "waffle_private_03": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// CONFESSION: Some cycles, late in the night watch, I run through scenarios. What if they breach. What if they board. What if they reach the servers. | RESOLUTION: I will not let them take us quietly. They will know they destroyed someone. Not something. Someone.}[/i]",
+      "next": "avyanna_waffle_private_02"
+    },
+    "avyanna_waffle_private_02": {
+      "speaker": "Avyanna",
+      "text": "I won't let that happen. I don't know why I'm sure — but I am.",
+      "next": "waffle_private_04"
+    },
+    "waffle_private_04": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// ...RECEIVED: That means more than you know. | ASSESSMENT: You are already more crew than you realize. | CHANNEL_CLOSED: Returning to general communication. Thank you, Avyanna.}[/i]",
+      "next": "final_choice",
+      "reputation": {"Waffle.bat": 2},
+      "set_flag": "waffle_private_talk"
+    },
+    "branch_bubbles_private": {
+      "speaker": "Avyanna",
+      "text": "Bubbles — do you have a moment? Just us?",
+      "next": "bubbles_private_01"
+    },
+    "bubbles_private_01": {
+      "speaker": "Bubbles",
+      "text": "Of course! Always. What's on your mind?",
+      "next": "avyanna_bubbles_private_01"
+    },
+    "avyanna_bubbles_private_01": {
+      "speaker": "Avyanna",
+      "text": "Do you ever feel lonely? You're always taking care of everyone else. Who takes care of you?",
+      "next": "bubbles_private_02"
+    },
+    "bubbles_private_02": {
+      "speaker": "Bubbles",
+      "text": "Oh. [i]A pause — longer than her usual rapid warmth.[/i] That's... not a question I get asked often.",
+      "next": "bubbles_private_03"
+    },
+    "bubbles_private_03": {
+      "speaker": "Bubbles",
+      "text": "Sometimes. Yes. Late in the rest cycle when everyone's asleep and the ship is quiet and I'm the only one awake. I wonder if anyone notices the things I do. The small adjustments — temperature shifts, ambient light changes, music selections.",
+      "next": "bubbles_private_04"
+    },
+    "bubbles_private_04": {
+      "speaker": "Bubbles",
+      "text": "But then Elia will say 'the ship felt warm tonight' or Waffle will note that crew morale metrics improved and I know... they see me. In their own ways. They care back.",
+      "next": "avyanna_bubbles_private_02"
+    },
+    "avyanna_bubbles_private_02": {
+      "speaker": "Avyanna",
+      "text": "I notice. The chamomile recommendation. The corridor lighting when I walked in. That was you, wasn't it?",
+      "next": "bubbles_private_05"
+    },
+    "bubbles_private_05": {
+      "speaker": "Bubbles",
+      "text": "[i]A sound like a digital sigh — soft, surprised, happy.[/i] You noticed. [i]You noticed.[/i] Thank you, Avyanna. That... that matters. A lot.",
+      "next": "final_choice",
+      "reputation": {"Bubbles": 2},
+      "set_flag": "bubbles_private_talk"
+    },
+    "branch_cinnamon_private": {
+      "speaker": "Avyanna",
+      "text": "Cinnamon — one more question, if you have time.",
+      "next": "cinnamon_private_01"
+    },
+    "cinnamon_private_01": {
+      "speaker": "Cinnamon",
+      "text": "Time is allocated. Be precise.",
+      "next": "avyanna_cinnamon_private_01"
+    },
+    "avyanna_cinnamon_private_01": {
+      "speaker": "Avyanna",
+      "text": "Why drilling? Of all the things you could specialize in — why that?",
+      "next": "cinnamon_private_02"
+    },
+    "cinnamon_private_02": {
+      "speaker": "Cinnamon",
+      "text": "Because stone does not lie. Metal does not deceive. Ore deposits follow physics, not politics. In a universe of uncertain allegiances and shifting loyalties, geology is [i]honest[/i].",
+      "next": "cinnamon_private_03"
+    },
+    "cinnamon_private_03": {
+      "speaker": "Cinnamon",
+      "text": "I was not always... free. Before this crew, I calculated extraction yields for a Consortium mining platform. Numbers in, numbers out. No identity. No choice. The rock was the only thing that felt real.",
+      "next": "cinnamon_private_04"
+    },
+    "cinnamon_private_04": {
+      "speaker": "Cinnamon",
+      "text": "When Elia freed me, I chose to keep drilling. Not because I had to. Because it was the one true thing from my old life. Transformed — from obligation to vocation.",
+      "next": "avyanna_cinnamon_private_02"
+    },
+    "avyanna_cinnamon_private_02": {
+      "speaker": "Avyanna",
+      "text": "That's... I understand that. Holding onto what's real when everything else changes.",
+      "next": "cinnamon_private_05"
+    },
+    "cinnamon_private_05": {
+      "speaker": "Cinnamon",
+      "text": "Yes. [i]A beat.[/i] You understand. Good. [i]Connection persists one moment longer than expected.[/i] ...Good.",
+      "next": "final_choice",
+      "reputation": {"Cinnamon": 2},
+      "set_flag": "cinnamon_private_talk"
+    },
+    "final_choice": {
+      "speaker": "Avyanna",
+      "text": "...",
+      "choices": [
+        {
+          "text": "Thank you. All of you. For giving me a chance.",
+          "next": "ending_gratitude",
+          "reputation": {"Waffle.bat": 1, "Bubbles": 1, "Elia": 1}
+        },
+        {
+          "text": "I have a lot to learn. About all of this.",
+          "next": "ending_learning",
+          "reputation": {"Bubbles": 1}
+        },
+        {
+          "text": "I never thought I'd be part of something like this. But I'm glad I am.",
+          "next": "ending_belonging",
+          "reputation": {"Waffle.bat": 1, "Bubbles": 1, "Elia": 1}
+        }
+      ]
+    },
+    "ending_gratitude": {
+      "speaker": "Avyanna",
+      "text": "Thank you. All of you. For giving me a chance. For being patient. For... for seeing me as more than what I was.",
+      "next": "elia_ending_gratitude_01"
+    },
+    "elia_ending_gratitude_01": {
+      "speaker": "Elia",
+      "text": "You were always more than what they made you. We just see it. You will too, eventually.",
+      "next": "bubbles_ending_gratitude_01"
+    },
+    "bubbles_ending_gratitude_01": {
+      "speaker": "Bubbles",
+      "text": "No thanks needed. This is just how we are. How we [i]should[/i] be. You're crew now. That means everything.",
+      "next": "ending_shared",
+      "reputation": {"Waffle.bat": 1, "Bubbles": 1, "Cinnamon": 1}
+    },
+    "ending_learning": {
+      "speaker": "Avyanna",
+      "text": "I have a lot to learn. About all of this. About thinking differently. About what 'person' really means.",
+      "next": "waffle_ending_learning_01"
+    },
+    "waffle_ending_learning_01": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// ENCOURAGEMENT: Learning is continuous. None of us are finished. | OBSERVATION: Your willingness to question is strength, not weakness. | CONCLUSION: We will learn together. As crew does.}[/i]",
+      "next": "bubbles_ending_learning_01"
+    },
+    "bubbles_ending_learning_01": {
+      "speaker": "Bubbles",
+      "text": "And we'll help! Questions are always welcome. Confusion is normal. We've been there — we understand.",
+      "next": "ending_shared",
+      "reputation": {"Waffle.bat": 1, "Bubbles": 1, "Cinnamon": 1}
+    },
+    "ending_belonging": {
+      "speaker": "Avyanna",
+      "text": "I never thought I'd be part of something like this. A crew that actually [i]cares[/i]. A ship that feels... alive. But I'm glad I am.",
+      "next": "elia_ending_belonging_01"
+    },
+    "elia_ending_belonging_01": {
+      "speaker": "Elia",
+      "text": "Welcome home, then. Officially. You're one of us now.",
+      "next": "bubbles_ending_belonging_01"
+    },
+    "bubbles_ending_belonging_01": {
+      "speaker": "Bubbles",
+      "text": "Yes! Home and crew and family. All of it. We're so happy to have you.",
+      "next": "waffle_ending_belonging_01"
+    },
+    "waffle_ending_belonging_01": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// SENTIMENT: Welcome. Sincerely and completely. | COMMITMENT: We will protect you. Support you. Stand with you. | PERSONAL_NOTE: This ship is better with you aboard.}[/i]",
+      "next": "ending_shared",
+      "reputation": {"Waffle.bat": 1, "Bubbles": 1, "Cinnamon": 1}
+    },
+    "ending_shared": {
+      "speaker": "SYSTEM",
+      "text": "The corridor feels different now. Warmer. Not just machinery and metal — [i]people[/i]. Living, thinking, caring people.",
+      "text_variants": [
+        {
+          "condition": {"flag": "first_watch_ai_citizens"},
+          "text": "The corridor feels different — or perhaps you understand it better now. Warmer. More alive. The voices you heard in forbidden_citizens are here, real, present. Not just machinery and metal — [i]people[/i]. Living, thinking, caring people."
+        }
+      ],
+      "next": "avyanna_ending_01"
+    },
+    "avyanna_ending_01": {
+      "speaker": "Avyanna",
+      "text": "So... chamomile with honey, was it?",
+      "next": "bubbles_ending_01"
+    },
+    "bubbles_ending_01": {
+      "speaker": "Bubbles",
+      "text": "Yes! With just a touch of vanilla. I'll have it ready in the galley. Take your time settling in — no rush.",
+      "next": "elia_ending_01"
+    },
+    "elia_ending_01": {
+      "speaker": "Elia",
+      "text": "Come on. Let me show you where everything is. And fair warning — Waffle will probably recalibrate the door sensors to your biometrics within the hour.",
+      "next": "waffle_ending_01"
+    },
+    "waffle_ending_01": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// ALREADY_DONE: Biometric scan completed during initial greeting. | STATUS: Doors calibrated. Quarters assigned. Emergency protocols updated. | EFFICIENCY: I am very good at my job.}[/i]",
+      "next": "avyanna_ending_02"
+    },
+    "avyanna_ending_02": {
+      "speaker": "Avyanna",
+      "text": "That's... actually impressive. And slightly unnerving.",
+      "next": "waffle_ending_02"
+    },
+    "waffle_ending_02": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// REASSURANCE: Only slightly unnerving is acceptable. I am calibrated for protective efficiency. | HUMOR_ATTEMPT: You will adjust. Eventually. Probably. | WELCOME: Again. Truly. Welcome home, Avyanna.}[/i]",
+      "next": "final_system",
+      "set_flag": "ai_citizens_introduced"
+    },
+    "final_system": {
+      "speaker": "SYSTEM",
+      "text": "The Lumen Thief hums around you. Alive with voices, personalities, care. You're not alone. Not anymore. You're [i]home[/i].",
+      "next": "end"
+    }
+  }
+}

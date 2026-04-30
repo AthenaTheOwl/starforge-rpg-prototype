@@ -1,0 +1,896 @@
+{
+	"start_node": "start",
+	"nodes": {
+		"start": {
+			"speaker": "SYSTEM",
+			"text": "[i]The war room aboard the Lumen Thief. Harsh overhead lighting cuts sharp shadows across the central holo-table. Star charts and facility schematics hover in pale blue wireframe. Coffee dregs and stimulant wrappers litter every surface. Nobody has slept. Nobody pretends they will.[/i]",
+			"next": "elia_calls_order"
+		},
+		"elia_calls_order": {
+			"speaker": "Elia",
+			"text": "[i]Rapping her knuckles on the table.[/i] Everyone in. Seal the door. This is the last time we go over this—so listen like your life depends on it, because it does.",
+			"next": "crew_assembles"
+		},
+		"crew_assembles": {
+			"speaker": "SYSTEM",
+			"text": "[i]They file in. Rho leans against the bulkhead, arms folded across his chest plate. Vesper takes the chair furthest from the door—old sniper habit, eyes on every exit. Nyx perches on the edge of the table itself, staff across her knees. Jalen slides into his tech station, fingers already dancing across three screens. Elisira stands at parade rest beside the holo-table, datapad in hand.[/i]",
+			"next": "elisira_intel_intro"
+		},
+		"elisira_intel_intro": {
+			"speaker": "Elisira",
+			"text": "[i]Activating the holo-table. A facility schematic blooms into view—layered, detailed, annotated in her precise handwriting.[/i] I pulled this from a dead-drop my contact embedded in the Lattice's procurement chain. It cost them their cover. Let's not waste it.",
+			"next": "facility_overview"
+		},
+		"facility_overview": {
+			"speaker": "SYSTEM",
+			"text": "[i]The hologram rotates. A fortified compound—part research lab, part military installation. Three concentric rings of defense. Underground levels descending into bedrock. Ward signatures pulse in angry red along every chokepoint.[/i]",
+			"next": "elisira_layout_detail"
+		},
+		"elisira_layout_detail": {
+			"speaker": "Elisira",
+			"text": "Designation: Site Onyx. Three perimeter rings. Outer ring is automated—turrets, sensor nets, drone patrols on six-minute cycles. Middle ring is personnel—guards rotating in four-hour shifts. Inner ring...",
+			"next": "elisira_layout_inner"
+		},
+		"elisira_layout_inner": {
+			"speaker": "Elisira",
+			"text": "[i]Zooming in. The innermost structure pulses with ward-light.[/i] Inner ring is where it gets ugly. Lattice-woven barriers. Threshold locks that require living ward-signatures to pass. And the command center sits three levels below ground.",
+			"next": "bee_tactical_overlay"
+		},
+		"bee_tactical_overlay": {
+			"speaker": "BEE",
+			"text": "{BEE:: FACILITY_ANALYSIS: Site Onyx defensive topology mapped | STATUS: 94.2% schema confidence | DETAIL: subsurface resonance patterns suggest additional ward layers not visible on procurement schematics—recommend caution at depth}",
+			"next": "nyx_ward_warning"
+		},
+		"nyx_ward_warning": {
+			"speaker": "Nyx",
+			"text": "[i]Leaning forward, staff humming faintly.[/i] Those Lattice barriers aren't standard containment wards. I've seen this signature pattern before—they're layered. Break one, two more activate underneath. Like a hydra made of bad math.",
+			"next": "nyx_ward_detail"
+		},
+		"nyx_ward_detail": {
+			"speaker": "Nyx",
+			"text": "And the threshold locks? They'll burn out anyone who tries to brute-force them. I'm talking neural scorching. Permanent damage. We need finesse, not firepower, for those.",
+			"text_variants": {
+				"nyx_trust_high": "I've been studying the resonance patterns BEE flagged. I think I can unravel them—but I'll need time and no one shooting at me while I work.",
+				"nyx_trust_low": "I can probably crack them. Probably. No guarantees when the Lattice is involved."
+			},
+			"next": "player_ask_nyx_detail"
+		},
+		"player_ask_nyx_detail": {
+			"speaker": "Avyanna",
+			"text": "",
+			"choices": [
+				{
+					"text": "How long to dismantle each ward layer?",
+					"next": "nyx_time_estimate",
+					"reputation": {
+						"nyx": 1
+					}
+				},
+				{
+					"text": "What happens if you can't crack them?",
+					"next": "nyx_contingency"
+				},
+				{
+					"text": "We'll make sure you have the time. What do you need?",
+					"next": "nyx_requirements",
+					"reputation": {
+						"nyx": 2
+					}
+				}
+			]
+		},
+		"nyx_time_estimate": {
+			"speaker": "Nyx",
+			"text": "Three minutes per layer if I'm undisturbed. Six if someone's shooting. Infinite if I'm dead. So—priorities.",
+			"next": "vesper_strategy_intro"
+		},
+		"nyx_contingency": {
+			"speaker": "Nyx",
+			"text": "[i]A flicker of something dark behind her eyes.[/i] Then we find another way in. Or we don't get in at all. The Lattice doesn't leave back doors—they leave traps that look like back doors.",
+			"next": "vesper_strategy_intro"
+		},
+		"nyx_requirements": {
+			"speaker": "Nyx",
+			"text": "[i]Surprised—then a careful nod.[/i] Silence. Proximity to the ward anchor points. And someone watching my back who won't panic when the light show starts.",
+			"next": "vesper_strategy_intro"
+		},
+		"vesper_strategy_intro": {
+			"speaker": "Vesper",
+			"text": "[i]Standing, moving to the holo-table. She traces a route along the facility's eastern approach.[/i] Here's how I see it. Two teams. One loud, one quiet. The loud team hits the outer ring hard—draws every guard, every drone, every automated response to the eastern perimeter.",
+			"next": "vesper_strategy_detail"
+		},
+		"vesper_strategy_detail": {
+			"speaker": "Vesper",
+			"text": "Meanwhile, the quiet team slips in through the maintenance conduits on the western subsurface level. Jalen's scans show a thirty-second gap in the sensor net during shift rotation. That's our window.",
+			"next": "rho_disagrees"
+		},
+		"rho_disagrees": {
+			"speaker": "Rho",
+			"text": "[i]Pushing off the bulkhead, jaw set.[/i] Thirty seconds. You want to thread a needle in thirty seconds while people are shooting at us on the other side of the building. That's not a plan—that's a prayer.",
+			"next": "rho_counter_proposal"
+		},
+		"rho_counter_proposal": {
+			"speaker": "Rho",
+			"text": "I say we hit them with everything. Blow the eastern wall, pour through before they can regroup. Speed and violence. By the time they figure out what's happening, we're already inside.",
+			"text_variants": {
+				"rho_trust_high": "I've run breaches like this before. On Kael-7. We lost zero—because we didn't give them time to think.",
+				"rho_trust_low": "I know what I'm talking about. You want surgical? Fine. But don't come crying when surgical gets people killed."
+			},
+			"next": "vesper_rho_tension"
+		},
+		"vesper_rho_tension": {
+			"speaker": "Vesper",
+			"text": "[i]Cold and precise.[/i] Speed and violence gets people killed when the building is laced with wards that trigger on kinetic impact. You blow that wall, Nyx's hydra wakes up, and we're fighting the building and the garrison.",
+			"next": "rho_fires_back"
+		},
+		"rho_fires_back": {
+			"speaker": "Rho",
+			"text": "[i]Voice rising.[/i] And your thirty-second window gets one team killed if the timing's off by three seconds. At least my plan keeps us together—",
+			"next": "elia_intervenes"
+		},
+		"elia_intervenes": {
+			"speaker": "Elia",
+			"text": "[i]Flat. Final.[/i] Enough. Both of you.",
+			"next": "elia_takes_control"
+		},
+		"elia_takes_control": {
+			"speaker": "Elia",
+			"text": "[i]Looking between them.[/i] You're both right. And you're both wrong. A full assault triggers the wards. A pure stealth approach leaves no fallback if something goes sideways. So we do both—but we do it smart.",
+			"next": "player_tactics_check"
+		},
+		"player_tactics_check": {
+			"speaker": "SYSTEM",
+			"text": "[i]Elia looks to you. The crew follows her gaze. This is where your input matters.[/i]",
+			"choices": [
+				{
+					"text": "[Tactics] Propose a coordinated timing strategy—assault draws response exactly when infiltration needs the gap widened.",
+					"skill_check": {
+						"skill": "tactics",
+						"dc": 14,
+						"success": "tactics_success",
+						"failure": "tactics_failure"
+					}
+				},
+				{
+					"text": "Vesper's right—stealth first, force only as backup.",
+					"next": "side_with_vesper",
+					"reputation": {
+						"vesper": 1
+					}
+				},
+				{
+					"text": "Rho has a point—overwhelming force means fewer variables.",
+					"next": "side_with_rho",
+					"reputation": {
+						"rho": 1
+					}
+				}
+			]
+		},
+		"tactics_success": {
+			"speaker": "SYSTEM",
+			"text": "[i]You sketch a timing overlay on the holo-table. Assault hits at T-zero. Infiltration moves at T-plus-fifteen, when the garrison has fully committed east. A rolling distraction that builds, giving the quiet team progressively more room.[/i]",
+			"set_flag": "briefing_tactics_passed",
+			"next": "crew_impressed"
+		},
+		"crew_impressed": {
+			"speaker": "Elisira",
+			"text": "[i]Studying the overlay. A single nod.[/i] Staggered escalation. The garrison commits deeper with each wave, pulling further from the western approach. It's clean.",
+			"next": "elia_approves_tactics"
+		},
+		"elia_approves_tactics": {
+			"speaker": "Elia",
+			"text": "[i]A ghost of a smile.[/i] That's the plan, then. Vesper, Rho—you both get your wish. Just on a timer.",
+			"reputation": {
+				"elia": 1,
+				"vesper": 1,
+				"rho": 1
+			},
+			"next": "jalen_tech_options"
+		},
+		"tactics_failure": {
+			"speaker": "SYSTEM",
+			"text": "[i]Your timing proposal has gaps—Elisira spots the overlap where both teams would be exposed simultaneously. The crew exchanges glances.[/i]",
+			"next": "elisira_corrects"
+		},
+		"elisira_corrects": {
+			"speaker": "Elisira",
+			"text": "[i]Gently adjusting your overlay.[/i] The concept is sound, but the timing needs refinement. Here—if we offset the second wave by ninety seconds, the gap closes.",
+			"set_flag": "briefing_elisira_corrected",
+			"next": "elia_approves_corrected"
+		},
+		"elia_approves_corrected": {
+			"speaker": "Elia",
+			"text": "Good bones. Elisira's adjustment seals it. We run with this.",
+			"next": "jalen_tech_options"
+		},
+		"side_with_vesper": {
+			"speaker": "Vesper",
+			"text": "[i]A measured nod.[/i] Stealth gets us to the objective without waking the whole compound. The assault team holds ready as contingency—overwhelming force in reserve, not as an opening move.",
+			"next": "rho_reluctant_agree_vesper"
+		},
+		"rho_reluctant_agree_vesper": {
+			"speaker": "Rho",
+			"text": "[i]Jaw working. Then a sharp exhale.[/i] Fine. But the second something goes wrong, I'm coming through that wall whether there are wards or not.",
+			"set_flag": "briefing_stealth_priority",
+			"next": "jalen_tech_options"
+		},
+		"side_with_rho": {
+			"speaker": "Rho",
+			"text": "[i]A sharp, approving nod.[/i] Hit them hard enough that they're too busy surviving to notice anyone slipping through the cracks. Classic hammer-and-scalpel.",
+			"next": "vesper_reluctant_agree_rho"
+		},
+		"vesper_reluctant_agree_rho": {
+			"speaker": "Vesper",
+			"text": "[i]Lips thin. But she adjusts.[/i] Then we build in more redundancy for the infiltration route. If the assault is the primary action, the quiet team needs three exit paths, not one.",
+			"set_flag": "briefing_assault_priority",
+			"next": "jalen_tech_options"
+		},
+		"jalen_tech_options": {
+			"speaker": "Jalen",
+			"text": "[i]Spinning a display toward the group. Three options shimmer in green wireframe.[/i] Tech support. I've been working on some things. Pick your poison.",
+			"next": "jalen_options_detail"
+		},
+		"jalen_options_detail": {
+			"speaker": "Jalen",
+			"text": "Option one: I loop their sensor net. Gives infiltration team ghost status for about eight minutes before they detect the spoof. Option two: I crash their comms—garrison can't coordinate, but they'll know something's wrong immediately. Option three: I piggyback on their drone network and feed false positional data.",
+			"next": "player_tech_choice"
+		},
+		"player_tech_choice": {
+			"speaker": "Avyanna",
+			"text": "",
+			"choices": [
+				{
+					"text": "[Tech] Can you run the sensor loop AND the drone piggyback simultaneously?",
+					"skill_check": {
+						"skill": "tech",
+						"dc": 12,
+						"success": "jalen_dual_tech_success",
+						"failure": "jalen_dual_tech_fail"
+					}
+				},
+				{
+					"text": "Sensor loop. Ghost the infiltration team.",
+					"next": "jalen_sensor_loop",
+					"set_flag": "briefing_sensor_loop"
+				},
+				{
+					"text": "Crash their comms. Blind and deaf is better than invisible.",
+					"next": "jalen_comms_crash",
+					"set_flag": "briefing_comms_crash"
+				},
+				{
+					"text": "Drone piggyback. Make them chase ghosts.",
+					"next": "jalen_drone_spoof",
+					"set_flag": "briefing_drone_spoof"
+				}
+			]
+		},
+		"jalen_dual_tech_success": {
+			"speaker": "Jalen",
+			"text": "[i]Eyes lighting up.[/i] You know what—yeah. If I reroute the buffer through BEE's processing matrix, I can stagger them. Sensor loop first, drone piggyback kicks in when the loop degrades. Seamless handoff.",
+			"set_flag": "briefing_dual_tech",
+			"reputation": {
+				"jalen": 2
+			},
+			"next": "bee_confirms_dual"
+		},
+		"bee_confirms_dual": {
+			"speaker": "BEE",
+			"text": "{BEE:: PROCESSING_ALLOCATION: approved | STATUS: matrix capacity sufficient for dual-channel operation | DETAIL: estimated coverage extension from 8 minutes to 14.7 minutes with cascaded handoff protocol}",
+			"next": "team_composition_intro"
+		},
+		"jalen_dual_tech_fail": {
+			"speaker": "Jalen",
+			"text": "[i]Frowning, running numbers.[/i] I... wish. But the bandwidth isn't there. Running both would create interference patterns they'd detect faster than running neither. Pick one, and I'll make it count.",
+			"next": "player_tech_fallback"
+		},
+		"player_tech_fallback": {
+			"speaker": "Avyanna",
+			"text": "",
+			"choices": [
+				{
+					"text": "Sensor loop. Ghost the infiltration team.",
+					"next": "jalen_sensor_loop",
+					"set_flag": "briefing_sensor_loop"
+				},
+				{
+					"text": "Drone piggyback. Make them chase phantoms.",
+					"next": "jalen_drone_spoof",
+					"set_flag": "briefing_drone_spoof"
+				}
+			]
+		},
+		"jalen_sensor_loop": {
+			"speaker": "Jalen",
+			"text": "Sensor loop it is. Eight minutes of invisibility. After that, you're on your own eyes and instincts. Use every second.",
+			"reputation": {
+				"jalen": 1
+			},
+			"next": "team_composition_intro"
+		},
+		"jalen_comms_crash": {
+			"speaker": "Jalen",
+			"text": "Comms crash. When it hits, they'll have about forty-five seconds of total chaos. No orders, no coordination, no calling reinforcements. Make those forty-five seconds ugly.",
+			"reputation": {
+				"jalen": 1
+			},
+			"next": "team_composition_intro"
+		},
+		"jalen_drone_spoof": {
+			"speaker": "Jalen",
+			"text": "Drone spoof, locked. Their own surveillance will tell them we're hitting from the north while we're already inside from the west. Beautiful misdirection.",
+			"reputation": {
+				"jalen": 1
+			},
+			"next": "team_composition_intro"
+		},
+		"team_composition_intro": {
+			"speaker": "Elia",
+			"text": "[i]Pulling up the crew roster on the holo-table. Seven names. Two columns.[/i] Two teams. Infiltration gets in quiet, reaches the command center, pulls the data. Assault holds the perimeter, draws fire, and covers extraction. Who goes where matters.",
+			"next": "elisira_strengths_briefing"
+		},
+		"elisira_strengths_briefing": {
+			"speaker": "Elisira",
+			"text": "For infiltration, you want precision shooters, ward-breakers, and someone who can navigate the subsurface layout. For assault, you want firepower, durability, and the ability to hold a position under sustained pressure.",
+			"next": "character_strengths_overview"
+		},
+		"character_strengths_overview": {
+			"speaker": "SYSTEM",
+			"text": "[i]The holo-table lights each crew member's profile as Elisira speaks. Combat ratings, specializations, equipment loadouts—all rendered in cold blue light.[/i]",
+			"next": "elisira_assessments"
+		},
+		"elisira_assessments": {
+			"speaker": "Elisira",
+			"text": "Rho—heavy weapons, breaching, sustained fire. Born for assault. Vesper—precision marksmanship, overwatch, counter-sniper. Valuable either side, but her range makes her devastating on assault perimeter. Nyx—ward disruption is non-negotiable for infiltration. She goes quiet side.",
+			"next": "elisira_assessments_2"
+		},
+		"elisira_assessments_2": {
+			"speaker": "Elisira",
+			"text": "Jalen—tech support operates remotely, but physical placement matters for signal strength. Closer to the facility core means stronger spoofing. Elia—close-quarters specialist. Either role, but her blade work shines in corridors. And myself—I can lead either team.",
+			"next": "elisira_assessments_avyanna"
+		},
+		"elisira_assessments_avyanna": {
+			"speaker": "Elisira",
+			"text": "[i]Looking at you.[/i] Avyanna—your shard resonance gives you ward sensitivity. You'll feel Lattice traps before anyone else. That makes you an asset on infiltration. But the call is yours.",
+			"next": "player_insight_check"
+		},
+		"player_insight_check": {
+			"speaker": "SYSTEM",
+			"text": "[i]You study the facility layout, the crew profiles, the ward signatures. Something about the defensive pattern nags at you.[/i]",
+			"choices": [
+				{
+					"text": "[Insight] Study the ward pattern more closely—something doesn't add up.",
+					"skill_check": {
+						"skill": "insight",
+						"dc": 12,
+						"success": "insight_success",
+						"failure": "insight_failure"
+					}
+				},
+				{
+					"text": "Stick with Elisira's assessment. She knows what she's doing.",
+					"next": "team_assignment_choice"
+				}
+			]
+		},
+		"insight_success": {
+			"speaker": "Avyanna",
+			"text": "[i]Tracing the ward pattern on the holo-table.[/i] Wait. These ward signatures—they're not just defensive. They're channeling something. The inner ring isn't protecting the command center. It's feeding it. If the assault team hits the outer wards hard enough, it might actually strengthen the inner barriers.",
+			"set_flag": "briefing_ward_insight",
+			"next": "nyx_confirms_insight"
+		},
+		"nyx_confirms_insight": {
+			"speaker": "Nyx",
+			"text": "[i]Eyes widening.[/i] She's right. Sympathetic resonance. The outer wards are tethered to the inner ones. Kinetic disruption on the perimeter would cascade inward as reinforcement. The assault team needs to suppress, not destroy—or I'll be cracking twice the barriers underground.",
+			"reputation": {
+				"nyx": 1
+			},
+			"next": "elia_adjusts_plan"
+		},
+		"elia_adjusts_plan": {
+			"speaker": "Elia",
+			"text": "[i]Nodding slowly.[/i] Good catch. Rho—you heard her. Assault team suppresses, doesn't shatter. Controlled violence. Can you do that?",
+			"next": "rho_controlled_violence"
+		},
+		"rho_controlled_violence": {
+			"speaker": "Rho",
+			"text": "[i]A beat. Then a grudging nod.[/i] Controlled violence. I can do controlled. Might not enjoy it as much.",
+			"reputation": {
+				"rho": 1
+			},
+			"next": "team_assignment_choice"
+		},
+		"insight_failure": {
+			"speaker": "SYSTEM",
+			"text": "[i]The ward patterns blur together. You sense something beneath the surface, but it slips away before you can articulate it. The feeling of almost-knowing lingers like a word on the tip of your tongue.[/i]",
+			"next": "team_assignment_choice"
+		},
+		"team_assignment_choice": {
+			"speaker": "Elia",
+			"text": "[i]Arms crossed.[/i] I have a recommended split. But you've earned a voice in this, Avyanna. How do you want to run it?",
+			"next": "player_team_choice"
+		},
+		"player_team_choice": {
+			"speaker": "Avyanna",
+			"text": "",
+			"choices": [
+				{
+					"text": "Infiltration: Nyx, Elisira, Jalen, and me. Assault: Elia, Rho, Vesper. Close-quarters dominance on the perimeter.",
+					"next": "assault_cq_reaction",
+					"set_flag": "assault_team_close_quarters"
+				},
+				{
+					"text": "Infiltration: Nyx, Elisira, Rho, and me. Assault: Elia, Vesper, Jalen, Avyanna coordinating. Mixed-range flexibility.",
+					"next": "assault_mixed_reaction",
+					"set_flag": "assault_team_mixed_range"
+				},
+				{
+					"text": "Infiltration: Nyx, Elisira, Jalen, Rho. Assault: Elia, Vesper, and me. Tactical precision underground, I hold the line above.",
+					"next": "assault_precision_reaction",
+					"set_flag": "assault_team_tactical_precision"
+				},
+				{
+					"text": "Go with Elia's recommendation.",
+					"next": "elia_default_split"
+				}
+			]
+		},
+		"assault_cq_reaction": {
+			"speaker": "Rho",
+			"text": "Perimeter assault with Elia and Vesper. Close, mid, and long range covered. [i]Cracking his knuckles.[/i] They won't get past us.",
+			"next": "vesper_cq_react"
+		},
+		"vesper_cq_react": {
+			"speaker": "Vesper",
+			"text": "Overwatch on the assault. I'll keep their heads down while you two close the distance. Clean geometry.",
+			"text_variants": {
+				"vesper_trust_high": "I'll keep every exit covered. Nobody flanks us. Nobody.",
+				"vesper_trust_low": "Standard overwatch. Don't get in my sight lines."
+			},
+			"next": "gear_check_intro"
+		},
+		"assault_mixed_reaction": {
+			"speaker": "Elia",
+			"text": "Mixed composition gives us flexibility. Vesper on overwatch, me on close-quarters anchor, Jalen managing comms from the assault position. Avyanna coordinates between teams.",
+			"next": "jalen_mixed_react"
+		},
+		"jalen_mixed_react": {
+			"speaker": "Jalen",
+			"text": "[i]Nodding, already recalculating signal routes.[/i] If I'm topside with the assault team, my spoofing range increases by forty percent. Closer to the facility's broadcast array means better signal injection.",
+			"next": "gear_check_intro"
+		},
+		"assault_precision_reaction": {
+			"speaker": "Elisira",
+			"text": "Surgical team below. Nyx for wards, Jalen for tech, Rho for breaching—and I lead. Above ground, Elia and Vesper hold with Avyanna.",
+			"next": "elia_precision_react"
+		},
+		"elia_precision_react": {
+			"speaker": "Elia",
+			"text": "[i]A slow nod.[/i] You want to be on the line. I respect that. Vesper and I will make sure nobody comes through that perimeter.",
+			"reputation": {
+				"elia": 1
+			},
+			"next": "gear_check_intro"
+		},
+		"elia_default_split": {
+			"speaker": "Elia",
+			"text": "My recommendation: Nyx, Elisira, and Jalen on infiltration with Avyanna. Myself, Rho, and Vesper on assault. It plays to everyone's strengths.",
+			"set_flag": "assault_team_close_quarters",
+			"next": "gear_check_intro"
+		},
+		"gear_check_intro": {
+			"speaker": "Elia",
+			"text": "Gear check. Every piece of equipment, every charge, every med-kit—verified and verified again. Assault team, what's your loadout?",
+			"next": "gear_assault_check"
+		},
+		"gear_assault_check": {
+			"speaker": "SYSTEM",
+			"text": "[i]Equipment spreads across the table. Ammunition counts, explosive charges, suppression grenades, emergency beacons. The smell of gun oil and ozone fills the room.[/i]",
+			"next": "rho_gear"
+		},
+		"rho_gear": {
+			"speaker": "Rho",
+			"text": "Rotary cannon—full drum, two spares. Six shaped charges, four concussion grenades. Armor's been patched and sealed. [i]Patting his chest plate.[/i] She'll hold.",
+			"next": "vesper_gear"
+		},
+		"vesper_gear": {
+			"speaker": "Vesper",
+			"text": "Clarity and Witness—both zeroed at range. Two hundred rounds standard, forty armor-piercing. Ghillie mesh for the overwatch position. Emergency sidearm.",
+			"text_variants": {
+				"vesper_trust_high": "[i]Quieter.[/i] And a second medkit. In case someone else needs it more than I do.",
+				"vesper_trust_low": "And a second sidearm. Redundancy."
+			},
+			"next": "elia_gear"
+		},
+		"elia_gear": {
+			"speaker": "Elia",
+			"text": "[i]Drawing one blade, inspecting the edge.[/i] Twin blades. Sharpened this morning. Four flash charges for corridor work. Light armor—I need mobility more than plating.",
+			"next": "gear_infiltration_check"
+		},
+		"gear_infiltration_check": {
+			"speaker": "Elia",
+			"text": "Infiltration team. Loadout.",
+			"next": "nyx_gear"
+		},
+		"nyx_gear": {
+			"speaker": "Nyx",
+			"text": "Threshold staff—fully charged. Ward disruption kit: three resonance dampeners, two null-anchors, one emergency collapse sigil. [i]She hesitates.[/i] And the shard fragment, in case I need to improvise.",
+			"next": "elisira_gear"
+		},
+		"elisira_gear": {
+			"speaker": "Elisira",
+			"text": "Dual pistols, suppressed. Sixty rounds subsonic, twenty standard. Lockpick set—both mechanical and electronic. Facility map loaded to three separate devices in case we lose one.",
+			"next": "jalen_gear"
+		},
+		"jalen_gear": {
+			"speaker": "Jalen",
+			"text": "Mobile tech rig. Signal jammer, spoofing suite, three bypass modules. [i]Holding up a small device.[/i] And this—a localized EMP. One shot. Kills everything electronic in a twenty-meter radius, including my own gear. Absolute last resort.",
+			"next": "bee_gear_analysis"
+		},
+		"bee_gear_analysis": {
+			"speaker": "BEE",
+			"text": "{BEE:: LOADOUT_ASSESSMENT: all teams within operational parameters | STATUS: ammunition reserves at 94% optimal | DETAIL: recommend infiltration team carry additional null-anchors—subsurface ward density exceeds initial projections by factor of 1.4}",
+			"next": "nyx_extra_anchors"
+		},
+		"nyx_extra_anchors": {
+			"speaker": "Nyx",
+			"text": "[i]Pulling two more null-anchors from the supply locker.[/i] BEE's right. Better to have them and not need them. [i]Tucking them into her belt.[/i] That's five total. Should be enough. Has to be enough.",
+			"next": "personal_moments_intro"
+		},
+		"personal_moments_intro": {
+			"speaker": "SYSTEM",
+			"text": "[i]The briefing winds down. Equipment checked, plans locked, contingencies mapped. A strange quiet settles—the kind that lives between the last order and the first step into danger. People drift into pairs. Small conversations. The words that matter.[/i]",
+			"next": "vesper_rho_moment"
+		},
+		"vesper_rho_moment": {
+			"speaker": "SYSTEM",
+			"text": "[i]Vesper and Rho stand apart by the weapons rack. They don't look at each other. They don't need to.[/i]",
+			"next": "rho_to_vesper"
+		},
+		"rho_to_vesper": {
+			"speaker": "Rho",
+			"text": "[i]Low, only for her.[/i] If the line breaks—",
+			"next": "vesper_to_rho"
+		},
+		"vesper_to_rho": {
+			"speaker": "Vesper",
+			"text": "[i]Cutting him off.[/i] It won't.",
+			"next": "rho_vesper_silence"
+		},
+		"rho_vesper_silence": {
+			"speaker": "SYSTEM",
+			"text": "[i]A pause. Rho nods. Something passes between them that words would only diminish.[/i]",
+			"next": "jalen_nyx_moment"
+		},
+		"jalen_nyx_moment": {
+			"speaker": "Jalen",
+			"text": "[i]Sliding a small device across the table to Nyx.[/i] Here. Emergency comms relay. If everything else goes dark, this runs on ward energy. Your staff should keep it powered.",
+			"next": "nyx_accepts_device"
+		},
+		"nyx_accepts_device": {
+			"speaker": "Nyx",
+			"text": "[i]Turning it over in her fingers.[/i] You built this? When?",
+			"next": "jalen_shrugs"
+		},
+		"jalen_shrugs": {
+			"speaker": "Jalen",
+			"text": "[i]Shrugging.[/i] Couldn't sleep. Figured one of us should make something useful out of insomnia.",
+			"next": "elisira_elia_moment"
+		},
+		"elisira_elia_moment": {
+			"speaker": "SYSTEM",
+			"text": "[i]Elisira and Elia stand over the holo-table, the facility map still rotating between them. Their reflections ghost across the blue light.[/i]",
+			"next": "elisira_to_elia"
+		},
+		"elisira_to_elia": {
+			"speaker": "Elisira",
+			"text": "[i]Quietly.[/i] This is the one, isn't it. The mission we don't come back from unchanged.",
+			"next": "elia_to_elisira"
+		},
+		"elia_to_elisira": {
+			"speaker": "Elia",
+			"text": "[i]A breath.[/i] We come back. All of us. That's the only version of this I'm willing to plan for.",
+			"next": "player_personal_moment"
+		},
+		"player_personal_moment": {
+			"speaker": "SYSTEM",
+			"text": "[i]The quiet stretches. Someone is going to find you before you find them.[/i]",
+			"choices": [
+				{
+					"text": "Find a quiet corner alone. Collect your thoughts.",
+					"next": "avyanna_alone"
+				},
+				{
+					"text": "Check on the crew. Make sure everyone's okay.",
+					"next": "avyanna_checks_crew",
+					"reputation": {
+						"elia": 1
+					}
+				},
+				{
+					"text": "Study the facility map one more time.",
+					"next": "avyanna_studies_map"
+				}
+			]
+		},
+		"avyanna_alone": {
+			"speaker": "SYSTEM",
+			"text": "[i]You find a corner near the viewport. Stars drift past—indifferent to what's about to happen. Your shard pulses once against your chest. Warm. Almost like a heartbeat.[/i]",
+			"next": "elia_finds_you"
+		},
+		"avyanna_checks_crew": {
+			"speaker": "SYSTEM",
+			"text": "[i]You make the rounds. A nod to Rho. A touch on Jalen's shoulder. A look that says everything to Nyx. The crew notices. They always notice.[/i]",
+			"next": "elia_finds_you"
+		},
+		"avyanna_studies_map": {
+			"speaker": "SYSTEM",
+			"text": "[i]The facility turns slowly in blue light. You memorize corridors, chokepoints, ward junctions. If something goes wrong, you want to know every path by heart.[/i]",
+			"set_flag": "briefing_map_studied",
+			"next": "elia_finds_you"
+		},
+		"elia_finds_you": {
+			"speaker": "Elia",
+			"text": "[i]Appearing beside you. She moves like smoke when she wants to.[/i] You ready?",
+			"text_variants": {
+				"elia_trust_high": "[i]Her hand finds your shoulder. Brief. Warm. The grip of someone who means it.[/i] Whatever happens in there—you've already proven you belong on this crew. Don't forget that.",
+				"elia_trust_low": "[i]Arms folded. Professional distance. But she came to find you, and that says something.[/i] Stay sharp. Follow the plan. We'll get through this."
+			},
+			"next": "player_responds_elia"
+		},
+		"player_responds_elia": {
+			"speaker": "Avyanna",
+			"text": "",
+			"choices": [
+				{
+					"text": "Ready. Floor holds.",
+					"next": "elia_final_check",
+					"reputation": {
+						"elia": 1
+					}
+				},
+				{
+					"text": "I'm terrified. But I trust this crew.",
+					"next": "elia_honesty_response",
+					"reputation": {
+						"elia": 2
+					}
+				},
+				{
+					"text": "Let's bring them hell.",
+					"next": "elia_final_check"
+				}
+			]
+		},
+		"elia_honesty_response": {
+			"speaker": "Elia",
+			"text": "[i]Something softens in her expression. Just for a moment.[/i] Good. Terrified means you understand the stakes. And trust... trust is the only thing that's going to get us through those walls.",
+			"next": "elia_final_check"
+		},
+		"elia_final_check": {
+			"speaker": "Elia",
+			"text": "Final positions. Assault team, sound off.",
+			"next": "assault_sound_off_start"
+		},
+		"assault_sound_off_start": {
+			"speaker": "SYSTEM",
+			"text": "[i]The assault team responds based on earlier choices. Each member acknowledges their role with practiced brevity.[/i]",
+			"variants": [
+				{
+					"conditions": {"flag": "assault_team_close_quarters"},
+					"next": "assault_cq_sound_off"
+				},
+				{
+					"conditions": {"flag": "assault_team_mixed_range"},
+					"next": "assault_mixed_sound_off"
+				},
+				{
+					"conditions": {"flag": "assault_team_tactical_precision"},
+					"next": "assault_precision_sound_off"
+				}
+			],
+			"next": "assault_cq_sound_off"
+		},
+		"assault_cq_sound_off": {
+			"speaker": "Rho",
+			"text": "Breach and suppress. Rotary cannon loaded, charges prepped. Ready.",
+			"next": "assault_cq_elia"
+		},
+		"assault_cq_elia": {
+			"speaker": "Elia",
+			"text": "Corridor clearing. Close-quarters dominance. Blades sharp. Ready.",
+			"next": "assault_cq_elisira"
+		},
+		"assault_cq_elisira": {
+			"speaker": "Elisira",
+			"text": "Precision eliminations. Dual pistols, suppressed. Ready.",
+			"next": "assault_cq_nyx"
+		},
+		"assault_cq_nyx": {
+			"speaker": "Nyx",
+			"text": "Ward disruption. Threshold staff active. Ready to light them up.",
+			"next": "hold_team_sound_off"
+		},
+		"assault_mixed_sound_off": {
+			"speaker": "Elia",
+			"text": "Close-quarters anchor. I'll clear the path. Ready.",
+			"next": "assault_mixed_vesper"
+		},
+		"assault_mixed_vesper": {
+			"speaker": "Vesper",
+			"text": "Precision fire. Counter-sniper. Clarity and Witness loaded. Ready.",
+			"next": "assault_mixed_nyx"
+		},
+		"assault_mixed_nyx": {
+			"speaker": "Nyx",
+			"text": "Ward disruption and locality adjustments. Ready to bend their doors.",
+			"next": "assault_mixed_avyanna"
+		},
+		"assault_mixed_avyanna": {
+			"speaker": "Avyanna",
+			"text": "[i]Voice steadier than she feels.[/i] Lattice tracking. I'll map their wards. Ready.",
+			"next": "hold_team_sound_off"
+		},
+		"assault_precision_sound_off": {
+			"speaker": "Elisira",
+			"text": "Surgical strike lead. Dual pistols. Precision only. Ready.",
+			"next": "assault_precision_rho"
+		},
+		"assault_precision_rho": {
+			"speaker": "Rho",
+			"text": "Clean breaches. Shaped charges, minimal collateral. Ready.",
+			"next": "assault_precision_nyx"
+		},
+		"assault_precision_nyx": {
+			"speaker": "Nyx",
+			"text": "Ward disruption without signature flare. Stealth variant protocols. Ready.",
+			"next": "assault_precision_jalen"
+		},
+		"assault_precision_jalen": {
+			"speaker": "Jalen",
+			"text": "Real-time route optimization. Mapping exits as we go. Ready.",
+			"next": "hold_team_sound_off"
+		},
+		"hold_team_sound_off": {
+			"speaker": "Elia",
+			"text": "Hold team, sound off.",
+			"next": "hold_sound_off_start"
+		},
+		"hold_sound_off_start": {
+			"speaker": "SYSTEM",
+			"text": "[i]The hold team responds. Positions locked. Roles clear.[/i]",
+			"variants": [
+				{
+					"conditions": {"flag": "assault_team_close_quarters"},
+					"next": "hold_cq_sound_off"
+				},
+				{
+					"conditions": {"flag": "assault_team_mixed_range"},
+					"next": "hold_mixed_sound_off"
+				},
+				{
+					"conditions": {"flag": "assault_team_tactical_precision"},
+					"next": "hold_precision_sound_off"
+				}
+			],
+			"next": "hold_cq_sound_off"
+		},
+		"hold_cq_sound_off": {
+			"speaker": "Vesper",
+			"text": "Overwatch. Counter-sniper. Long-range dominance. Ready.",
+			"next": "hold_cq_jalen"
+		},
+		"hold_cq_jalen": {
+			"speaker": "Jalen",
+			"text": "Extraction pilot. Ship prepped, engines hot. Ready to fly the exit.",
+			"next": "hold_cq_avyanna"
+		},
+		"hold_cq_avyanna": {
+			"speaker": "Avyanna",
+			"text": "[i]Hands steady on her comms tablet.[/i] Coordination. Hostile tracking. Comms relay. Ready.",
+			"next": "final_acknowledgments"
+		},
+		"hold_mixed_sound_off": {
+			"speaker": "Elisira",
+			"text": "Perimeter defense. Counter-assault protocols. Ready.",
+			"next": "hold_mixed_rho"
+		},
+		"hold_mixed_rho": {
+			"speaker": "Rho",
+			"text": "Long-range breach support. Shaped charges on standby. Ready.",
+			"next": "hold_mixed_jalen"
+		},
+		"hold_mixed_jalen": {
+			"speaker": "Jalen",
+			"text": "Timing coordination. Extraction ready. Ready to pull you out.",
+			"next": "final_acknowledgments"
+		},
+		"hold_precision_sound_off": {
+			"speaker": "Elia",
+			"text": "Extraction defense. Close-quarters fallback. Ready.",
+			"next": "hold_precision_vesper"
+		},
+		"hold_precision_vesper": {
+			"speaker": "Vesper",
+			"text": "Long-range dominance. No one gets close. Ready.",
+			"next": "hold_precision_avyanna"
+		},
+		"hold_precision_avyanna": {
+			"speaker": "Avyanna",
+			"text": "[i]Gripping her tablet.[/i] Coordination. Hostile tracking. I'll keep you all connected. Ready.",
+			"next": "final_acknowledgments"
+		},
+		"final_acknowledgments": {
+			"speaker": "Elia",
+			"text": "[i]Looking at each person.[/i] Roles are clear. Timing is tight. If anything goes wrong, we adapt—but we don't leave anyone behind.",
+			"next": "waffle_briefing_status"
+		},
+		"waffle_briefing_status": {
+			"speaker": "Waffle.bat",
+			"text": "[i]{WAFFLE.BAT// TACTICAL_SUMMARY: all teams assigned | COMMS_STATUS: encrypted channels active | NOTE: I will be monitoring all channels. You are not alone in there.}[/i]",
+			"next": "bubbles_briefing_prep"
+		},
+		"bubbles_briefing_prep": {
+			"speaker": "Bubbles",
+			"text": "[i]Through speakers:[/i] Medical kits staged at both insertion points. Emergency extraction protocols loaded. Be safe out there.",
+			"next": "cinnamon_briefing_ready"
+		},
+		"cinnamon_briefing_ready": {
+			"speaker": "Cinnamon",
+			"text": "Ship systems locked for combat ops. Drill bay sealed. All non-essential subsystems powered down. Ready.",
+			"next": "vesper_addition"
+		},
+		"vesper_addition": {
+			"speaker": "Vesper",
+			"text": "Extraction window is six hours. We hit hard, we hit fast, we get out. No heroics. No unnecessary risks.",
+			"next": "rho_grin"
+		},
+		"rho_grin": {
+			"speaker": "Rho",
+			"text": "[i]Grinning, but his eyes are serious.[/i] And if they try to stop us, we remind them why the Lumen Thief has a reputation.",
+			"next": "elisira_final"
+		},
+		"elisira_final": {
+			"speaker": "Elisira",
+			"text": "[i]Single syllable, weight of command.[/i] Together.",
+			"next": "elia_floor_holds_call"
+		},
+		"elia_floor_holds_call": {
+			"speaker": "Elia",
+			"text": "[i]Voice steady, ritual weight.[/i] Floor holds.",
+			"next": "crew_floor_holds_response"
+		},
+		"crew_floor_holds_response": {
+			"speaker": "SYSTEM",
+			"text": "[i]The response is immediate. Overlapping. Muscle memory. No one asked permission. No one gave orders. The pattern just happened.[/i]",
+			"next": "all_voices"
+		},
+		"all_voices": {
+			"speaker": "ALL",
+			"text": "[b]Floor holds.[/b]",
+			"next": "moment_of_silence"
+		},
+		"moment_of_silence": {
+			"speaker": "SYSTEM",
+			"text": "[i]Silence. Not fear. Solidarity. Every person here chose this. Every person here knows what's at stake.[/i]",
+			"next": "elia_move_out"
+		},
+		"elia_move_out": {
+			"speaker": "Elia",
+			"text": "[i]Strapping her blades.[/i] Move out in ten. Let's bring them hell.",
+			"next": "end_scene"
+		},
+		"end_scene": {
+			"speaker": "SYSTEM",
+			"text": "[i]The crew disperses to final preparations. The weight of the moment hangs in the air. This is it. The climax. The fight that changes everything.[/i]",
+			"choices": [
+				{
+					"text": "[Continue]",
+					"next": "end",
+					"set_flag": "act1_team_briefing_complete"
+				}
+			]
+		}
+	}
+}

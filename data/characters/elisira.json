@@ -1,0 +1,111 @@
+{
+	"id": "elisira",
+	"name": "Elisira Maren Lagrange",
+	"pronouns": "she/her",
+	"role": "Veilrunner / Stealth-DPS",
+	"description": "Second-in-command. Hacker and veilrunner who operates from the shadows with dual pistols.",
+
+	"hp_max": 75,
+	"speed": 14,
+	"attack": 18,
+	"armor": 4,
+	"shields": 8,
+	"wards": 6,
+
+	"relic_weapon": {
+		"name_1": "Veil",
+		"name_2": "Verdict",
+		"type": "dual_pistol",
+		"inlay": "Veil Stitch",
+		"inlay_effect": "Sensor spoofing; disrupts enemy targeting systems"
+	},
+
+	"ability_slots": [
+		{
+			"slot": "core_1",
+			"name": "Veil Stitch",
+			"primitives": ["veil"],
+			"description": "Disrupt target sensors. Blinds enemy for 2 turns, reducing accuracy.",
+			"base_damage": 0,
+			"damage_type": "resonance",
+			"heat_cost": 1,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 3,
+			"charges": 3,
+			"statuses": [{"name": "blinded", "duration": 2}]
+		},
+		{
+			"slot": "core_2",
+			"name": "Precision Shot",
+			"primitives": ["strike"],
+			"description": "Carefully aimed shot dealing high single-target physical damage.",
+			"base_damage": 28,
+			"damage_type": "physical",
+			"heat_cost": 1,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 4,
+			"charges": 4,
+			"statuses": []
+		},
+		{
+			"slot": "utility_1",
+			"name": "Ghost Walk",
+			"primitives": ["veil"],
+			"description": "Enter full stealth for 2 turns. Cannot be targeted by enemies.",
+			"base_damage": 0,
+			"damage_type": "resonance",
+			"heat_cost": 2,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 2,
+			"charges": 2,
+			"statuses": [{"name": "stealthed", "duration": 2}]
+		},
+		{
+			"slot": "utility_2",
+			"name": "Data Breach",
+			"primitives": ["echo"],
+			"description": "Hack enemy systems. Reveals target stats, abilities, and weaknesses.",
+			"base_damage": 0,
+			"damage_type": "resonance",
+			"heat_cost": 1,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 3,
+			"charges": 3,
+			"statuses": [{"name": "revealed", "duration": 3}]
+		},
+		{
+			"slot": "reaction",
+			"name": "Quick Draw",
+			"primitives": ["strike"],
+			"description": "Interrupt shot fired before an enemy completes their action.",
+			"base_damage": 14,
+			"damage_type": "physical",
+			"heat_cost": 1,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 2,
+			"charges": 2,
+			"statuses": [{"name": "interrupted", "duration": 1}]
+		},
+		{
+			"slot": "keystone",
+			"name": "Shadow Network",
+			"primitives": ["veil"],
+			"description": "Extends veil across the party. All allies gain stealth for 1 turn.",
+			"base_damage": 0,
+			"damage_type": "resonance",
+			"heat_cost": 3,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 1,
+			"charges": 1,
+			"statuses": [{"name": "stealthed", "duration": 1}]
+		}
+	],
+
+	"tier": 1
+}

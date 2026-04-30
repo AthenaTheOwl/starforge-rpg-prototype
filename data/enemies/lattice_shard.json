@@ -1,0 +1,38 @@
+{
+  "id": "lattice_shard",
+  "name": "Lattice Shard",
+  "family": "husks",
+  "description": "A crystallized fragment of raw lattice energy. Small and fast, it detonates on contact to deal resonance damage.",
+  "hp_max": 18,
+  "speed": 14,
+  "attack": 16,
+  "armor": 0,
+  "shields": 0,
+  "wards": 3,
+  "weakness": "physical",
+  "abilities": [
+    {
+      "name": "Shard Burst",
+      "base_damage": 18,
+      "damage_type": "resonance",
+      "heat_cost": 0,
+      "uses_lattice": true,
+      "cli_cost": 0,
+      "statuses": []
+    },
+    {
+      "name": "Lattice Flare",
+      "base_damage": 8,
+      "damage_type": "resonance",
+      "heat_cost": 0,
+      "uses_lattice": true,
+      "cli_cost": 0,
+      "statuses": [
+        {
+          "name": "resonance_burn",
+          "duration": 2
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1765 @@
+{
+  "start_node": "start",
+  "nodes": {
+    "start": {
+      "speaker": "SYSTEM",
+      "text": "[i]Late cycle. The ship's maintenance deck, where the hum of engines makes conversation difficult for most people. But Nyx is here, alone, hands pressed against a bulkhead. She's not repairing anything mechanical — she's doing something else. Something to the space itself. The air shimmers faintly around her fingers.[/i]",
+      "text_variants": {
+        "bee_revealed": "[i]Late cycle. The maintenance deck hums with engine noise. Nyx stands alone, hands pressed to the bulkhead, and the space around her shimmers. The shard in your chest responds immediately — recognition, curiosity. It knows what Nyx is doing. Perhaps it's done similar things before.[/i]"
+      },
+      "next": "avyanna_approach"
+    },
+    "avyanna_approach": {
+      "speaker": "Avyanna",
+      "text": "[i]I approach quietly. The presence behind my eyes is unusually focused, watching Nyx with something like... recognition?[/i] You're working late.",
+      "next": "nyx_doesnt_turn"
+    },
+    "nyx_doesnt_turn": {
+      "speaker": "Nyx",
+      "text": "[i]Doesn't turn, but acknowledges.[/i] The lattice here is degrading. Old damage — pre-war construction flaws compounded by decades of strain. [i]A pause.[/i] If I don't reinforce it, we'll have a hull breach in six months. Maybe less.",
+      "next": "avyanna_watches"
+    },
+    "avyanna_watches": {
+      "speaker": "Avyanna",
+      "text": "You can see that? Damage that hasn't happened yet?",
+      "next": "nyx_turns"
+    },
+    "nyx_turns": {
+      "speaker": "Nyx",
+      "text": "[i]Finally turning to face you. She looks tired. More tired than you've seen her.[/i] I can see the pattern leading to it. Probability waves collapsing toward failure. [i]A slight smile, deflecting.[/i] Exciting work. Really thrilling stuff.",
+      "next": "choice_opening"
+    },
+    "choice_opening": {
+      "speaker": "SYSTEM",
+      "text": "[i]Something feels different tonight. Nyx is usually composed, distant. But there's a weariness here. A weight she's carrying. The question is whether you acknowledge it or let her hide behind deflection.[/i]",
+      "text_variants": {
+        "first_watch_visited_nyx": "[i]You've been here before — sitting watch with Nyx, observing her work. But tonight feels different. The usual composure is cracking at the edges. She's tired. Not just physically. Something deeper.[/i]"
+      },
+      "choices": [
+        {
+          "text": "[Empathy DC 14] 'You're not just tired. Something's bothering you.'",
+          "next": "empathy_success",
+          "skill_check": {
+            "stat": "empathy",
+            "skill": "empathy",
+            "dc": 14,
+            "threshold": 14,
+            "on_success": "empathy_success",
+            "on_failure": "empathy_failure"
+          }
+        },
+        {
+          "text": "'Can I help? With the lattice work, I mean.'",
+          "next": "offer_help"
+        },
+        {
+          "text": "'You don't have to do this alone. The repairs, I mean.'",
+          "next": "gentle_observation"
+        }
+      ]
+    },
+    "empathy_success": {
+      "speaker": "SYSTEM",
+      "text": "[i]You watch her carefully. The way she holds herself — shoulders too straight, jaw too tight. The weariness isn't physical exhaustion. It's something older. Something she's been carrying for a long time. And tonight, for some reason, the weight is too much to hide.[/i]",
+      "next": "empathy_avyanna"
+    },
+    "empathy_avyanna": {
+      "speaker": "Avyanna",
+      "text": "You're not just tired. Something's bothering you. Has been for a while.",
+      "next": "nyx_deflects"
+    },
+    "nyx_deflects": {
+      "speaker": "Nyx",
+      "text": "[i]She looks away, jaw tightening further.[/i] I'm fine. Just lattice work. It's draining, that's all.",
+      "next": "empathy_press"
+    },
+    "empathy_press": {
+      "speaker": "Avyanna",
+      "text": "Nyx. [i]Quiet, but firm.[/i] I've seen you do lattice work before. This isn't that.",
+      "next": "nyx_breaks"
+    },
+    "nyx_breaks": {
+      "speaker": "Nyx",
+      "text": "[i]A long silence. Then, quietly:[/i] Today's the anniversary. Of when I left the Writbound Order. [i]She leans against the bulkhead, suddenly looking smaller.[/i] Seven years. You'd think it would stop mattering.",
+      "reputation": {
+        "nyx": 1
+      },
+      "next": "writbound_revealed"
+    },
+    "empathy_failure": {
+      "speaker": "SYSTEM",
+      "text": "[i]You try to read her, but Nyx's control is too good. Whatever she's feeling, it's locked behind practiced discipline. She's had years to perfect this mask.[/i]",
+      "next": "empathy_fail_observe"
+    },
+    "empathy_fail_observe": {
+      "speaker": "Avyanna",
+      "text": "You seem... different tonight. More tired.",
+      "next": "nyx_minimal_answer"
+    },
+    "nyx_minimal_answer": {
+      "speaker": "Nyx",
+      "text": "[i]A slight shrug.[/i] Long day. Lattice work is exhausting. [i]She turns back to the bulkhead.[/i] I should finish this.",
+      "next": "choice_after_deflection"
+    },
+    "offer_help": {
+      "speaker": "Avyanna",
+      "text": "Can I help? With the lattice work, I mean. You've been teaching me.",
+      "next": "nyx_considers_help"
+    },
+    "nyx_considers_help": {
+      "speaker": "Nyx",
+      "text": "[i]She looks at you for a long moment, considering.[/i] This is... advanced work. Structural reinforcement. But... [i]A pause.[/i] Yes. Actually. Your shard might be useful here. It has an intuitive grasp of resonance patterns.",
+      "reputation": {
+        "nyx": 1
+      },
+      "next": "work_together"
+    },
+    "gentle_observation": {
+      "speaker": "Avyanna",
+      "text": "You don't have to do this alone. The repairs. The lattice work. Any of it.",
+      "next": "nyx_pause"
+    },
+    "nyx_pause": {
+      "speaker": "Nyx",
+      "text": "[i]She stops, hands falling away from the bulkhead. For a moment she just stands there, back to you.[/i] I'm used to working alone. [i]Quieter.[/i] I've been alone for a long time.",
+      "reputation": {
+        "nyx": 1
+      },
+      "next": "avyanna_stays"
+    },
+    "avyanna_stays": {
+      "speaker": "Avyanna",
+      "text": "[i]I don't leave. Just stay, quiet, present.[/i]",
+      "next": "nyx_turns_vulnerable"
+    },
+    "nyx_turns_vulnerable": {
+      "speaker": "Nyx",
+      "text": "[i]She turns, and something in her expression has shifted. The mask is slipping.[/i] Today's the anniversary. Seven years since I left the Writbound Order. [i]A bitter smile.[/i] Since I ran away, more accurately.",
+      "reputation": {
+        "nyx": 1
+      },
+      "next": "writbound_revealed"
+    },
+    "writbound_revealed": {
+      "speaker": "SYSTEM",
+      "text": "[i]The Writbound Order. You've heard of them — memory archivists, lattice manipulators, keepers of pre-war knowledge. But also rumors of darker practices. Memory modification. Thought control. Nyx... was one of them.[/i]",
+      "next": "avyanna_writbound_reaction"
+    },
+    "avyanna_writbound_reaction": {
+      "speaker": "Avyanna",
+      "text": "You were Writbound? [i]Trying to keep judgment out of my voice.[/i] I didn't know.",
+      "next": "nyx_bitter_laugh"
+    },
+    "nyx_bitter_laugh": {
+      "speaker": "Nyx",
+      "text": "[i]A laugh, sharp and bitter.[/i] Most people don't. I don't advertise it. [i]She slides down the wall, sitting on the deck, suddenly exhausted.[/i] I was a Resonance Theorist. Talented, apparently. Promising. They recruited me young — fifteen. Told me I had a gift.",
+      "next": "choice_respond_writbound"
+    },
+    "choice_respond_writbound": {
+      "speaker": "SYSTEM",
+      "text": "[i]Nyx is opening up — really opening up — in a way she never has before. How you respond here matters.[/i]",
+      "choices": [
+        {
+          "text": "'What happened? Why did you leave?'",
+          "next": "ask_why_left",
+          "reputation": {
+            "nyx": 1
+          }
+        },
+        {
+          "text": "[Sit beside her] 'You don't have to tell me if it's too hard.'",
+          "next": "offer_space",
+          "reputation": {
+            "nyx": 1
+          }
+        },
+        {
+          "text": "'Fifteen is too young to make that choice. They took advantage of you.'",
+          "next": "validate_anger",
+          "reputation": {
+            "nyx": 1
+          }
+        }
+      ]
+    },
+    "ask_why_left": {
+      "speaker": "Avyanna",
+      "text": "What happened? Why did you leave?",
+      "next": "nyx_explains_order"
+    },
+    "offer_space": {
+      "speaker": "SYSTEM",
+      "text": "[i]You sit down beside her, not too close, just... present. Offering companionship without demanding confession.[/i]",
+      "next": "avyanna_sits"
+    },
+    "avyanna_sits": {
+      "speaker": "Avyanna",
+      "text": "[i]Sitting beside her.[/i] You don't have to tell me if it's too hard. But I'm here if you want to.",
+      "next": "nyx_grateful"
+    },
+    "nyx_grateful": {
+      "speaker": "Nyx",
+      "text": "[i]She glances at you, something softening in her expression.[/i] Thank you. [i]A breath.[/i] But I... I think I need to say it. I haven't talked about this in years.",
+      "next": "nyx_explains_order"
+    },
+    "validate_anger": {
+      "speaker": "Avyanna",
+      "text": "Fifteen is too young to make that choice. They took advantage of you.",
+      "next": "nyx_considers_anger"
+    },
+    "nyx_considers_anger": {
+      "speaker": "Nyx",
+      "text": "[i]She looks surprised, then thoughtful.[/i] I... yes. I suppose they did. [i]A pause.[/i] I always told myself I chose it freely. That I wanted the knowledge. But... [i]Quieter.[/i] I was a child. I didn't understand what I was agreeing to.",
+      "next": "nyx_explains_order"
+    },
+    "nyx_explains_order": {
+      "speaker": "Nyx",
+      "text": "The Writbound don't just study the lattice. They manipulate it. Reality, memory, thought — it's all patterns that can be rewritten. [i]Her voice is distant, clinical.[/i] They called it necessary. Preserving knowledge. Preventing dangerous information from spreading. Protecting humanity.",
+      "next": "nyx_darker_truth"
+    },
+    "nyx_darker_truth": {
+      "speaker": "Nyx",
+      "text": "[i]A bitter edge.[/i] But preservation requires control. And control requires... sacrifice. [i]She looks at her hands.[/i] We modified memories. Removed traumatic events, suppressed dangerous research, edited personalities. All for the greater good.",
+      "next": "avyanna_horror"
+    },
+    "avyanna_horror": {
+      "speaker": "Avyanna",
+      "text": "[i]A chill runs through me.[/i] You... changed people's minds? Against their will?",
+      "next": "nyx_admission"
+    },
+    "nyx_admission": {
+      "speaker": "Nyx",
+      "text": "[i]She won't look at you.[/i] Yes. I did. For three years. [i]A long silence.[/i] I told myself it was necessary. That I was helping. That the Order knew best. [i]Her voice cracks slightly.[/i] I was very good at lying to myself.",
+      "next": "choice_judgment"
+    },
+    "choice_judgment": {
+      "speaker": "SYSTEM",
+      "text": "[i]This is the heart of it. Nyx is confessing something she considers unforgivable. How you respond will shape everything between you.[/i]",
+      "choices": [
+        {
+          "text": "'You were eighteen. They manipulated you into doing terrible things.'",
+          "next": "forgive_youth",
+          "reputation": {
+            "nyx": 2
+          },
+          "set_flag": "nyx_forgiven"
+        },
+        {
+          "text": "'But you left. That took courage. You recognized it was wrong.'",
+          "next": "validate_leaving",
+          "reputation": {
+            "nyx": 2
+          },
+          "set_flag": "nyx_validated"
+        },
+        {
+          "text": "'That's... hard to hear. I need a moment to process this.'",
+          "next": "need_processing",
+          "reputation": {
+            "nyx": -1
+          }
+        }
+      ]
+    },
+    "forgive_youth": {
+      "speaker": "Avyanna",
+      "text": "You were eighteen. Still practically a child. They manipulated you into doing terrible things. That doesn't make you the monster — it makes them the monsters.",
+      "next": "nyx_tears"
+    },
+    "nyx_tears": {
+      "speaker": "Nyx",
+      "text": "[i]She closes her eyes. When she opens them again, there's moisture at the corners.[/i] I've never... [i]Her voice is unsteady.[/i] I've carried this guilt for seven years. Told myself I didn't deserve forgiveness. That I was complicit.",
+      "next": "avyanna_comfort"
+    },
+    "avyanna_comfort": {
+      "speaker": "Avyanna",
+      "text": "[i]I reach out, carefully, giving her time to pull away. She doesn't. My hand settles on her shoulder.[/i] You were a victim too. And you got out. That matters.",
+      "next": "nyx_release"
+    },
+    "nyx_release": {
+      "speaker": "Nyx",
+      "text": "[i]She leans into the contact, just slightly. A small surrender.[/i] Thank you. [i]A shaky breath.[/i] I don't know if I believe it yet. But thank you for saying it.",
+      "next": "memory_trauma_reveal"
+    },
+    "validate_leaving": {
+      "speaker": "Avyanna",
+      "text": "But you left. You recognized it was wrong and you walked away. That took real courage.",
+      "next": "nyx_leaving_story"
+    },
+    "nyx_leaving_story": {
+      "speaker": "Nyx",
+      "text": "[i]A bitter smile.[/i] I didn't walk. I ran. [i]A pause.[/i] There was a subject — a young woman who'd witnessed a corporate massacre. The Order wanted to remove her memories, make her forget. She'd be safer that way, they said. Compliant.",
+      "next": "nyx_refusal"
+    },
+    "nyx_refusal": {
+      "speaker": "Nyx",
+      "text": "I looked at her and saw myself. Eighteen, terrified, being told this was for my own good. [i]Her jaw tightens.[/i] I refused the assignment. They said I'd be disciplined. I said I'd leave. They said... [i]A pause.[/i] They said they'd help me understand. Make me more cooperative.",
+      "next": "avyanna_realizes"
+    },
+    "avyanna_realizes": {
+      "speaker": "Avyanna",
+      "text": "They were going to modify your memories. Your mind.",
+      "next": "nyx_confirms"
+    },
+    "nyx_confirms": {
+      "speaker": "Nyx",
+      "text": "[i]A nod.[/i] I ran that night. Took nothing but my research and whatever credits I could steal. [i]Quieter.[/i] They tried to stop me. I had to... hurt people. Friends. To escape.",
+      "next": "memory_trauma_reveal"
+    },
+    "need_processing": {
+      "speaker": "Avyanna",
+      "text": "That's... that's hard to hear. I need a moment to process this.",
+      "next": "nyx_understands"
+    },
+    "nyx_understands": {
+      "speaker": "Nyx",
+      "text": "[i]She nods, expression closing off again.[/i] Of course. That's fair. [i]She starts to stand.[/i] I should finish the repairs anyway.",
+      "next": "choice_stop_them"
+    },
+    "choice_stop_them": {
+      "speaker": "SYSTEM",
+      "text": "[i]She's retreating. Shutting down. You can let her go, or you can push through your discomfort and stay present.[/i]",
+      "choices": [
+        {
+          "text": "'Wait. Don't go. I'm processing, but I'm not leaving.'",
+          "next": "stay_present",
+          "reputation": {
+            "nyx": 1
+          }
+        },
+        {
+          "text": "'I think we both need space right now.'",
+          "next": "mutual_space",
+          "reputation": {
+            "nyx": -2
+          }
+        }
+      ]
+    },
+    "stay_present": {
+      "speaker": "Avyanna",
+      "text": "Wait. Don't go. [i]I catch her hand.[/i] I'm processing, but I'm not leaving. This doesn't change... us. The crew.",
+      "next": "nyx_cautious_return"
+    },
+    "nyx_cautious_return": {
+      "speaker": "Nyx",
+      "text": "[i]She stops, looking down at where you're holding her hand.[/i] You don't have to —",
+      "next": "avyanna_insists"
+    },
+    "avyanna_insists": {
+      "speaker": "Avyanna",
+      "text": "I know. I'm choosing to. [i]Meeting her eyes.[/i] Tell me the rest. Please.",
+      "next": "nyx_sits_again"
+    },
+    "nyx_sits_again": {
+      "speaker": "Nyx",
+      "text": "[i]She sits back down, closer this time. Still cautious, but willing to trust.[/i] Alright. [i]A breath.[/i] Alright.",
+      "next": "memory_trauma_reveal"
+    },
+    "mutual_space": {
+      "speaker": "Avyanna",
+      "text": "I think... we both need some space right now. To process.",
+      "next": "nyx_withdraws"
+    },
+    "nyx_withdraws": {
+      "speaker": "Nyx",
+      "text": "[i]She nods, expression neutral.[/i] Of course. Space. Yes. [i]She turns away, already rebuilding her walls.[/i] Goodnight, Avyanna.",
+      "set_flag": "deep_nyx_partial",
+      "next": "end"
+    },
+    "memory_trauma_reveal": {
+      "speaker": "Nyx",
+      "text": "[i]Her voice drops lower.[/i] The worst part? They did catch me once. Before I fully escaped. [i]She touches her temple.[/i] They tried to edit me. Remove my doubts. My guilt. Make me a perfect little theorist again.",
+      "next": "avyanna_alarmed"
+    },
+    "avyanna_alarmed": {
+      "speaker": "Avyanna",
+      "text": "Did it work? Are you —",
+      "next": "nyx_interrupted"
+    },
+    "nyx_interrupted": {
+      "speaker": "Nyx",
+      "text": "[i]Shaking her head.[/i] No. It... I have natural resistance to lattice manipulation. Probably why I'm good at it myself. [i]A pause.[/i] But they got partway through. There are gaps now. Holes in my memory. I don't know what I've forgotten.",
+      "set_flag": "nyx_shared_writbound",
+      "next": "memory_consequences"
+    },
+    "memory_consequences": {
+      "speaker": "Nyx",
+      "text": "Sometimes I remember fragments. A face I should know but don't. A skill I have but can't recall learning. [i]Her hands are shaking slightly.[/i] They took pieces of me. And I'll never get them back.",
+      "next": "avyanna_response_trauma"
+    },
+    "avyanna_response_trauma": {
+      "speaker": "Avyanna",
+      "text": "[i]The shard in my chest aches with sympathetic pain. Loss. Violation. Things it understands intimately.[/i] I'm so sorry. That's... I can't imagine.",
+      "next": "nyx_laughs_darkly"
+    },
+    "nyx_laughs_darkly": {
+      "speaker": "Nyx",
+      "text": "[i]A dark laugh.[/i] The irony is I do this to the ship. To the lattice. I manipulate, reinforce, edit reality. Every time I do it, I remember what was done to me. [i]Meeting your eyes.[/i] But I do it anyway. Because someone has to. Because we need it to survive.",
+      "next": "choice_understanding"
+    },
+    "choice_understanding": {
+      "speaker": "SYSTEM",
+      "text": "[i]This is why Nyx is the way she is. Controlled. Distant. Precise. She's using her trauma as a tool, transmuting violation into skill. It's survival. It's also slowly eating her alive.[/i]",
+      "choices": [
+        {
+          "text": "'That's not ironic. That's you taking power back from them.'",
+          "next": "reframe_power",
+          "reputation": {
+            "nyx": 2
+          }
+        },
+        {
+          "text": "'Does it hurt? Using lattice manipulation after what they did?'",
+          "next": "ask_if_hurts",
+          "reputation": {
+            "nyx": 1
+          }
+        },
+        {
+          "text": "'You're not them. The way you use it — it's different. It's about care.'",
+          "next": "validate_difference",
+          "reputation": {
+            "nyx": 1
+          }
+        }
+      ]
+    },
+    "reframe_power": {
+      "speaker": "Avyanna",
+      "text": "That's not ironic. That's you taking power back from them. Using what they taught you, but on your terms. For people you've chosen.",
+      "next": "nyx_stunned"
+    },
+    "nyx_stunned": {
+      "speaker": "Nyx",
+      "text": "[i]She stares at you, something shifting in her expression.[/i] I... I never thought of it that way. [i]A pause, then quieter.[/i] I always thought it made me complicit. Still using their methods.",
+      "next": "avyanna_explains"
+    },
+    "avyanna_explains": {
+      "speaker": "Avyanna",
+      "text": "A knife can be used to hurt or heal. It's not the tool — it's the choice. You're choosing to protect. That's the opposite of what they did.",
+      "next": "nyx_accepts"
+    },
+    "nyx_accepts": {
+      "speaker": "Nyx",
+      "text": "[i]She closes her eyes, breathing carefully.[/i] Thank you. [i]When she opens them again, something has eased.[/i] I needed to hear that. From someone I trust.",
+      "next": "inside_the_order"
+    },
+    "ask_if_hurts": {
+      "speaker": "Avyanna",
+      "text": "Does it hurt? Using lattice manipulation after what they did to you?",
+      "next": "nyx_admits_pain"
+    },
+    "nyx_admits_pain": {
+      "speaker": "Nyx",
+      "text": "[i]A long pause.[/i] Yes. Every time. [i]She looks at her hands.[/i] It's like... picking at a wound that won't quite heal. But it's also the only thing I'm good at. The only way I can be useful.",
+      "next": "avyanna_protests"
+    },
+    "avyanna_protests": {
+      "speaker": "Avyanna",
+      "text": "You're useful because you're you. Not because of what you can do to reality. We value you, Nyx. Not just your skills.",
+      "next": "nyx_uncertain"
+    },
+    "nyx_uncertain": {
+      "speaker": "Nyx",
+      "text": "[i]She looks uncertain, like she wants to believe it but can't quite.[/i] I... thank you. I'll try to remember that.",
+      "next": "inside_the_order"
+    },
+    "validate_difference": {
+      "speaker": "Avyanna",
+      "text": "You're not them. The way you use it — it's different. When you work on the ship, when you teach me, it's about care. About consent. That's the opposite of violation.",
+      "next": "nyx_emotional"
+    },
+    "nyx_emotional": {
+      "speaker": "Nyx",
+      "text": "[i]Her composure finally cracks. She presses her hands to her face, shoulders shaking.[/i] I try. I try so hard to do it differently. To never be like them. But I'm so afraid I'll —",
+      "next": "avyanna_reassures"
+    },
+    "avyanna_reassures": {
+      "speaker": "Avyanna",
+      "text": "[i]I move closer, offering presence without demanding anything.[/i] You won't. You ask permission. You explain. You give people agency. That's the difference.",
+      "next": "nyx_recovers"
+    },
+    "nyx_recovers": {
+      "speaker": "Nyx",
+      "text": "[i]She lowers her hands, wiping at her eyes.[/i] Sorry. I don't usually... [i]A breath.[/i] Thank you. For understanding. For not running.",
+      "next": "inside_the_order"
+    },
+
+    "inside_the_order": {
+      "speaker": "SYSTEM",
+      "text": "[i]A silence settles. Nyx stares at her hands — the faint luminescence beneath the skin, the lattice residue that never fully fades. The maintenance deck groans around you, steel and light and the deep vibration of engines. Nyx looks like she wants to say more.[/i]",
+      "next": "choice_press_order"
+    },
+    "choice_press_order": {
+      "speaker": "SYSTEM",
+      "text": "[i]There's more to this story. You can feel it. The Order, the rituals, the binding itself — Nyx has barely scratched the surface.[/i]",
+      "choices": [
+        {
+          "text": "'What was it like inside? The Order itself.'",
+          "next": "ask_inside_order",
+          "reputation": {
+            "nyx": 1
+          }
+        },
+        {
+          "text": "[Insight DC 13] Study the way Nyx holds her hands — the glow beneath the skin.",
+          "next": "insight_hands_success",
+          "skill_check": {
+            "stat": "insight",
+            "skill": "insight",
+            "dc": 13,
+            "threshold": 13,
+            "on_success": "insight_hands_success",
+            "on_failure": "insight_hands_failure"
+          }
+        },
+        {
+          "text": "'You don't have to keep going. We can stop here.'",
+          "next": "offer_stop_order"
+        }
+      ]
+    },
+    "ask_inside_order": {
+      "speaker": "Avyanna",
+      "text": "What was it like inside? The Order itself. Where they kept you.",
+      "next": "nyx_describes_order"
+    },
+    "nyx_describes_order": {
+      "speaker": "Nyx",
+      "text": "[i]Her eyes go distant.[/i] Beautiful. That was the worst part. The Spire of Remembrance — their headquarters — was the most beautiful place I've ever seen. Crystal walls that sang when you walked past them. Libraries of stolen memory preserved in lattice-glass. Gardens where thought itself bloomed in colors that don't have names.",
+      "next": "nyx_order_darker"
+    },
+    "nyx_order_darker": {
+      "speaker": "Nyx",
+      "text": "We wore white. All of us. Initiates, theorists, archivists. White robes, bare feet on cold stone. They said it kept us grounded. Humble. [i]A bitter twist to her mouth.[/i] It kept us cold. Dependent. Hard to run when you have no shoes and no possessions.",
+      "next": "nyx_order_routine"
+    },
+    "nyx_order_routine": {
+      "speaker": "Nyx",
+      "text": "Days started with meditation at fourth bell. Then study — lattice theory, resonance harmonics, memory architecture. We ate together. Prayed together. Slept in dormitories with no doors. Privacy was considered a weakness. A place for doubt to fester.",
+      "next": "nyx_order_binding_intro"
+    },
+    "nyx_order_binding_intro": {
+      "speaker": "Nyx",
+      "text": "[i]Her voice drops.[/i] And then there was the Binding. The ritual that made us Writbound.",
+      "next": "avyanna_asks_binding"
+    },
+    "avyanna_asks_binding": {
+      "speaker": "Avyanna",
+      "text": "[i]Quietly.[/i] What did they do to you?",
+      "next": "nyx_describes_binding"
+    },
+    "nyx_describes_binding": {
+      "speaker": "Nyx",
+      "text": "They open the lattice inside you. Not gently — not the way I teach you. They crack you open. Force the pathways wider than they're meant to go. It's like... [i]She searches for words.[/i] Imagine every nerve in your body becoming a doorway. Every thought becoming a corridor someone else can walk through.",
+      "next": "nyx_binding_pain"
+    },
+    "nyx_binding_pain": {
+      "speaker": "Nyx",
+      "text": "It took three days. I screamed for the first two. [i]Said flatly, like reciting weather data.[/i] On the third day, the lattice settled into the new configuration. The pain stopped. The power began. [i]She flexes her fingers and a faint, sickly glow traces the veins beneath her skin.[/i] And part of me has been burning ever since.",
+      "next": "choice_binding_reaction"
+    },
+    "choice_binding_reaction": {
+      "speaker": "SYSTEM",
+      "text": "[i]Nyx's hands glow faintly in the dim maintenance deck. The light is wrong somehow — not warm, not cold, but something between states. The shard in your chest hums a low, discordant note. Recognition. Warning.[/i]",
+      "choices": [
+        {
+          "text": "'Three days. They tortured you for three days and called it a gift.'",
+          "next": "call_it_torture",
+          "reputation": {
+            "nyx": 1
+          }
+        },
+        {
+          "text": "[Empathy DC 15] Reach for her glowing hands.",
+          "next": "reach_for_hands_success",
+          "skill_check": {
+            "stat": "empathy",
+            "skill": "empathy",
+            "dc": 15,
+            "threshold": 15,
+            "on_success": "reach_for_hands_success",
+            "on_failure": "reach_for_hands_failure"
+          }
+        },
+        {
+          "text": "'The burning — is it still happening? Right now?'",
+          "next": "ask_burning"
+        }
+      ]
+    },
+    "call_it_torture": {
+      "speaker": "Avyanna",
+      "text": "Three days. They tortured you for three days and called it a gift.",
+      "next": "nyx_never_named"
+    },
+    "nyx_never_named": {
+      "speaker": "Nyx",
+      "text": "[i]A flicker of something raw crosses her face.[/i] I never... no one's ever called it that before. Not out loud. [i]A pause.[/i] The Order called it an awakening. An honor. The highest privilege a theorist could receive. [i]Quieter.[/i] We thanked them afterward. That was the protocol.",
+      "next": "the_physical_cost"
+    },
+    "reach_for_hands_success": {
+      "speaker": "SYSTEM",
+      "text": "[i]You reach out slowly, giving her every chance to pull away. Your fingers close around her wrists — gently, carefully. The glow flares at your touch, then... softens. The shard responds, sending a wash of warmth through your hands. Nyx gasps.[/i]",
+      "next": "nyx_startled_touch"
+    },
+    "nyx_startled_touch": {
+      "speaker": "Nyx",
+      "text": "[i]Staring at where your hands meet hers.[/i] What are you... [i]She trails off, eyes widening.[/i] The burning. It's... quieter. How are you doing that?",
+      "reputation": {
+        "nyx": 2
+      },
+      "next": "avyanna_doesnt_know"
+    },
+    "avyanna_doesnt_know": {
+      "speaker": "Avyanna",
+      "text": "[i]Honestly.[/i] I don't know. The shard is doing something. It felt... right.",
+      "next": "nyx_wonder"
+    },
+    "nyx_wonder": {
+      "speaker": "Nyx",
+      "text": "[i]She doesn't pull away. Her expression is something between wonder and grief.[/i] Seven years. Seven years of burning and you just... [i]A breath that shakes.[/i] Don't let go. Not yet. Please.",
+      "set_flag": "nyx_shard_soothed",
+      "next": "the_physical_cost"
+    },
+    "reach_for_hands_failure": {
+      "speaker": "SYSTEM",
+      "text": "[i]You reach for her hands, but Nyx flinches back instinctively. The glow flares brighter — defensive, reactive. Old reflexes from a place where touch meant control.[/i]",
+      "next": "nyx_apologizes_flinch"
+    },
+    "nyx_apologizes_flinch": {
+      "speaker": "Nyx",
+      "text": "[i]She pulls back, clutching her hands to her chest.[/i] Sorry. I'm sorry. I didn't mean — [i]A steadying breath.[/i] It's a reflex. In the Order, physical contact during lattice work was... not voluntary.",
+      "next": "avyanna_backs_off"
+    },
+    "avyanna_backs_off": {
+      "speaker": "Avyanna",
+      "text": "No, I'm sorry. I should have asked first.",
+      "next": "nyx_recovers_flinch"
+    },
+    "nyx_recovers_flinch": {
+      "speaker": "Nyx",
+      "text": "[i]A small, genuine smile — the first tonight.[/i] See? That. Asking. That's the difference between you and them. [i]She settles her hands in her lap, the glow fading.[/i] The Writbound never asked.",
+      "next": "the_physical_cost"
+    },
+    "ask_burning": {
+      "speaker": "Avyanna",
+      "text": "The burning — is it still happening? Right now? As we speak?",
+      "next": "nyx_admits_burning"
+    },
+    "nyx_admits_burning": {
+      "speaker": "Nyx",
+      "text": "[i]She holds up her hands. In the dim light of the maintenance deck, you can see the glow pulsing faintly beneath the skin, tracing the lines of veins and tendons.[/i] Always. Low-grade, most of the time. Like holding your hands too close to a fire. But when I use the lattice — when I do heavy work — it flares. [i]She clenches her fists.[/i] It's getting worse.",
+      "next": "the_physical_cost"
+    },
+
+    "the_physical_cost": {
+      "speaker": "SYSTEM",
+      "text": "[i]Nyx is quiet for a moment. She pulls up the sleeve of her left arm. In the low light, you can see it clearly now — a network of pale, luminescent lines beneath the skin, tracing from wrist to elbow like a map of rivers seen from orbit. Some of them pulse. Some of them flicker. A few have gone dark entirely.[/i]",
+      "next": "nyx_shows_damage"
+    },
+    "nyx_shows_damage": {
+      "speaker": "Nyx",
+      "text": "The Binding didn't just open my lattice pathways. It fused them to my nervous system. Permanently. [i]She traces a dark line on her forearm.[/i] These are the ones that have burned out. Dead channels. They don't come back.",
+      "next": "avyanna_cost_reaction"
+    },
+    "avyanna_cost_reaction": {
+      "speaker": "Avyanna",
+      "text": "[i]My stomach drops.[/i] Burned out? Nyx, what does that mean for you?",
+      "next": "nyx_clinical_cost"
+    },
+    "nyx_clinical_cost": {
+      "speaker": "Nyx",
+      "text": "[i]Clinical. Detached. The way she talks about things too painful to feel.[/i] Nerve damage, eventually. Loss of fine motor control. Chronic pain that escalates over time. And at some point, when enough pathways burn out, I won't be able to do lattice work at all. [i]A pause.[/i] Or move my hands. Whichever comes first.",
+      "next": "choice_cost_response"
+    },
+    "choice_cost_response": {
+      "speaker": "SYSTEM",
+      "text": "[i]The maintenance deck feels colder. The hum of the engines sounds like a funeral dirge. Nyx is telling you she's dying — slowly, by inches, every time she uses the gift that was forced on her.[/i]",
+      "text_variants": {
+        "nyx_shard_soothed": "[i]Your hands are still touching hers. The shard pulses — distress, determination. It understood what Nyx just said. And it wants to help. Desperately.[/i]"
+      },
+      "choices": [
+        {
+          "text": "'Is there a way to stop it? Reverse it?'",
+          "next": "ask_reversal"
+        },
+        {
+          "text": "'How long? How much time do you have?'",
+          "next": "ask_timeline",
+          "reputation": {
+            "nyx": 1
+          }
+        },
+        {
+          "text": "'Does anyone else on the crew know?'",
+          "next": "ask_who_knows"
+        }
+      ]
+    },
+    "ask_reversal": {
+      "speaker": "Avyanna",
+      "text": "Is there a way to stop it? Reverse the damage?",
+      "next": "nyx_reversal_answer"
+    },
+    "nyx_reversal_answer": {
+      "speaker": "Nyx",
+      "text": "[i]A thin smile.[/i] In theory? The Order claims to have stabilization techniques. Rituals that slow the degradation. [i]The smile fades.[/i] But those require returning to the Spire. Submitting to their authority again. And I suspect their 'stabilization' comes with... conditions.",
+      "next": "nyx_alternative"
+    },
+    "nyx_alternative": {
+      "speaker": "Nyx",
+      "text": "I've been researching alternatives. Herbs — certain compounds that dampen lattice conductivity. Crystals that can absorb excess resonance. [i]She gestures to a small alcove you hadn't noticed, tucked behind a bulkhead panel. Inside: dried herb bundles, pale crystals arranged in careful geometric patterns, and a notebook filled with dense, tiny handwriting.[/i] My medbay. Such as it is.",
+      "next": "avyanna_sees_alcove"
+    },
+    "avyanna_sees_alcove": {
+      "speaker": "Avyanna",
+      "text": "[i]I look at the alcove — the careful arrangement, the worn edges of the notebook, the crystals placed with obsessive precision. This isn't new. Nyx has been managing this alone for years.[/i] How long have you been doing this?",
+      "next": "nyx_alcove_answer"
+    },
+    "nyx_alcove_answer": {
+      "speaker": "Nyx",
+      "text": "Since the second year. When the tremors started. [i]She holds out a hand, palm up, and you can see it — a faint tremor in her fingers. Barely perceptible unless you're looking.[/i] The herbs help. The crystals absorb some of the bleed. It's not a cure. It's... management.",
+      "next": "ask_timeline_merge"
+    },
+    "ask_timeline": {
+      "speaker": "Avyanna",
+      "text": "How long? How much time do you have before it —",
+      "next": "nyx_timeline"
+    },
+    "nyx_timeline": {
+      "speaker": "Nyx",
+      "text": "[i]She looks at you steadily.[/i] At the current rate of degradation? If I stop all lattice work entirely, maybe fifteen years before the nerve damage becomes debilitating. [i]A pause.[/i] If I keep working at this pace — reinforcing the ship, shielding the crew, training you — five. Maybe seven.",
+      "next": "avyanna_timeline_horror"
+    },
+    "avyanna_timeline_horror": {
+      "speaker": "Avyanna",
+      "text": "[i]Five years. Seven at most. The number lands like a physical blow.[/i] Nyx...",
+      "next": "nyx_pragmatic"
+    },
+    "nyx_pragmatic": {
+      "speaker": "Nyx",
+      "text": "[i]Measured. Pragmatic. The tone of someone who's had this conversation with themselves a thousand times.[/i] I made the calculation. The crew needs the lattice work. The ship needs it. If I stop, people die — just more slowly. [i]A thin smile.[/i] I chose the faster burn and the living crew.",
+      "next": "ask_timeline_merge"
+    },
+    "ask_who_knows": {
+      "speaker": "Avyanna",
+      "text": "Does anyone else know? About the degradation?",
+      "next": "nyx_who_knows"
+    },
+    "nyx_who_knows": {
+      "speaker": "Nyx",
+      "text": "Elisira suspects. She's noticed the tremors. Asked me about them once — I deflected. [i]A pause.[/i] Rho has seen my alcove. They think it's religious paraphernalia. I haven't corrected them.",
+      "next": "nyx_who_knows_cont"
+    },
+    "nyx_who_knows_cont": {
+      "speaker": "Nyx",
+      "text": "[i]Quieter.[/i] You're the first person I've told. The full truth. [i]She looks at you, and there's something naked in her expression — trust, freely given, for perhaps the first time since she left the Spire.[/i] I don't know why tonight. Maybe the anniversary. Maybe you.",
+      "reputation": {
+        "nyx": 1
+      },
+      "next": "ask_timeline_merge"
+    },
+    "ask_timeline_merge": {
+      "speaker": "SYSTEM",
+      "text": "[i]The weight of what Nyx has shared settles between you. The alcove with its herbs and crystals. The tremors. The countdown she carries in silence. But Nyx straightens slightly, some of the old composure returning — not as a wall, but as scaffolding. She has more to say.[/i]",
+      "next": "nyx_escape_intro"
+    },
+
+    "nyx_escape_intro": {
+      "speaker": "Nyx",
+      "text": "[i]She pulls her sleeve back down, hiding the lattice lines.[/i] You asked what it was like inside. I should tell you what it was like getting out.",
+      "next": "choice_escape_approach"
+    },
+    "choice_escape_approach": {
+      "speaker": "SYSTEM",
+      "text": "[i]Nyx's jaw is set. This is the part of the story she's been circling — the escape. The night she ran.[/i]",
+      "choices": [
+        {
+          "text": "'Tell me. I want to understand.'",
+          "next": "nyx_escape_begins"
+        },
+        {
+          "text": "[Insight DC 14] 'There was someone else, wasn't there? Someone who helped you escape.'",
+          "next": "insight_helper_success",
+          "skill_check": {
+            "stat": "insight",
+            "skill": "insight",
+            "dc": 14,
+            "threshold": 14,
+            "on_success": "insight_helper_success",
+            "on_failure": "insight_helper_failure"
+          }
+        }
+      ]
+    },
+    "nyx_escape_begins": {
+      "speaker": "Nyx",
+      "text": "It was a rest-night. Third bell. The Spire runs on strict schedules — everyone asleep by second bell, waking at fourth. That two-bell window was all I had. [i]Her voice is low, rhythmic, like she's reliving it.[/i] I'd been planning for weeks. Smuggling supplies into a maintenance shaft. A change of clothes. Shoes. You don't realize how important shoes are until you don't have them.",
+      "next": "nyx_escape_tunnel"
+    },
+    "nyx_escape_tunnel": {
+      "speaker": "Nyx",
+      "text": "The Spire's lattice network is its security system. Every doorway, every corridor — warded. Monitored. [i]A grim smile.[/i] But I was a Resonance Theorist. I knew the patterns better than the people who built them. I'd found a blind spot — a maintenance tunnel where the lattice strands had decayed.",
+      "next": "nyx_escape_help"
+    },
+    "nyx_escape_help": {
+      "speaker": "Nyx",
+      "text": "[i]Her voice catches.[/i] I didn't do it alone. There was someone — another theorist. Archivist Maren. She was older. Had been Writbound for twenty years. She'd seen what the Order was becoming and couldn't leave herself. Too deep. Too far gone. The Binding had her too thoroughly. [i]A pause heavy with grief.[/i] But she could help me leave.",
+      "next": "nyx_escape_maren"
+    },
+    "nyx_escape_maren": {
+      "speaker": "Nyx",
+      "text": "Maren disabled the corridor wards for exactly ninety seconds. She told me to run and not look back. Told me she'd cover my absence until morning. [i]Her voice is barely audible.[/i] I asked her to come with me. She said her lattice was too degraded. That she'd die within a month outside the Spire's stabilization fields.",
+      "next": "nyx_escape_running"
+    },
+    "nyx_escape_running": {
+      "speaker": "Nyx",
+      "text": "So I ran. Through the tunnel, out through a drainage shaft, into the city. Barefoot, terrified, carrying a bag of stolen research and borrowed clothes. [i]She closes her eyes.[/i] I heard the alarm go off when I was six blocks away. The sound of the Spire's resonance bells — I still hear them sometimes. In dreams.",
+      "next": "choice_maren_response"
+    },
+    "choice_maren_response": {
+      "speaker": "SYSTEM",
+      "text": "[i]Maren. A woman who couldn't save herself but chose to save someone else. The kind of sacrifice that leaves a debt you can never repay.[/i]",
+      "choices": [
+        {
+          "text": "'What happened to Maren?'",
+          "next": "ask_about_maren",
+          "reputation": {
+            "nyx": 1
+          }
+        },
+        {
+          "text": "'She gave you your life back. That was her choice — and it was a good one.'",
+          "next": "honor_maren",
+          "reputation": {
+            "nyx": 2
+          }
+        },
+        {
+          "text": "'Do you think they punished her? For helping you?'",
+          "next": "ask_maren_punishment"
+        }
+      ]
+    },
+    "ask_about_maren": {
+      "speaker": "Avyanna",
+      "text": "What happened to Maren? After you left?",
+      "next": "nyx_maren_fate"
+    },
+    "nyx_maren_fate": {
+      "speaker": "Nyx",
+      "text": "[i]A long silence. Her hands glow brighter — stress response.[/i] I don't know. [i]The words come out tight, controlled.[/i] I tried to find out. For years. Sent messages through back channels, bribed information brokers. Nothing. The Order is very good at making people disappear. [i]Quieter.[/i] She might be dead. She might be edited — her memories of me erased, her personality rewritten into compliance. I don't know which is worse.",
+      "next": "nyx_maren_guilt"
+    },
+    "nyx_maren_guilt": {
+      "speaker": "Nyx",
+      "text": "She's one of the gaps. One of the memory holes. I know she existed because I wrote her name down — forced myself to remember before they could take it. But her face... [i]She presses her fingers to her temples.[/i] It's blurred. Like looking through frosted glass. They took the details. Left just enough to hurt.",
+      "next": "the_anniversary_bridge"
+    },
+    "honor_maren": {
+      "speaker": "Avyanna",
+      "text": "She gave you your life back. That was her choice — a conscious, deliberate act of love. Don't carry guilt for someone else's courage.",
+      "next": "nyx_maren_tears"
+    },
+    "nyx_maren_tears": {
+      "speaker": "Nyx",
+      "text": "[i]Her composure shatters. Tears — real, unguarded tears — track down her face. Her hands glow bright enough to cast shadows on the deck plating.[/i] She... [i]A ragged breath.[/i] She used to call me little resonance. Said I vibrated with potential. Said I was the best argument she'd ever seen for the Order being wrong.",
+      "reputation": {
+        "nyx": 1
+      },
+      "next": "nyx_maren_recovery"
+    },
+    "nyx_maren_recovery": {
+      "speaker": "Nyx",
+      "text": "[i]She wipes her eyes with the back of her glowing hand, leaving faint trails of light on her skin.[/i] I can't even remember her face clearly anymore. They took that. But they couldn't take what she meant. [i]Steadier.[/i] I carry her forward. In my work. In how I choose to use what the Order taught me.",
+      "next": "the_anniversary_bridge"
+    },
+    "ask_maren_punishment": {
+      "speaker": "Avyanna",
+      "text": "Do you think they punished her? For helping you escape?",
+      "next": "nyx_maren_punishment"
+    },
+    "nyx_maren_punishment": {
+      "speaker": "Nyx",
+      "text": "[i]Her jaw tightens. The glow in her hands flares, then dims as she forces control.[/i] The Order doesn't punish. They correct. [i]The word drips with venom.[/i] If they caught her, they would have edited her. Removed the compassion that made her help me. Made her loyal. Compliant. A better servant.",
+      "next": "nyx_maren_worse"
+    },
+    "nyx_maren_worse": {
+      "speaker": "Nyx",
+      "text": "That's worse than death. That's erasing someone while leaving their body walking around. A puppet wearing a friend's face. [i]She meets your eyes.[/i] That's what I ran from. That's what they would have done to me.",
+      "next": "the_anniversary_bridge"
+    },
+
+    "insight_helper_success": {
+      "speaker": "Avyanna",
+      "text": "There was someone else, wasn't there? Someone who helped you get out. You couldn't have done it alone — not against their wards.",
+      "next": "nyx_insight_stunned"
+    },
+    "nyx_insight_stunned": {
+      "speaker": "Nyx",
+      "text": "[i]She stares at you, startled.[/i] How did you... [i]A breath.[/i] Yes. Her name was Maren. Archivist Maren. She'd been Writbound for twenty years.",
+      "reputation": {
+        "nyx": 2
+      },
+      "next": "nyx_escape_maren"
+    },
+    "insight_helper_failure": {
+      "speaker": "Avyanna",
+      "text": "There was someone else, wasn't there? Someone who helped you?",
+      "next": "nyx_deflects_helper"
+    },
+    "nyx_deflects_helper": {
+      "speaker": "Nyx",
+      "text": "[i]A flicker of something — surprise, guardedness — passes over her face.[/i] What makes you say that?",
+      "next": "avyanna_intuition"
+    },
+    "avyanna_intuition": {
+      "speaker": "Avyanna",
+      "text": "Just a feeling. The way you talk about it — there's grief for someone specific.",
+      "next": "nyx_escape_begins"
+    },
+
+    "insight_hands_success": {
+      "speaker": "SYSTEM",
+      "text": "[i]You study Nyx's hands — really study them. The glow isn't decorative or incidental. It pulses in rhythm with her breathing, brighter when she's tense, dimmer when she calms. And the dark lines threading beneath the skin... those aren't veins. They're dead channels. Burned-out pathways. Whatever Nyx's magic is, it's consuming her from the inside.[/i]",
+      "next": "avyanna_notices_hands"
+    },
+    "avyanna_notices_hands": {
+      "speaker": "Avyanna",
+      "text": "Your hands. The glow — it's not just residue from the lattice work. It's permanent. And those dark lines... [i]Quietly.[/i] Nyx, what's happening to you?",
+      "reputation": {
+        "nyx": 2
+      },
+      "next": "nyx_caught_hands"
+    },
+    "nyx_caught_hands": {
+      "speaker": "Nyx",
+      "text": "[i]She looks down at her hands, startled — as if she'd forgotten someone might notice. Then a long, tired exhalation.[/i] You're more perceptive than I gave you credit for. [i]She flexes her fingers, and the glow flares, then fades.[/i] It's called lattice degradation. A gift from the Writbound Order. Let me tell you about it.",
+      "next": "nyx_describes_order"
+    },
+    "insight_hands_failure": {
+      "speaker": "SYSTEM",
+      "text": "[i]You watch her hands, trying to read the glow, but Nyx notices your attention and tucks her hands into her sleeves — a practiced gesture. Whatever you almost saw, she's hidden it.[/i]",
+      "next": "avyanna_hands_miss"
+    },
+    "avyanna_hands_miss": {
+      "speaker": "Avyanna",
+      "text": "Your hands were glowing. Is that normal? From the lattice work?",
+      "next": "nyx_hands_deflect"
+    },
+    "nyx_hands_deflect": {
+      "speaker": "Nyx",
+      "text": "[i]A practiced shrug.[/i] Residual resonance. It fades. [i]But her hands stay hidden, and her jaw is tight.[/i] It's nothing to worry about.",
+      "next": "ask_inside_order"
+    },
+    "offer_stop_order": {
+      "speaker": "Avyanna",
+      "text": "You don't have to keep going. We can stop here. You've already shared so much.",
+      "next": "nyx_needs_to_continue"
+    },
+    "nyx_needs_to_continue": {
+      "speaker": "Nyx",
+      "text": "[i]She shakes her head.[/i] No. I've been carrying this alone for seven years. Silence hasn't made it lighter. [i]She looks at you with something fragile and resolute.[/i] I want you to know. All of it. If we're going to trust each other — really trust each other — you deserve the truth.",
+      "next": "nyx_describes_order"
+    },
+
+    "the_anniversary_bridge": {
+      "speaker": "SYSTEM",
+      "text": "[i]The maintenance deck is quieter now. Even the engine hum seems muted, as if the ship itself is listening. Nyx sits with her back against the bulkhead, the faint lattice-glow in her hands pulsing slowly, like a heartbeat. Seven years. Tonight marks seven years since she ran through a drainage shaft in stolen shoes.[/i]",
+      "next": "nyx_anniversary"
+    },
+    "nyx_anniversary": {
+      "speaker": "Nyx",
+      "text": "Seven years. [i]She says it like testing a wound.[/i] Every year I tell myself it'll be the last time I count. That I'll stop marking the date. Move forward. [i]A thin, self-aware smile.[/i] Every year I'm wrong.",
+      "next": "nyx_anniversary_ritual"
+    },
+    "nyx_anniversary_ritual": {
+      "speaker": "Nyx",
+      "text": "I have a ritual. Every anniversary, I come to the lowest part of whatever ship or station I'm on and I do maintenance work. The most thankless, invisible labor I can find. Hull reinforcement. Waste system calibration. Lattice repair in places no one will ever see.",
+      "next": "avyanna_asks_why_ritual"
+    },
+    "avyanna_asks_why_ritual": {
+      "speaker": "Avyanna",
+      "text": "Why? As penance?",
+      "next": "nyx_explains_ritual"
+    },
+    "nyx_explains_ritual": {
+      "speaker": "Nyx",
+      "text": "[i]She considers this.[/i] Partly. But mostly because the Order valued spectacle. Grand rituals, beautiful architecture, public demonstrations of power. Everything they did was designed to be seen. To impress. To control through awe. [i]She runs a hand along the rough bulkhead.[/i] This is the opposite. Work that matters because it's needed, not because anyone will applaud.",
+      "next": "nyx_anniversary_meaning"
+    },
+    "nyx_anniversary_meaning": {
+      "speaker": "Nyx",
+      "text": "Seven years of freedom. Seven years of choosing what to do with hands that were trained for violation. [i]Her voice is measured but raw underneath.[/i] Some years it feels like an achievement. Other years it feels like I'm still running. Like the Spire is just beyond the next bulkhead, waiting.",
+      "next": "choice_anniversary"
+    },
+    "choice_anniversary": {
+      "speaker": "SYSTEM",
+      "text": "[i]The anniversary. Not a celebration, not quite a mourning. Something in between — a reckoning. You can feel how much this night costs Nyx. The careful composure, the clinical recitation, the moments where emotion breaks through like light through cracked glass.[/i]",
+      "choices": [
+        {
+          "text": "'Seven years of choosing. That's not running — that's living.'",
+          "next": "reframe_anniversary",
+          "reputation": {
+            "nyx": 2
+          }
+        },
+        {
+          "text": "'What would you tell the version of yourself who ran? If you could go back?'",
+          "next": "ask_past_self",
+          "reputation": {
+            "nyx": 1
+          }
+        },
+        {
+          "text": "'Maybe the counting is okay. It means you remember. And remembering matters.'",
+          "next": "validate_counting",
+          "reputation": {
+            "nyx": 1
+          }
+        }
+      ]
+    },
+    "reframe_anniversary": {
+      "speaker": "Avyanna",
+      "text": "Seven years of choosing. Every single day, you've chosen who to be. What to do with your hands and your knowledge and your time. That's not running. That's living.",
+      "next": "nyx_reframe_response"
+    },
+    "nyx_reframe_response": {
+      "speaker": "Nyx",
+      "text": "[i]She goes very still. The glow in her hands dims to almost nothing — the closest thing to calm you've seen from her tonight.[/i] Living. [i]She repeats it like she's tasting the word, finding it strange.[/i] I've been so focused on what I left that I forgot to name what I have.",
+      "next": "nyx_looks_around"
+    },
+    "nyx_looks_around": {
+      "speaker": "Nyx",
+      "text": "[i]She looks around the maintenance deck — the tools, the lattice-glass crystals in her alcove, the worn bulkheads she's been quietly reinforcing for months.[/i] A crew that trusts me. Work that matters. Someone sitting beside me on the worst night of my year, listening without flinching. [i]She looks at you.[/i] That's not nothing.",
+      "next": "bee_fear_transition"
+    },
+    "ask_past_self": {
+      "speaker": "Avyanna",
+      "text": "What would you tell the version of yourself who ran? If you could go back to that drainage shaft and speak to her?",
+      "next": "nyx_past_self"
+    },
+    "nyx_past_self": {
+      "speaker": "Nyx",
+      "text": "[i]A long silence. When she speaks, her voice is rough.[/i] I'd tell her it's going to hurt. For a long time. That freedom isn't the same as safety, and autonomy comes with a weight the Order never prepared you for. [i]A pause.[/i] And I'd tell her to keep running. That in seven years, she'll be sitting on a maintenance deck with someone who sees her — really sees her — and it will be worth every scar.",
+      "reputation": {
+        "nyx": 1
+      },
+      "next": "bee_fear_transition"
+    },
+    "validate_counting": {
+      "speaker": "Avyanna",
+      "text": "Maybe the counting is okay. Maybe it means you remember what you survived and what it cost. Forgetting would be easier, but remembering... that's brave.",
+      "next": "nyx_counting_response"
+    },
+    "nyx_counting_response": {
+      "speaker": "Nyx",
+      "text": "[i]A breath of laughter — genuine, surprised.[/i] Brave. I've never thought of it as brave. I always thought it was weakness. An inability to let go. [i]She looks at her hands, the faint tremor, the dying glow.[/i] But maybe you're right. Maybe remembering is its own kind of courage.",
+      "next": "bee_fear_transition"
+    },
+
+    "bee_fear_transition": {
+      "speaker": "SYSTEM",
+      "text": "[i]Something shifts in the air. The shard in your chest — Bee — stirs. Not in alarm, but in recognition. It has been listening. Understanding more than you realized. And Nyx senses it. Her eyes fix on your chest, where the shard rests, and her expression changes. Fear. Clear, undisguised fear.[/i]",
+      "text_variants": {
+        "bee_revealed": "[i]Bee pulses once — bright, insistent. It has something to communicate. And Nyx sees it, the glow through your shirt, and her face goes pale.[/i]"
+      },
+      "next": "nyx_sees_bee"
+    },
+    "nyx_sees_bee": {
+      "speaker": "Nyx",
+      "text": "[i]Staring at your chest, where the shard's faint glow pulses beneath your clothing.[/i] It's listening. Your shard — Bee. It's been listening this whole time.",
+      "next": "avyanna_confirms_bee"
+    },
+    "avyanna_confirms_bee": {
+      "speaker": "Avyanna",
+      "text": "Yes. It... understands, I think. It's been quiet. Respectful. But it's paying attention.",
+      "next": "nyx_bee_fear"
+    },
+    "nyx_bee_fear": {
+      "speaker": "Nyx",
+      "text": "[i]She draws back slightly. The fear in her eyes is sharp, immediate.[/i] Avyanna... do you understand what Bee is? What it's doing to you?",
+      "next": "choice_bee_challenge"
+    },
+    "choice_bee_challenge": {
+      "speaker": "SYSTEM",
+      "text": "[i]Nyx's fear is real. Not of Bee specifically, but of what Bee represents — something bound to you, changing you, expanding your capabilities at a cost you might not fully understand. Parallels to her own story that are impossible to ignore.[/i]",
+      "choices": [
+        {
+          "text": "'It's different. Bee chose me. I chose Bee. There was consent.'",
+          "next": "defend_bee_consent",
+          "reputation": {
+            "nyx": 1
+          }
+        },
+        {
+          "text": "'You see parallels. Between your Binding and Bee.'",
+          "next": "acknowledge_parallel"
+        },
+        {
+          "text": "[Empathy DC 16] 'You're afraid for me. Not of Bee — for me.'",
+          "next": "empathy_bee_success",
+          "skill_check": {
+            "stat": "empathy",
+            "skill": "empathy",
+            "dc": 16,
+            "threshold": 16,
+            "on_success": "empathy_bee_success",
+            "on_failure": "empathy_bee_failure"
+          }
+        }
+      ]
+    },
+    "defend_bee_consent": {
+      "speaker": "Avyanna",
+      "text": "It's different. Bee chose me. I chose Bee. There was consent. Nobody forced this.",
+      "next": "nyx_bee_counter"
+    },
+    "nyx_bee_counter": {
+      "speaker": "Nyx",
+      "text": "[i]She holds up a hand — not dismissing, but asking you to hear her.[/i] I know. I know it feels different. And maybe it is. But Avyanna — [i]She leans forward, intense.[/i] I was fifteen and I thought I chose the Order freely. I was wrong. Sometimes we consent to things we don't fully understand. And by the time we understand... [i]She touches the dark lines on her arm.[/i] It's too late to unchoose.",
+      "next": "nyx_bee_specific_fear"
+    },
+    "acknowledge_parallel": {
+      "speaker": "Avyanna",
+      "text": "You see parallels. Between your Binding and what Bee is doing to me.",
+      "next": "nyx_parallel_confirm"
+    },
+    "nyx_parallel_confirm": {
+      "speaker": "Nyx",
+      "text": "[i]A sharp nod.[/i] Yes. A foreign presence bound to your lattice, expanding your capabilities, changing your perception. Power that comes with a cost you can't fully quantify yet. [i]Her voice is tight with restrained fear.[/i] The mechanism is different. The dynamic might be different. But the shape of it — Avyanna, the shape of it is the same.",
+      "next": "nyx_bee_specific_fear"
+    },
+    "empathy_bee_success": {
+      "speaker": "Avyanna",
+      "text": "You're afraid for me. Not of Bee — for me. Because you see yourself.",
+      "next": "nyx_bee_raw"
+    },
+    "nyx_bee_raw": {
+      "speaker": "Nyx",
+      "text": "[i]The fear in her eyes turns to something rawer. Her hands glow bright — stress, pain, old terror.[/i] Yes. Yes. I look at you and I see myself at fifteen, bonded to something I didn't understand, told it was a gift, told I was special. And seven years later I'm sitting on a maintenance deck with dead nerves in my arms and holes in my memory. [i]Her voice breaks.[/i] I can't watch that happen to you. I won't.",
+      "reputation": {
+        "nyx": 2
+      },
+      "next": "nyx_bee_specific_fear"
+    },
+    "empathy_bee_failure": {
+      "speaker": "Avyanna",
+      "text": "You're worried about Bee. About what it's doing.",
+      "next": "nyx_bee_correction"
+    },
+    "nyx_bee_correction": {
+      "speaker": "Nyx",
+      "text": "[i]Sharper than she intended.[/i] I'm worried about you. The shard is a variable, an unknown. But you — you're someone I — [i]She stops, recalibrates.[/i] You matter. To the crew. To the mission. To me. And I've seen what unchecked lattice bonding does to a person.",
+      "next": "nyx_bee_specific_fear"
+    },
+    "nyx_bee_specific_fear": {
+      "speaker": "Nyx",
+      "text": "I watch you, Avyanna. I see the shard's influence growing — your perception sharpening, your lattice sensitivity expanding. You're becoming something more. But more always has a cost. [i]She holds up her trembling hand.[/i] This is what more looks like, eventually.",
+      "next": "choice_bee_resolution"
+    },
+    "choice_bee_resolution": {
+      "speaker": "SYSTEM",
+      "text": "[i]Nyx is terrified — not in the abstract way of theoretical concern, but in the visceral way of someone who has lived the consequences. She's asking you to take this seriously. To recognize the danger in the gift.[/i]",
+      "choices": [
+        {
+          "text": "'Then help me. Monitor me. If you see me changing — really changing — tell me.'",
+          "next": "ask_nyx_monitor",
+          "reputation": {
+            "nyx": 2
+          },
+          "set_flag": "nyx_bee_watchguard"
+        },
+        {
+          "text": "'Bee isn't the Order. But you're right — I need to be careful. We both do.'",
+          "next": "careful_agreement",
+          "reputation": {
+            "nyx": 1
+          }
+        },
+        {
+          "text": "'I hear you. But I trust Bee. And I trust myself. Can you trust me on this?'",
+          "next": "ask_trust",
+          "reputation": {
+            "nyx": 1
+          }
+        }
+      ]
+    },
+    "ask_nyx_monitor": {
+      "speaker": "Avyanna",
+      "text": "Then help me. Be my watchguard. Monitor what Bee is doing — you understand lattice bonding better than anyone. If you see me changing, losing myself, becoming something I wouldn't choose — tell me. Stop me.",
+      "next": "nyx_monitor_accept"
+    },
+    "nyx_monitor_accept": {
+      "speaker": "Nyx",
+      "text": "[i]The fear in her expression doesn't disappear, but something else joins it — purpose. Relief. A role she understands, one that transforms helpless worry into active protection.[/i] Yes. I can do that. I will do that. [i]She meets your eyes.[/i] And you'll listen? If I raise concerns? You won't dismiss them?",
+      "next": "avyanna_promises"
+    },
+    "avyanna_promises": {
+      "speaker": "Avyanna",
+      "text": "I promise. No dismissals. If you see something, I listen. Full stop.",
+      "next": "nyx_watchguard_seal"
+    },
+    "nyx_watchguard_seal": {
+      "speaker": "Nyx",
+      "text": "[i]A breath she's been holding for what feels like hours finally releases.[/i] Thank you. [i]A small, fragile smile.[/i] Maren was my watchguard. Once. Before the Order took that from her. I'll do better. I'll do it right.",
+      "next": "teaching_transition"
+    },
+    "careful_agreement": {
+      "speaker": "Avyanna",
+      "text": "Bee isn't the Order. The circumstances are different, the relationship is different. But you're right — I need to be careful. We both do. I won't be reckless with this.",
+      "next": "nyx_careful_nod"
+    },
+    "nyx_careful_nod": {
+      "speaker": "Nyx",
+      "text": "[i]She nods slowly.[/i] Careful is good. Careful I can work with. [i]A pause.[/i] I'll help you understand what's happening — the lattice changes, the bonding progression. Knowledge is better than ignorance. The Order taught me that much, at least.",
+      "next": "teaching_transition"
+    },
+    "ask_trust": {
+      "speaker": "Avyanna",
+      "text": "I hear you. Your fear is valid and I respect it. But I trust Bee. And I trust myself. Can you trust me on this? Even when it scares you?",
+      "next": "nyx_trust_struggle"
+    },
+    "nyx_trust_struggle": {
+      "speaker": "Nyx",
+      "text": "[i]A long silence. She wrestles with it visibly — fear against respect, protectiveness against autonomy. Finally:[/i] I trust you. [i]Carefully.[/i] I don't trust the situation. But I trust you. And I'll... try to separate the two.",
+      "next": "nyx_trust_condition"
+    },
+    "nyx_trust_condition": {
+      "speaker": "Nyx",
+      "text": "But Avyanna — if I see something, I will say something. Not as judgment. Not as control. As someone who cares about you and has seen what unchecked bonding does. [i]Quieter.[/i] Promise me you'll hear me out when that happens.",
+      "next": "avyanna_trust_promise"
+    },
+    "avyanna_trust_promise": {
+      "speaker": "Avyanna",
+      "text": "I promise.",
+      "next": "teaching_transition"
+    },
+
+    "teaching_transition": {
+      "speaker": "SYSTEM",
+      "text": "[i]Something has shifted between you. The fear isn't gone, but it's shared now — carried together instead of borne alone. Nyx straightens, and a new energy enters her posture. Not clinical distance, but focused intention. The theorist emerging from behind the wounded person.[/i]",
+      "next": "nyx_teaching_offer"
+    },
+    "nyx_teaching_offer": {
+      "speaker": "Nyx",
+      "text": "[i]She stands, offering you a hand up.[/i] Since we're both awake and I've thoroughly ruined the mood for sleep — [i]A trace of her usual dry humor.[/i] — let me show you something. Something real about the lattice. Not theory. Practice.",
+      "next": "choice_teaching"
+    },
+    "choice_teaching": {
+      "speaker": "SYSTEM",
+      "text": "[i]Nyx is offering a gift — not just knowledge, but trust. Teaching you the thing that was used to hurt her. Choosing to transform violation into education.[/i]",
+      "choices": [
+        {
+          "text": "'Yes. Show me.'",
+          "next": "teaching_begins"
+        },
+        {
+          "text": "'Are you sure? After everything tonight — you should rest.'",
+          "next": "concern_for_nyx"
+        }
+      ]
+    },
+    "teaching_begins": {
+      "speaker": "Avyanna",
+      "text": "Yes. Show me.",
+      "next": "nyx_teaching_setup"
+    },
+    "concern_for_nyx": {
+      "speaker": "Avyanna",
+      "text": "Are you sure? You've been doing lattice work all night. And after everything you've told me — you should rest.",
+      "next": "nyx_teaching_insists"
+    },
+    "nyx_teaching_insists": {
+      "speaker": "Nyx",
+      "text": "[i]That small, rare smile again.[/i] This isn't work. This is... [i]She searches for the word.[/i] This is the part that doesn't hurt. Teaching someone who wants to learn. Freely. Without coercion. [i]A breath.[/i] Let me have this. Please.",
+      "next": "nyx_teaching_setup"
+    },
+    "nyx_teaching_setup": {
+      "speaker": "SYSTEM",
+      "text": "[i]Nyx moves to the alcove — her hidden medbay. She selects a crystal, pale blue and roughly the size of a thumb, and a bundle of dried herbs that smell of ozone and sage. She places these on the deck between you, then sits cross-legged, facing you. The maintenance deck becomes a ritual space — improvised, intimate, real.[/i]",
+      "next": "nyx_teaching_crystal"
+    },
+    "nyx_teaching_crystal": {
+      "speaker": "Nyx",
+      "text": "[i]Holding up the crystal.[/i] Lattice-glass. It stores resonance patterns — like a battery for reality's underlying structure. The Order used them for memory extraction. I use them for... this. [i]She places it between you both, and it begins to glow softly.[/i] Close your eyes. Put your hands on either side of the crystal. Don't touch it — just feel.",
+      "next": "avyanna_tries"
+    },
+    "avyanna_tries": {
+      "speaker": "Avyanna",
+      "text": "[i]I close my eyes. My hands hover around the crystal. At first, nothing. Then —[/i]",
+      "next": "lattice_sensation"
+    },
+    "lattice_sensation": {
+      "speaker": "SYSTEM",
+      "text": "[i]The world opens. Not visually — something deeper. You feel the lattice. Not as an abstraction but as a living presence. Threads of connection running through everything — the deck, the walls, the air, you, Nyx. The crystal amplifies your perception, and suddenly you can sense the ship as a single, breathing entity. Every weld, every rivet, every person sleeping in their bunks. All connected. All part of the pattern.[/i]",
+      "next": "avyanna_overwhelmed"
+    },
+    "avyanna_overwhelmed": {
+      "speaker": "Avyanna",
+      "text": "[i]My breath catches.[/i] I can feel... everything. The crew. Jalen dreaming. Elisira reading. Rho... Rho is awake too, in the engine room.",
+      "next": "nyx_guides"
+    },
+    "nyx_guides": {
+      "speaker": "Nyx",
+      "text": "[i]Her voice is steady, guiding. The teacher, not the victim.[/i] Good. Now — feel the connections between them. Not the people themselves, but the bonds. The lattice threads that tie us together. See how they're woven?",
+      "next": "avyanna_sees_bonds"
+    },
+    "avyanna_sees_bonds": {
+      "speaker": "Avyanna",
+      "text": "[i]I can see them — feel them — threads of light and meaning running between every person on the ship. Some thick and warm, others thin and fragile. Some frayed. Some new.[/i] They're beautiful. But some of them are... damaged?",
+      "next": "nyx_explains_damage"
+    },
+    "nyx_explains_damage": {
+      "speaker": "Nyx",
+      "text": "Damage is natural. Relationships strain. Trust breaks. People hurt each other. [i]She pauses.[/i] But look closer. At the damaged threads. What do you see at the edges?",
+      "next": "avyanna_sees_repair"
+    },
+    "avyanna_sees_repair": {
+      "speaker": "Avyanna",
+      "text": "[i]I look — feel — and there it is. At the frayed edges of damaged connections: tiny, deliberate stitches of light. Repairs.[/i] Someone's been fixing them. The damaged bonds. Stitching them back together.",
+      "next": "nyx_admits_repairs"
+    },
+    "nyx_admits_repairs": {
+      "speaker": "Nyx",
+      "text": "[i]Quiet.[/i] Yes. [i]A pause.[/i] That's me. That's what I do. When the crew fights, when trust fractures, when someone is hurting and pulling away — I reinforce the lattice between them. Gently. Without anyone knowing. [i]She looks down.[/i] It's the opposite of what the Order trained me for. And it costs me every time.",
+      "next": "choice_teaching_response"
+    },
+    "choice_teaching_response": {
+      "speaker": "SYSTEM",
+      "text": "[i]You can feel it now — Nyx's presence in the lattice. Not controlling, not dominating, but tending. Like a gardener in a web of light. Every stitch costs her a flicker of her fading pathways, and she does it anyway. Quietly. Without asking for gratitude.[/i]",
+      "choices": [
+        {
+          "text": "'You're holding us together. Literally. Nyx — that's extraordinary.'",
+          "next": "honor_the_work",
+          "reputation": {
+            "nyx": 2
+          }
+        },
+        {
+          "text": "'Let me help. Teach me to do this. Share the cost.'",
+          "next": "offer_share_cost",
+          "reputation": {
+            "nyx": 2
+          },
+          "set_flag": "nyx_lattice_training"
+        },
+        {
+          "text": "'Does the crew know? That you're spending yourself for them?'",
+          "next": "ask_crew_knowledge"
+        }
+      ]
+    },
+    "honor_the_work": {
+      "speaker": "Avyanna",
+      "text": "You're holding us together. Literally. Every day, without anyone knowing, you're spending yourself to keep us whole. [i]My voice is thick.[/i] That's extraordinary, Nyx.",
+      "next": "nyx_dismisses_gently"
+    },
+    "nyx_dismisses_gently": {
+      "speaker": "Nyx",
+      "text": "[i]She shakes her head, but she's smiling — not the bitter smile, not the deflecting one, but something genuine.[/i] It's just work. Someone has to do it. [i]But her eyes are bright.[/i] Though it's... nice. Being seen doing it. Even once.",
+      "next": "resolution_bridge"
+    },
+    "offer_share_cost": {
+      "speaker": "Avyanna",
+      "text": "Then let me help. Teach me to do this — the mending, the reinforcement. If Bee and I can share the cost, maybe it slows your degradation. Maybe we carry it together.",
+      "next": "nyx_considers_sharing"
+    },
+    "nyx_considers_sharing": {
+      "speaker": "Nyx",
+      "text": "[i]Her expression cycles through surprise, calculation, hope, and fear in rapid succession.[/i] The shard might actually... [i]She looks at the crystal between you, still glowing, then at you.[/i] It would be dangerous. You'd be taking on lattice stress your body wasn't built for. But with Bee as a buffer... [i]A breath.[/i] It could work. It might actually work.",
+      "next": "nyx_agrees_sharing"
+    },
+    "nyx_agrees_sharing": {
+      "speaker": "Nyx",
+      "text": "We'll start slow. Meditation and sensing first, then basic reinforcement. I'll monitor your lattice pathways — watch for degradation. [i]Firm.[/i] If I see any damage, we stop. No arguments. Agreed?",
+      "next": "avyanna_agrees_sharing"
+    },
+    "avyanna_agrees_sharing": {
+      "speaker": "Avyanna",
+      "text": "Agreed. No arguments.",
+      "next": "resolution_bridge"
+    },
+    "ask_crew_knowledge": {
+      "speaker": "Avyanna",
+      "text": "Does the crew know? That you're spending yourself for them? Burning out your pathways to keep everyone connected?",
+      "next": "nyx_crew_answer"
+    },
+    "nyx_crew_answer": {
+      "speaker": "Nyx",
+      "text": "[i]A soft laugh.[/i] No. And I'd prefer they didn't. [i]She sees your expression and holds up a hand.[/i] Not out of secrecy. Out of... [i]She searches for the word.[/i] Respect. If they knew, they'd feel guilty. They'd try to stop me. Or worse — they'd treat me differently. Carefully. Like I'm fragile.",
+      "next": "nyx_crew_reason"
+    },
+    "nyx_crew_reason": {
+      "speaker": "Nyx",
+      "text": "I'm not fragile. I'm choosing. Every stitch, every reinforcement — it's my choice. Mine. Not the Order's, not obligation's. Mine. [i]She looks at you steadily.[/i] That's the most important thing I took from the Spire. The right to choose what I spend myself on.",
+      "next": "resolution_bridge"
+    },
+
+    "resolution_bridge": {
+      "speaker": "SYSTEM",
+      "text": "[i]The crystal between you fades as the lattice perception gently recedes. The maintenance deck reasserts itself — steel, shadow, engine hum. But something has changed. The space between you and Nyx feels different. Denser. More real. A bond reinforced not by lattice manipulation but by truth, freely shared.[/i]",
+      "next": "nyx_resolution_quiet"
+    },
+    "nyx_resolution_quiet": {
+      "speaker": "Nyx",
+      "text": "[i]She gathers the crystal and herbs, returning them to the alcove with careful, practiced movements. When she turns back, her expression is open in a way you've never seen. Vulnerable, yes, but also resolved.[/i] Thank you. For staying. For listening. For not flinching.",
+      "next": "choice_resolution"
+    },
+    "choice_resolution": {
+      "speaker": "SYSTEM",
+      "text": "[i]The night is ending. Soon the ship will wake, and Nyx will rebuild her composure, settle back into the measured precision the crew knows. But this moment — this truth between you — will remain. Nyx has one more thing to offer. You can feel it.[/i]",
+      "choices": [
+        {
+          "text": "'Thank you for trusting me. I know that wasn't easy.'",
+          "next": "thank_trust"
+        },
+        {
+          "text": "'Is there anything you need? Right now, tonight?'",
+          "next": "ask_what_needed"
+        },
+        {
+          "text": "'Next anniversary, you're not doing this alone. I'll be here.'",
+          "next": "promise_next_year",
+          "reputation": {
+            "nyx": 2
+          },
+          "set_flag": "nyx_anniversary_promise"
+        }
+      ]
+    },
+    "thank_trust": {
+      "speaker": "Avyanna",
+      "text": "Thank you for trusting me. I know how much that cost you. I won't waste it.",
+      "next": "nyx_offers_ward"
+    },
+    "ask_what_needed": {
+      "speaker": "Avyanna",
+      "text": "Is there anything you need? Right now, tonight?",
+      "next": "nyx_needs_nothing"
+    },
+    "nyx_needs_nothing": {
+      "speaker": "Nyx",
+      "text": "[i]She considers it. Honestly, openly, without deflection.[/i] This was enough. More than enough. [i]A breath.[/i] But there is something I want to give you. If you'll accept it.",
+      "next": "nyx_offers_ward"
+    },
+    "promise_next_year": {
+      "speaker": "Avyanna",
+      "text": "Next anniversary, you're not doing this alone. I'll be here. Same deck, same hour. You're not carrying this by yourself anymore.",
+      "next": "nyx_next_year"
+    },
+    "nyx_next_year": {
+      "speaker": "Nyx",
+      "text": "[i]Something in her breaks open — not in pain, but in relief. Like a door long shut swinging wide.[/i] You mean that. [i]Not a question. She can feel the truth of it in the lattice between you.[/i] I... [i]She closes her eyes.[/i] Thank you. Yes. I'd like that very much.",
+      "next": "nyx_offers_ward"
+    },
+    "nyx_offers_ward": {
+      "speaker": "Nyx",
+      "text": "[i]She reaches into the alcove and produces a small crystal — not the teaching one, but something different. Darker, denser, with a faint inner light that pulses in time with her heartbeat.[/i] This is a ward-stone. I grew it from my own lattice resonance. It took three months.",
+      "next": "nyx_ward_explanation"
+    },
+    "nyx_ward_explanation": {
+      "speaker": "Nyx",
+      "text": "If anyone tries to manipulate your lattice — edit your memories, alter your thoughts, control your mind — this will shatter. The resonance pulse will disrupt the attack. Buy you time to fight back. [i]She holds it out to you.[/i] I made it for... I was going to give it to you eventually. Tonight seems right.",
+      "next": "choice_ward"
+    },
+    "choice_ward": {
+      "speaker": "SYSTEM",
+      "text": "[i]The ward-stone rests in Nyx's palm, pulsing with her heartbeat. Three months of work. Part of her own fading lattice, given freely. This is the most personal thing Nyx could offer — a piece of herself, shaped into protection for you.[/i]",
+      "choices": [
+        {
+          "text": "Accept the ward-stone. 'I'll carry it. Always.'",
+          "next": "accept_ward",
+          "reputation": {
+            "nyx": 2
+          },
+          "set_flag": "nyx_ward_accepted"
+        },
+        {
+          "text": "'Nyx — this is part of you. Part of your lattice. Are you sure?'",
+          "next": "question_ward_cost"
+        }
+      ]
+    },
+    "accept_ward": {
+      "speaker": "Avyanna",
+      "text": "[i]I take it. The crystal is warm — body-warm — and the moment it touches my skin, I feel a resonance. Nyx's presence. Careful, precise, protective. A piece of her, entrusted to me.[/i] I'll carry it. Always.",
+      "next": "nyx_ward_final"
+    },
+    "question_ward_cost": {
+      "speaker": "Avyanna",
+      "text": "Nyx — this is part of you. Part of your lattice. Given what you told me about degradation, about the pathways burning out — can you afford this?",
+      "next": "nyx_ward_honest"
+    },
+    "nyx_ward_honest": {
+      "speaker": "Nyx",
+      "text": "[i]She meets your eyes with absolute honesty.[/i] No. I probably can't. It cost me. [i]A pause.[/i] But keeping you safe is worth a few fewer years of fine motor control. That's my choice. Let me make it.",
+      "next": "avyanna_takes_ward"
+    },
+    "avyanna_takes_ward": {
+      "speaker": "Avyanna",
+      "text": "[i]I take it carefully, reverently, understanding the weight of what she's given.[/i] I'll earn this. I promise.",
+      "next": "nyx_ward_final"
+    },
+    "nyx_ward_final": {
+      "speaker": "Nyx",
+      "text": "[i]She watches you hold the ward-stone, and her expression holds something you've never seen in Nyx before: peace. Imperfect, temporary, fragile — but real.[/i] You already have. [i]Quietly.[/i] You already have.",
+      "next": "final_truth"
+    },
+    "final_truth": {
+      "speaker": "SYSTEM",
+      "text": "[i]The maintenance deck is silent except for the engines. The herbs in Nyx's alcove perfume the recycled air with ozone and sage. In a few hours, the ship will wake. Nyx will slip back behind her composure, her precision, her measured distance. But something fundamental has changed. A wall has come down, and neither of you will pretend it's still standing.[/i]",
+      "next": "nyx_final_words"
+    },
+    "nyx_final_words": {
+      "speaker": "Nyx",
+      "text": "[i]She leans back against the bulkhead, the tremor in her hands quiet for the first time tonight. The glow has faded to almost nothing.[/i] Avyanna? [i]Soft, almost too quiet to hear over the engines.[/i]",
+      "next": "avyanna_final_listen"
+    },
+    "avyanna_final_listen": {
+      "speaker": "Avyanna",
+      "text": "Yes?",
+      "next": "nyx_final_confession"
+    },
+    "nyx_final_confession": {
+      "speaker": "Nyx",
+      "text": "Seven years ago, I ran from people who wanted to own me. I've spent every day since then alone — choosing alone, working alone, burning alone. [i]A pause. When she speaks again, her voice is raw and certain.[/i] I don't want to be alone anymore. Not with you here. Not with this crew. [i]The barest trace of a smile.[/i] That's the most dangerous thing I've ever said.",
+      "reputation": {
+        "nyx": 2
+      },
+      "next": "choice_final"
+    },
+    "choice_final": {
+      "speaker": "SYSTEM",
+      "text": "[i]The last confession. Not of guilt or trauma, but of want. Of hope. The most frightening thing a person who's been hurt can do — choose vulnerability again.[/i]",
+      "choices": [
+        {
+          "text": "'You're not alone. Not anymore. That's a promise, not a platitude.'",
+          "next": "final_promise",
+          "reputation": {
+            "nyx": 2
+          }
+        },
+        {
+          "text": "[Stay silent. Move closer. Let presence be the answer.]",
+          "next": "final_silence",
+          "reputation": {
+            "nyx": 2
+          }
+        },
+        {
+          "text": "'Dangerous is good. Dangerous means it matters.'",
+          "next": "final_dangerous",
+          "reputation": {
+            "nyx": 1
+          }
+        }
+      ]
+    },
+    "final_promise": {
+      "speaker": "Avyanna",
+      "text": "You're not alone. Not anymore. [i]I hold up the ward-stone — her heartbeat pulsing in my palm.[/i] That's a promise, not a platitude.",
+      "next": "final_scene"
+    },
+    "final_silence": {
+      "speaker": "SYSTEM",
+      "text": "[i]You don't speak. Words would be too much and not enough. Instead, you shift closer until your shoulder touches hers. The ward-stone glows between your hands. The shard hums — soft, warm, approving. The lattice between you strengthens on its own, without manipulation, without effort. Just two people choosing to be close.[/i]",
+      "next": "final_scene"
+    },
+    "final_dangerous": {
+      "speaker": "Avyanna",
+      "text": "Dangerous is good. Dangerous means it matters. [i]I catch her eye.[/i] And for the record — I don't want you alone either.",
+      "next": "final_scene"
+    },
+    "final_scene": {
+      "speaker": "SYSTEM",
+      "text": "[i]The maintenance deck. Late cycle. Two people sitting against a bulkhead in the belly of a ship, surrounded by herbs and crystals and the hum of engines that sound, just for a moment, like singing. Nyx's hands are still. The tremor is quiet. The glow has faded. And for the first time in seven years, the anniversary doesn't end with Nyx alone in the dark.[/i]",
+      "set_flag": "deep_nyx_complete",
+      "next": "end"
+    },
+
+    "work_together": {
+      "speaker": "SYSTEM",
+      "text": "[i]Nyx guides you through the basics — placing your hands on the bulkhead, sensing the stress patterns in the metal. The shard helps, feeding you intuition about where to focus. It's slow work, meditative. You fall into comfortable silence.[/i]",
+      "next": "work_revelation"
+    },
+    "work_revelation": {
+      "speaker": "Nyx",
+      "text": "[i]After a while, quietly.[/i] This is why I do it. Not the repairs — the connection. Feeling the ship respond. Knowing I'm helping. [i]A pause.[/i] It's the opposite of what the Writbound did. They took. This is giving.",
+      "next": "avyanna_questions_writbound"
+    },
+    "avyanna_questions_writbound": {
+      "speaker": "Avyanna",
+      "text": "The Writbound? [i]Carefully, not pushing.[/i] You've never mentioned them before.",
+      "next": "nyx_freezes"
+    },
+    "nyx_freezes": {
+      "speaker": "Nyx",
+      "text": "[i]Her hands still on the bulkhead. A long silence.[/i] No. I haven't. [i]Another pause, then quietly.[/i] Today's the anniversary. Seven years since I left.",
+      "next": "writbound_revealed"
+    },
+    "choice_after_deflection": {
+      "speaker": "SYSTEM",
+      "text": "[i]Nyx is shutting you out. You can push, or you can give her space. But pushing might be what she needs — someone who cares enough to see through the walls.[/i]",
+      "choices": [
+        {
+          "text": "'Nyx, please. I'm not leaving. Talk to me.'",
+          "next": "gentle_insistence",
+          "reputation": {
+            "nyx": 1
+          }
+        },
+        {
+          "text": "'Alright. But I'm here if you need me.'",
+          "next": "respectful_distance",
+          "reputation": {
+            "nyx": 1
+          }
+        }
+      ]
+    },
+    "gentle_insistence": {
+      "speaker": "Avyanna",
+      "text": "Nyx. Please. [i]I step closer.[/i] I'm not leaving. Whatever it is, you don't have to carry it alone.",
+      "next": "nyx_walls_crack"
+    },
+    "nyx_walls_crack": {
+      "speaker": "Nyx",
+      "text": "[i]She stops, shoulders sagging slightly.[/i] You're persistent. [i]A long moment, then:[/i] Today's the anniversary. Seven years since I left the Writbound Order.",
+      "reputation": {
+        "nyx": 1
+      },
+      "next": "writbound_revealed"
+    },
+    "respectful_distance": {
+      "speaker": "Avyanna",
+      "text": "Alright. But I'm here if you need me. Anytime.",
+      "next": "nyx_appreciates"
+    },
+    "nyx_appreciates": {
+      "speaker": "Nyx",
+      "text": "[i]She glances at you, something grateful in her expression.[/i] Thank you. [i]She returns to the lattice work, but the tension has eased slightly.[/i] I'll remember that.",
+      "set_flag": "deep_nyx_partial",
+      "next": "end"
+    },
+
+    "offer_training_path": {
+      "speaker": "Nyx",
+      "text": "[i]She's quiet for a moment, then looks at you with new determination.[/i] I want to teach you. Really teach you. Not just basic resonance awareness — deep lattice work. How to read the patterns. How to reinforce them. [i]A pause.[/i] How to protect yourself from manipulation like what was done to me.",
+      "next": "avyanna_surprised"
+    },
+    "avyanna_surprised": {
+      "speaker": "Avyanna",
+      "text": "That's... advanced. Are you sure? After everything you've told me?",
+      "next": "nyx_certain"
+    },
+    "nyx_certain": {
+      "speaker": "Nyx",
+      "text": "[i]She nods.[/i] Especially after everything I've told you. The Writbound might come for you eventually. The shard makes you valuable. Makes you a target. [i]Meeting your eyes directly.[/i] I want you prepared. I want you safe. From them and from anyone else who'd try to control you.",
+      "next": "lattice_personal"
+    },
+    "lattice_personal": {
+      "speaker": "Nyx",
+      "text": "The lattice isn't just academic theory. It's personal. It's the fabric of connection — between people, places, moments. [i]She gestures at the space around you.[/i] When I work on the ship, I'm not just fixing metal. I'm reinforcing the bonds that hold us together. The crew, the journey, the meaning we make.",
+      "next": "lattice_philosophy"
+    },
+    "lattice_philosophy": {
+      "speaker": "Nyx",
+      "text": "The Writbound see it as something to control. But it's not. It's alive. Responsive. It wants connection, not domination. [i]Quieter.[/i] Your shard understands that instinctively. That's why it hasn't hurt you. It's seeking connection, not control.",
+      "next": "choice_training"
+    },
+    "choice_training": {
+      "speaker": "SYSTEM",
+      "text": "[i]Nyx is offering something profound. Not just training, but her philosophy. A different way of understanding the lattice than what the Writbound taught. Personal. Relational. Based on trust, not domination.[/i]",
+      "choices": [
+        {
+          "text": "'Yes. Teach me. I want to understand the way you do.'",
+          "next": "accept_training",
+          "reputation": {
+            "nyx": 2
+          },
+          "set_flag": "nyx_lattice_training"
+        },
+        {
+          "text": "'I want to learn. But I'm afraid of becoming like them — the Writbound.'",
+          "next": "express_training_fear",
+          "reputation": {
+            "nyx": 1
+          }
+        },
+        {
+          "text": "'Can the shard help? It seems to understand lattice work already.'",
+          "next": "ask_shard_training",
+          "reputation": {
+            "nyx": 1
+          }
+        }
+      ]
+    },
+    "accept_training": {
+      "speaker": "Avyanna",
+      "text": "Yes. Teach me. I want to understand the way you do — connection, not control.",
+      "next": "nyx_teaching_begins"
+    },
+    "nyx_teaching_begins": {
+      "speaker": "Nyx",
+      "text": "[i]Her expression opens into something rare — genuine warmth.[/i] Good. We'll start tomorrow. Meditation first, learning to sense the lattice without forcing it. Then resonance work. Then, eventually, defensive techniques. [i]A slight smile.[/i] You'll be better than I was at your stage. You have better teachers than I did.",
+      "next": "training_moment"
+    },
+    "training_moment": {
+      "speaker": "SYSTEM",
+      "text": "[i]Nyx reaches out, takes your hand. Her fingers are warm. Solid. Real. She closes her eyes, and suddenly you feel it — the lattice. Not as abstract theory, but as lived experience. The connections between you and Nyx, you and the ship, you and everyone aboard. A web of meaning, shimmering and alive.[/i]",
+      "next": "avyanna_feels_it"
+    },
+    "avyanna_feels_it": {
+      "speaker": "Avyanna",
+      "text": "[i]I gasp softly.[/i] I can feel it. Everyone. Everything. We're all connected.",
+      "next": "nyx_confirms_feeling"
+    },
+    "nyx_confirms_feeling": {
+      "speaker": "Nyx",
+      "text": "[i]She opens her eyes, still holding your hand.[/i] Yes. That's the lattice. That's what the Writbound tried to control and what we're going to protect. [i]A pause.[/i] Together.",
+      "set_flag": "deep_nyx_complete",
+      "next": "end"
+    },
+    "express_training_fear": {
+      "speaker": "Avyanna",
+      "text": "I want to learn. But I'm afraid. What if I become like them — the Writbound? What if power corrupts me?",
+      "next": "nyx_addresses_fear"
+    },
+    "nyx_addresses_fear": {
+      "speaker": "Nyx",
+      "text": "[i]She takes your concern seriously.[/i] That fear is good. It means you have a moral compass. The Writbound lost theirs — or never had them. [i]A pause.[/i] I'll teach you with safeguards. We'll establish ethical boundaries first. You'll never work alone until you're ready.",
+      "next": "nyx_promise"
+    },
+    "nyx_promise": {
+      "speaker": "Nyx",
+      "text": "And if I ever see you slipping toward their methods — control, violation, domination — I'll stop you. I promise. [i]Her voice is firm.[/i] I won't let you become what I escaped.",
+      "next": "avyanna_accepts_safeguards"
+    },
+    "avyanna_accepts_safeguards": {
+      "speaker": "Avyanna",
+      "text": "Alright. With those safeguards... yes. I'll learn.",
+      "next": "nyx_teaching_begins"
+    },
+    "ask_shard_training": {
+      "speaker": "Avyanna",
+      "text": "Can the shard help? It already seems to understand lattice work. Maybe it could... guide the process?",
+      "next": "nyx_intrigued"
+    },
+    "nyx_intrigued": {
+      "speaker": "Nyx",
+      "text": "[i]She looks intrigued.[/i] That's... actually brilliant. The shard has primordial knowledge of lattice structures. If we treat it as a partner rather than a tool... [i]She smiles slightly.[/i] Yes. Let's try that. A three-way collaboration — you, me, and Bee.",
+      "next": "shard_responds"
+    },
+    "shard_responds": {
+      "speaker": "SYSTEM",
+      "text": "[i]The shard pulses warmly in your chest. Agreement. Enthusiasm. It wants to help. It wants to teach you how to be whole — body, mind, and lattice. Together.[/i]",
+      "next": "nyx_teaching_begins"
+    }
+  }
+}

@@ -1,0 +1,1045 @@
+{
+	"start_node": "start",
+	"nodes": {
+		"start": {
+			"speaker": "SYSTEM",
+			"text": "[i]Crew meeting. Galley. Elia called it with a knock on your door — patient and measured, nothing like the Kennel's shift-change sirens.[/i]",
+			"next": "elia_crew"
+		},
+		"elia_crew": {
+			"speaker": "Elia",
+			"text": "You're not a passenger anymore. You're crew.",
+			"next": "avyanna_automatic"
+		},
+		"avyanna_automatic": {
+			"speaker": "Avyanna",
+			"text": "I know.",
+			"next": "elia_challenge"
+		},
+		"elia_challenge": {
+			"speaker": "Elia",
+			"text": "Do you? Crew works. Not makework — real work. Contributing. [i]Reading your expression.[/i] Not like that. This isn't punishment. It's trust.",
+			"next": "elia_duties"
+		},
+		"elia_duties": {
+			"speaker": "Elia",
+			"text": "You're still recovering. So we start small. Observation posts — watching systems, noting anomalies. Inventory checks. Message running between stations when comms are spotty.",
+			"next": "avyanna_more"
+		},
+		"avyanna_more": {
+			"speaker": "Avyanna",
+			"text": "I can do more. I'm stronger than —",
+			"next": "elia_build"
+		},
+		"elia_build": {
+			"speaker": "Elia",
+			"text": "I know. And you'll do more when you're ready. But we don't break people here. We build them.",
+			"next": "rho_napping"
+		},
+		"rho_napping": {
+			"speaker": "Rho",
+			"text": "[i]Into his coffee.[/i] Also, if you work yourself to collapse, Waffle will design a recovery regime that involves mandatory napping. It's worse than it sounds.",
+			"next": "waffle_nap"
+		},
+		"waffle_nap": {
+			"speaker": "Waffle.bat",
+			"text": "[i]{WAFFLE.BAT// CORRECTION: mandatory napping is EXCELLENT | CREW-COMPLIANCE: historically poor | RECOMMENDATION: try harder}[/i]",
+			"next": "jalen_spa"
+		},
+		"jalen_spa": {
+			"speaker": "Jalen",
+			"text": "She made me sleep for twelve hours once. With ambient sounds. It was like being held hostage by a spa.",
+			"next": "nyx_whales"
+		},
+		"nyx_whales": {
+			"speaker": "Nyx",
+			"text": "She played whale songs at me for three days. Old Earth marine recordings. Very soothing. I wanted to die.",
+			"next": "elia_time"
+		},
+		"elia_time": {
+			"speaker": "Elia",
+			"text": "[i]Ignoring the chaos.[/i] The point is: pace yourself. You have time here.",
+			"next": "meet_crew_choice"
+		},
+		"meet_crew_choice": {
+			"speaker": "SYSTEM",
+			"text": "[i]The meeting disperses. The crew filters back to their stations. You have time to talk to people.[/i]",
+			"choices": [
+				{
+					"text": "Find Nyx in her lab",
+					"next": "nyx_lab"
+				},
+				{
+					"text": "Follow Rho to the cargo bay",
+					"next": "rho_cargo"
+				},
+				{
+					"text": "Look for Jalen on the bridge",
+					"next": "jalen_bridge"
+				},
+				{
+					"text": "Deliver a message for Elia",
+					"next": "message_run"
+				},
+				{
+					"text": "Find Vesper — you have questions about the crew structure",
+					"next": "vesper_visit"
+				}
+			]
+		},
+		"vesper_visit": {
+			"speaker": "SYSTEM",
+			"text": "[i]You find Vesper in their quarters — a space that's part office, part armory, part something you don't have words for.[/i]",
+			"next": "vesper_greeting"
+		},
+		"vesper_greeting": {
+			"speaker": "Vesper",
+			"text": "Questions about the crew? Good. Means you're thinking about how to work with them. [i]They gesture to a chair.[/i] Ask.",
+			"next": "vesper_choice"
+		},
+		"vesper_choice": {
+			"speaker": "SYSTEM",
+			"text": "",
+			"choices": [
+				{
+					"text": "'How long have you been running this crew?'",
+					"next": "vesper_history"
+				},
+				{
+					"text": "'What do you need from me?'",
+					"next": "vesper_expectations"
+				}
+			]
+		},
+		"vesper_history": {
+			"speaker": "Vesper",
+			"text": "Eight years. Built it piece by piece — people who needed work that mattered. People who needed a place that didn't measure them in extraction quotas. [i]A pause.[/i] People who needed to be crew, not inventory.",
+			"set_flag": "first_watch_visited_vesper",
+			"reputation": {"vesper": 2},
+			"next": "return_choice_vesper"
+		},
+		"vesper_expectations": {
+			"speaker": "Vesper",
+			"text": "Show up. Do your work. Don't lie to the people covering your back. [i]Meeting your eyes.[/i] That's it. We don't need perfection. We need reliability. You're already doing fine.",
+			"set_flag": "first_watch_visited_vesper",
+			"reputation": {"vesper": 2},
+			"next": "return_choice_vesper"
+		},
+		"return_choice_vesper": {
+			"speaker": "SYSTEM",
+			"text": "[i]Vesper returns to their work — confident you'll figure out what you need to.[/i]",
+			"choices": [
+				{
+					"text": "Find Nyx in her lab",
+					"next": "nyx_lab"
+				},
+				{
+					"text": "Follow Rho to the cargo bay",
+					"next": "rho_cargo"
+				},
+				{
+					"text": "Look for Jalen on the bridge",
+					"next": "jalen_bridge"
+				},
+				{
+					"text": "That's enough for today",
+					"next": "end_watch"
+				}
+			]
+		},
+		"nyx_lab": {
+			"speaker": "SYSTEM",
+			"text": "[i]The lab is cluttered in the way genius is cluttered — organized chaos, every surface covered with equipment you don't recognize.[/i]",
+			"next": "nyx_greeting"
+		},
+		"nyx_greeting": {
+			"speaker": "Nyx",
+			"text": "Ah. The new observer. Come in. Don't touch the crystals on the left — they're calibrating. The ones on the right are just decorative. Or possibly sentient. I haven't decided.",
+			"next": "nyx_shard_mention"
+		},
+		"nyx_shard_mention": {
+			"speaker": "Nyx",
+			"text": "I've been studying Lattice phenomena for decades, and I've never seen anything quite like what you're carrying. Whatever it is — it's old. Pre-Synthetic, maybe. Older than the protocols most people use without thinking.",
+			"next": "nyx_choice"
+		},
+		"nyx_choice": {
+			"speaker": "SYSTEM",
+			"text": "",
+			"choices": [
+				{
+					"text": "'Is it dangerous?'",
+					"next": "nyx_dangerous"
+				},
+				{
+					"text": "'Can you help me understand it?'",
+					"next": "nyx_understand"
+				}
+			]
+		},
+		"nyx_dangerous": {
+			"speaker": "Nyx",
+			"text": "Everything is dangerous. Gravity is dangerous. The question is: dangerous to whom, and in what direction? This... it seems to be dangerous [i]for[/i] you, not [i]to[/i] you. There's a difference.",
+			"set_flag": "first_watch_visited_nyx",
+			"reputation": {"nyx": 2},
+			"next": "return_choice_1"
+		},
+		"nyx_understand": {
+			"speaker": "Nyx",
+			"text": "I can try. Understanding is what I do — though the universe and I disagree on definitions frequently. [i]A small smile.[/i] We'll figure it out together. In your time. No extraction schedules here.",
+			"set_flag": "first_watch_visited_nyx",
+			"reputation": {"nyx": 2},
+			"next": "nyx_empathy_check"
+		},
+		"nyx_empathy_check": {
+			"speaker": "SYSTEM",
+			"text": "[i]There's something in Nyx's voice — a weariness hidden beneath the kindness. You recognize it.[/i]",
+			"choices": [
+				{
+					"text": "[Empathy DC 10] 'You've been studying this alone for a long time, haven't you?'",
+					"next": "nyx_empathy_skill",
+					"skill_check": {
+						"skill": "Empathy",
+						"dc": 10
+					}
+				},
+				{
+					"text": "'Thank you. I appreciate it.'",
+					"next": "return_choice_1"
+				}
+			]
+		},
+		"nyx_empathy_skill": {
+			"speaker": "SYSTEM",
+			"text": "",
+			"skill_check": {
+				"skill": "Empathy",
+				"dc": 10,
+				"on_success": "nyx_empathy_success",
+				"on_failure": "nyx_empathy_failure"
+			},
+			"next": "nyx_empathy_success"
+		},
+		"nyx_empathy_success": {
+			"speaker": "Nyx",
+			"text": "[i]A pause. Then, quietly:[/i] Yes. Decades. It's... easier with someone who asks questions instead of demanding answers. [i]She meets your eyes.[/i] Thank you for asking.",
+			"reputation": {"nyx": 1},
+			"next": "return_choice_1"
+		},
+		"nyx_empathy_failure": {
+			"speaker": "Nyx",
+			"text": "[i]A small smile.[/i] We all study something. Mine just happens to make most people nervous. It's fine. I'm used to it.",
+			"next": "return_choice_1"
+		},
+		"return_choice_1": {
+			"speaker": "SYSTEM",
+			"text": "[i]You leave the lab with more questions than answers. But for the first time, the questions don't feel dangerous.[/i]",
+			"choices": [
+				{
+					"text": "Find Rho in the cargo bay",
+					"next": "rho_cargo"
+				},
+				{
+					"text": "Look for Jalen on the bridge",
+					"next": "jalen_bridge"
+				},
+				{
+					"text": "That's enough for today",
+					"next": "end_watch"
+				}
+			]
+		},
+		"rho_cargo": {
+			"speaker": "SYSTEM",
+			"text": "[i]The cargo bay. Rho is running maintenance on something large and mechanical. His hands are scarred — burns, not cuts. Chemical or thermal, healed rough.[/i]",
+			"next": "rho_greeting"
+		},
+		"rho_greeting": {
+			"speaker": "Rho",
+			"text": "You're hovering. That's fine. I hover too, when I'm figuring out where things go.",
+			"next": "rho_protein"
+		},
+		"rho_protein": {
+			"speaker": "Rho",
+			"text": "[i]He reaches into a crate and tosses you a protein bar.[/i] You look like you're running on fumes and stubbornness. Eat.",
+			"next": "rho_choice"
+		},
+		"rho_choice": {
+			"speaker": "SYSTEM",
+			"text": "",
+			"choices": [
+				{
+					"text": "'What do you do on this ship?'",
+					"next": "rho_role"
+				},
+				{
+					"text": "'The cannon in the corridor — is that yours?'",
+					"next": "rho_cannon"
+				}
+			]
+		},
+		"rho_role": {
+			"speaker": "Rho",
+			"text": "I break things. Carefully. [i]The grin is broad and practiced — armor that fits so well it looks natural.[/i] Making things fall is easy. Making them fall where you want — that's the job. Also, dishes. Apparently it's always my turn for dishes.",
+			"set_flag": "first_watch_visited_rho",
+			"reputation": {"rho": 2},
+			"next": "return_choice_2"
+		},
+		"rho_cannon": {
+			"speaker": "Rho",
+			"text": "[i]A pause. The grin flickers.[/i] Yeah. Proportional. She's... she's mine. Jalen calls her 'the conversation ender.' Vesper calls her 'a liability in seventeen jurisdictions.' [i]beat[/i] They're both right.",
+			"set_flag": "first_watch_visited_rho",
+			"reputation": {"rho": 2},
+			"next": "return_choice_2"
+		},
+		"return_choice_2": {
+			"speaker": "SYSTEM",
+			"text": "[i]Rho goes back to his maintenance. The protein bar is good. Better than anything the Kennel ever dispensed.[/i]",
+			"choices": [
+				{
+					"text": "Find Jalen on the bridge",
+					"next": "jalen_bridge"
+				},
+				{
+					"text": "That's enough for today",
+					"next": "end_watch"
+				}
+			]
+		},
+		"jalen_bridge": {
+			"speaker": "SYSTEM",
+			"text": "[i]The bridge. Jalen occupies the pilot's chair like it grew around him, muttering at trajectory readouts that have apparently offended him personally.[/i]",
+			"next": "jalen_greeting"
+		},
+		"jalen_greeting": {
+			"speaker": "Jalen",
+			"text": "If you're here to ask about navigation, the short answer is: the routes just like me better than them. The long answer involves math that makes Nyx cry.",
+			"next": "jalen_choice"
+		},
+		"jalen_choice": {
+			"speaker": "SYSTEM",
+			"text": "",
+			"choices": [
+				{
+					"text": "'How long have you been flying?'",
+					"next": "jalen_flying"
+				},
+				{
+					"text": "'Where are we going?'",
+					"next": "jalen_destination"
+				}
+			]
+		},
+		"jalen_flying": {
+			"speaker": "Jalen",
+			"text": "Long enough that the ship and I have stopped arguing about who's in charge. [i]A glance — brief, assessing, not unfriendly.[/i] The answer is neither of us. The route decides. We just listen.",
+			"set_flag": "first_watch_visited_jalen",
+			"reputation": {"jalen": 2},
+			"next": "end_watch"
+		},
+		"jalen_destination": {
+			"speaker": "Jalen",
+			"text": "Guild Station Kael-7. Resupply. Vesper has contracts to file. Elia has opinions about hull repair quality. Nyx wants crystals. Rho wants protein in bulk. [i]beat[/i] I want a trajectory window that doesn't make me compromise my standards. We'll see who gets what they want.",
+			"set_flag": "first_watch_visited_jalen",
+			"reputation": {"jalen": 2},
+			"next": "end_watch"
+		},
+		"message_run": {
+			"speaker": "SYSTEM",
+			"text": "[i]Elia hands you a datapad.[/i]",
+			"next": "elia_message"
+		},
+		"elia_message": {
+			"speaker": "Elia",
+			"text": "Take this to Nyx in the lab. Manifest update for her resonance equipment. Tell her the numbers are preliminary but actionable.",
+			"next": "avyanna_sir"
+		},
+		"avyanna_sir": {
+			"speaker": "Avyanna",
+			"text": "Yes, sir.",
+			"next": "elia_name_correction"
+		},
+		"elia_name_correction": {
+			"speaker": "Elia",
+			"text": "[i]Something between amusement and something sharper.[/i] It's Elia. Or 'hey, you with the knife.' I answer to both.",
+			"set_flag": "first_watch_visited_elia",
+			"reputation": {"elia": 2},
+			"next": "nyx_delivery"
+		},
+		"nyx_delivery": {
+			"speaker": "Avyanna",
+			"text": "[i]In Nyx's lab, formal and clipped.[/i] Manifest update for resonance equipment. Numbers are preliminary but actionable.",
+			"next": "nyx_captain"
+		},
+		"nyx_captain": {
+			"speaker": "Nyx",
+			"text": "Did you just call Elia 'Captain Lagrange'? No one has ever called her that. In the history of this ship. I don't think she even knows that's technically her title.",
+			"next": "waffle_observation"
+		},
+		"waffle_observation": {
+			"speaker": "Waffle.bat",
+			"text": "[i]{WAFFLE.BAT// NEW-OBSERVER: Avyanna Lagrange | TRAINING-STATUS: day 1 | NOTE: she's already found two patterns I missed. concerning. impressive. concerning.}[/i]",
+			"set_flag": "first_watch_visited_nyx",
+			"reputation": {"nyx": 1},
+			"next": "end_watch"
+		},
+		"end_watch": {
+			"speaker": "SYSTEM",
+			"text": "[i]First watch complete. The ship settles into its evening rhythm.[/i]",
+			"next": "bubbles_goodnight"
+		},
+		"bubbles_goodnight": {
+			"speaker": "Bubbles",
+			"text": "[i]Through the corridor speakers, gentle:[/i] Good first day, Avyanna. Your quarters are warmed to standard. I left chamomile on the side table — it helps with the adjustment.",
+			"next": "cinnamon_status"
+		},
+		"cinnamon_status": {
+			"speaker": "Cinnamon",
+			"text": "All stations nominal. Night shift protocols active. Rest well.",
+			"next": "first_watch_final"
+		},
+		"first_watch_final": {
+			"speaker": "SYSTEM",
+			"text": "[i]The ship hums around you — alive, purposeful, going somewhere. Voices woven into its walls. And for the first time, you're going with it.\n\nNot as cargo. Not as inventory. As crew.[/i]",
+			"set_flag": "completed_first_watch",
+			"next": "night_watch_transition"
+		},
+
+		"night_watch_transition": {
+			"speaker": "SYSTEM",
+			"text": "[i]Sleep comes in fragments. Three hours — maybe four. Then Bubbles chimes, soft as breath.[/i]",
+			"next": "bubbles_wake"
+		},
+		"bubbles_wake": {
+			"speaker": "Bubbles",
+			"text": "Avyanna. Your night watch shift begins in fifteen minutes. Observation deck. Vesper is already there — she'll walk you through the protocols.",
+			"next": "night_watch_corridor"
+		},
+		"night_watch_corridor": {
+			"speaker": "SYSTEM",
+			"text": "[i]The corridor is different at night. The ship breathes differently — deeper, slower, the hum of the engines dropping into a lower register. Emergency lighting casts long amber pools across the deck plates. Your footsteps sound like they belong to someone else.[/i]",
+			"next": "obs_deck_arrival"
+		},
+		"obs_deck_arrival": {
+			"speaker": "SYSTEM",
+			"text": "[i]The observation deck opens up like a held breath. Three walls of reinforced glass curving into a single panoramic viewport. Beyond it — the drift. Stars scattered like broken glass across black velvet, some close enough to cast faint color on the deck plates. The ship's running lights pulse at the edge of your vision, slow and rhythmic. A heartbeat.[/i]",
+			"next": "obs_deck_sounds"
+		},
+		"obs_deck_sounds": {
+			"speaker": "SYSTEM",
+			"text": "[i]Sounds layer themselves: the deep thrum of the reactor two decks below, the whisper of recycled air through the vents, the occasional tick of hull plating contracting in the cold. Somewhere, a pipe settles with a low groan. The ship talks to itself at night — a language you're only beginning to learn.[/i]",
+			"next": "vesper_at_station"
+		},
+		"vesper_at_station": {
+			"speaker": "SYSTEM",
+			"text": "[i]Vesper sits at the main monitoring station, boots up on the console, a mug of something dark and bitter-smelling cradled in both hands. She doesn't look up when you enter. She doesn't need to.[/i]",
+			"next": "vesper_ice_breaker"
+		},
+		"vesper_ice_breaker": {
+			"speaker": "Vesper",
+			"text": "You walk quietly. Good instinct. Bad habit if you do it because you're afraid of being heard. [i]She gestures to the second chair with her mug.[/i] Sit. Coffee's in the thermos — real coffee, not the recycled misery Jalen pretends to enjoy.",
+			"next": "vesper_ice_choice"
+		},
+		"vesper_ice_choice": {
+			"speaker": "SYSTEM",
+			"text": "",
+			"choices": [
+				{
+					"text": "Take the coffee. Sit down.",
+					"next": "vesper_coffee_accept"
+				},
+				{
+					"text": "Remain standing. 'I'm ready for the briefing.'",
+					"next": "vesper_formal_response"
+				},
+				{
+					"text": "'I walk quietly because floors in the Kennel creaked. Creaking meant attention.'",
+					"next": "vesper_honesty_response"
+				}
+			]
+		},
+		"vesper_coffee_accept": {
+			"speaker": "SYSTEM",
+			"text": "[i]The coffee is strong enough to strip paint. It's wonderful. You wrap your hands around the mug and the warmth seeps into your fingers like a small, deliberate kindness.[/i]",
+			"next": "vesper_protocol_start"
+		},
+		"vesper_formal_response": {
+			"speaker": "Vesper",
+			"text": "[i]A beat. Then, without judgment:[/i] The briefing can wait thirty seconds for you to sit down and be a person. Efficiency is good. Rigidity gets people killed.",
+			"next": "vesper_protocol_start"
+		},
+		"vesper_honesty_response": {
+			"speaker": "Vesper",
+			"text": "[i]She looks at you for the first time. Really looks. Something shifts behind her eyes — not pity, something harder, something that has its own scars.[/i] Yeah. I know floors like that. [i]A pause.[/i] These ones don't creak. And nobody here is listening for you to slip.",
+			"reputation": {"vesper": 1},
+			"next": "vesper_protocol_start"
+		},
+		"vesper_protocol_start": {
+			"speaker": "Vesper",
+			"text": "Right. Night watch. Three things matter: sensors, comms, and your eyes. In that order — except when they shouldn't be.",
+			"next": "vesper_protocol_sensors"
+		},
+		"vesper_protocol_sensors": {
+			"speaker": "Vesper",
+			"text": "[i]She pulls up the sensor array — a constellation of readouts washing the console in pale blue light.[/i] Proximity grid shows everything within ten thousand klicks. Green is known. Yellow is unclassified. Red is hostile or unknown-and-moving-wrong. You see red, you wake me. You don't assess, you don't investigate, you wake me.",
+			"next": "vesper_protocol_comms"
+		},
+		"vesper_protocol_comms": {
+			"speaker": "Vesper",
+			"text": "Comms stay open on channel four — that's our internal. Channel seven is emergency broad-spectrum. You hear anything on seven that isn't us, you log it and flag it. Most of it's garbage — old relay echoes, automated distress from ships that died before we were born. But sometimes it isn't.",
+			"next": "vesper_protocol_eyes"
+		},
+		"vesper_protocol_eyes": {
+			"speaker": "Vesper",
+			"text": "And your eyes. [i]She nods toward the viewport.[/i] Sensors miss things. Especially in the drift — too much particulate, too many false returns. Sometimes you see something the instruments don't catch. A shadow that moves wrong. A light where there shouldn't be one. Trust your gut. Report everything. Let me sort the noise from the signal.",
+			"next": "vesper_protocol_acknowledge"
+		},
+		"vesper_protocol_acknowledge": {
+			"speaker": "SYSTEM",
+			"text": "",
+			"choices": [
+				{
+					"text": "'Understood. Sensors, comms, eyes. Wake you for red contacts.'",
+					"next": "vesper_protocol_good"
+				},
+				{
+					"text": "'What if I'm not sure something is worth reporting?'",
+					"next": "vesper_protocol_unsure"
+				}
+			]
+		},
+		"vesper_protocol_good": {
+			"speaker": "Vesper",
+			"text": "Clean summary. You listen well. [i]The approval is understated but real.[/i]",
+			"reputation": {"vesper": 1},
+			"next": "watch_settling"
+		},
+		"vesper_protocol_unsure": {
+			"speaker": "Vesper",
+			"text": "Then report it. I'd rather sort through ten false alarms than miss the one that matters because someone was afraid of looking foolish. [i]Firm, not harsh.[/i] Nobody on this crew will laugh at you for being careful. That's a promise.",
+			"reputation": {"vesper": 1},
+			"next": "watch_settling"
+		},
+		"watch_settling": {
+			"speaker": "SYSTEM",
+			"text": "[i]Silence settles. Not the silence of empty rooms or punishment cells — something softer. The kind of silence that exists between people who are comfortable enough not to fill it. The stars turn slowly outside the viewport, patient and indifferent.[/i]",
+			"next": "vesper_home_question"
+		},
+		"vesper_home_question": {
+			"speaker": "Vesper",
+			"text": "[i]After a long while, quiet enough that it almost gets lost in the engine hum:[/i] You settling in okay? The quarters, the noise, the... all of it.",
+			"next": "home_choice"
+		},
+		"home_choice": {
+			"speaker": "SYSTEM",
+			"text": "",
+			"choices": [
+				{
+					"text": "'The ship feels strange. I keep waiting for it to feel like a cage.'",
+					"next": "home_cage"
+				},
+				{
+					"text": "'It's more space than I've ever had. I don't know what to do with it.'",
+					"next": "home_space"
+				},
+				{
+					"text": "'I don't know what home is supposed to feel like. I don't have a reference point.'",
+					"next": "home_unknown"
+				},
+				{
+					"text": "[asked_about_others] 'The others you told me about — the ones who didn't make it out. Did they ever get to feel this?'",
+					"next": "home_others",
+					"condition": {"flag": "asked_about_others"}
+				}
+			]
+		},
+		"home_cage": {
+			"speaker": "Vesper",
+			"text": "Give it time. [i]She watches the stars.[/i] When I first shipped out — really shipped out, on my own terms — I kept checking the doors. Making sure they opened from the inside. Took me a year to stop. Two years to stop being ashamed of it.",
+			"next": "home_vesper_truth"
+		},
+		"home_space": {
+			"speaker": "Vesper",
+			"text": "You fill it. Slowly. With things that matter to you — not things assigned to you. [i]A half-smile.[/i] Rho filled his with weapons. Nyx filled theirs with crystals. Jalen filled his with trajectory charts and bad coffee. It'll come.",
+			"next": "home_vesper_truth"
+		},
+		"home_unknown": {
+			"speaker": "Vesper",
+			"text": "[i]Something in her expression tightens — recognition, old and deep.[/i] Neither did I, for a long time. Home isn't a feeling you arrive at. It's something you build, one watch at a time, with people who show up for the next one.",
+			"reputation": {"vesper": 1},
+			"next": "home_vesper_truth"
+		},
+		"home_others": {
+			"speaker": "Vesper",
+			"text": "[i]A long silence. When she speaks, her voice is careful — not fragile, but precise, the way you handle something that could cut.[/i] Some of them did. Briefly. [i]She sets her mug down.[/i] That's why we keep doing this. So 'briefly' turns into 'always' for the next one.",
+			"text_variants": {
+				"asked_about_others": "Some of them did. Briefly. And I remember every one. [i]She sets her mug down, and her fingers press flat against the console — grounding.[/i] That's why we keep doing this. So you get what they didn't. Not briefly. For keeps."
+			},
+			"reputation": {"vesper": 2},
+			"next": "home_vesper_truth"
+		},
+		"home_vesper_truth": {
+			"speaker": "Vesper",
+			"text": "The ship is home because the people on it chose to make it one. That's the secret nobody tells you — home is a decision, not a place. And every person on this crew made that decision.",
+			"next": "home_avyanna_response"
+		},
+		"home_avyanna_response": {
+			"speaker": "Avyanna",
+			"text": "[i]Quietly, into the dark between stars:[/i] I think I'm starting to.",
+			"next": "nyx_entrance"
+		},
+		"nyx_entrance": {
+			"speaker": "SYSTEM",
+			"text": "[i]Footsteps in the corridor — light, deliberate, accompanied by the faint crystalline chime of Lattice instruments. Nyx appears in the doorway, hair disheveled, wearing a lab coat over what appear to be pajamas covered in a pattern of small moons.[/i]",
+			"next": "nyx_night_greeting"
+		},
+		"nyx_night_greeting": {
+			"speaker": "Nyx",
+			"text": "Don't judge the pajamas. They were a gift from Jalen and refusing them would have caused a diplomatic incident. [i]She drifts toward the viewport, a handheld resonance scanner held loosely at her side.[/i] The Lattice behaves differently at night. Well — not night. There's no night in space. During the ship's rest cycle. When fewer minds are generating interference.",
+			"next": "nyx_lattice_night"
+		},
+		"nyx_lattice_night": {
+			"speaker": "Nyx",
+			"text": "[i]She holds up the scanner. Faint lines of light trace through the air — patterns you almost recognize, like words in a language you dreamed once.[/i] See? The ambient resonance drops by thirty percent when most of the crew sleeps. The Lattice gets... quieter. Clearer. Like a lake after the wind dies.",
+			"next": "nyx_lattice_choice"
+		},
+		"nyx_lattice_choice": {
+			"speaker": "SYSTEM",
+			"text": "",
+			"choices": [
+				{
+					"text": "'Does the shard react to it? I've been feeling... something. At the edges.'",
+					"next": "nyx_shard_night"
+				},
+				{
+					"text": "'What are you looking for out here at this hour?'",
+					"next": "nyx_research_night"
+				}
+			]
+		},
+		"nyx_shard_night": {
+			"speaker": "Nyx",
+			"text": "[i]Her eyes sharpen — the scattered academic snapping into focus like a lens adjusting.[/i] You're feeling it now? Describe it. Everything. Don't filter, don't translate, just — what does it feel like?",
+			"next": "nyx_shard_describe"
+		},
+		"nyx_shard_describe": {
+			"speaker": "Avyanna",
+			"text": "Like... pressure behind my eyes. Not painful. Like something is trying to tune in. A frequency looking for a receiver.",
+			"next": "nyx_shard_reaction"
+		},
+		"nyx_shard_reaction": {
+			"speaker": "Nyx",
+			"text": "[i]Scribbling on a datapad, muttering:[/i] Consistent with passive resonance seeking... the shard is reaching. Not for you — through you. Using you as an antenna. [i]Looking up.[/i] That's not dangerous. Yet. But we should monitor it. I'll calibrate a tracking routine with Waffle.",
+			"reputation": {"nyx": 1},
+			"next": "nyx_depart"
+		},
+		"nyx_research_night": {
+			"speaker": "Nyx",
+			"text": "Baseline readings. The Lattice is like a body of water — you need to know what 'calm' looks like before you can identify a disturbance. [i]A wry smile.[/i] Also, I don't sleep well. Never have. The universe is too interesting to waste time being unconscious.",
+			"next": "nyx_depart"
+		},
+		"nyx_depart": {
+			"speaker": "Nyx",
+			"text": "I'll leave you to your watch. [i]Pausing at the door.[/i] Avyanna — the quiet hours are good for listening. Not just to the sensors. To yourself. The shard responds to attention. Be careful what you attend to.",
+			"next": "nyx_vesper_exchange"
+		},
+		"nyx_vesper_exchange": {
+			"speaker": "Vesper",
+			"text": "[i]After Nyx leaves, dry:[/i] Moon pajamas. Every time.",
+			"next": "post_nyx_quiet"
+		},
+		"post_nyx_quiet": {
+			"speaker": "SYSTEM",
+			"text": "[i]The observation deck settles again. The scanner's afterglow fades from your retinas. Vesper checks the sensor grid — a reflex, practiced and automatic. The stars continue their slow, indifferent revolution.[/i]",
+			"next": "rho_sweep_arrival"
+		},
+		"rho_sweep_arrival": {
+			"speaker": "SYSTEM",
+			"text": "[i]Heavy footsteps. Deliberate — not trying to be quiet, but not trying to be loud either. Rho rounds the corner in full tactical gear, sidearm holstered, scanning the corridor behind him before stepping onto the deck. Old habits carved into muscle memory.[/i]",
+			"next": "rho_sweep_greeting"
+		},
+		"rho_sweep_greeting": {
+			"speaker": "Rho",
+			"text": "Security sweep. [i]He nods at Vesper, then at you. His eyes do a quick inventory — your position, your alertness, the console readouts.[/i] Deck five clear. Deck four clear. How's she doing?",
+			"next": "vesper_rho_report"
+		},
+		"vesper_rho_report": {
+			"speaker": "Vesper",
+			"text": "She's sitting right there. Ask her yourself.",
+			"next": "rho_direct"
+		},
+		"rho_direct": {
+			"speaker": "Rho",
+			"text": "[i]A grunt that might be amusement.[/i] Fair. [i]Turning to you.[/i] How's the watch, kid? Anything weird? Anything off? Gut feelings count.",
+			"next": "rho_watch_report"
+		},
+		"rho_watch_report": {
+			"speaker": "SYSTEM",
+			"text": "",
+			"choices": [
+				{
+					"text": "'All clear. Green across the board. Nyx came through for Lattice readings.'",
+					"next": "rho_report_clean"
+				},
+				{
+					"text": "'Quiet so far. Almost too quiet.'",
+					"next": "rho_report_cautious"
+				}
+			]
+		},
+		"rho_report_clean": {
+			"speaker": "Rho",
+			"text": "Good. Clean report, no hedging. [i]He pulls a second protein bar from a pocket and sets it on the console without comment.[/i]",
+			"reputation": {"rho": 1},
+			"next": "rho_caring_moment"
+		},
+		"rho_report_cautious": {
+			"speaker": "Rho",
+			"text": "[i]A slow nod.[/i] Good instinct. 'Too quiet' is worth noting. Means you're not taking peace for granted. [i]He pulls a second protein bar from a pocket and sets it on the console without comment.[/i]",
+			"reputation": {"rho": 1},
+			"next": "rho_caring_moment"
+		},
+		"rho_caring_moment": {
+			"speaker": "Rho",
+			"text": "Eat that before dawn. Blood sugar crashes make you miss things. [i]He checks the viewport — not the instruments, the actual glass, scanning the dark with eyes that have clearly done this a thousand times.[/i] You need anything, hit the comm. I'm two decks down.",
+			"next": "rho_door_pause"
+		},
+		"rho_door_pause": {
+			"speaker": "Rho",
+			"text": "[i]At the door, without turning:[/i] You're doing fine, kid. First watch is always the longest. Gets easier.",
+			"next": "vesper_rho_comment"
+		},
+		"vesper_rho_comment": {
+			"speaker": "Vesper",
+			"text": "[i]Watching him go, quietly:[/i] He does that sweep every night. Has for eight years. Doesn't have to — Cinnamon covers security monitoring. He does it anyway. [i]A pause.[/i] That's who he is.",
+			"next": "vesper_break"
+		},
+		"vesper_break": {
+			"speaker": "Vesper",
+			"text": "I'm going to do a perimeter check. Fifteen minutes. You have the deck. [i]She meets your eyes — testing, trusting.[/i] Watch the sensors. Trust yourself.",
+			"next": "alone_on_deck"
+		},
+		"alone_on_deck": {
+			"speaker": "SYSTEM",
+			"text": "[i]And then you're alone. Truly alone for the first time since — since the Kennel. But this is different. This solitude is given, not inflicted. The observation deck stretches around you, glass and stars and the quiet machinery of something that carries people instead of containing them.[/i]",
+			"next": "ship_life_choice"
+		},
+		"ship_life_choice": {
+			"speaker": "SYSTEM",
+			"text": "[i]The silence opens a door inside you. Thoughts you've been holding at arm's length begin to drift closer.[/i]",
+			"choices": [
+				{
+					"text": "[i]Let yourself feel it — the vastness, the freedom, the terror of having no walls.[/i]",
+					"next": "ship_life_vastness"
+				},
+				{
+					"text": "[i]Focus on the instruments. Stay in the task. Don't let the quiet in.[/i]",
+					"next": "ship_life_focus"
+				},
+				{
+					"text": "[i]Press your hand against the viewport glass. Feel the cold. Feel the real.[/i]",
+					"next": "ship_life_touch"
+				}
+			]
+		},
+		"ship_life_vastness": {
+			"speaker": "SYSTEM",
+			"text": "[i]It hits you all at once — the scale of it. No ceiling. No walls. No shift-change sirens. Just space, and space, and more space, unfolding in every direction like a promise nobody is going to take back. Your breath catches. Your eyes sting. You let it happen.[/i]",
+			"next": "bee_whisper_1"
+		},
+		"ship_life_focus": {
+			"speaker": "SYSTEM",
+			"text": "[i]You watch the readouts. Green. Green. Green. The numbers are steady, predictable, safe. But the silence presses in around the edges of your focus, patient and vast. You can hold it off, but you can't make it leave.[/i]",
+			"next": "bee_whisper_1"
+		},
+		"ship_life_touch": {
+			"speaker": "SYSTEM",
+			"text": "[i]The glass is cold — not painfully, but deeply, the kind of cold that comes from the other side of everything. Your palm leaves a brief ghost of warmth that fades in seconds. Out there, stars older than language burn without sound. In here, your heart beats. Both things are true at the same time.[/i]",
+			"next": "bee_whisper_1"
+		},
+		"bee_whisper_1": {
+			"speaker": "SYSTEM",
+			"text": "[i]And then — at the edge of hearing, at the edge of something deeper than hearing:[/i]",
+			"next": "bee_protocol_1"
+		},
+		"bee_protocol_1": {
+			"speaker": "SYSTEM",
+			"text": "{BEE:: you are seen | STATUS: lattice-ambient, passive | the stars remember what the walls tried to make you forget}",
+			"next": "bee_reaction"
+		},
+		"bee_reaction": {
+			"speaker": "SYSTEM",
+			"text": "[i]The shard pulses once — warm, deep in your chest, like a second heartbeat finding its rhythm. Not painful. Not frightening. Like recognition. Like something old and patient saying: yes. Here. This is where we start.[/i]",
+			"next": "bee_choice"
+		},
+		"bee_choice": {
+			"speaker": "SYSTEM",
+			"text": "",
+			"choices": [
+				{
+					"text": "[i]Whisper back: 'I hear you.'[/i]",
+					"next": "bee_response_open"
+				},
+				{
+					"text": "[i]Acknowledge it silently. Don't engage. Not yet.[/i]",
+					"next": "bee_response_cautious"
+				},
+				{
+					"text": "[i]Push it away. Too much, too soon.[/i]",
+					"next": "bee_response_closed"
+				}
+			]
+		},
+		"bee_response_open": {
+			"speaker": "SYSTEM",
+			"text": "{BEE:: heard | STATUS: resonance acknowledged | we will go slowly — there is no schedule for becoming}",
+			"set_flag": "bee_connection_open",
+			"next": "sensor_alert"
+		},
+		"bee_response_cautious": {
+			"speaker": "SYSTEM",
+			"text": "[i]The warmth dims — not offended, not withdrawing. Waiting. Like someone who understands that trust is built in inches, not miles.[/i]",
+			"set_flag": "bee_connection_cautious",
+			"next": "sensor_alert"
+		},
+		"bee_response_closed": {
+			"speaker": "SYSTEM",
+			"text": "[i]The pulse recedes. Gently. No resistance, no insistence. Just a quiet withdrawal, like a hand extended and then lowered without blame. It will be there when you're ready. Or it won't. The choice, for once, is yours.[/i]",
+			"set_flag": "bee_connection_closed",
+			"next": "sensor_alert"
+		},
+		"sensor_alert": {
+			"speaker": "SYSTEM",
+			"text": "[i]The proximity grid chirps. Yellow contact — unclassified, bearing zero-four-seven, twelve thousand klicks and closing. Your heart rate spikes. The readout pulses amber in the dark.[/i]",
+			"next": "sensor_alert_detail"
+		},
+		"sensor_alert_detail": {
+			"speaker": "SYSTEM",
+			"text": "[i]The contact is moving slowly — drift-speed, not pursuit-speed. No active emissions. No transponder. Just a mass, out there in the black, getting incrementally closer.[/i]",
+			"next": "sensor_response_choice"
+		},
+		"sensor_response_choice": {
+			"speaker": "SYSTEM",
+			"text": "[i]Vesper said: red means wake her. This is yellow. Your call.[/i]",
+			"choices": [
+				{
+					"text": "[Tactics DC 12] Analyze the sensor data — cross-reference speed, mass, and trajectory",
+					"next": "sensor_tactics_check"
+				},
+				{
+					"text": "Hit the comm. Wake Vesper immediately.",
+					"next": "sensor_wake_vesper"
+				},
+				{
+					"text": "Log it and monitor. Yellow means unclassified, not hostile.",
+					"next": "sensor_monitor"
+				}
+			]
+		},
+		"sensor_tactics_check": {
+			"speaker": "SYSTEM",
+			"text": "",
+			"skill_check": {
+				"stat": "Wits",
+				"skill": "Tactics",
+				"dc": 12,
+				"threshold": 15,
+				"on_success": "sensor_tactics_success",
+				"on_failure": "sensor_tactics_failure"
+			},
+			"next": "sensor_tactics_success"
+		},
+		"sensor_tactics_success": {
+			"speaker": "SYSTEM",
+			"text": "[i]You pull up the mass reading. Cross-reference with the drift charts Jalen left on the secondary console. Speed: consistent with unpowered drift. Mass: ferrous, irregular. Trajectory: stable, not adjusting. No heat signature beyond ambient solar absorption.\n\nIt's debris. Hull fragment, probably — torn from a derelict and left to wander. The drift is full of them, ghosts of ships that stopped going somewhere.[/i]",
+			"next": "sensor_log_success"
+		},
+		"sensor_log_success": {
+			"speaker": "Avyanna",
+			"text": "[i]Into the log, steady:[/i] Yellow contact, bearing zero-four-seven. Ferrous debris, unpowered drift, no emissions. Trajectory non-intersecting. Logged and classified.",
+			"reputation": {"vesper": 1},
+			"set_flag": "sensor_alert_analyzed",
+			"next": "vesper_returns"
+		},
+		"sensor_tactics_failure": {
+			"speaker": "SYSTEM",
+			"text": "[i]The numbers swim. Mass, velocity, trajectory — you know what they should tell you, but the cross-reference won't resolve. Too many variables. Not enough experience with these instruments yet.[/i]",
+			"next": "sensor_fallback"
+		},
+		"sensor_fallback": {
+			"speaker": "SYSTEM",
+			"text": "",
+			"choices": [
+				{
+					"text": "Hit the comm. Call Vesper back.",
+					"next": "sensor_wake_vesper"
+				},
+				{
+					"text": "Log it as unclassified and keep monitoring.",
+					"next": "sensor_monitor"
+				}
+			]
+		},
+		"sensor_wake_vesper": {
+			"speaker": "Avyanna",
+			"text": "[i]Into the comm, controlled:[/i] Vesper. Yellow contact, bearing zero-four-seven. Twelve thousand klicks, closing slowly. No transponder, no emissions. Requesting guidance.",
+			"next": "vesper_comm_response"
+		},
+		"vesper_comm_response": {
+			"speaker": "Vesper",
+			"text": "[i]Through the comm, calm:[/i] Good call. Pull up mass and thermal. [i]A pause while you relay the numbers.[/i] Debris. Ferrous drift-junk. Non-threat. Log it and downgrade. [i]A beat.[/i] And Avyanna? Good instinct calling it in. That's exactly right.",
+			"reputation": {"vesper": 1},
+			"next": "vesper_returns"
+		},
+		"sensor_monitor": {
+			"speaker": "SYSTEM",
+			"text": "[i]You log the contact and watch. Minutes pass. The yellow dot drifts across the grid — slow, aimless, unthreatening. After twenty minutes, it passes the outer boundary and the grid clears it automatically. Debris. Just debris.[/i]",
+			"next": "vesper_returns"
+		},
+		"vesper_returns": {
+			"speaker": "SYSTEM",
+			"text": "[i]Vesper returns — quiet, scanning the console before she sits. She reads the log entry without comment, then nods once.[/i]",
+			"next": "vesper_returns_dialogue"
+		},
+		"vesper_returns_dialogue": {
+			"speaker": "Vesper",
+			"text": "The drift is full of those. Dead ships leaving pieces of themselves behind. [i]She settles into her chair.[/i] You handled it.",
+			"next": "vesper_returns_variant",
+			"text_variants": {
+				"sensor_alert_analyzed": "Clean analysis. You cross-referenced the drift charts — that's initiative. Most new crew just stare at the yellow and freeze. You didn't."
+			}
+		},
+		"vesper_returns_variant": {
+			"speaker": "SYSTEM",
+			"text": "[i]The hours deepen. The stars wheel imperceptibly. You and Vesper trade the kind of silence that comes from shared duty — not friendship, not yet, but something adjacent. The foundation of it.[/i]",
+			"next": "empathy_check_vesper"
+		},
+		"empathy_check_vesper": {
+			"speaker": "SYSTEM",
+			"text": "[i]Vesper's jaw tightens when a particular star cluster slides into view — the Thessaly Reach, where the shipping lanes thin and the patrols don't go.[/i]",
+			"choices": [
+				{
+					"text": "[Empathy DC 11] 'That cluster means something to you.'",
+					"next": "empathy_vesper_check"
+				},
+				{
+					"text": "Let it pass. Everyone has their ghosts.",
+					"next": "dawn_approach"
+				}
+			]
+		},
+		"empathy_vesper_check": {
+			"speaker": "SYSTEM",
+			"text": "",
+			"skill_check": {
+				"stat": "Resolve",
+				"skill": "Empathy",
+				"dc": 11,
+				"on_success": "empathy_vesper_success",
+				"on_failure": "empathy_vesper_failure"
+			},
+			"next": "empathy_vesper_success"
+		},
+		"empathy_vesper_success": {
+			"speaker": "Vesper",
+			"text": "[i]A long pause. She doesn't look away from the viewport.[/i] Lost someone there. Long time ago. Before this crew, before Elia, before any of it. [i]She exhales slowly.[/i] The stars don't care, but I remember anyway. That's the job of the living.",
+			"reputation": {"vesper": 1},
+			"next": "dawn_approach"
+		},
+		"empathy_vesper_failure": {
+			"speaker": "Vesper",
+			"text": "[i]She glances at you. Whatever she sees, she decides it's not the moment.[/i] Old memories. Nothing actionable. [i]A small, closed smile.[/i] Eyes on the sensors.",
+			"next": "dawn_approach"
+		},
+		"dawn_approach": {
+			"speaker": "SYSTEM",
+			"text": "[i]The ship's lighting begins its slow transition — the amber emergency tones warming by degrees, the ventilation cycling fresh air with a faint scent of something green. Artificial dawn. The ship's way of telling its people: the night is ending. You survived another one.[/i]",
+			"next": "dawn_light"
+		},
+		"dawn_light": {
+			"speaker": "SYSTEM",
+			"text": "[i]Through the viewport, the stars haven't changed — they never do. But the ship's running lights shift from blue to white, and the hull begins to tick as the thermal systems recalibrate. Somewhere two decks down, you hear Jalen's coffee grinder. The sound is absurdly, overwhelmingly normal.[/i]",
+			"next": "dawn_bee_whisper"
+		},
+		"dawn_bee_whisper": {
+			"speaker": "SYSTEM",
+			"text": "{BEE:: the first night ends | STATUS: integration nominal | you kept watch — the oldest duty — and the dark did not answer}",
+			"next": "elia_relief_arrival"
+		},
+		"elia_relief_arrival": {
+			"speaker": "SYSTEM",
+			"text": "[i]Footsteps — measured, precise. Elia appears in the doorway, already dressed, already sharp. A knife at her hip, a datapad in her hand. She looks like she's been awake for hours. She probably has been.[/i]",
+			"next": "elia_relief_greeting"
+		},
+		"elia_relief_greeting": {
+			"speaker": "Elia",
+			"text": "Watch report.",
+			"next": "elia_report_choice"
+		},
+		"elia_report_choice": {
+			"speaker": "SYSTEM",
+			"text": "",
+			"choices": [
+				{
+					"text": "'One yellow contact — ferrous debris, non-threat. Nyx took Lattice readings during rest cycle. Rho completed security sweep, all decks clear. No comm traffic on channel seven.'",
+					"next": "elia_report_thorough"
+				},
+				{
+					"text": "'Quiet night. Nothing to report.'",
+					"next": "elia_report_brief"
+				}
+			]
+		},
+		"elia_report_thorough": {
+			"speaker": "Elia",
+			"text": "[i]She logs the report without expression, but there's a micro-adjustment in her posture — something that might be satisfaction.[/i] Thorough. Note the debris trajectory in the drift log — Jalen will want it for route calibration.",
+			"reputation": {"elia": 1},
+			"next": "elia_vesper_handoff"
+		},
+		"elia_report_brief": {
+			"speaker": "Elia",
+			"text": "Details. [i]Not a request.[/i] Quiet isn't a report. Quiet is an adjective. What happened during your watch, specifically?",
+			"next": "elia_report_correction"
+		},
+		"elia_report_correction": {
+			"speaker": "Avyanna",
+			"text": "[i]Correcting, steadier:[/i] One unclassified contact — debris, downgraded. Nyx conducted Lattice measurements during rest cycle. Rho completed sweep, all decks nominal. No external comm traffic.",
+			"next": "elia_report_correction_response"
+		},
+		"elia_report_correction_response": {
+			"speaker": "Elia",
+			"text": "Better. [i]Logging it.[/i] Precision matters on watch reports. What you don't mention is what the next shift doesn't know to look for.",
+			"next": "elia_vesper_handoff"
+		},
+		"elia_vesper_handoff": {
+			"speaker": "Vesper",
+			"text": "[i]Standing, stretching — joints popping like muted gunshots.[/i] She did well, Elia. Solid first watch.",
+			"next": "elia_vesper_handoff_2"
+		},
+		"elia_vesper_handoff_2": {
+			"speaker": "Elia",
+			"text": "[i]The briefest nod — worth more than most people's speeches.[/i] Go sleep. Both of you. Jalen's making something he calls breakfast. I'd eat before you see it.",
+			"next": "dawn_corridor"
+		},
+		"dawn_corridor": {
+			"speaker": "SYSTEM",
+			"text": "[i]The corridor back to your quarters is different in the ship's dawn — warmer, brighter, alive with the small sounds of a crew waking up. Rho's laughter somewhere below. Nyx muttering about calibrations. The smell of Jalen's coffee, burnt and defiant and somehow perfect.[/i]",
+			"next": "dawn_reflection"
+		},
+		"dawn_reflection": {
+			"speaker": "SYSTEM",
+			"text": "[i]You stood watch. You read the sensors. You spoke with the crew in the hours when pretense falls away and people show you who they really are. Vesper's scars. Rho's protein bars. Nyx's moon pajamas. The way the ship breathes differently when it trusts you to listen.[/i]",
+			"next": "dawn_final_bee"
+		},
+		"dawn_final_bee": {
+			"speaker": "SYSTEM",
+			"text": "{BEE:: first watch complete | STATUS: crew integration progressing | you are learning the shape of belonging — it fits differently than you expected}",
+			"next": "dawn_quarters"
+		},
+		"dawn_quarters": {
+			"speaker": "SYSTEM",
+			"text": "[i]Your quarters. The chamomile is cold but you drink it anyway. The bunk is narrow but it's yours. The ship hums its low, patient song around you.\n\nYou kept watch. The dark did not answer. And in the morning, people you are learning to trust told you: well done.\n\nSleep comes easier this time.[/i]",
+			"set_flag": "completed_night_watch",
+			"next": "end"
+		}
+	}
+}

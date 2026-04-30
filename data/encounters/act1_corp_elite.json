@@ -1,0 +1,27 @@
+{
+  "id": "act1_corp_elite",
+  "name": "Corporate Elite Squad",
+  "description": "Elite corporate configuration - commander coordinating a heavy and two troopers. Rally buffs, armor, suppression, and discipline. Very dangerous.",
+  "waves": [
+    {
+      "description": "Elite Corporate Squad",
+      "enemies": [
+        {"type": "corp_commander", "count": 1},
+        {"type": "corp_heavy", "count": 1},
+        {"type": "corp_trooper", "count": 2}
+      ]
+    }
+  ],
+  "environment": {
+    "static_zone": false,
+    "fortified_position": true,
+    "tactical_advantage": true
+  },
+  "victory_condition": "defeat_all",
+  "defeat_consequence": "retry",
+  "rewards": {
+    "experience": 200,
+    "flags": ["elite_squad_defeated"]
+  },
+  "loot": []
+}

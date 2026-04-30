@@ -1,0 +1,39 @@
+{
+  "id": "husk_echo",
+  "name": "Lattice Echo",
+  "family": "husks",
+  "description": "Unstable mirror construct that copies player abilities at reduced power. Disorienting and unpredictable.",
+  "hp_max": 40,
+  "speed": 11,
+  "attack": 0,
+  "armor": 0,
+  "shields": 0,
+  "wards": 8,
+  "weakness": "",
+  "abilities": [
+    {
+      "name": "Mirror Strike",
+      "base_damage": 0,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": true,
+      "cli_cost": 0,
+      "special": "copies_last_player_ability_50_percent",
+      "statuses": []
+    },
+    {
+      "name": "Distortion",
+      "base_damage": 0,
+      "damage_type": "resonance",
+      "heat_cost": 0,
+      "uses_lattice": true,
+      "cli_cost": 0,
+      "statuses": [
+        {
+          "name": "confused",
+          "duration": 1
+        }
+      ]
+    }
+  ]
+}

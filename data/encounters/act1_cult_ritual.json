@@ -1,0 +1,26 @@
+{
+  "id": "act1_cult_ritual",
+  "name": "Cult Ritual Interrupted",
+  "description": "Ward cultists performing a resonance ritual. Two acolytes provide healing and offense while a binder locks down targets with immobilization wards.",
+  "waves": [
+    {
+      "description": "Cult Ritual Circle",
+      "enemies": [
+        {"type": "cult_acolyte", "count": 2},
+        {"type": "cult_binder", "count": 1}
+      ]
+    }
+  ],
+  "environment": {
+    "static_zone": true,
+    "ritual_chamber": true,
+    "ward_barriers": true
+  },
+  "victory_condition": "defeat_all",
+  "defeat_consequence": "retry",
+  "rewards": {
+    "experience": 150,
+    "flags": ["cult_ritual_disrupted"]
+  },
+  "loot": []
+}

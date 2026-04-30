@@ -1,0 +1,57 @@
+{
+  "id": "writbound_knight",
+  "name": "Writbound Knight",
+  "family": "writbound",
+  "description": "Elite enforcer bound by ancient contract. Combines heavy physical threat with Lattice suppression. Appears Act 7 onward.",
+  "hp_max": 80,
+  "speed": 11,
+  "attack": 18,
+  "armor": 8,
+  "shields": 8,
+  "wards": 5,
+  "weakness": "",
+  "abilities": [
+    {
+      "name": "Contract Strike",
+      "base_damage": 18,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "statuses": [
+        {
+          "name": "marked",
+          "duration": 2
+        }
+      ]
+    },
+    {
+      "name": "Lattice Lock",
+      "base_damage": 0,
+      "damage_type": "resonance",
+      "heat_cost": 0,
+      "uses_lattice": true,
+      "cli_cost": 0,
+      "statuses": [
+        {
+          "name": "lattice_disabled",
+          "duration": 2
+        }
+      ]
+    },
+    {
+      "name": "Resonance Tracker",
+      "base_damage": 0,
+      "damage_type": "resonance",
+      "heat_cost": 0,
+      "uses_lattice": true,
+      "cli_cost": 0,
+      "statuses": [
+        {
+          "name": "revealed",
+          "duration": 2
+        }
+      ]
+    }
+  ]
+}

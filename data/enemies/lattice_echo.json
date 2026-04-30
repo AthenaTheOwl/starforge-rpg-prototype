@@ -1,0 +1,39 @@
+{
+  "id": "lattice_echo",
+  "name": "Lattice Echo",
+  "family": "husks",
+  "description": "A resonance imprint left in the lattice — a ghost of someone or something that once existed. Attacks with dissonant pulses.",
+  "hp_max": 30,
+  "speed": 12,
+  "attack": 14,
+  "armor": 0,
+  "shields": 0,
+  "wards": 6,
+  "weakness": "physical",
+  "abilities": [
+    {
+      "name": "Dissonance Pulse",
+      "base_damage": 16,
+      "damage_type": "resonance",
+      "heat_cost": 0,
+      "uses_lattice": true,
+      "cli_cost": 0,
+      "statuses": []
+    },
+    {
+      "name": "Phase Shift",
+      "base_damage": 0,
+      "damage_type": "resonance",
+      "heat_cost": 0,
+      "uses_lattice": true,
+      "cli_cost": 0,
+      "target": "self",
+      "statuses": [
+        {
+          "name": "evasion",
+          "duration": 1
+        }
+      ]
+    }
+  ]
+}

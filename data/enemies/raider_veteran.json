@@ -1,0 +1,38 @@
+{
+  "id": "raider_veteran",
+  "name": "Raider Veteran",
+  "family": "raiders",
+  "description": "Hardened rim fighter with years of survival under the belt. Tough, aggressive, and demoralizing.",
+  "hp_max": 60,
+  "speed": 10,
+  "attack": 16,
+  "armor": 7,
+  "shields": 0,
+  "wards": 0,
+  "weakness": "",
+  "abilities": [
+    {
+      "name": "Veteran Strike",
+      "base_damage": 16,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "statuses": []
+    },
+    {
+      "name": "War Cry",
+      "base_damage": 0,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "statuses": [
+        {
+          "name": "shaken",
+          "duration": 1
+        }
+      ]
+    }
+  ]
+}

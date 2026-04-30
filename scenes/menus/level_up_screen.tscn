@@ -1,0 +1,106 @@
+[gd_scene load_steps=2 format=3 uid="uid://level_up_screen"]
+
+[ext_resource type="Script" path="res://scripts/ui/level_up_screen.gd" id="1"]
+
+[node name="LevelUpScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Overlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.05, 0.05, 0.1, 0.9)
+
+[node name="CenterPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -250.0
+offset_right = 300.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="CenterPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Header" type="Label" parent="CenterPanel/MarginContainer/VBox"]
+layout_mode = 2
+text = "LEVEL UP!"
+horizontal_alignment = 1
+
+[node name="CharacterNameLabel" type="Label" parent="CenterPanel/MarginContainer/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Character Name"
+horizontal_alignment = 1
+
+[node name="LevelLabel" type="Label" parent="CenterPanel/MarginContainer/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Level 1 → 2"
+horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="CenterPanel/MarginContainer/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 10)
+
+[node name="AutoStatsLabel" type="Label" parent="CenterPanel/MarginContainer/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Automatic Bonuses:
++5 Max HP
++2 Heat Capacity"
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="CenterPanel/MarginContainer/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 20)
+
+[node name="StatChoiceLabel" type="Label" parent="CenterPanel/MarginContainer/VBox"]
+layout_mode = 2
+text = "Choose One Stat to Enhance:"
+horizontal_alignment = 1
+
+[node name="AttackButton" type="Button" parent="CenterPanel/MarginContainer/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Attack (+5% ability damage)"
+
+[node name="DefenseButton" type="Button" parent="CenterPanel/MarginContainer/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Defense (+3 armor, +2 shield, +1 ward)"
+
+[node name="LatticeButton" type="Button" parent="CenterPanel/MarginContainer/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Lattice (+5% resonance damage, +2% crit chance)"
+
+[node name="Spacer3" type="Control" parent="CenterPanel/MarginContainer/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 20)
+
+[node name="ConfirmButton" type="Button" parent="CenterPanel/MarginContainer/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Confirm"

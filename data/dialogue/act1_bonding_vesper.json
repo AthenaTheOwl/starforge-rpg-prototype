@@ -1,0 +1,272 @@
+{
+  "start_node": "start",
+  "nodes": {
+    "start": {
+      "speaker": "SYSTEM",
+      "text": "The safehouse is a ruin of broken permacrete and charred datascreens. Vesper kneels beside a cracked relay terminal, cataloging damage with the precision of someone who counts every cost.\n\nAvyanna approaches, footsteps careful on debris. The mission went clean \u2014 mostly. But Vesper's silence feels weighted.",
+      "next": "opening"
+    },
+    "opening": {
+      "speaker": "Vesper",
+      "text": "That exit vector you chose. [i]Third-floor balcony, not the ground entrance.[/i] Smart.",
+      "next": "opening_response"
+    },
+    "opening_response": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "You were watching my positioning?",
+          "next": "watching_confirm"
+        },
+        {
+          "text": "Ground was a killbox. Seemed obvious.",
+          "next": "tactical_mind"
+        },
+        {
+          "text": "[i]Say nothing. Wait.[/i]",
+          "next": "silence_noted"
+        }
+      ]
+    },
+    "watching_confirm": {
+      "speaker": "Vesper",
+      "text": "I watch everyone's positioning. It's what keeps us alive. But you? You weren't just following orders. You were [i]reading the field[/i].",
+      "next": "assessment"
+    },
+    "tactical_mind": {
+      "speaker": "Vesper",
+      "text": "Obvious to someone who understands sightlines and crossfire. Most people panic when the shooting starts. You [i]calculate[/i].",
+      "reputation": {
+        "vesper": 1
+      },
+      "next": "assessment"
+    },
+    "silence_noted": {
+      "speaker": "Vesper",
+      "text": "[i]Vesper's eyes flick up \u2014 sharp, assessing.[/i]\n\nCareful. That's good. But you don't have to guard yourself here. Not with me.",
+      "next": "assessment"
+    },
+    "assessment": {
+      "speaker": "Vesper",
+      "text": "The way you moved when their reinforcements arrived. You didn't freeze. You pivoted, reassessed, took the high ground. That's not luck. That's instinct.",
+      "next": "assessment_choice"
+    },
+    "assessment_choice": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "[Tactics] Break down the engagement angles",
+          "next": "skill_check_tactics_success",
+          "skill_check": {
+            "stat": "tactics",
+            "skill": "tactics",
+            "dc": 10,
+            "threshold": 4,
+            "on_success": "skill_check_tactics_success",
+            "on_failure": "skill_check_tactics_failure"
+          }
+        },
+        {
+          "text": "Why does it matter?",
+          "next": "why_matters"
+        },
+        {
+          "text": "I just did what made sense.",
+          "next": "modest_deflect"
+        }
+      ]
+    },
+    "skill_check_tactics_success": {
+      "speaker": "Avyanna",
+      "text": "They came from the south corridor \u2014 two-man teams, staggered entry. If I'd held the ground floor, I'd be caught between their advance and the primary exit. Balcony gave me elevation, clear retreat, and forced them into a choke point.",
+      "reputation": {
+        "vesper": 1
+      },
+      "next": "impressed"
+    },
+    "skill_check_tactics_failure": {
+      "speaker": "Avyanna",
+      "text": "I saw them coming from the corridor... it seemed like the balcony was safer? Less exposure, I think.",
+      "next": "why_matters"
+    },
+    "why_matters": {
+      "speaker": "Vesper",
+      "text": "Because tactical instinct like that? It's rare. And it's [i]wasted[/i] if it's not refined.",
+      "next": "offer_lead_in"
+    },
+    "modest_deflect": {
+      "speaker": "Vesper",
+      "text": "What makes sense to you would get most people killed. You're thinking three steps ahead without realizing it.",
+      "next": "offer_lead_in"
+    },
+    "impressed": {
+      "speaker": "Vesper",
+      "text": "[i]Vesper stands, brushing dust from her coat. Her expression shifts \u2014 not quite a smile, but something close.[/i]\n\nExactly. Most people see a firefight. You see a [i]system[/i]. Inputs, variables, outcomes.",
+      "next": "offer_lead_in"
+    },
+    "offer_lead_in": {
+      "speaker": "Vesper",
+      "text": "I've been doing this for fifteen years. Corps, freelance, wet work I don't talk about. I know talent when I see it.",
+      "next": "offer"
+    },
+    "offer": {
+      "speaker": "Vesper",
+      "text": "I want to train you. Not as a project \u2014 as an investment in someone who already belongs here. Tactical doctrine, engagement planning, threat assessment. The skills that turn instinct into certainty.",
+      "next": "offer_response"
+    },
+    "offer_response": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "I accept. Teach me.",
+          "next": "acceptance_direct"
+        },
+        {
+          "text": "What would you expect from me?",
+          "next": "expectations_question"
+        },
+        {
+          "text": "Why invest in me specifically?",
+          "next": "why_me"
+        },
+        {
+          "text": "I need time to think.",
+          "next": "need_time"
+        }
+      ]
+    },
+    "acceptance_direct": {
+      "speaker": "Vesper",
+      "text": "[i]Vesper nods once \u2014 crisp, final.[/i]\n\nGood. We start tomorrow. Bring questions, not excuses.",
+      "set_flag": "bonded_with_vesper",
+      "reputation": {
+        "vesper": 3
+      },
+      "next": "end"
+    },
+    "expectations_question": {
+      "speaker": "Vesper",
+      "text": "Honesty. Focus. The willingness to admit when you're wrong \u2014 and the discipline to fix it. I don't train people who waste my time.",
+      "next": "expectations_followup"
+    },
+    "expectations_followup": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "I can do that. Let's begin.",
+          "next": "acceptance_after_expectations"
+        },
+        {
+          "text": "That's a lot to ask.",
+          "next": "lot_to_ask"
+        }
+      ]
+    },
+    "acceptance_after_expectations": {
+      "speaker": "Vesper",
+      "text": "Then we have an understanding. Tomorrow, 0600. Don't be late.",
+      "set_flag": "bonded_with_vesper",
+      "reputation": {
+        "vesper": 2
+      },
+      "next": "end"
+    },
+    "lot_to_ask": {
+      "speaker": "Vesper",
+      "text": "It is. But you've already been doing it without knowing. I'm just making it [i]conscious[/i].",
+      "next": "lot_to_ask_choice"
+    },
+    "lot_to_ask_choice": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "Alright. I'm in.",
+          "next": "acceptance_after_hesitation"
+        },
+        {
+          "text": "I need to consider this.",
+          "next": "patience"
+        }
+      ]
+    },
+    "acceptance_after_hesitation": {
+      "speaker": "Vesper",
+      "text": "Smart choice. We'll make you sharper than any blade in the void.",
+      "set_flag": "bonded_with_vesper",
+      "reputation": {
+        "vesper": 1
+      },
+      "next": "end"
+    },
+    "why_me": {
+      "speaker": "Vesper",
+      "text": "Because you remind me of someone I used to know. Someone who died because they had instinct but not [i]discipline[/i]. I won't let that happen twice.",
+      "reputation": {
+        "vesper": 1
+      },
+      "next": "why_me_followup"
+    },
+    "why_me_followup": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "Then I won't let you down.",
+          "next": "acceptance_honor"
+        },
+        {
+          "text": "I'm not them.",
+          "next": "not_them"
+        }
+      ]
+    },
+    "acceptance_honor": {
+      "speaker": "Vesper",
+      "text": "[i]Vesper's hand rests briefly on Clarity's grip \u2014 a gesture of trust.[/i]\n\nI know you won't. Tomorrow. 0600.",
+      "set_flag": "bonded_with_vesper",
+      "reputation": {
+        "vesper": 2
+      },
+      "next": "end"
+    },
+    "not_them": {
+      "speaker": "Vesper",
+      "text": "No. You're not. And that's exactly why this matters. You get to [i]survive[/i].",
+      "next": "not_them_choice"
+    },
+    "not_them_choice": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "Alright. Teach me.",
+          "next": "acceptance_survival"
+        },
+        {
+          "text": "I need time.",
+          "next": "patience"
+        }
+      ]
+    },
+    "acceptance_survival": {
+      "speaker": "Vesper",
+      "text": "Good. We start at dawn.",
+      "set_flag": "bonded_with_vesper",
+      "reputation": {
+        "vesper": 1
+      },
+      "next": "end"
+    },
+    "need_time": {
+      "speaker": "Vesper",
+      "text": "Fair. This isn't a small thing. But don't take [i]too[/i] long \u2014 instinct without training gets people killed.",
+      "reputation": {
+        "vesper": 1
+      },
+      "next": "end"
+    },
+    "patience": {
+      "speaker": "Vesper",
+      "text": "Take your time. The offer stands. But remember \u2014 in this life, hesitation is measured in bodies.",
+      "next": "end"
+    }
+  }
+}

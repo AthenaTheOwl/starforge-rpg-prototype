@@ -1,0 +1,32 @@
+{
+	"id": "act1_mine_breach",
+	"name": "Mine Anomaly Breach",
+	"description": "The shard's activation has triggered a cascade. Corp retrieval teams converge on Subsection 7-Gamma, followed by Lattice entities drawn to the resonance signature.",
+	"waves": [
+		{
+			"description": "Aurum Corp Retrieval Team",
+			"enemies": [
+				{"type": "corp_trooper", "count": 4},
+				{"type": "corp_drone_controller", "count": 1},
+				{"type": "corp_retrieval", "count": 1}
+			]
+		},
+		{
+			"description": "Lattice Entities — drawn by the shard's activation",
+			"enemies": [
+				{"type": "lattice_shard", "count": 6},
+				{"type": "lattice_shell", "count": 2},
+				{"type": "lattice_echo", "count": 1}
+			]
+		}
+	],
+	"environment": {
+		"static_zone": true,
+		"unstable_tunnels": true,
+		"resonance_vents": true
+	},
+	"rewards": {
+		"experience": 150,
+		"flags": ["mine_breach_survived"]
+	}
+}

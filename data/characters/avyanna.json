@@ -1,0 +1,112 @@
+{
+	"id": "avyanna",
+	"name": "Avyanna Lagrange",
+	"pronouns": "she/her",
+	"role": "Resonance Specialist / Link",
+	"description": "Lattice-sensitive coordinator. Former Debtor captive. Bonded with Bee, a Transcendent fragment.",
+
+	"hp_max": 85,
+	"speed": 12,
+	"attack": 14,
+	"armor": 3,
+	"shields": 5,
+	"wards": 10,
+
+	"relic_weapon": {
+		"name_1": "Tether",
+		"name_2": "Reach",
+		"type": "dual_blade",
+		"inlay": "Bond-Mesh Anchor",
+		"inlay_effect": "Creates coherence node; cooperative casting hub"
+	},
+
+	"ability_slots": [
+		{
+			"slot": "core_1",
+			"name": "Listen Deep",
+			"primitives": ["echo", "veil"],
+			"description": "Read probability branches. Reveals enemy weaknesses for 2 turns.",
+			"base_damage": 0,
+			"damage_type": "resonance",
+			"heat_cost": 1,
+			"uses_lattice": true,
+			"cli_cost": 0.3,
+			"charges_max": 3,
+			"charges": 3,
+			"statuses": [{"name": "revealed", "duration": 2}]
+		},
+		{
+			"slot": "core_2",
+			"name": "Tear-Sense",
+			"primitives": ["echo"],
+			"description": "Identify Synthetic vs Primordial interfaces. Bonus damage to Synthetic constructs.",
+			"base_damage": 18,
+			"damage_type": "resonance",
+			"heat_cost": 1,
+			"uses_lattice": true,
+			"cli_cost": 0.2,
+			"charges_max": 4,
+			"charges": 4,
+			"statuses": []
+		},
+		{
+			"slot": "utility_1",
+			"name": "Resonance Veil",
+			"primitives": ["veil"],
+			"description": "Cloak party signatures from Lattice tracking for 3 turns.",
+			"base_damage": 0,
+			"damage_type": "resonance",
+			"heat_cost": 2,
+			"uses_lattice": true,
+			"cli_cost": 0.5,
+			"charges_max": 2,
+			"charges": 2,
+			"statuses": [{"name": "veiled", "duration": 3}]
+		},
+		{
+			"slot": "utility_2",
+			"name": "Echo Sense",
+			"primitives": ["echo"],
+			"description": "Read residual patterns. Investigation tool; in combat reveals hidden enemies.",
+			"base_damage": 0,
+			"damage_type": "resonance",
+			"heat_cost": 1,
+			"uses_lattice": true,
+			"cli_cost": 0.2,
+			"charges_max": 3,
+			"charges": 3,
+			"statuses": []
+		},
+		{
+			"slot": "reaction",
+			"name": "Panic Sever",
+			"primitives": ["sever"],
+			"description": "Emergency interrupt. Severs one active Synthetic effect on ally.",
+			"base_damage": 0,
+			"damage_type": "resonance",
+			"heat_cost": 2,
+			"uses_lattice": true,
+			"cli_cost": 0.4,
+			"charges_max": 1,
+			"charges": 1,
+			"statuses": []
+		},
+		{
+			"slot": "keystone",
+			"name": "Resonance Flare",
+			"primitives": ["vent"],
+			"description": "Damaging pulse in 6m radius. Hits all enemies. High Heat cost.",
+			"base_damage": 25,
+			"damage_type": "resonance",
+			"heat_cost": 3,
+			"uses_lattice": true,
+			"cli_cost": 1.0,
+			"charges_max": 1,
+			"charges": 1,
+			"statuses": [{"name": "shocked", "duration": 1, "dot_damage": 5, "dot_type": "resonance"}]
+		}
+	],
+
+	"tier": 1,
+	"bee_active": true
+}

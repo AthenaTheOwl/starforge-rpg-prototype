@@ -1,0 +1,435 @@
+{
+	"id": "act1_elia_rescue",
+	"title": "First Contact — Elia's Rescue",
+	"start_node": "start",
+	"nodes": {
+		"start": {
+			"speaker": "Narration",
+			"text": "The explosion tears through the eastern wing like a fist through wet paper. Emergency lighting floods the corridor in arterial red.\n\nA figure rounds the corner at a dead sprint—armored, blade in each hand, moving with the precision of someone who has done this exact thing many times before.\n\nShe skids to a stop when she sees you.",
+			"next": "elia_first_words"
+		},
+		"elia_first_words": {
+			"speaker": "Elia",
+			"text": "\"You. You're from the extraction list.\" Her eyes scan you—not with pity, with assessment. \"Can you walk? Can you run? I need one of those answers to be yes.\"",
+			"choices": [
+				{
+					"text": "\"I can run. Who are you?\"",
+					"next": "elia_explains_quick"
+				},
+				{
+					"text": "\"Why should I trust you?\"",
+					"next": "elia_trust"
+				},
+				{
+					"text": "[Say nothing. Just nod.]",
+					"next": "elia_approves_silence"
+				}
+			]
+		},
+		"elia_explains_quick": {
+			"speaker": "Elia",
+			"text": "\"Elia. I'm here to get you out. The rest of the introductions can wait until we're not standing in an active kill zone.\"\n\nShe sheathes one blade—Mourning, though you don't know its name yet—and extends her hand.\n\n\"Move with me. Stay behind me. If I tell you to drop, you drop. Clear?\"",
+			"choices": [
+				{
+					"text": "\"Clear.\"",
+					"next": "quick_followup"
+				},
+				{
+					"text": "\"There are others in the extraction wing—\"",
+					"next": "elia_others"
+				}
+			]
+		},
+		"quick_followup": {
+			"speaker": "Elia",
+			"text": "\"Good. Short answers. I like you already.\"\n\nShe turns and starts moving before the sentence is finished. The corridor ahead is a mess of burst pipes and sparking cable.",
+			"reputation": { "elia": 1 },
+			"next": "quick_followup_2"
+		},
+		"quick_followup_2": {
+			"speaker": "Avyanna",
+			"text": "[i]She moves like the building is hers. Like the fire and the wreckage are furniture she's rearranging.[/i]",
+			"choices": [
+				{
+					"text": "\"You've done this before.\"",
+					"next": "quick_followup_3"
+				},
+				{
+					"text": "[Match her pace. Don't slow her down.]",
+					"next": "quick_followup_silent"
+				}
+			]
+		},
+		"quick_followup_3": {
+			"speaker": "Elia",
+			"text": "\"Fourteen extractions in two years.\" She says it the way someone else would say 'I take cream in my coffee.' \"You're number fifteen. Don't make me regret the streak.\"",
+			"next": "move_out"
+		},
+		"quick_followup_silent": {
+			"speaker": "Narration",
+			"text": "You keep pace. Elia glances back once—just once—and whatever she sees makes the corner of her mouth twitch. Not a smile. Approval.",
+			"next": "move_out"
+		},
+		"elia_trust": {
+			"speaker": "Elia",
+			"text": "Something flickers across her face—not impatience, recognition. Like she's heard that question before, from someone who had every right to ask it.\n\n\"You shouldn't. I'm armed, I'm in your facility, and I just blew a hole in your east wall.\" A beat. \"But I'm also the only person in this building who isn't here to harvest you. So.\"",
+			"choices": [
+				{
+					"text": "\"...Fair enough. Let's go.\"",
+					"next": "trust_followup"
+				},
+				{
+					"text": "\"How do you know about the extractions?\"",
+					"next": "elia_knowledge"
+				}
+			]
+		},
+		"trust_followup": {
+			"speaker": "Narration",
+			"text": "You fall in behind her. The decision sits in your chest like a swallowed stone—heavy, but solid.",
+			"reputation": { "elia": 1 },
+			"next": "trust_followup_2"
+		},
+		"trust_followup_2": {
+			"speaker": "Elia",
+			"text": "\"For what it's worth—\" She pauses at a junction, listens, takes the left fork. \"—most people I extract take longer to decide. The ones who freeze are the ones I lose.\"",
+			"choices": [
+				{
+					"text": "\"I've been frozen long enough.\"",
+					"next": "trust_followup_3"
+				},
+				{
+					"text": "\"Maybe I'm just tired of standing still.\"",
+					"next": "trust_followup_3"
+				}
+			]
+		},
+		"trust_followup_3": {
+			"speaker": "Elia",
+			"text": "She doesn't respond to that. But the way her grip shifts on Mourning's hilt—looser, easier—says she heard you.",
+			"next": "move_out"
+		},
+		"elia_approves_silence": {
+			"speaker": "Elia",
+			"text": "She studies your silence for exactly one second. Then nods—not pity, not condescension. Respect.\n\n\"Good. Quiet is useful where we're going.\"",
+			"reputation": { "elia": 1 },
+			"next": "silence_followup"
+		},
+		"silence_followup": {
+			"speaker": "Narration",
+			"text": "She turns toward the west corridor, both blades drawn now, and moves. She doesn't check if you're following.\n\n[i]She doesn't need to. You're already moving.[/i]",
+			"next": "silence_followup_2"
+		},
+		"silence_followup_2": {
+			"speaker": "Elia",
+			"text": "Over her shoulder, without breaking stride: \"If you can fight, stay at my flank. If you can't, stay behind me and keep low. Tap my shoulder twice if you see something I don't.\"",
+			"choices": [
+				{
+					"text": "[Move to her flank.]",
+					"next": "silence_followup_3"
+				},
+				{
+					"text": "[Fall in behind her. Keep low.]",
+					"next": "silence_followup_4"
+				}
+			]
+		},
+		"silence_followup_3": {
+			"speaker": "Narration",
+			"text": "You move to her left side. Elia glances at your positioning—you've left her blade arm free without being told.\n\n\"Huh,\" she says. Nothing else. But she adjusts her pace to match yours.",
+			"next": "move_out"
+		},
+		"silence_followup_4": {
+			"speaker": "Narration",
+			"text": "You keep behind her. In the red emergency light, her silhouette is all edges—blades, armor plates, the sharp line of her jaw. A weapon in the shape of a person, cutting a path through the smoke.",
+			"next": "move_out"
+		},
+		"elia_others": {
+			"speaker": "Elia",
+			"text": "She pauses. You see something shift behind her eyes—a calculation that costs her.\n\n\"I know. Elisira's team is handling the east wing. We have—\" she checks something on her wrist, \"—four minutes before corporate security locks this sector down.\"\n\nHer jaw tightens. \"We get who we can get. That's the mission. I'm sorry it's not better than that.\"",
+			"set_flag": "asked_about_others",
+			"reputation": { "elia": 1 },
+			"next": "others_followup"
+		},
+		"others_followup": {
+			"speaker": "Avyanna",
+			"text": "[i]Four minutes. For all of them. The number sits wrong, like a bone set at the wrong angle.[/i]",
+			"choices": [
+				{
+					"text": "\"Then we'd better not waste any of those minutes.\"",
+					"next": "move_out"
+				},
+				{
+					"text": "\"If Elisira's team fails—\"",
+					"next": "others_followup_2"
+				}
+			]
+		},
+		"others_followup_2": {
+			"speaker": "Elia",
+			"text": "\"Then we come back.\" She says it like a fact, not a promise. Like gravity. \"We always come back.\"\n\nShe's already moving again. The conversation is over.",
+			"next": "move_out"
+		},
+		"elia_knowledge": {
+			"speaker": "Elia",
+			"text": "\"Because we've been watching this place for eight months.\" Her voice is flat—the flatness of someone holding back anger. \"Site K-9. 'The Kennel.' Cute name for a place that bleeds people dry on a schedule.\"\n\nShe meets your eyes. \"We know what they're doing to you. All of you. That's why we're here.\"\n\nThe alarms change pitch. Running out of time.",
+			"set_flag": "learned_elia_watched",
+			"next": "knowledge_followup"
+		},
+		"knowledge_followup": {
+			"speaker": "Avyanna",
+			"text": "[i]Eight months. They watched for eight months. The math on that—how many extraction cycles, how many people they couldn't reach in time—[/i]",
+			"choices": [
+				{
+					"text": "\"Eight months is a long time to watch.\"",
+					"next": "knowledge_followup_2"
+				},
+				{
+					"text": "[Let it go. Focus on surviving the next four minutes.]",
+					"next": "move_out"
+				}
+			]
+		},
+		"knowledge_followup_2": {
+			"speaker": "Elia",
+			"text": "Her jaw works. For a half-second, the professional mask cracks and you see something underneath—not guilt, exactly. The scar tissue where guilt used to be.\n\n\"Yeah. It was.\"\n\nShe turns away. End of discussion.",
+			"next": "move_out"
+		},
+		"move_out": {
+			"speaker": "Narration",
+			"text": "You move. Elia leads—blade-first through the smoke-choked corridors, stepping over debris with the casual ease of someone navigating their living room.\n\nBehind you, the extraction wing groans and buckles.",
+			"next": "corridor_bodies"
+		},
+		"corridor_bodies": {
+			"speaker": "Narration",
+			"text": "The first body is a technician. Lab coat, face-down, one hand still reaching for a keycard on the floor. Elia steps over him without looking down.\n\nThe second is a guard. His sidearm is still holstered.\n\n[i]You step over them both. You don't look down either. Later, you'll wonder when you learned to do that.[/i]",
+			"next": "corridor_locked_door"
+		},
+		"corridor_locked_door": {
+			"speaker": "Narration",
+			"text": "A blast door blocks the corridor—Loss-of-Containment protocol, sealed magnetically. The emergency display reads: [b]SECTOR 7-W — LOCKDOWN ACTIVE — AUTHORIZATION REQUIRED[/b]\n\nElia doesn't slow down.",
+			"next": "elia_cuts_door"
+		},
+		"elia_cuts_door": {
+			"speaker": "Narration",
+			"text": "She draws Mourning—the longer blade, the one that seems to drink the emergency lighting rather than reflect it. She drives it into the seam of the blast door at a precise angle, and the metal [i]screams[/i].\n\nNot melts. Not breaks. Screams. Like the door knows what's cutting it.\n\nThree seconds. A vertical cut, a horizontal cut, a kick. The section falls inward with a clang that echoes down the corridor behind you.",
+			"next": "corridor_reaction"
+		},
+		"corridor_reaction": {
+			"speaker": "Avyanna",
+			"text": "[i]That blade cut through six inches of reinforced steel like it was drywall. File that under 'reasons to keep her in front of you.'[/i]",
+			"choices": [
+				{
+					"text": "\"What is that blade?\"",
+					"next": "mourning_question"
+				},
+				{
+					"text": "[Step through the gap. Keep moving.]",
+					"next": "ceiling_collapse"
+				}
+			]
+		},
+		"mourning_question": {
+			"speaker": "Elia",
+			"text": "\"Mourning.\" She says the name like it's a person she has complicated feelings about. \"Old weapon. Older than me, older than this facility. She cuts what needs cutting.\"\n\nA pause. Then, quieter: \"Don't touch her. She's... particular.\"",
+			"next": "ceiling_collapse"
+		},
+		"ceiling_collapse": {
+			"speaker": "Narration",
+			"text": "The corridor beyond the door is worse. Ceiling panels hanging like broken teeth, sparking cables writhing on the floor. You're halfway through when the groan comes—deep, structural, the sound of a building deciding to give up.\n\n\"DOWN!\"\n\nElia's arm hits your chest like a steel bar. You drop. A section of ceiling the size of a dining table crashes into the space where your head was half a second ago.",
+			"next": "ceiling_aftermath"
+		},
+		"ceiling_aftermath": {
+			"speaker": "Narration",
+			"text": "Dust. Silence. Then Elia's voice, close to your ear.\n\n\"You're fine. Move.\"\n\nShe hauls you upright and shoves you forward through the gap between the fallen debris and the wall. There's maybe eighteen inches of clearance. You fit. Barely.",
+			"next": "lattice_hum"
+		},
+		"lattice_hum": {
+			"speaker": "Narration",
+			"text": "And then—\n\nSomething in your chest [i]hums[/i].\n\nNot your heart. Deeper than that. In the place where the Lattice sits—the thing they put in you, the thing they never explained—something stirs. Like a wire vibrating at a frequency you can feel in your teeth.",
+			"next": "lattice_hum_2"
+		},
+		"lattice_hum_2": {
+			"speaker": "Avyanna",
+			"text": "[i]It's warm. It shouldn't be warm. Every time they ran the extraction cycle it was cold—surgical cold, the cold of something being taken. This is different. This is the cold in reverse.[/i]",
+			"next": "lattice_hum_3"
+		},
+		"lattice_hum_3": {
+			"speaker": "Elia",
+			"text": "Elia freezes. Turns. Stares at your chest like she can see through your sternum.\n\n\"Your Lattice just—\" She cuts herself off. Recalculates. \"Later. We deal with that later. Move.\"",
+			"next": "security_approach"
+		},
+		"security_approach": {
+			"speaker": "Narration",
+			"text": "You hear them before you see them. Boot-falls, synchronized. The sharp click of safeties disengaging.\n\nThe corridor opens into a junction—and there they are. Four corporate security officers in full tactical gear, positioned behind a makeshift barricade of overturned desks and filing cabinets. Rifles trained on the corridor you just came through.\n\nThe lead officer—sergeant's stripes, visor up—raises a fist. His team holds.",
+			"next": "security_standoff"
+		},
+		"security_standoff": {
+			"speaker": "Security Sergeant",
+			"text": "\"That's far enough. Subjects are to remain in containment during a Loss-of-Containment event.\" He reads the words like he's reciting a manual. Then his eyes find Elia's blades. \"Drop the weapons. Get on the ground. Both of you.\"",
+			"next": "security_elia_response"
+		},
+		"security_elia_response": {
+			"speaker": "Elia",
+			"text": "Elia's posture doesn't change. But something in the air does—a shift in pressure, a tightening, like the moment before a dog bite.\n\n\"Four of you,\" she says, conversational. \"Two blades. I like those odds fine, but your people don't need to die in this hallway tonight.\"\n\nShe glances at you sideways. A question in the look.",
+			"choices": [
+				{
+					"text": "[Watch silently. Let Elia handle it.]",
+					"next": "security_elia_handles"
+				},
+				{
+					"text": "[Create a distraction — knock over a pipe, draw their attention.]",
+					"next": "security_distraction"
+				},
+				{
+					"text": "\"Sergeant. The east wing is gone. Your command structure is gone. Who are you holding this line for?\"",
+					"skill_check": {
+						"stat": "persuasion",
+						"skill": "persuasion",
+						"dc": 10,
+						"threshold": 10,
+						"on_success": "security_talked_down",
+						"on_failure": "security_talk_fail"
+					}
+				}
+			]
+		},
+		"security_elia_handles": {
+			"speaker": "Narration",
+			"text": "You stay still. Elia moves.\n\nIt's not a fight. A fight implies two sides with a chance. This is a demonstration.\n\nMourning takes the barricade apart in one sweep. Her second blade—the short one, the fast one—disarms the sergeant before he finishes raising his rifle. Two of the others bolt. The fourth drops his weapon and puts his hands up.\n\nElapsed time: four seconds.",
+			"next": "security_aftermath"
+		},
+		"security_distraction": {
+			"speaker": "Narration",
+			"text": "You grab a length of dangling pipe and wrench it free. Sparks spray across the junction. The sergeant flinches right—\n\n—and Elia is already moving left.\n\nMourning catches the barricade at its weakest point. The whole thing folds inward. By the time the guards recover from the shower of sparks, Elia is inside their perimeter. The sergeant's rifle is on the floor. His team is backing up.\n\nFour seconds. Maybe five.",
+			"reputation": { "elia": 1 },
+			"next": "security_aftermath"
+		},
+		"security_talked_down": {
+			"speaker": "Security Sergeant",
+			"text": "The sergeant's jaw works. You see it—the exact moment the math stops adding up for him. The east wing is rubble. His earpiece is static. The woman in front of him just cut through a blast door with a sword.\n\n\"...Stand down.\" He lowers his rifle. His team follows. \"We were never here. Neither were you.\"",
+			"reputation": { "elia": 1 },
+			"next": "security_aftermath_clean"
+		},
+		"security_talk_fail": {
+			"speaker": "Security Sergeant",
+			"text": "\"Nice try.\" The sergeant's finger moves to his trigger. \"On the ground. Now—\"\n\nHe doesn't finish the sentence. Elia was waiting for him to stop listening to you and start reaching for his weapon. That half-second of distraction was enough.",
+			"next": "security_talk_fail_2"
+		},
+		"security_talk_fail_2": {
+			"speaker": "Narration",
+			"text": "Mourning takes his rifle in half. The short blade pins the next guard's weapon to the barricade. The other two run.\n\nElia straightens up. Doesn't even look winded.",
+			"next": "security_aftermath"
+		},
+		"security_aftermath": {
+			"speaker": "Elia",
+			"text": "\"Amateurs.\" She flicks something off Mourning's edge—not blood, just dust. \"Corporate security. They train for containment breaches, not for someone who wants to be here.\"\n\nShe starts moving again. The exit is close—you can smell outside air threading through the smoke.",
+			"next": "extraction_approach"
+		},
+		"security_aftermath_clean": {
+			"speaker": "Elia",
+			"text": "She stares at you as the guards file out through a side corridor. The look on her face is new—not assessment this time. Reassessment.\n\n\"You just talked down four armed guards in a burning building.\" A beat. \"I was ready to cut through them.\"\n\nShe sheathes her blades. \"Your way was better.\"",
+			"next": "extraction_approach"
+		},
+		"extraction_approach": {
+			"speaker": "Narration",
+			"text": "The corridor ends at a loading dock—massive freight doors, half-open, letting in a gust of cold night air that tastes like freedom and engine exhaust.\n\nA shuttle sits on the landing pad, engines idling. Its running lights cut blue lines through the smoke pouring out of Site K-9's corpse.\n\nAnd there, positioned behind a concrete pylon with a rifle that looks like it was built for a vehicle, is a woman with silver-white hair and eyes that track your approach with preternatural calm.",
+			"next": "elisira_introduction"
+		},
+		"elisira_introduction": {
+			"speaker": "Elisira",
+			"text": "\"Elia.\" Her voice is precise, clipped, the accent from somewhere old-world. She doesn't lower the rifle—it stays trained on the corridor behind you. \"You're forty seconds behind schedule.\"\n\n\"Ran into a door.\" Elia's voice carries the ghost of a smirk. \"And some guards.\"\n\n\"The door, I heard. The guards?\" A flicker of something in those pale eyes. \"Still breathing?\"",
+			"next": "elisira_exchange"
+		},
+		"elisira_exchange": {
+			"speaker": "Elia",
+			"text": "\"All breathing. Ask the new one—\" She tilts her head toward you. \"—they had opinions about that.\"\n\nElisira's gaze shifts to you. It's not like Elia's assessment—less blade, more telescope. She's reading you at a distance you can feel.",
+			"choices": [
+				{
+					"text": "\"Elisira, right? Elia mentioned your team in the east wing.\"",
+					"next": "elisira_east_wing"
+				},
+				{
+					"text": "[Nod. Hold her gaze.]",
+					"next": "elisira_nod"
+				},
+				{
+					"text": "\"Thank you. For covering the exit.\"",
+					"next": "elisira_thanks"
+				}
+			]
+		},
+		"elisira_east_wing": {
+			"speaker": "Elisira",
+			"text": "\"Three extracted. Two couldn't be moved.\" She says it clean and factual, the way a surgeon describes an operation. But her trigger finger tightens on the rifle stock, just barely. \"We'll go back for them.\"\n\nShe turns to Elia. \"The shuttle won't wait. Get them aboard.\"",
+			"next": "board_shuttle"
+		},
+		"elisira_nod": {
+			"speaker": "Elisira",
+			"text": "She returns the nod. Exact, measured. Like she's filed you under a category and will revisit the classification later.\n\n\"Shuttle. Now. Both of you.\" She's already sweeping the corridor behind you through her scope. \"We have company inbound from the north tower. Sixty seconds.\"",
+			"next": "board_shuttle"
+		},
+		"elisira_thanks": {
+			"speaker": "Elisira",
+			"text": "Something shifts in her expression. Not softness—Elisira doesn't do soft. But the hard edges rearrange into something that might be warmth, viewed from very far away.\n\n\"You're welcome.\" Two words, and she means both of them. \"Now get on the shuttle before I have to shoot someone to keep this exit open.\"",
+			"reputation": { "elisira": 1 },
+			"next": "board_shuttle"
+		},
+		"board_shuttle": {
+			"speaker": "Narration",
+			"text": "The shuttle interior is stripped—no seats, just cargo straps bolted to the walls and a med-kit someone has already torn open. Two other people are huddled near the back—other extractions, you realize. They look exactly as hollow-eyed as you feel.\n\nElia drops into the co-pilot seat. Elisira swings aboard last, the rifle still trained on the loading dock until the ramp closes.\n\n\"Go,\" Elisira says.",
+			"next": "liftoff"
+		},
+		"liftoff": {
+			"speaker": "Narration",
+			"text": "The shuttle lurches upward. Through the narrow viewport, you watch Site K-9 shrink—first the loading dock, then the east wing (burning), then the whole compound. From above, it looks small. A concrete scar on a dark hillside, trailing smoke like a wound that won't clot.",
+			"next": "liftoff_look_back"
+		},
+		"liftoff_look_back": {
+			"speaker": "Avyanna",
+			"text": "[i]You spent eleven months in that building. Eleven months of extraction cycles and fluorescent lighting and the taste of copper in the back of your throat every morning.[/i]",
+			"choices": [
+				{
+					"text": "[Look back. Watch it burn.]",
+					"next": "look_back_yes"
+				},
+				{
+					"text": "[Don't look back. Face forward.]",
+					"next": "look_back_no"
+				}
+			]
+		},
+		"look_back_yes": {
+			"speaker": "Narration",
+			"text": "You press your hand against the viewport glass and watch Site K-9 burn. The east wing collapses in on itself—a slow, almost graceful implosion, sending a column of ash into the night sky.\n\n[i]Good.[/i]\n\nThe thought surprises you. Not its presence—its certainty.",
+			"next": "bee_first_message"
+		},
+		"look_back_no": {
+			"speaker": "Narration",
+			"text": "You turn your back to the viewport. Sit against the hull. Close your eyes.\n\nBehind your eyelids, the red emergency lighting still pulses. It will for a while. But the shuttle is climbing, and the air pressure is changing, and every second puts more distance between you and the place that tried to take you apart.\n\n[i]Don't look back. There's nothing there you need.[/i]",
+			"next": "bee_first_message"
+		},
+		"bee_first_message": {
+			"speaker": "Narration",
+			"text": "And then—in the space behind your sternum, where the Lattice hums its new warm frequency—something speaks.\n\nNot words, exactly. Not yet. A pattern. A shape that wants to be language.\n\n{BEE:: first breath | initialization | the old pattern is broken — you are no longer a closed system}\n\n{BEE:: freedom trajectory | confirmed | new variables detected — recalculating}\n\n{BEE:: welcome to the outside | status: unprecedented | recommendation: survive}",
+			"next": "bee_reaction"
+		},
+		"bee_reaction": {
+			"speaker": "Avyanna",
+			"text": "[i]Something just spoke inside your chest. Something that lives in the Lattice. Something that was sleeping—or waiting—or both.\n\nIt doesn't feel like the extraction cycles. It doesn't feel like anything they did to you.\n\nIt feels like yours.[/i]",
+			"next": "elia_final"
+		},
+		"elia_final": {
+			"speaker": "Elia",
+			"text": "Elia is watching you from the co-pilot seat. She saw your face change.\n\n\"It's starting, isn't it.\" Not a question. \"The Lattice.\"\n\nShe leans back. Crosses her arms. The professional mask is still on, but the eyes behind it are tired—the tiredness of someone who has had this conversation before.\n\n\"We'll explain everything. When we land, when you're safe, when you've eaten something that isn't nutrient paste. Everything.\"\n\nA beat.\n\n\"For now—welcome out.\"",
+			"set_flag": "elia_rescued",
+			"next": "final_narration"
+		},
+		"final_narration": {
+			"speaker": "Narration",
+			"text": "The shuttle climbs through low cloud cover, and Site K-9 vanishes.\n\nBelow, the fire still burns. Behind you, the old life collapses in on itself. Ahead, the dark, and whatever waits in it.\n\nThe Lattice hums. BEE:: hums with it. And Elia—the woman with the blade called Mourning, who cut through a building to find you—sits in the co-pilot seat with her eyes half-closed, already planning the next extraction.\n\n[i]You are free. You do not yet know what that means.[/i]",
+			"set_flag": "left_site_k9",
+			"next": "end"
+		}
+	}
+}

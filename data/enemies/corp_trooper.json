@@ -1,0 +1,38 @@
+{
+  "id": "corp_trooper",
+  "name": "Corporate Trooper",
+  "family": "corporate",
+  "description": "Standard line infantry of corporate security forces. Reliable, well-equipped, and deployed in numbers.",
+  "hp_max": 40,
+  "speed": 8,
+  "attack": 10,
+  "armor": 5,
+  "shields": 3,
+  "wards": 0,
+  "weakness": "",
+  "abilities": [
+    {
+      "name": "Rifle Burst",
+      "base_damage": 12,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "statuses": []
+    },
+    {
+      "name": "Flashbang",
+      "base_damage": 0,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "statuses": [
+        {
+          "name": "blinded",
+          "duration": 1
+        }
+      ]
+    }
+  ]
+}

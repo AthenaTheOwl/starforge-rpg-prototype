@@ -1,0 +1,111 @@
+{
+	"id": "nyx",
+	"name": "Nyx Halden",
+	"pronouns": "she/her",
+	"role": "Aetherist / Primary Caster-Healer",
+	"description": "Ritualist and lattice weaver. The party's primary healer and resonance caster.",
+
+	"hp_max": 65,
+	"speed": 9,
+	"attack": 16,
+	"armor": 2,
+	"shields": 4,
+	"wards": 10,
+
+	"relic_weapon": {
+		"name_1": "Threshold",
+		"name_2": null,
+		"type": "staff",
+		"inlay": "Suture Bloom",
+		"inlay_effect": "Healing wards; mends lattice damage on allies"
+	},
+
+	"ability_slots": [
+		{
+			"slot": "core_1",
+			"name": "Suture Bloom",
+			"primitives": ["echo", "veil"],
+			"description": "Heal an ally and grant a protective ward lasting 2 turns.",
+			"base_damage": -25,
+			"damage_type": "resonance",
+			"heat_cost": 1,
+			"uses_lattice": true,
+			"cli_cost": 0.3,
+			"charges_max": 4,
+			"charges": 4,
+			"statuses": [{"name": "warded", "duration": 2}]
+		},
+		{
+			"slot": "core_2",
+			"name": "Weave Strike",
+			"primitives": ["echo"],
+			"description": "Composed lattice attack. Launches a bolt of resonance energy at target.",
+			"base_damage": 22,
+			"damage_type": "resonance",
+			"heat_cost": 1,
+			"uses_lattice": true,
+			"cli_cost": 0.2,
+			"charges_max": 4,
+			"charges": 4,
+			"statuses": []
+		},
+		{
+			"slot": "utility_1",
+			"name": "Anchor Ward",
+			"primitives": ["veil"],
+			"description": "Create a damage-absorbing ward on a location. Absorbs up to 30 damage.",
+			"base_damage": 0,
+			"damage_type": "resonance",
+			"heat_cost": 2,
+			"uses_lattice": true,
+			"cli_cost": 0.4,
+			"charges_max": 2,
+			"charges": 2,
+			"statuses": [{"name": "anchor_ward", "duration": 3}]
+		},
+		{
+			"slot": "utility_2",
+			"name": "Binding Circle",
+			"primitives": ["veil", "echo"],
+			"description": "AoE crowd control. Binds all enemies in area for 1 turn, preventing movement.",
+			"base_damage": 0,
+			"damage_type": "resonance",
+			"heat_cost": 2,
+			"uses_lattice": true,
+			"cli_cost": 0.5,
+			"charges_max": 2,
+			"charges": 2,
+			"statuses": [{"name": "bound", "duration": 1}]
+		},
+		{
+			"slot": "reaction",
+			"name": "Threshold Pulse",
+			"primitives": ["sever"],
+			"description": "Dispel one negative status effect from an ally as a reaction.",
+			"base_damage": 0,
+			"damage_type": "resonance",
+			"heat_cost": 1,
+			"uses_lattice": true,
+			"cli_cost": 0.2,
+			"charges_max": 2,
+			"charges": 2,
+			"statuses": []
+		},
+		{
+			"slot": "keystone",
+			"name": "Reality Fold",
+			"primitives": ["vent", "echo"],
+			"description": "Massive AoE resonance detonation. Warps local lattice. Increases CLI by 2.0.",
+			"base_damage": 35,
+			"damage_type": "resonance",
+			"heat_cost": 3,
+			"uses_lattice": true,
+			"cli_cost": 2.0,
+			"charges_max": 1,
+			"charges": 1,
+			"statuses": [{"name": "disoriented", "duration": 2}]
+		}
+	],
+
+	"tier": 1
+}

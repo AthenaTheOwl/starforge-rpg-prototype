@@ -1,0 +1,25 @@
+{
+  "id": "act1_raider_ambush",
+  "name": "Raider Ambush",
+  "description": "Fast-moving scrappers burst from cover. Quick and aggressive, testing your ability to handle multiple fast threats.",
+  "waves": [
+    {
+      "description": "Raider Scrappers",
+      "enemies": [
+        {"type": "raider_scrapper", "count": 3}
+      ]
+    }
+  ],
+  "environment": {
+    "static_zone": false,
+    "debris_field": true,
+    "cover_available": true
+  },
+  "victory_condition": "defeat_all",
+  "defeat_consequence": "retry",
+  "rewards": {
+    "experience": 150,
+    "flags": ["raider_ambush_survived"]
+  },
+  "loot": []
+}

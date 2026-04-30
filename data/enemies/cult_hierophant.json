@@ -1,0 +1,56 @@
+{
+  "id": "cult_hierophant",
+  "name": "Cult Hierophant",
+  "family": "cult",
+  "description": "High-ranking ward master and boss-type threat. Commands acolytes, channels devastating resonance storms, and will sacrifice followers to survive.",
+  "hp_max": 80,
+  "speed": 9,
+  "attack": 10,
+  "armor": 3,
+  "shields": 5,
+  "wards": 15,
+  "weakness": "",
+  "abilities": [
+    {
+      "name": "Resonance Storm",
+      "base_damage": 20,
+      "damage_type": "resonance",
+      "heat_cost": 0,
+      "uses_lattice": true,
+      "cli_cost": 0,
+      "aoe": true,
+      "statuses": []
+    },
+    {
+      "name": "Mass Ward",
+      "base_damage": 0,
+      "damage_type": "resonance",
+      "heat_cost": 0,
+      "uses_lattice": true,
+      "cli_cost": 0,
+      "target": "all_allies",
+      "statuses": [
+        {
+          "name": "wards_up",
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "name": "Sacrifice Command",
+      "base_damage": 0,
+      "damage_type": "resonance",
+      "heat_cost": 0,
+      "uses_lattice": true,
+      "cli_cost": 0,
+      "target": "self",
+      "special": "kills_acolyte",
+      "statuses": [
+        {
+          "name": "heal",
+          "value": 30
+        }
+      ]
+    }
+  ]
+}

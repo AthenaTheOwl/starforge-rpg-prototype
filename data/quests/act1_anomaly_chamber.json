@@ -1,0 +1,22 @@
+{
+  "id": "act1_anomaly_chamber",
+  "name": "Anomaly Chamber",
+  "description": "The chamber is too quiet for machinery and too awake for stone. Every surface seems to remember the shape of a question.",
+  "actions": [
+    {
+      "type": "examine",
+      "label": "Read the chamber resonance",
+      "examine_text": "The Lattice does not echo here. It listens back. The instruments call it an anomaly because instruments are trained to insult what they cannot model."
+    },
+    {
+      "type": "move",
+      "label": "Return to the mine tunnels",
+      "target_location": "act1_mine_tunnels"
+    },
+    {
+      "type": "move",
+      "label": "Inspect the glitter vein",
+      "target_location": "act1_glitter_vein"
+    }
+  ]
+}

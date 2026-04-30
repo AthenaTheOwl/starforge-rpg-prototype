@@ -1,0 +1,35 @@
+{
+	"id": "act1_lumen_thief_galley",
+	"name": "Lumen Thief — Galley",
+	"description": "The galley is smaller than you expected. A table. Chairs. A cooking surface with actual burners. Shelves with containers that hold real ingredients — not paste, not powder, not the compressed nutritional blocks the Kennel dispensed.\n\nThe air smells like something Rho is calling 'stew' that probably started life as three different meals before he combined them. It's not beautiful. But it's hot and it's food and no one has to eat alone.\n\nThis is the social heart of the ship — where business becomes dinner and dinner becomes family without anyone noticing the transition.",
+	"actions": [
+		{
+			"type": "talk",
+			"label": "Join the crew meal",
+			"dialogue_id": "act1_crew_meal",
+			"tooltip": "Sit down and eat with the crew"
+		},
+		{
+			"type": "examine",
+			"label": "Look at the food",
+			"examine_text": "Actual food. Vegetables — green, fresh, not reconstituted. Some kind of grain. Protein that looks like it came from an animal and not a vat.\n\nMore food than you would normally be allotted for three days at the Kennel. Offered without terms or collateral.\n\n[i](Forty-five ticks. That was what your body cost in the mine. Here, they just... feed you. Like you're worth it.)[/i]"
+		},
+		{
+			"type": "examine",
+			"label": "Check the chore rotation board",
+			"examine_text": "A physical board near the sink, handwritten in several different styles:\n\nDISHES: Rho (this week)\nCOOKING: Rotating (Vesper Mon/Thu, Rho Tue/Fri, Jalen Wed, Nyx Sat, Elia Sun — 'Elia cooking' means 'takeout at stations')\nCLEANING: Rotating\n\nA sticky note in cramped writing: 'New crew: first month exempt from chores. Your job is learning to exist here without constant survival math. — V'"
+		},
+		{
+			"type": "talk",
+			"label": "Talk to Vesper",
+			"dialogue_id": "act1_naming_scene",
+			"tooltip": "Vesper is checking on you",
+			"requires_flag": "naming_scene_available"
+		},
+		{
+			"type": "move",
+			"label": "Head to the corridors",
+			"target_location": "act1_lumen_thief_corridors"
+		}
+	]
+}

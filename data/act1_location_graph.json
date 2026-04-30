@@ -1,0 +1,118 @@
+{
+  "locations": {
+    "act1_site_k9": {
+      "name": "Site K-9 — The Kennel",
+      "connections": ["act1_extraction_wing", "act1_west_corridor"],
+      "environment": "static_zone",
+      "tags": ["mine", "aurum", "act1_start"]
+    },
+    "act1_extraction_wing": {
+      "name": "Extraction Wing",
+      "connections": ["act1_site_k9", "act1_mine_tunnels"],
+      "environment": "static_zone",
+      "tags": ["mine", "aurum", "industrial"]
+    },
+    "act1_west_corridor": {
+      "name": "West Corridor",
+      "connections": ["act1_site_k9", "act1_mine_tunnels"],
+      "environment": "static_zone",
+      "tags": ["mine", "aurum", "transition"]
+    },
+    "act1_mine_tunnels": {
+      "name": "Mine Tunnels — Lower Works",
+      "connections": ["act1_extraction_wing", "act1_west_corridor", "act1_anomaly_chamber"],
+      "environment": "static_zone",
+      "tags": ["mine", "aurum", "lattice_dense", "dangerous"]
+    },
+    "act1_anomaly_chamber": {
+      "name": "Anomaly Chamber — Subsection 7-Gamma",
+      "connections": ["act1_mine_tunnels"],
+      "environment": "static_zone",
+      "tags": ["mine", "lattice_dense", "shard", "restricted"]
+    },
+    "act1_lumen_thief_bridge": {
+      "name": "Lumen Thief — Bridge",
+      "connections": ["act1_lumen_thief_corridors"],
+      "environment": "ship",
+      "tags": ["ship", "lumen_thief", "navigation"]
+    },
+    "act1_lumen_thief_corridors": {
+      "name": "Lumen Thief — Corridors",
+      "connections": ["act1_lumen_thief_bridge", "act1_lumen_thief_quarters", "act1_lumen_thief_medbay", "act1_lumen_thief_galley", "act1_lumen_thief_cargo_bay"],
+      "environment": "ship",
+      "tags": ["ship", "lumen_thief", "hub"]
+    },
+    "act1_lumen_thief_quarters": {
+      "name": "Lumen Thief — Crew Quarters",
+      "connections": ["act1_lumen_thief_corridors"],
+      "environment": "ship",
+      "tags": ["ship", "lumen_thief", "rest"]
+    },
+    "act1_lumen_thief_medbay": {
+      "name": "Lumen Thief — Medbay",
+      "connections": ["act1_lumen_thief_corridors"],
+      "environment": "ship",
+      "tags": ["ship", "lumen_thief", "medical"]
+    },
+    "act1_lumen_thief_galley": {
+      "name": "Lumen Thief — Galley",
+      "connections": ["act1_lumen_thief_corridors"],
+      "environment": "ship",
+      "tags": ["ship", "lumen_thief", "social"]
+    },
+    "act1_lumen_thief_cargo_bay": {
+      "name": "Lumen Thief — Cargo Bay",
+      "connections": ["act1_lumen_thief_corridors"],
+      "environment": "ship",
+      "tags": ["ship", "lumen_thief", "storage", "training"]
+    },
+    "act1_guild_station": {
+      "name": "Guild Station",
+      "connections": ["act1_lumen_thief_bridge", "act1_contract_sites"],
+      "environment": "station",
+      "tags": ["station", "guild", "commerce", "resupply"]
+    },
+    "act1_contract_sites": {
+      "name": "Contract Sites",
+      "connections": ["act1_guild_station", "act1_lumen_thief_bridge"],
+      "environment": "varies",
+      "tags": ["mission", "contract", "field"]
+    },
+    "act1_glitter_vein": {
+      "name": "Glitter Vein",
+      "connections": ["act1_mine_tunnels"],
+      "environment": "static_zone",
+      "tags": ["mine", "aurum", "lattice_dense", "hazard"]
+    },
+    "act1_corporate_safehouse": {
+      "name": "Corporate Safehouse — Ruined Operations Base",
+      "connections": ["act1_mine_tunnels", "act1_lumen_thief_corridors"],
+      "environment": "static_zone",
+      "tags": ["corporate", "ruins", "recruitment", "vesper"]
+    },
+    "act1_memorial_shrine": {
+      "name": "Memorial Shrine — The Forgotten Chapel",
+      "connections": ["act1_mine_tunnels", "act1_ship_quarters"],
+      "environment": "static_zone",
+      "tags": ["shrine", "lattice_dense", "memorial", "nyx", "spiritual"]
+    },
+    "act1_ship_quarters": {
+      "name": "Lumen Thief — Crew Quarters",
+      "connections": ["act1_lumen_thief_corridors", "act1_lumen_thief_bridge", "act1_lumen_thief_galley", "act1_command_bridge"],
+      "environment": "ship",
+      "tags": ["ship", "lumen_thief", "rest", "crew", "healing"]
+    },
+    "act1_tech_cache": {
+      "name": "Tech Cache — Hidden Archive",
+      "connections": ["act1_mine_tunnels", "act1_anomaly_chamber"],
+      "environment": "static_zone",
+      "tags": ["mine", "hidden", "data", "conspiracy", "jalen"]
+    },
+    "act1_command_bridge": {
+      "name": "Lumen Thief — Command Bridge (War Room)",
+      "connections": ["act1_lumen_thief_bridge", "act1_ship_quarters"],
+      "environment": "ship",
+      "tags": ["ship", "lumen_thief", "command", "planning", "act1_finale"]
+    }
+  }
+}

@@ -1,0 +1,1116 @@
+{
+  "start_node": "start",
+  "nodes": {
+    "start": {
+      "speaker": "SYSTEM",
+      "text": "[i]Dinner on the Lumen Thief. The galley smells like something Rho is calling 'stew' that probably started life as three different meals. It's not beautiful. But it's hot and it's food and no one has to eat alone.[/i]",
+      "next": "setting_detail"
+    },
+    "setting_detail": {
+      "speaker": "SYSTEM",
+      "text": "[i]The galley is small — built for function, not ambiance. A battered metal table dominates the center, bolted to the deck. Mismatched chairs and a crate someone welded armrests onto. Overhead lights flicker at a frequency that's almost warm. Condensation beads on the porthole. Outside, the drift of stars is so slow it looks like stillness.[/i]",
+      "next": "seating_arrangement"
+    },
+    "seating_arrangement": {
+      "speaker": "SYSTEM",
+      "text": "[i]Vesper sits at the head — not by demand, just gravity. Elia is to their left, back to the wall, sightlines on both doors. Elisira sits beside Elia, close enough their elbows brush. Jalen has claimed the far corner, datapad propped against a condiment jar. Rho is still at the stove, conducting. Nyx sits nearest the corridor, as though keeping one foot in an exit. The only open chair is between Rho's empty seat and Nyx.[/i]",
+      "next": "rho_serves"
+    },
+    "rho_serves": {
+      "speaker": "Rho",
+      "text": "Fair warning: I added spice. Jalen said the last batch was bland.",
+      "next": "jalen_bland"
+    },
+    "jalen_bland": {
+      "speaker": "Jalen",
+      "text": "[i]Not looking up from his datapad.[/i] I said it tasted like warm disappointment.",
+      "next": "rho_same"
+    },
+    "rho_same": {
+      "speaker": "Rho",
+      "text": "Same thing.",
+      "next": "rho_menu_detail"
+    },
+    "rho_menu_detail": {
+      "speaker": "SYSTEM",
+      "text": "[i]Rho ladles stew into dented bowls — something thick and brick-red with chunks of reconstituted protein and tubers that might once have been potatoes. A basket of flatbread, dense and dark, gets dropped in the center. A jar of pickled something no one can identify. And coffee. Always coffee — the one luxury this crew treats as non-negotiable.[/i]",
+      "next": "vesper_death"
+    },
+    "vesper_death": {
+      "speaker": "Vesper",
+      "text": "[i]Accepting a bowl.[/i] If this kills me, promote Elia to engineer.",
+      "next": "elia_decline"
+    },
+    "elia_decline": {
+      "speaker": "Elia",
+      "text": "I don't want the job.",
+      "next": "elisira_taste"
+    },
+    "elisira_taste": {
+      "speaker": "Elisira",
+      "text": "[i]Dipping flatbread into the stew, deliberate.[/i] It's better than last time. You let it simmer longer.",
+      "next": "rho_noticed"
+    },
+    "rho_noticed": {
+      "speaker": "Rho",
+      "text": "[i]Pleased someone noticed.[/i] Two extra hours. Secret's patience.",
+      "next": "jalen_patience_quip"
+    },
+    "jalen_patience_quip": {
+      "speaker": "Jalen",
+      "text": "The secret to your cooking is not cooking it. Noted.",
+      "next": "nyx_taste"
+    },
+    "nyx_taste": {
+      "speaker": "Nyx",
+      "text": "[i]Tasting the stew.[/i] It's... functional.",
+      "next": "rho_victory"
+    },
+    "rho_victory": {
+      "speaker": "Rho",
+      "text": "[i]Grinning.[/i] I'll take it.",
+      "next": "avyanna_taste"
+    },
+    "avyanna_taste": {
+      "speaker": "SYSTEM",
+      "text": "[i]You take a cautious bite. It's good. Better than good. Better than anything you ate in the mine, where food was fuel and nothing else.[/i]",
+      "next": "dinner_observation"
+    },
+    "dinner_observation": {
+      "speaker": "SYSTEM",
+      "text": "[i]As the crew settles into their meal, you have a moment to observe. Who do you watch?[/i]",
+      "choices": [
+        {
+          "text": "Watch Vesper — the way they hold command without demanding it",
+          "next": "watch_vesper",
+          "set_flag": "dinner_watched_vesper",
+          "reputation": {
+            "vesper": 1
+          }
+        },
+        {
+          "text": "Watch Nyx — the quiet way she tracks everyone's comfort",
+          "next": "watch_nyx",
+          "set_flag": "dinner_watched_nyx",
+          "reputation": {
+            "nyx": 1
+          }
+        },
+        {
+          "text": "Watch Rho — the practiced grin and careful hands",
+          "next": "watch_rho",
+          "set_flag": "dinner_watched_rho",
+          "reputation": {
+            "rho": 1
+          }
+        },
+        {
+          "text": "Watch Jalen — how he tracks everything while pretending not to care",
+          "next": "watch_jalen",
+          "set_flag": "dinner_watched_jalen",
+          "reputation": {
+            "jalen": 1
+          }
+        },
+        {
+          "text": "Watch Elia — sharp eyes that miss nothing",
+          "next": "watch_elia",
+          "set_flag": "dinner_watched_elia",
+          "reputation": {
+            "elia": 1
+          }
+        }
+      ]
+    },
+    "watch_vesper": {
+      "speaker": "SYSTEM",
+      "text": "[i]Vesper doesn't command. They curate. Every question deliberate. Every silence intentional. This is someone who leads by making space for others to be competent.[/i]",
+      "next": "rho_asks"
+    },
+    "watch_nyx": {
+      "speaker": "SYSTEM",
+      "text": "[i]Nyx watches the room like she's solving an equation. Not cold — attentive. She notices when Jalen's coffee runs low, when Rho's smile gets tight. Care disguised as observation.[/i]",
+      "next": "rho_asks"
+    },
+    "watch_rho": {
+      "speaker": "SYSTEM",
+      "text": "[i]Rho moves with the ease of someone who's practiced being comfortable. But you see the way he tracks the exits. The way his hands stay ready. A demolitions expert who knows exactly how fragile everything is.[/i]",
+      "next": "rho_asks"
+    },
+    "watch_jalen": {
+      "speaker": "SYSTEM",
+      "text": "[i]Jalen's datapad is a shield. But his eyes move — tracking trajectories, probabilities, crew morale. He cares more than he wants anyone to know. Especially himself.[/i]",
+      "next": "rho_asks"
+    },
+    "watch_elia": {
+      "speaker": "SYSTEM",
+      "text": "[i]Elia reads the room in threat vectors and weak points. Not paranoid — professional. They're the blade that keeps everyone safe. And they carry that weight like it's lighter than it is.[/i]",
+      "next": "rho_asks"
+    },
+    "rho_asks": {
+      "speaker": "Rho",
+      "text": "You like it?",
+      "next": "avyanna_likes"
+    },
+    "avyanna_likes": {
+      "speaker": "Avyanna",
+      "text": "Yes. It's... it's really good.",
+      "next": "jalen_standards"
+    },
+    "jalen_standards": {
+      "speaker": "Jalen",
+      "text": "[i]Finally looking up.[/i] Some people have low standards.",
+      "next": "rho_bread"
+    },
+    "rho_bread": {
+      "speaker": "Rho",
+      "text": "[i]Throwing a piece of bread at them.[/i] Heretic.",
+      "next": "table_hub"
+    },
+    "table_hub": {
+      "speaker": "SYSTEM",
+      "text": "[i]The table splits into overlapping conversations — voices layering over one another the way they do when people are comfortable. You could lean into any of them.[/i]",
+      "choices": [
+        {
+          "text": "Listen to Vesper — they seem about to tell a story",
+          "next": "vesper_story_setup"
+        },
+        {
+          "text": "Tune into Rho and Jalen — they're arguing about something",
+          "next": "rho_jalen_argument"
+        },
+        {
+          "text": "Turn to Nyx — she's being quieter than usual",
+          "next": "nyx_drawing_out"
+        },
+        {
+          "text": "Watch Elisira and Elia — something unspoken passes between them",
+          "next": "elisira_elia_exchange"
+        }
+      ]
+    },
+    "vesper_story_setup": {
+      "speaker": "Rho",
+      "text": "Vesper. Tell the one about Calyx Station.",
+      "next": "vesper_story_protest"
+    },
+    "vesper_story_protest": {
+      "speaker": "Vesper",
+      "text": "[i]Leaning back, cradling their coffee.[/i] That story gets worse every time I tell it.",
+      "next": "rho_story_insist"
+    },
+    "rho_story_insist": {
+      "speaker": "Rho",
+      "text": "That's because you keep adding details. Tell the real version. For the new crew member.",
+      "next": "vesper_story_begin"
+    },
+    "vesper_story_begin": {
+      "speaker": "Vesper",
+      "text": "Fine. So. We had a contract — simple extraction. Walk in, grab the cargo, walk out. The client neglected to mention the cargo was alive.",
+      "next": "jalen_story_interject"
+    },
+    "jalen_story_interject": {
+      "speaker": "Jalen",
+      "text": "It was a cat.",
+      "next": "vesper_story_cat"
+    },
+    "vesper_story_cat": {
+      "speaker": "Vesper",
+      "text": "[i]Holding up a hand.[/i] It was a genetically modified cat the size of a small dog, with bioluminescent fur and a very specific dietary requirement that no one told us about. Which is how Rho ended up in the ventilation system at three in the morning, covered in synthetic fish paste, trying to lure a glowing cat out of the reactor housing.",
+      "next": "table_laughs"
+    },
+    "table_laughs": {
+      "speaker": "SYSTEM",
+      "text": "[i]The table erupts. Even Jalen's mouth twitches. Rho is shaking his head but grinning. Nyx covers her mouth with one hand.[/i]",
+      "next": "rho_defense"
+    },
+    "rho_defense": {
+      "speaker": "Rho",
+      "text": "It liked me! Eventually. After I lost most of a shirt and all of my dignity.",
+      "next": "vesper_story_turn"
+    },
+    "vesper_story_turn": {
+      "speaker": "Vesper",
+      "text": "[i]The smile fades slowly, like light through closing shutters.[/i] The client was a girl. Maybe twelve. The cat was hers — only thing left from before the Compact relocated her family. She'd hidden it in the station's service tunnels for six months. Feeding it scraps. Keeping it alive.",
+      "next": "vesper_story_wistful"
+    },
+    "vesper_story_wistful": {
+      "speaker": "Vesper",
+      "text": "[i]Quiet now.[/i] We didn't charge her. Delivered the cat to her aunt's ship two sectors out. She cried when she held it. Not sad crying. The other kind. The kind that means something broke and then unbroken itself.",
+      "next": "vesper_story_silence"
+    },
+    "vesper_story_silence": {
+      "speaker": "SYSTEM",
+      "text": "[i]A beat of silence around the table. The kind that isn't empty — it's full. The hum of the ship fills it like a held breath.[/i]",
+      "next": "vesper_story_response"
+    },
+    "vesper_story_response": {
+      "speaker": "SYSTEM",
+      "text": "",
+      "choices": [
+        {
+          "text": "'That's why you do this. Not the contracts. This.'",
+          "next": "vesper_story_affirm",
+          "reputation": {
+            "vesper": 1
+          }
+        },
+        {
+          "text": "'What happened to the girl?'",
+          "next": "vesper_story_girl"
+        },
+        {
+          "text": "Say nothing. Let the moment breathe.",
+          "next": "vesper_story_breathe"
+        }
+      ]
+    },
+    "vesper_story_affirm": {
+      "speaker": "Vesper",
+      "text": "[i]A look that's harder to read than a redacted file.[/i] Some days. Other days it's just work. But that one... that one I kept.",
+      "next": "conversation_return"
+    },
+    "vesper_story_girl": {
+      "speaker": "Vesper",
+      "text": "Last I heard, she'd gotten into a trade school on Meridian. Doing well. [i]A pause.[/i] I check. Not often. But I check.",
+      "reputation": {
+        "vesper": 1
+      },
+      "next": "conversation_return"
+    },
+    "vesper_story_breathe": {
+      "speaker": "Rho",
+      "text": "[i]Quietly, into his bowl.[/i] That cat bit me eleven times. Worth every one.",
+      "next": "conversation_return"
+    },
+    "rho_jalen_argument": {
+      "speaker": "Rho",
+      "text": "I'm telling you — you load the top rack first. Gravity does the work.",
+      "next": "jalen_argument_counter"
+    },
+    "jalen_argument_counter": {
+      "speaker": "Jalen",
+      "text": "We're in artificial gravity. There is no 'gravity does the work.' You load bottom rack first for structural stability. This is basic physics.",
+      "next": "rho_argument_escalate"
+    },
+    "rho_argument_escalate": {
+      "speaker": "Rho",
+      "text": "It's a dishwasher, Jalen. Not a load-bearing wall.",
+      "next": "jalen_argument_principle"
+    },
+    "jalen_argument_principle": {
+      "speaker": "Jalen",
+      "text": "The principle is the same. Structural integrity matters at every scale. You wouldn't stack charges top-down.",
+      "next": "rho_argument_charges"
+    },
+    "rho_argument_charges": {
+      "speaker": "Rho",
+      "text": "[i]Offended.[/i] Don't bring my charges into this. My charges are art. Dishwashing is... dishwashing.",
+      "next": "rho_jalen_argument_choice"
+    },
+    "rho_jalen_argument_choice": {
+      "speaker": "SYSTEM",
+      "text": "[i]They're both looking at you now, as though you're a tiebreaker they didn't ask for but will absolutely use.[/i]",
+      "choices": [
+        {
+          "text": "[Tech DC 8] 'The rack geometry is designed for bottom-first loading. Jalen's right.'",
+          "next": "tech_dishwasher_check",
+          "skill_check": {
+            "skill": "Tech",
+            "dc": 8
+          }
+        },
+        {
+          "text": "'Rho cooked. Rho's method. That's the rule.'",
+          "next": "rho_jalen_side_rho",
+          "reputation": {
+            "rho": 1
+          }
+        },
+        {
+          "text": "'I'm not getting between a demolitions expert and a data analyst over dishes.'",
+          "next": "rho_jalen_dodge"
+        }
+      ]
+    },
+    "tech_dishwasher_check": {
+      "speaker": "SYSTEM",
+      "text": "",
+      "skill_check": {
+        "skill": "Tech",
+        "dc": 8,
+        "on_success": "tech_dishwasher_success",
+        "on_failure": "tech_dishwasher_failure"
+      },
+      "next": "tech_dishwasher_success"
+    },
+    "tech_dishwasher_success": {
+      "speaker": "Jalen",
+      "text": "[i]Vindicated.[/i] Thank you. Someone on this ship understands engineering.",
+      "set_flag": "dinner_tech_insight",
+      "reputation": {
+        "jalen": 1
+      },
+      "next": "rho_jalen_resolved"
+    },
+    "tech_dishwasher_failure": {
+      "speaker": "Rho",
+      "text": "[i]Squinting.[/i] That didn't sound confident. I'm sticking with my method.",
+      "next": "rho_jalen_resolved"
+    },
+    "rho_jalen_side_rho": {
+      "speaker": "Rho",
+      "text": "[i]Triumphant.[/i] The new crew member has spoken. Cook's law.",
+      "next": "jalen_grudging"
+    },
+    "jalen_grudging": {
+      "speaker": "Jalen",
+      "text": "[i]Returning to his datapad.[/i] Cook's law isn't real. But I'll allow it. This time.",
+      "next": "rho_jalen_resolved"
+    },
+    "rho_jalen_dodge": {
+      "speaker": "Rho",
+      "text": "[i]Laughing.[/i] Smart. Very smart. Self-preservation instincts are excellent.",
+      "next": "jalen_dodge_agree"
+    },
+    "jalen_dodge_agree": {
+      "speaker": "Jalen",
+      "text": "First sensible thing anyone's said tonight.",
+      "next": "rho_jalen_resolved"
+    },
+    "rho_jalen_resolved": {
+      "speaker": "SYSTEM",
+      "text": "[i]Rho flicks a crumb at Jalen. Jalen catches it without looking. They've done this a thousand times. The argument was never about dishes.[/i]",
+      "next": "conversation_return"
+    },
+    "nyx_drawing_out": {
+      "speaker": "SYSTEM",
+      "text": "[i]Nyx is eating slowly, methodically, gaze drifting between the others like she's cataloguing something. Her bowl is barely touched. When you turn toward her, she notices immediately.[/i]",
+      "next": "nyx_drawing_choice"
+    },
+    "nyx_drawing_choice": {
+      "speaker": "SYSTEM",
+      "text": "",
+      "choices": [
+        {
+          "text": "[Empathy DC 10] 'You're not eating. You okay?'",
+          "next": "nyx_empathy_check",
+          "skill_check": {
+            "skill": "Empathy",
+            "dc": 10
+          }
+        },
+        {
+          "text": "'What do you see? When you watch them like that.'",
+          "next": "nyx_observation_answer"
+        },
+        {
+          "text": "Just sit with her. No words. Shared quiet.",
+          "next": "nyx_shared_quiet",
+          "reputation": {
+            "nyx": 1
+          }
+        }
+      ]
+    },
+    "nyx_empathy_check": {
+      "speaker": "SYSTEM",
+      "text": "",
+      "skill_check": {
+        "skill": "Empathy",
+        "dc": 10,
+        "on_success": "nyx_empathy_success",
+        "on_failure": "nyx_empathy_failure"
+      },
+      "next": "nyx_empathy_success"
+    },
+    "nyx_empathy_success": {
+      "speaker": "Nyx",
+      "text": "[i]A flicker of surprise — quickly hidden.[/i] I'm... not used to eating with people. In the lab it was trays and silence and data. This is louder. I'm calibrating.",
+      "set_flag": "dinner_nyx_opened_up",
+      "reputation": {
+        "nyx": 2
+      },
+      "next": "nyx_empathy_followup"
+    },
+    "nyx_empathy_followup": {
+      "speaker": "Avyanna",
+      "text": "I get that. The mine was the same. Eating was just... refueling. This is different.",
+      "next": "nyx_empathy_bond"
+    },
+    "nyx_empathy_bond": {
+      "speaker": "Nyx",
+      "text": "[i]The smallest nod. Almost imperceptible.[/i] Different. Yes. Not bad different. Just... new variables.",
+      "next": "conversation_return"
+    },
+    "nyx_empathy_failure": {
+      "speaker": "Nyx",
+      "text": "[i]A polite deflection.[/i] I'm fine. Just thinking. Eat your stew.",
+      "next": "conversation_return"
+    },
+    "nyx_observation_answer": {
+      "speaker": "Nyx",
+      "text": "[i]Considering the question seriously.[/i] Rho uses humor as load-bearing structure. Remove it and he'd collapse. Jalen pretends information is a substitute for connection. Elia and Elisira communicate in a frequency the rest of us can't hear. And Vesper... Vesper is always calculating cost.",
+      "next": "nyx_observation_you"
+    },
+    "nyx_observation_you": {
+      "speaker": "Nyx",
+      "text": "[i]Meeting your eyes.[/i] And you're trying to figure out if this is real. If people can just... eat together. Without an angle.",
+      "reputation": {
+        "nyx": 1
+      },
+      "next": "nyx_observation_response"
+    },
+    "nyx_observation_response": {
+      "speaker": "SYSTEM",
+      "text": "",
+      "choices": [
+        {
+          "text": "'Is it? Real?'",
+          "next": "nyx_its_real"
+        },
+        {
+          "text": "'You see a lot.'",
+          "next": "nyx_sees_a_lot"
+        }
+      ]
+    },
+    "nyx_its_real": {
+      "speaker": "Nyx",
+      "text": "[i]A pause long enough to mean something.[/i] As real as anything gets out here. Which is more than you'd think.",
+      "next": "conversation_return"
+    },
+    "nyx_sees_a_lot": {
+      "speaker": "Nyx",
+      "text": "Seeing is easy. Knowing what to do with what you see — that's the hard part. I'm still working on it.",
+      "next": "conversation_return"
+    },
+    "nyx_shared_quiet": {
+      "speaker": "SYSTEM",
+      "text": "[i]You don't say anything. Neither does Nyx. You eat in parallel silence — the comfortable kind that doesn't need filling. After a minute, Nyx's shoulders drop a fraction of an inch. She takes a real bite of stew.[/i]",
+      "next": "conversation_return"
+    },
+    "elisira_elia_exchange": {
+      "speaker": "SYSTEM",
+      "text": "[i]Elisira murmurs something to Elia. Too low to catch. Elia's jaw tightens — barely, a millimeter — and then relaxes. Elisira's hand finds Elia's under the table. Brief. Then gone.[/i]",
+      "next": "elisira_elia_insight_choice"
+    },
+    "elisira_elia_insight_choice": {
+      "speaker": "SYSTEM",
+      "text": "",
+      "choices": [
+        {
+          "text": "[Insight DC 12] Try to read what passed between them",
+          "next": "insight_elisira_elia_check",
+          "skill_check": {
+            "skill": "Insight",
+            "dc": 12
+          }
+        },
+        {
+          "text": "Look away. Some things aren't yours to see.",
+          "next": "elisira_elia_respect_privacy"
+        }
+      ]
+    },
+    "insight_elisira_elia_check": {
+      "speaker": "SYSTEM",
+      "text": "",
+      "skill_check": {
+        "skill": "Insight",
+        "dc": 12,
+        "on_success": "insight_elisira_elia_success",
+        "on_failure": "insight_elisira_elia_failure"
+      },
+      "next": "insight_elisira_elia_success"
+    },
+    "insight_elisira_elia_success": {
+      "speaker": "SYSTEM",
+      "text": "[i]You catch fragments. Elisira said a name — someone from before. Elia's tension wasn't anger. It was grief, swallowed quickly, like medicine. Elisira's touch wasn't comfort. It was an anchor. 'I'm here. That was then.' They've had this conversation in gestures so many times it's become its own language.[/i]",
+      "set_flag": "dinner_elisira_elia_insight",
+      "reputation": {
+        "elisira": 1,
+        "elia": 1
+      },
+      "next": "elisira_notices"
+    },
+    "elisira_notices": {
+      "speaker": "Elisira",
+      "text": "[i]Catching your eye. Not hostile — assessing.[/i] You're perceptive. That's useful. Just remember — perceptive people have a responsibility to be kind with what they see.",
+      "next": "conversation_return"
+    },
+    "insight_elisira_elia_failure": {
+      "speaker": "SYSTEM",
+      "text": "[i]You catch the motion but not the meaning. Whatever passed between them is in a dialect you haven't learned yet. Elisira glances at you — neutral, unreadable — then returns to her stew.[/i]",
+      "next": "conversation_return"
+    },
+    "elisira_elia_respect_privacy": {
+      "speaker": "SYSTEM",
+      "text": "[i]You look away. Not everything is data. Not everything is yours. Elia notices your deliberate aversion and, after a moment, gives you the smallest nod. Acknowledgment. Maybe respect.[/i]",
+      "reputation": {
+        "elia": 1
+      },
+      "next": "conversation_return"
+    },
+    "conversation_return": {
+      "speaker": "SYSTEM",
+      "text": "[i]The conversations weave and overlap. There's still time before the meal winds down.[/i]",
+      "choices": [
+        {
+          "text": "Join another conversation at the table",
+          "next": "table_hub_second"
+        },
+        {
+          "text": "This is enough. Just enjoy the moment.",
+          "next": "business_talk"
+        }
+      ]
+    },
+    "table_hub_second": {
+      "speaker": "SYSTEM",
+      "text": "[i]Who do you turn to?[/i]",
+      "choices": [
+        {
+          "text": "Vesper is telling a story about a glowing cat",
+          "next": "vesper_story_setup"
+        },
+        {
+          "text": "Rho and Jalen are debating dishwasher physics",
+          "next": "rho_jalen_argument"
+        },
+        {
+          "text": "Nyx is unusually quiet in the corner",
+          "next": "nyx_drawing_out"
+        },
+        {
+          "text": "Elisira and Elia — that look between them",
+          "next": "elisira_elia_exchange"
+        },
+        {
+          "text": "Enough circulating. Settle in.",
+          "next": "business_talk"
+        }
+      ]
+    },
+    "business_talk": {
+      "speaker": "SYSTEM",
+      "text": "[i]Conversation flows. Business and dinner coexist without tension.[/i]",
+      "next": "bubbles_dinner_check"
+    },
+    "bubbles_dinner_check": {
+      "speaker": "Bubbles",
+      "text": "[i]Through the galley speakers, warm and attentive:[/i] Everyone hydrated? I'm tracking low fluid intake across three crew members today. You know who you are.",
+      "next": "jalen_called_out"
+    },
+    "jalen_called_out": {
+      "speaker": "Jalen",
+      "text": "[i]Without looking up.[/i] I had coffee.",
+      "next": "bubbles_coffee_water"
+    },
+    "bubbles_coffee_water": {
+      "speaker": "Bubbles",
+      "text": "Coffee is not water, Jalen. We've had this conversation. Seventeen times.",
+      "next": "waffle_dinner_interject"
+    },
+    "waffle_dinner_interject": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// CORRECTION: eighteen times | JALEN_COMPLIANCE_RATE: 11% | RECOMMENDATION: give up}[/i]",
+      "next": "souffle_comment"
+    },
+    "souffle_comment": {
+      "speaker": "Soufflé",
+      "text": "[i]The ship's tertiary AI chimes through the overhead speaker — a voice like velvet over static.[/i] For the record, I've been monitoring galley temperature. It's dropped 1.3 degrees since you all sat down. Body heat distribution suggests everyone is comfortable. I adjusted the ventilation to maintain it. [i]A pause.[/i] You're welcome.",
+      "next": "rho_souffle_react"
+    },
+    "rho_souffle_react": {
+      "speaker": "Rho",
+      "text": "[i]Pointing at the ceiling.[/i] See? The ship likes my cooking. The ship has taste.",
+      "next": "souffle_correction"
+    },
+    "souffle_correction": {
+      "speaker": "Soufflé",
+      "text": "I adjusted for comfort, not endorsement. My taste protocols are reserved for music selection and interior lighting. Though I will note the stew's aroma profile is... within acceptable parameters.",
+      "next": "cinnamon_dinner_brief"
+    },
+    "cinnamon_dinner_brief": {
+      "speaker": "Cinnamon",
+      "text": "Drill maintenance complete. Bay sealed. No interruptions during meal period.",
+      "next": "vesper_recon"
+    },
+    "vesper_recon": {
+      "speaker": "Vesper",
+      "text": "Status on the new client's recon?",
+      "next": "elia_entry"
+    },
+    "elia_entry": {
+      "speaker": "Elia",
+      "text": "Two potential entry points. Both viable. Full report by tomorrow.",
+      "next": "jalen_patrols"
+    },
+    "jalen_patrols": {
+      "speaker": "Jalen",
+      "text": "Station Kael-7 is reporting increased Compact patrol activity. Thirty percent more ships than usual. No official reason given.",
+      "next": "vesper_flag"
+    },
+    "vesper_flag": {
+      "speaker": "Vesper",
+      "text": "[i]Thoughtful.[/i] Flag it. If it goes above fifty percent, we reroute. I'm not interested in Compact attention.",
+      "next": "tactical_input_choice"
+    },
+    "tactical_input_choice": {
+      "speaker": "SYSTEM",
+      "text": "[i]You've seen patrol patterns before. In the mine, you learned to read the guards' rotations. This feels similar.[/i]",
+      "choices": [
+        {
+          "text": "[Tactics DC 10] 'Thirty percent suggests redeployment, not increased vigilance. They're moving assets, not hunting.'",
+          "next": "tactics_check",
+          "skill_check": {
+            "skill": "Tactics",
+            "dc": 10
+          }
+        },
+        {
+          "text": "[Empathy DC 10] 'The lack of official reason is the pattern. They don't explain when they're scared.'",
+          "next": "empathy_check",
+          "skill_check": {
+            "skill": "Empathy",
+            "dc": 10
+          }
+        },
+        {
+          "text": "Stay silent. You're still learning.",
+          "next": "dishes_argument"
+        }
+      ]
+    },
+    "tactics_check": {
+      "speaker": "SYSTEM",
+      "text": "",
+      "skill_check": {
+        "skill": "Tactics",
+        "dc": 10,
+        "on_success": "tactics_success",
+        "on_failure": "tactics_failure"
+      },
+      "next": "tactics_success"
+    },
+    "tactics_success": {
+      "speaker": "Vesper",
+      "text": "[i]Looking at you with sharp attention.[/i] Exactly. Redeployment implies something worth deploying toward. [i]To Jalen.[/i] Pull fleet movement reports for adjacent sectors. If they're repositioning, I want to know where.",
+      "set_flag": "dinner_tactical_insight",
+      "reputation": {
+        "vesper": 1
+      },
+      "next": "elia_impressed"
+    },
+    "tactics_failure": {
+      "speaker": "Vesper",
+      "text": "[i]Polite but neutral.[/i] Possible. We'll keep monitoring. Good instinct to think about it.",
+      "next": "dishes_argument"
+    },
+    "empathy_check": {
+      "speaker": "SYSTEM",
+      "text": "",
+      "skill_check": {
+        "skill": "Empathy",
+        "dc": 10,
+        "on_success": "empathy_success",
+        "on_failure": "empathy_failure"
+      },
+      "next": "empathy_success"
+    },
+    "empathy_success": {
+      "speaker": "Vesper",
+      "text": "[i]A slow nod.[/i] Fear makes patterns invisible to the people creating them. [i]To the table.[/i] The Compact doesn't move without reason. We find out what they're scared of before it finds us.",
+      "set_flag": "dinner_tactical_insight",
+      "reputation": {
+        "vesper": 1
+      },
+      "next": "elia_impressed"
+    },
+    "empathy_failure": {
+      "speaker": "Vesper",
+      "text": "[i]Thoughtful.[/i] Maybe. Or they're just bureaucratic. Hard to tell with the Compact.",
+      "next": "dishes_argument"
+    },
+    "elia_impressed": {
+      "speaker": "Elia",
+      "text": "[i]A rare approving glance.[/i] Keep talking like that. We need tactical minds.",
+      "next": "dishes_argument"
+    },
+    "dishes_argument": {
+      "speaker": "Elia",
+      "text": "Your turn for dishes.",
+      "next": "rho_cooked"
+    },
+    "rho_cooked": {
+      "speaker": "Rho",
+      "text": "I cooked!",
+      "next": "elia_assembly"
+    },
+    "elia_assembly": {
+      "speaker": "Elia",
+      "text": "You made stew. That's not cooking. That's assembly.",
+      "next": "rho_backup"
+    },
+    "rho_backup": {
+      "speaker": "Rho",
+      "text": "[i]To the table.[/i] Someone back me up here.",
+      "next": "vesper_rotation"
+    },
+    "vesper_rotation": {
+      "speaker": "Vesper",
+      "text": "You're on dish rotation. Elia's correct.",
+      "next": "jalen_appreciated"
+    },
+    "jalen_appreciated": {
+      "speaker": "Jalen",
+      "text": "[i]Without looking up.[/i] You're appreciated exactly the correct amount.",
+      "next": "player_toast_opportunity"
+    },
+    "player_toast_opportunity": {
+      "speaker": "SYSTEM",
+      "text": "[i]A lull settles. Rho refills coffee. Bowls are scraped clean. The ship hums its low constant note. It feels like a moment that could hold something.[/i]",
+      "choices": [
+        {
+          "text": "Raise your mug. 'To the Lumen Thief. And her crew.'",
+          "next": "toast_crew",
+          "set_flag": "dinner_toasted"
+        },
+        {
+          "text": "Tell a story from the mine — something small, something human",
+          "next": "player_story_mine"
+        },
+        {
+          "text": "Ask: 'How did you all find each other?'",
+          "next": "ask_origin"
+        },
+        {
+          "text": "Just listen. The silence is enough.",
+          "next": "nyx_quiet"
+        }
+      ]
+    },
+    "toast_crew": {
+      "speaker": "SYSTEM",
+      "text": "[i]You raise your mug. Dented metal, still warm. The words come out rough, unrehearsed.[/i]",
+      "next": "toast_words"
+    },
+    "toast_words": {
+      "speaker": "Avyanna",
+      "text": "To the Lumen Thief. And her crew. I don't know what I did to end up here, but... I'm glad I did.",
+      "next": "toast_reaction"
+    },
+    "toast_reaction": {
+      "speaker": "SYSTEM",
+      "text": "[i]A beat. Then Rho lifts his mug. Then Vesper. Then, one by one, they all do — even Jalen, who raises his coffee cup without looking up from the datapad, which is its own kind of ceremony.[/i]",
+      "next": "vesper_toast_response"
+    },
+    "vesper_toast_response": {
+      "speaker": "Vesper",
+      "text": "[i]Quiet. Genuine.[/i] To the crew.",
+      "reputation": {
+        "vesper": 1,
+        "rho": 1
+      },
+      "next": "nyx_quiet"
+    },
+    "player_story_mine": {
+      "speaker": "SYSTEM",
+      "text": "[i]The table goes quiet. Not because you demanded it — because they gave it. Freely.[/i]",
+      "next": "player_story_choice"
+    },
+    "player_story_choice": {
+      "speaker": "SYSTEM",
+      "text": "",
+      "choices": [
+        {
+          "text": "Tell them about the old miner who sang while he worked — same song, every shift, for twelve years",
+          "next": "mine_story_singer"
+        },
+        {
+          "text": "Tell them about the time you stole extra rations to feed someone too sick to work",
+          "next": "mine_story_rations"
+        },
+        {
+          "text": "Tell them about the stars you could see from Shaft 7 — one crack in the rock, one sliver of sky",
+          "next": "mine_story_stars"
+        }
+      ]
+    },
+    "mine_story_singer": {
+      "speaker": "Avyanna",
+      "text": "There was this man in Shaft 4. Kaed. He sang the same song every shift. Twelve years. Nobody knew the words. I don't think he did either, by the end. But the rhythm — it kept us moving. When he died, the shaft went quiet. And the next shift... someone else started humming it.",
+      "next": "mine_story_reaction"
+    },
+    "mine_story_rations": {
+      "speaker": "Avyanna",
+      "text": "I stole rations once. For a woman named Sera. She was too sick to make quota, and if you didn't make quota, you didn't eat. I hid bread in my sleeve for a week. She never knew it was me. [i]A pause.[/i] She got better. Made quota again. That was enough.",
+      "set_flag": "dinner_story_rations",
+      "next": "mine_story_reaction"
+    },
+    "mine_story_stars": {
+      "speaker": "Avyanna",
+      "text": "Shaft 7 had a crack. Just a fracture in the rock — maybe a meter long. But at the right angle, at the right time, you could see stars through it. One thin line of sky. I used to press my face against the stone and just... look. [i]A beat.[/i] I didn't know the names of any of them. I do now.",
+      "next": "mine_story_reaction"
+    },
+    "mine_story_reaction": {
+      "speaker": "SYSTEM",
+      "text": "[i]No one speaks for a moment. Rho's grin is gone — replaced by something unguarded. Nyx's hands are still. Even Jalen's datapad has gone dark.[/i]",
+      "next": "rho_story_response"
+    },
+    "rho_story_response": {
+      "speaker": "Rho",
+      "text": "[i]Quietly.[/i] Thanks. For telling us that.",
+      "reputation": {
+        "rho": 1,
+        "nyx": 1
+      },
+      "next": "nyx_quiet"
+    },
+    "ask_origin": {
+      "speaker": "SYSTEM",
+      "text": "[i]The question lands like a stone in still water. Glances exchanged — quick, coded.[/i]",
+      "next": "vesper_origin"
+    },
+    "vesper_origin": {
+      "speaker": "Vesper",
+      "text": "[i]Choosing words like a surgeon choosing instruments.[/i] Separately. Badly. In ways none of us planned. [i]A glance around the table.[/i] Rho was the second. Jalen was the third. Elia and Elisira came as a pair. Nyx was last, before you.",
+      "next": "rho_origin_joke"
+    },
+    "rho_origin_joke": {
+      "speaker": "Rho",
+      "text": "I blew up the wrong building and Vesper hired me because, and I quote, 'anyone who can make that big a mistake and survive has useful instincts.'",
+      "next": "vesper_origin_correction"
+    },
+    "vesper_origin_correction": {
+      "speaker": "Vesper",
+      "text": "I said you had 'chaotic competence.' There's a difference.",
+      "next": "jalen_origin"
+    },
+    "jalen_origin": {
+      "speaker": "Jalen",
+      "text": "[i]Not volunteering his own story. The datapad glows.[/i] We all had reasons to leave wherever we were. This ship was better than the alternative. For all of us.",
+      "next": "nyx_quiet"
+    },
+    "nyx_quiet": {
+      "speaker": "Nyx",
+      "text": "You're quiet tonight. More than usual. [i]Gentle.[/i] That wasn't criticism. Just observation. You're allowed to be quiet.",
+      "text_variants": [
+        {
+          "conditions": {
+            "flag": "dinner_watched_nyx"
+          },
+          "text": "You've been watching. I noticed. [i]Gentle.[/i] That's not criticism. Observation is how we learn. You're doing fine."
+        },
+        {
+          "conditions": {
+            "flag": "dinner_tactical_insight"
+          },
+          "text": "Good observation earlier. About the Compact patrols. [i]Gentle.[/i] You're thinking like crew already. That's faster than most."
+        },
+        {
+          "conditions": {
+            "flag": "dinner_toasted"
+          },
+          "text": "That toast. [i]Gentle.[/i] It meant something. To them. To me. You should know that."
+        }
+      ],
+      "next": "meal_choice"
+    },
+    "meal_choice": {
+      "speaker": "SYSTEM",
+      "text": "",
+      "choices": [
+        {
+          "text": "'I'm just listening. Learning how this works.'",
+          "next": "nyx_strategy"
+        },
+        {
+          "text": "'Can I help with dishes? I know it's not my turn, but...'",
+          "next": "rho_grace"
+        },
+        {
+          "text": "Just smile. The first real one in weeks.",
+          "next": "smile_end"
+        }
+      ]
+    },
+    "nyx_strategy": {
+      "speaker": "Nyx",
+      "text": "Good strategy. You'll figure out when you want to talk. No pressure.",
+      "next": "tone_shift"
+    },
+    "rho_grace": {
+      "speaker": "Rho",
+      "text": "[i]Waving you off.[/i] You're still new. Grace period. First month on crew, you're exempt from chores. Your job is learning to exist here without constant survival math.",
+      "next": "vesper_explains"
+    },
+    "vesper_explains": {
+      "speaker": "Vesper",
+      "text": "Lets you acclimate without added pressure. You'll contribute plenty. Right now, just be here.",
+      "next": "tone_shift"
+    },
+    "smile_end": {
+      "speaker": "SYSTEM",
+      "text": "[i]You smile. Small. Involuntary. Rho notices and grins back. Jalen nods without comment. The presence behind your eyes pulses — warm, approving, curious about this thing called 'belonging.'[/i]",
+      "next": "tone_shift"
+    },
+    "tone_shift": {
+      "speaker": "SYSTEM",
+      "text": "[i]The meal is winding. Bowls are empty, coffee is dregs. The warmth of the galley has that fragile quality — like a candle flame in a room with too many doors.[/i]",
+      "next": "jalen_tone_shift"
+    },
+    "jalen_tone_shift": {
+      "speaker": "Jalen",
+      "text": "[i]Setting down the datapad. The first time all evening.[/i] There's something else. The Kael-7 patrols... they correlate with a Writ-Bound sighting report. Unconfirmed, but the source is solid.",
+      "next": "table_silence"
+    },
+    "table_silence": {
+      "speaker": "SYSTEM",
+      "text": "[i]The table goes still. Not quiet — still. The kind of stillness that has weight. Rho stops smiling. Elia's hand moves to her belt, instinctive, then back. Elisira's eyes find Vesper's.[/i]",
+      "next": "vesper_writ_response"
+    },
+    "vesper_writ_response": {
+      "speaker": "Vesper",
+      "text": "[i]Very calm. The kind of calm that is itself a warning.[/i] How solid?",
+      "next": "jalen_writ_detail"
+    },
+    "jalen_writ_detail": {
+      "speaker": "Jalen",
+      "text": "Seven out of ten. The reporter has been reliable before. Never cried wolf on Writ-Bound specifically.",
+      "next": "elia_writ_response"
+    },
+    "elia_writ_response": {
+      "speaker": "Elia",
+      "text": "[i]Flat. Professional.[/i] Then we assume it's real until proven otherwise. What's our exposure?",
+      "next": "jalen_exposure"
+    },
+    "jalen_exposure": {
+      "speaker": "Jalen",
+      "text": "Two jumps from our planned route. If they're moving toward Kael-7, our window narrows. If they're moving away, we're fine.",
+      "next": "danger_response_choice"
+    },
+    "danger_response_choice": {
+      "speaker": "SYSTEM",
+      "text": "[i]The warmth of dinner hasn't left the room. But something else has entered it. The meal and the mission, occupying the same air.[/i]",
+      "choices": [
+        {
+          "text": "[Tactics DC 12] 'Two jumps means a day's warning at minimum. Enough to adjust.'",
+          "next": "tactics_danger_check",
+          "skill_check": {
+            "skill": "Tactics",
+            "dc": 12
+          }
+        },
+        {
+          "text": "[Insight DC 12] Watch the crew's reactions — read what they're not saying",
+          "next": "insight_danger_check",
+          "skill_check": {
+            "skill": "Insight",
+            "dc": 12
+          }
+        },
+        {
+          "text": "'What are Writ-Bound?'",
+          "next": "writ_bound_explain"
+        },
+        {
+          "text": "Stay quiet. You don't know enough to speak.",
+          "next": "elia_brings_back"
+        }
+      ]
+    },
+    "tactics_danger_check": {
+      "speaker": "SYSTEM",
+      "text": "",
+      "skill_check": {
+        "skill": "Tactics",
+        "dc": 12,
+        "on_success": "tactics_danger_success",
+        "on_failure": "tactics_danger_failure"
+      },
+      "next": "tactics_danger_success"
+    },
+    "tactics_danger_success": {
+      "speaker": "Vesper",
+      "text": "[i]A nod — slower this time, weighted.[/i] Correct. A day's buffer is workable. Jalen, set up an alert threshold. If Writ-Bound signatures enter single-jump range, I want to know immediately.",
+      "set_flag": "dinner_writ_bound_tactics",
+      "reputation": {
+        "vesper": 1,
+        "jalen": 1
+      },
+      "next": "elia_brings_back"
+    },
+    "tactics_danger_failure": {
+      "speaker": "Jalen",
+      "text": "[i]Measured.[/i] Two jumps is variable. Depends on their drive configuration. Could be a day. Could be six hours. Don't assume comfort margins.",
+      "next": "elia_brings_back"
+    },
+    "insight_danger_check": {
+      "speaker": "SYSTEM",
+      "text": "",
+      "skill_check": {
+        "skill": "Insight",
+        "dc": 12,
+        "on_success": "insight_danger_success",
+        "on_failure": "insight_danger_failure"
+      },
+      "next": "insight_danger_success"
+    },
+    "insight_danger_success": {
+      "speaker": "SYSTEM",
+      "text": "[i]Rho's fear is in his hands — they've gone still, the demolitions expert's instinct to hold steady when the ground shifts. Jalen's fear is in his voice — too flat, too precise. Nyx isn't afraid. She's calculating. And Vesper... Vesper is already three moves ahead, and doesn't like what they see.[/i]",
+      "set_flag": "dinner_read_crew_fear",
+      "reputation": {
+        "nyx": 1
+      },
+      "next": "elia_brings_back"
+    },
+    "insight_danger_failure": {
+      "speaker": "SYSTEM",
+      "text": "[i]The crew's reactions are guarded. Whatever Writ-Bound means to them, they've practiced not showing it.[/i]",
+      "next": "elia_brings_back"
+    },
+    "writ_bound_explain": {
+      "speaker": "Vesper",
+      "text": "[i]Choosing each word.[/i] Writ-Bound are... Compact enforcement taken to its theological conclusion. Augmented. Indoctrinated. They don't patrol — they hunt. And their definition of 'heresy' is broader than the Compact's official line. If they're near Kael-7, it means someone drew attention.",
+      "next": "nyx_writ_addition"
+    },
+    "nyx_writ_addition": {
+      "speaker": "Nyx",
+      "text": "[i]Very quiet.[/i] They don't negotiate. They don't take prisoners. And they have technology that shouldn't exist. [i]A beat.[/i] I've seen their work. In a lab. What was left.",
+      "next": "elia_brings_back"
+    },
+    "elia_brings_back": {
+      "speaker": "SYSTEM",
+      "text": "[i]The silence stretches. The ship hums. Someone's bowl scrapes against the table — too loud in the quiet.[/i]",
+      "next": "elia_anchor"
+    },
+    "elia_anchor": {
+      "speaker": "Elia",
+      "text": "[i]Setting both hands flat on the table. Deliberate. An anchor.[/i] We eat. We rest. Tomorrow we plan. That's how this works. The danger will still be there in the morning. It doesn't get our evening too.",
+      "next": "elia_anchor_reaction"
+    },
+    "elia_anchor_reaction": {
+      "speaker": "SYSTEM",
+      "text": "[i]The words land. Not like an order — like a door closing gently on a cold wind. Rho exhales. Jalen picks up the datapad, then sets it down again. Deliberately. Nyx's shoulders ease.[/i]",
+      "next": "elisira_anchor_support"
+    },
+    "elisira_anchor_support": {
+      "speaker": "Elisira",
+      "text": "[i]Pouring the last of the coffee.[/i] Elia's right. Tomorrow's problems belong to tomorrow's crew. Tonight we're just people who had a meal together. That matters more than any of you want to admit.",
+      "next": "vesper_final_word"
+    },
+    "vesper_final_word": {
+      "speaker": "Vesper",
+      "text": "[i]Standing. Pushing in their chair — the small formality that means 'meeting adjourned.'[/i] Agreed. Early start tomorrow. Get some rest. All of you.",
+      "next": "meal_end"
+    },
+    "meal_end": {
+      "speaker": "SYSTEM",
+      "text": "[i]Rho washes dishes. Jalen dries. Nyx disappears to her lab. Elia and Elisira sit close, speaking in low voices about tomorrow's work.\n\nAnd you sit at the table, in a chair that's comfortable, with a full stomach, in a room full of people who aren't keeping score.\n\nThis is what dinner is supposed to be. You're only just learning that.[/i]",
+      "next": "end"
+    }
+  }
+}

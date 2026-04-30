@@ -1,0 +1,53 @@
+{
+  "id": "raider_warlord",
+  "name": "Raider Warlord",
+  "family": "raiders",
+  "description": "BOSS. Ruthless leader commanding fierce loyalty. Multi-phase encounter where the warlord summons reinforcements at half health.",
+  "hp_max": 150,
+  "speed": 8,
+  "attack": 20,
+  "armor": 12,
+  "shields": 0,
+  "wards": 5,
+  "weakness": "",
+  "abilities": [
+    {
+      "name": "Brutal Cleave",
+      "base_damage": 20,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "statuses": []
+    },
+    {
+      "name": "Command Presence",
+      "base_damage": 0,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "target": "all_allies",
+      "statuses": [
+        {
+          "name": "damage_up",
+          "duration": 2
+        },
+        {
+          "name": "speed_up",
+          "duration": 2
+        }
+      ]
+    },
+    {
+      "name": "Rally the Horde",
+      "base_damage": 0,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "special": "summons_2_scrappers_at_50_percent_hp",
+      "statuses": []
+    }
+  ]
+}

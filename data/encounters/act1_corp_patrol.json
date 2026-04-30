@@ -1,0 +1,26 @@
+{
+  "id": "act1_corp_patrol",
+  "name": "Corporate Patrol",
+  "description": "A commander leads a standard two-trooper patrol. Organized and disciplined - the commander's Rally ability makes the entire squad more dangerous.",
+  "waves": [
+    {
+      "description": "Corporate Security Squad",
+      "enemies": [
+        {"type": "corp_commander", "count": 1},
+        {"type": "corp_trooper", "count": 2}
+      ]
+    }
+  ],
+  "environment": {
+    "static_zone": false,
+    "station_corridor": true,
+    "narrow_corridors": true
+  },
+  "victory_condition": "defeat_all",
+  "defeat_consequence": "retry",
+  "rewards": {
+    "experience": 150,
+    "flags": ["corp_patrol_defeated"]
+  },
+  "loot": []
+}

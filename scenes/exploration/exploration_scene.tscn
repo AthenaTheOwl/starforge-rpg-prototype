@@ -1,0 +1,111 @@
+[gd_scene load_steps=2 format=3 uid="uid://exploration_scene"]
+
+[ext_resource type="Script" path="res://scripts/world/exploration_controller.gd" id="1"]
+
+[node name="ExplorationScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.05, 0.05, 0.1, 1)
+
+[node name="HSplit" type="HSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+split_offset = 800
+
+[node name="LeftPanel" type="VBoxContainer" parent="HSplit"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LocationTitle" type="Label" parent="HSplit/LeftPanel"]
+layout_mode = 2
+text = "SITE K-9 — THE KENNEL"
+
+[node name="Separator" type="HSeparator" parent="HSplit/LeftPanel"]
+layout_mode = 2
+
+[node name="DescriptionScroll" type="ScrollContainer" parent="HSplit/LeftPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DescriptionText" type="RichTextLabel" parent="HSplit/LeftPanel/DescriptionScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "The corridor smells of recycled air and old fear..."
+fit_content = true
+scroll_active = false
+
+[node name="ActionSeparator" type="HSeparator" parent="HSplit/LeftPanel"]
+layout_mode = 2
+
+[node name="ActionsLabel" type="Label" parent="HSplit/LeftPanel"]
+layout_mode = 2
+text = "ACTIONS"
+
+[node name="ActionButtons" type="VBoxContainer" parent="HSplit/LeftPanel"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 200)
+theme_override_constants/separation = 5
+
+[node name="RightPanel" type="VBoxContainer" parent="HSplit"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PartyLabel" type="Label" parent="HSplit/RightPanel"]
+layout_mode = 2
+text = "PARTY"
+
+[node name="PartySeparator" type="HSeparator" parent="HSplit/RightPanel"]
+layout_mode = 2
+
+[node name="PartyList" type="VBoxContainer" parent="HSplit/RightPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InfoSeparator" type="HSeparator" parent="HSplit/RightPanel"]
+layout_mode = 2
+
+[node name="InfoLabel" type="Label" parent="HSplit/RightPanel"]
+layout_mode = 2
+text = "Act 1 — Chapter 1"
+
+[node name="MenuBar" type="HBoxContainer" parent="HSplit/RightPanel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="InventoryBtn" type="Button" parent="HSplit/RightPanel/MenuBar"]
+layout_mode = 2
+text = "Inventory"
+
+[node name="PartyBtn" type="Button" parent="HSplit/RightPanel/MenuBar"]
+layout_mode = 2
+text = "Party"
+
+[node name="SaveBtn" type="Button" parent="HSplit/RightPanel/MenuBar"]
+layout_mode = 2
+text = "Save"
+
+[node name="QuestBtn" type="Button" parent="HSplit/RightPanel/MenuBar"]
+layout_mode = 2
+text = "Quests"
+
+[node name="DialogueOverlayLayer" type="CanvasLayer" parent="."]
+layer = 10

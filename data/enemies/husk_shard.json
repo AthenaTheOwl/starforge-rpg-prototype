@@ -1,0 +1,24 @@
+{
+  "id": "husk_shard",
+  "name": "Lattice Shard",
+  "family": "husks",
+  "description": "Tiny crystalline swarm unit. Individually weak but appears in numbers. Vulnerable to physical force.",
+  "hp_max": 15,
+  "speed": 12,
+  "attack": 8,
+  "armor": 0,
+  "shields": 0,
+  "wards": 3,
+  "weakness": "Physical damage bypasses ward protection safely and efficiently.",
+  "abilities": [
+    {
+      "name": "Shard Strike",
+      "base_damage": 8,
+      "damage_type": "resonance",
+      "heat_cost": 0,
+      "uses_lattice": true,
+      "cli_cost": 0,
+      "statuses": []
+    }
+  ]
+}

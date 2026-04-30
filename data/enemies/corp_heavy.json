@@ -1,0 +1,46 @@
+{
+  "id": "corp_heavy",
+  "name": "Corporate Heavy",
+  "family": "corporate",
+  "description": "Armored suppression unit designed to lock down zones and absorb punishment. Slow but punishing.",
+  "hp_max": 70,
+  "speed": 5,
+  "attack": 15,
+  "armor": 10,
+  "shields": 5,
+  "wards": 0,
+  "weakness": "",
+  "abilities": [
+    {
+      "name": "Heavy Suppression",
+      "base_damage": 10,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "aoe": true,
+      "statuses": [
+        {
+          "name": "slowed",
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "name": "Armored Advance",
+      "base_damage": 0,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "target": "self",
+      "statuses": [
+        {
+          "name": "armor_up",
+          "value": 5,
+          "duration": 1
+        }
+      ]
+    }
+  ]
+}

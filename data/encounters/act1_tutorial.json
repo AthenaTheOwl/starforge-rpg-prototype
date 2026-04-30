@@ -1,0 +1,25 @@
+{
+  "id": "act1_tutorial",
+  "name": "Tutorial Engagement",
+  "description": "Standard corporate patrol intercepted near the cargo bay. Two troopers providing basic combat training opportunity.",
+  "waves": [
+    {
+      "description": "Corporate Security Patrol",
+      "enemies": [
+        {"type": "corp_trooper", "count": 2}
+      ]
+    }
+  ],
+  "environment": {
+    "static_zone": false,
+    "ship_interior": true,
+    "tutorial_mode": true
+  },
+  "victory_condition": "defeat_all",
+  "defeat_consequence": "retry",
+  "rewards": {
+    "experience": 100,
+    "flags": ["tutorial_complete"]
+  },
+  "loot": []
+}

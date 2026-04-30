@@ -1,0 +1,56 @@
+{
+	"id": "act1_corporate_safehouse",
+	"name": "Corporate Safehouse — Ruined Operations Base",
+	"description": "The safehouse smells like burnt plastic and old decisions. Emergency lighting strips cast red-orange shadows across walls scarred with blast patterns. Filing cabinets lean against each other like drunks, their drawers pulled out and emptied—someone left in a hurry.\n\nThe main room is a debris field of half-destroyed furniture: a table flipped on its side, chairs with legs missing, a coffee maker still plugged in despite the cracked carafe. Corporate motivational posters cling to one wall, their edges curling: PRODUCTIVITY IS PROTECTION. COMPLIANCE IS COMMUNITY. Someone has drawn a middle finger on the second one.\n\nThere's a woman here. She's checking the room's corners with the methodical patience of someone who's survived by noticing small details. Her jacket is corporate-issue, but the insignia has been cut away. Her hands move like they remember how to hold weapons.\n\n[i](This was an operations hub once. Local management for the aurum sites, probably. Now it's just another casualty of whatever happened when the company pulled out.)[/i]",
+	"actions": [
+		{
+			"type": "examine",
+			"label": "Examine the rubble",
+			"examine_text": "The debris tells a story. Not just hasty evacuation—targeted destruction. Someone went through this room systematically, pulling out hard drives, smashing terminals, burning paper records in the metal wastebasket near the door.\n\nBut they missed things. A data slate wedged under the overturned table, its screen cracked but still functional. A maintenance log clipped to the wall behind a filing cabinet. And in the corner, half-buried under ceiling tiles: a company ledger, pages water-damaged but readable.\n\nThe ledger shows requisition orders for Site K-9. Extraction quotas. Debt calculations. And at the bottom of the last page, a handwritten note: [i]'7-Gamma readings inconsistent with standard extraction. Recommend external audit. Request denied—continue operations.'[/i]\n\n[i](They knew. They knew something was wrong in the deep tunnels, and they kept sending workers down anyway.)[/i]",
+			"flag": "found_safehouse_evidence",
+			"flag_value": true
+		},
+		{
+			"type": "examine",
+			"label": "Search data terminals",
+			"examine_text": "Most of the terminals are dead—power cut, drives pulled, nothing left but empty cases.\n\nBut there's one near the back wall, partially hidden by a collapsed shelving unit. The screen flickers weakly, running on backup battery. Someone tried to wipe it, but the process never finished. The delete operation froze at 47%.\n\nYou scroll through fragments:\n\n[b]TO:[/b] Site K-9 Administration\n[b]FROM:[/b] Regional Oversight\n[b]RE:[/b] Worker 477 — Lattice Sensitivity Assessment\n\n[i]'Subject shows elevated resonance compatibility. Recommend reassignment to deep extraction pending psychological conditioning. Debt leverage sufficient to ensure compliance.'[/i]\n\n[i](They were tracking me. Before the shard. Before everything. They knew what I could do, and they were planning to use it.)[/i]",
+			"flag": "found_terminal_data",
+			"flag_value": true
+		},
+		{
+			"type": "examine",
+			"label": "Approach the woman",
+			"requires_flag": "found_safehouse_evidence",
+			"examine_text": "She's younger than you thought at first glance. Mid-thirties, maybe. The kind of tired that comes from years, not days. Her eyes track you as you approach—not hostile, just careful.\n\nUp close, you can see the corporate tattoo on her wrist, partially lasered off. Security division insignia. She was a guard once. Or a handler. Or something worse.\n\nShe's holding a datapad, scrolling through files with the focused intensity of someone looking for something specific. When she sees you looking, she doesn't hide it.\n\n[i](She's been here a while. Searching. Waiting for something—or someone.)[/i]",
+			"flag": "vesper_noticed",
+			"flag_value": true
+		},
+		{
+			"type": "talk",
+			"label": "Talk to Vesper",
+			"dialogue_id": "act1_vesper_recruitment",
+			"tooltip": "She looks like she's ready to talk",
+			"requires_flag": "vesper_noticed"
+		},
+		{
+			"type": "combat",
+			"label": "Corporate patrol detected!",
+			"requires_flag": "vesper_noticed",
+			"enemies": [
+				{"type": "corp_trooper", "count": 3},
+				{"type": "corp_security_lead", "count": 1}
+			]
+		},
+		{
+			"type": "move",
+			"label": "Return to mine tunnels",
+			"target_location": "act1_mine_tunnels"
+		},
+		{
+			"type": "move",
+			"label": "Head to Lumen Thief corridors",
+			"target_location": "act1_lumen_thief_corridors",
+			"requires_flag": "vesper_recruited"
+		}
+	]
+}

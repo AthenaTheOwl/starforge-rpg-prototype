@@ -1,0 +1,39 @@
+{
+  "id": "husk_shell",
+  "name": "Lattice Shell",
+  "family": "husks",
+  "description": "Massive ward-armored construct. Painfully slow but extremely durable, regenerating its ward layer each turn.",
+  "hp_max": 60,
+  "speed": 4,
+  "attack": 12,
+  "armor": 0,
+  "shields": 0,
+  "wards": 12,
+  "weakness": "",
+  "abilities": [
+    {
+      "name": "Shell Slam",
+      "base_damage": 12,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "statuses": []
+    },
+    {
+      "name": "Ward Regenerate",
+      "base_damage": 0,
+      "damage_type": "resonance",
+      "heat_cost": 0,
+      "uses_lattice": true,
+      "cli_cost": 0,
+      "target": "self",
+      "statuses": [
+        {
+          "name": "wards_up",
+          "value": 5
+        }
+      ]
+    }
+  ]
+}

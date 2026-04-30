@@ -1,0 +1,39 @@
+{
+  "id": "raider_demo",
+  "name": "Raider Demolitionist",
+  "family": "raiders",
+  "description": "Explosives specialist who lobs grenades and sets traps. Dangerous in tight spaces, unreliable when morale breaks.",
+  "hp_max": 40,
+  "speed": 8,
+  "attack": 8,
+  "armor": 4,
+  "shields": 2,
+  "wards": 0,
+  "weakness": "Morale-dependent. Breaks and flees or acts erratically when allies fall.",
+  "abilities": [
+    {
+      "name": "Frag Grenade",
+      "base_damage": 18,
+      "damage_type": "thermal",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "aoe": true,
+      "statuses": []
+    },
+    {
+      "name": "Trap Set",
+      "base_damage": 0,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "statuses": [
+        {
+          "name": "hazard",
+          "duration": 3
+        }
+      ]
+    }
+  ]
+}

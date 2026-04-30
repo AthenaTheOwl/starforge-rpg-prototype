@@ -1,0 +1,51 @@
+{
+	"id": "act1_tech_cache",
+	"name": "Tech Cache — Hidden Archive, Subsection 9-Delta",
+	"description": "The room shouldn't exist. Not here. Not in mine tunnels that are supposed to be old rock and older mistakes.\n\nBut here it is: a sealed chamber, door half-buried behind a century of debris, environmental controls still humming with power from a source that shouldn't be active. The air inside tastes sterile—recycled through filters that are newer than the tunnels around them, cleaner than anything the company would install for workers.\n\nThe space is small. Compact. Deliberately hidden. Three walls lined with server racks, their status lights blinking in patient sequences. A workstation in the center, display screens dark but not dead—just sleeping, waiting for someone to wake them. And scattered across every surface: corporate tech that has no business being in an extraction mine.\n\nLattice monitoring equipment. Resonance scanners. Data collection modules designed for readings the company claims don't exist. And in the corner, stacked in neat rows: data drives, hundreds of them, each one labeled with dates going back decades.\n\nSomeone has been running an operation here. Quietly. Secretly. Collecting information the official records don't acknowledge.\n\n[i](Jalen found this place while mapping the tunnel network. Called it 'a very interesting hole in the company's story.' That's Jalen for 'this is going to cause problems.')[/i]",
+	"actions": [
+		{
+			"type": "examine",
+			"label": "Examine equipment",
+			"examine_text": "The monitoring equipment is sophisticated. Military-grade, or close to it. Lattice resonance scanners that cost more than a worker earns in ten years. Passive collection arrays designed to gather data without alerting the subject being monitored.\n\nAll of it pointed at the deep tunnels. At Subsection 7-Gamma, where the shard was. Where you touched it. Where everything changed.\n\nThe workstation has a log open, last entry dated three weeks before your rescue:\n\n[b]OBSERVATION LOG - SITE K-9, DEEP EXTRACTION:[/b]\n\n[i]'Primordial signatures intensifying in 7-Gamma. Workers reporting auditory phenomena, spatial distortions, unauthorized resonance events. Company response: increase quotas, suppress incident reports, accelerate extraction schedule.'[/i]\n\n[i]'Recommendation: immediate evacuation and external audit. Lattice coherence approaching critical threshold. Continued extraction poses existential risk.'[/i]\n\n[i]'Status: recommendation rejected. Operations continue.'[/i]\n\n[i](They knew. Whoever was running this archive, they knew the mine was dangerous, and they documented the company ignoring it.)[/i]",
+			"flag": "examined_equipment",
+			"flag_value": true
+		},
+		{
+			"type": "flag",
+			"label": "Download data drives",
+			"requires_flag": "examined_equipment",
+			"flag": "jalen_data_found",
+			"result_text": "You start copying data. The drives are organized by date, category, severity. Observation logs. Incident reports. Extraction quotas cross-referenced with worker mortality rates. Lattice readings that climb steadily toward numbers marked [b]DANGER THRESHOLD[/b] in red.\n\nJalen appears at your shoulder, datapad in hand, already cataloging the haul.\n\nJalen: [quiet, focused] This is it. This is the proof. Corporate knew the deep tunnels were unstable. Knew workers were dying from more than accidents. Knew the Lattice was reacting to over-extraction.\n\nAvyanna: And they kept going anyway.\n\nJalen: [dry] Profit motive is a hell of a thing. [beat] We're taking all of this. Every drive. Every log. This is evidence for Guild arbitration—maybe criminal proceedings if we can find a jurisdiction that cares.\n\n[i](You watch the progress bar crawl toward completion. Each percentage point is another worker's death documented. Another warning ignored. Another decision made with full knowledge of the cost.)[/i]\n\n[b]Data acquired: Corporate conspiracy evidence. New quest objective unlocked.[/b]"
+		},
+		{
+			"type": "examine",
+			"label": "Check surveillance feeds",
+			"requires_flag": "examined_equipment",
+			"examine_text": "The server racks include archived surveillance footage—not from the official company feeds, but from hidden cameras placed in unauthorized locations. Blind spots. Maintenance corridors. Places management doesn't usually watch.\n\nYou scroll through timestamps. Find footage from the week before your rescue:\n\nA worker—someone you don't recognize—standing in the 7-Gamma corridor, staring at the barrier tape. They're swaying slightly. Their eyes are unfocused. After thirty seconds, they turn and walk into the restricted zone. The footage cuts.\n\nAnother clip: three workers in the medical bay, coughing gold dust. The attending medic marks them fit for duty. All three are dead within a week, according to the mortality logs.\n\nAnother: a supervisor meeting with corporate security, showing them a tablet with Lattice readings. The security officer confiscates the device. The supervisor is reassigned the next day. Vanishes from the roster three days later.\n\n[i](Documentation. All of it documented. All of it ignored.)[/i]"
+		},
+		{
+			"type": "talk",
+			"label": "Talk to Jalen",
+			"dialogue_id": "act1_jalen_tech_cache",
+			"tooltip": "Jalen is muttering calculations under their breath",
+			"requires_flag": "jalen_data_found"
+		},
+		{
+			"type": "examine",
+			"label": "Search for operational records",
+			"requires_flag": "jalen_data_found",
+			"examine_text": "Buried in the data: a file labeled [b]CONTINGENCY - EXECUTIVE OVERRIDE.[/b]\n\nIt's a communications log. Encrypted, but Jalen cracked it three minutes after you found it.\n\nExchange between Site K-9 administration and regional corporate:\n\n[b]SITE K-9:[/b] 'Requesting authorization for controlled shutdown. Deep tunnel instability confirmed. Worker safety compromised.'\n\n[b]REGIONAL:[/b] 'Request denied. Extraction targets not met. Continue operations.'\n\n[b]SITE K-9:[/b] 'Respectfully, sir, we're risking cascade failure. If the Primordial layer destabilizes—'\n\n[b]REGIONAL:[/b] 'Your concerns are noted. Maintain quotas. Operational losses are within acceptable parameters.'\n\n[b]SITE K-9:[/b] 'Acceptable parameters. Copy that.'\n\nThe timestamp on that exchange: six months before the shard incident. Six months of warnings. Six months of 'acceptable losses.'\n\n[i](This isn't negligence. This is policy.)[/i]"
+		},
+		{
+			"type": "move",
+			"label": "Return to mine tunnels",
+			"target_location": "act1_mine_tunnels"
+		},
+		{
+			"type": "move",
+			"label": "Head deeper — Anomaly Chamber",
+			"target_location": "act1_anomaly_chamber",
+			"requires_flag": "examined_equipment"
+		}
+	]
+}

@@ -1,0 +1,73 @@
+{
+	"id": "act1_ship_quarters",
+	"name": "Lumen Thief — Crew Quarters",
+	"description": "The crew quarters are smaller than you expected and somehow more personal. Six bunks arranged in pairs along the walls, each one claimed by small acts of habitation: a jacket draped over a railing, a datapad charging on a shelf, boots lined up neatly beneath.\n\nThe air smells like people—not the compressed-body density of the Kennel dormitories, but the comfortable clutter of a space where individuals actually live. Someone's been burning incense. Someone else left a half-eaten protein bar on the common table. The lighting is warm, adjustable—none of the fluorescent harshness that makes exhaustion look like a lifestyle choice.\n\nRho's bunk is easy to spot: protein bar wrappers arranged in a small pyramid on the shelf above, a motivational poster that reads VIOLENCE IS SOMETIMES THE ANSWER stuck to the wall with medical tape. Jalen's area is a mess of star charts, navigation notes, and what looks like three different repair manuals for systems that probably shouldn't be repairable. And near the back, tucked into the corner: Nyx's space, marked by thin lines of chalk forming protective geometries, candles that smell like cedar and salt.\n\n[i](This is what home looks like when no one's commodifying your rest hours. Messy. Lived-in. Real.)[/i]",
+	"actions": [
+		{
+			"type": "examine",
+			"label": "Examine crew bunks",
+			"examine_text": "Each bunk tells a story.\n\nRho's: Combat gear stowed neatly beneath the mattress, visible through the mesh storage. A framed photo of someone—family, maybe, or a squad. A knife collection that's probably against twelve different station regulations. And tucked under the pillow, barely visible: a worn children's book, pages softened by repeated reading.\n\nJalen's: Navigation charts covering every available surface. A shelf of data storage modules labeled in cramped handwriting: 'Ghost Routes,' 'Compact Patrol Patterns 2521-2523,' 'Places That Shouldn't Exist But Do.' A half-assembled drone chassis. And hanging from the bunk frame: a small charm made of twisted wire that looks handmade.\n\nNyx's: Candles. Crystals. A meditation mat folded precisely. Books with titles you can't quite read, their spines marked with symbols that hurt to look at directly. And on the wall, drawn in something that glows faintly in low light: protective wards, intricate and deliberate.\n\n[i](These aren't just bunks. They're territories. Identities. The small declarations of selfhood that the Kennel never allowed.)[/i]"
+		},
+		{
+			"type": "examine",
+			"label": "Check your assigned bunk",
+			"examine_text": "There's a bunk set aside for you. Empty. Clean. Waiting.\n\nSomeone's left things on it: a fresh set of clothes in approximately your size, a datapad with the ship's basic systems manual loaded, a water bottle that isn't cracked or recycled or stamped with corporate branding. Just... a water bottle. New.\n\nThere's a sticky note on the pillow, handwritten: [i]'Welcome aboard. Take your time. We're not going anywhere without you. —V'[/i]\n\nThe bunk has a drawer beneath it. Empty. Yours to fill. Yours to claim.\n\n[i](This is the first space that's been yours—really yours—since before you can remember. The Kennel gave you a sleeping slot. This is offering you a home.)[/i]",
+			"flag": "claimed_bunk",
+			"flag_value": true
+		},
+		{
+			"type": "flag",
+			"label": "Rest (Heal Party)",
+			"flag": "party_rested",
+			"result_text": "You lie down on the bunk. The mattress is softer than anything you've slept on in years. The pillow doesn't smell like disinfectant and fear.\n\nFor the first time since the shard embedded itself in your skull, you sleep without counting debt.\n\n[i](The party's HP is fully restored. Heat is reduced. The exhaustion that's been building since Site K-9 finally eases, just a little.)[/i]\n\n[b]All party members healed to full HP. Heat reduced by 2 for all characters.[/b]"
+		},
+		{
+			"type": "talk",
+			"label": "Talk to Rho",
+			"dialogue_id": "act1_rho_downtime",
+			"tooltip": "Rho is cleaning weapons and humming something off-key",
+			"requires_flag": "rho_recruited"
+		},
+		{
+			"type": "talk",
+			"label": "Talk to Jalen",
+			"dialogue_id": "act1_jalen_downtime",
+			"tooltip": "Jalen is muttering at a star chart",
+			"requires_flag": "jalen_recruited"
+		},
+		{
+			"type": "talk",
+			"label": "Talk to Nyx",
+			"dialogue_id": "act1_nyx_downtime",
+			"tooltip": "Nyx is meditating in their corner",
+			"requires_flag": "nyx_recruited"
+		},
+		{
+			"type": "talk",
+			"label": "Talk to Vesper",
+			"dialogue_id": "act1_vesper_downtime",
+			"tooltip": "Vesper is reviewing tactical data",
+			"requires_flag": "vesper_recruited"
+		},
+		{
+			"type": "examine",
+			"label": "Read the crew notice board",
+			"examine_text": "A physical board near the door, covered in notes:\n\n[b]SHIP CHORES:[/b] Rotating schedule. New crew exempt first month.\n\n[b]SUPPLIES:[/b] Running low on coffee (again). Jalen, you owe the kitty 40 ticks for last week's 'emergency navigation fuel.'\n\n[b]COMBAT DRILLS:[/b] Tuesday 1400 hours. Attendance mandatory unless you enjoy being surprised by hostiles.\n\n[b]CULTURAL NOTE:[/b] Nyx requests you knock before entering the meditation corner. They will not curse you. Probably.\n\n[b]REMINDER:[/b] The ship AI is a person. Cinnamon.exe prefers 'please' and 'thank you.' Use them.\n\nAt the bottom, in different handwriting: [i]'Also, whoever keeps leaving protein bar wrappers in the nav console, I will find you. —J'[/i]"
+		},
+		{
+			"type": "move",
+			"label": "Head to corridors",
+			"target_location": "act1_lumen_thief_corridors"
+		},
+		{
+			"type": "move",
+			"label": "Go to bridge",
+			"target_location": "act1_lumen_thief_bridge"
+		},
+		{
+			"type": "move",
+			"label": "Go to galley",
+			"target_location": "act1_lumen_thief_galley"
+		}
+	]
+}

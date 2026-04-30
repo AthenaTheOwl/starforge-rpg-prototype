@@ -1,0 +1,46 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
+[application]
+
+config/name="Starforge Canticles"
+config/description="A party-based RPG set in the Starforge Canticles universe"
+run/main_scene="res://scenes/menus/title_screen.tscn"
+config/features=PackedStringArray("4.6", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+ThemeApplier="*res://scripts/ui/theme_applier.gd"
+GameManager="*res://autoload/game_manager.gd"
+PartyManager="*res://autoload/party_manager.gd"
+CombatManager="*res://autoload/combat_manager.gd"
+DialogueManager="*res://autoload/dialogue_manager.gd"
+SaveManager="*res://scripts/systems/save_manager.gd"
+StoryManager="*res://autoload/story_manager.gd"
+RelationshipManager="*res://autoload/relationship_manager.gd"
+AudioManager="*res://autoload/audio_manager.gd"
+PauseMenu="*res://scenes/menus/pause_menu.tscn"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

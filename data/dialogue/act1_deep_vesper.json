@@ -1,0 +1,1291 @@
+{
+  "start_node": "start",
+  "nodes": {
+    "start": {
+      "speaker": "SYSTEM",
+      "text_variants": [
+        {
+          "condition": {
+            "flag": "first_watch_visited_vesper"
+          },
+          "text": "Vesper sits alone in the observation deck, the viewport framing her silhouette against the void. She's cleaning Clarity — slow, methodical movements that suggest ritual more than maintenance.\n\nShe glances up as Avyanna enters. \"You again. Guess I'm predictable.\""
+        },
+        {
+          "condition": {
+            "flag": "nyx_saw_shard"
+          },
+          "text": "Vesper sits alone in the observation deck, star charts spread across the nav console like a paper battlefield. The viewport casts cold light across her hands. She's cleaning Clarity — slow, methodical — but her eyes keep drifting to the shard-burn scar on the bulkhead where Nyx's episode blew out a conduit last week.\n\nShe doesn't look up as Avyanna enters. But she speaks anyway. \"Close the door. This isn't a conversation for hallways.\""
+        },
+        {
+          "condition": {
+            "flag": "bee_manifested"
+          },
+          "text": "Vesper sits alone in the observation deck, star charts pinned to the console with magnetic clips. Bee's residual glow still hums faintly in the overhead wiring — that warm amber pulse that won't quite fade since the manifestation.\n\nVesper's cleaning Clarity. She pauses when she sees Avyanna, and something in her expression cracks — just a millimeter. \"Sit down. I need to tell you something I haven't told anyone in twelve years.\""
+        },
+        {
+          "condition": {},
+          "text": "Vesper sits alone in the observation deck, the viewport framing her silhouette against the void. She's cleaning Clarity — slow, methodical movements that suggest ritual more than maintenance.\n\nShe doesn't look up as Avyanna enters."
+        }
+      ],
+      "next": "nav_deck_atmosphere"
+    },
+    "nav_deck_atmosphere": {
+      "speaker": "SYSTEM",
+      "text": "[i]The nav deck smells of gun oil and cold coffee. Star charts cover every flat surface — hand-annotated in Vesper's cramped handwriting, routes plotted in three colors of ink. Red for danger. Blue for safe passage. Black for routes she's lost people on. There are a lot of black lines.\n\nThe viewport throws blue-white starlight across the deck. It catches the oil on Vesper's fingers, the dark circles under her eyes, the way her hands move with mechanical precision even when the rest of her is still.[/i]",
+      "next": "opening"
+    },
+    "opening": {
+      "speaker": "Vesper",
+      "text": "The Sovereign Marches. You ever been?",
+      "next": "opening_response"
+    },
+    "opening_response": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "No. What's it like?",
+          "next": "marches_description"
+        },
+        {
+          "text": "Once. Hard place to forget.",
+          "next": "marches_shared"
+        },
+        {
+          "text": "[i]Shake your head. Wait for her to continue.[/i]",
+          "next": "marches_silence"
+        }
+      ]
+    },
+    "marches_description": {
+      "speaker": "Vesper",
+      "text": "Dust. Ruins. Corporations strip-mining what's left of civilization. Most people don't make it past thirty. I made it out at seventeen.",
+      "next": "marches_context"
+    },
+    "marches_shared": {
+      "speaker": "Vesper",
+      "text": "Then you know. The kind of place that teaches you to count bullets before you count friends.",
+      "next": "marches_context"
+    },
+    "marches_silence": {
+      "speaker": "Vesper",
+      "text": "[i]She sets down Clarity's barrel assembly with careful precision.[/i]\n\nGood instinct. Don't interrupt someone when they're working up to something.",
+      "next": "marches_context"
+    },
+    "marches_context": {
+      "speaker": "Vesper",
+      "text": "Grew up in a salvage crew. My mother died when the refinery collapsed. My father sold my older brother to pay debts. I learned fast — [i]trust no one, carry your own weight, and always know the exits[/i].",
+      "next": "marches_detail"
+    },
+    "marches_detail": {
+      "speaker": "Vesper",
+      "text": "[i]She holds a barrel pin up to the starlight, checking for burrs. Her fingers are steady — the steadiness of someone who trained the tremors out of herself a long time ago.[/i]\n\nI slept in a cargo pod for two years. Ate protein paste and whatever I could steal. Learned to strip a rifle before I learned to read. The Marches don't raise children. They forge tools or they grind bones.",
+      "next": "marches_detail_response"
+    },
+    "marches_detail_response": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "How did you survive?",
+          "next": "survival_instinct"
+        },
+        {
+          "text": "That's no way to grow up.",
+          "next": "no_childhood"
+        },
+        {
+          "text": "[i]Let the silence hold.[/i]",
+          "next": "silence_holds"
+        }
+      ]
+    },
+    "survival_instinct": {
+      "speaker": "Vesper",
+      "text": "I was fast. And mean. And I didn't care about anyone enough to slow down for them. That's the recipe, in the Marches. Empathy is a luxury. Compassion gets you killed.",
+      "next": "rowan_intro"
+    },
+    "no_childhood": {
+      "speaker": "Vesper",
+      "text": "[i]She shrugs — one shoulder, economical.[/i]\n\nNo. It wasn't. But it was mine. And it made me useful. I'd rather be useful than happy. Happy doesn't stop bullets.",
+      "next": "rowan_intro"
+    },
+    "silence_holds": {
+      "speaker": "SYSTEM",
+      "text": "[i]Vesper glances at you. Something in your silence seems to steady her — the absence of pity, maybe. She sets down the barrel assembly and reaches for the receiver.[/i]",
+      "next": "rowan_intro"
+    },
+    "rowan_intro": {
+      "speaker": "Vesper",
+      "text": "Then I met Rowan Rook. Ex-corporate tactician, burned out and hiding in the wastes. He saw me steal rations from a convoy guard. Could've turned me in. Instead, he trained me.",
+      "next": "rowan_response"
+    },
+    "rowan_response": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "Why would he do that?",
+          "next": "why_train"
+        },
+        {
+          "text": "What did he teach you?",
+          "next": "what_taught"
+        },
+        {
+          "text": "You said 'met.' Past tense.",
+          "next": "past_tense_catch"
+        }
+      ]
+    },
+    "why_train": {
+      "speaker": "Vesper",
+      "text": "He said I reminded him of himself. Someone with potential rotting in a place that kills potential. So he taught me tactics, discipline, how to think instead of just survive.",
+      "next": "rowan_appearance"
+    },
+    "what_taught": {
+      "speaker": "Vesper",
+      "text": "Everything. Sightlines. Threat assessment. How to read a battlefield like a book. How to keep people alive when the odds say they should die.",
+      "next": "rowan_appearance"
+    },
+    "past_tense_catch": {
+      "speaker": "Vesper",
+      "text": "[i]Her jaw tightens. She doesn't look at you.[/i]\n\nYeah. Past tense.",
+      "reputation": {
+        "vesper": 1
+      },
+      "next": "rowan_appearance"
+    },
+    "rowan_appearance": {
+      "speaker": "Vesper",
+      "text": "[i]She sets the receiver down. Picks up a cloth. Wipes oil from her knuckles with slow deliberation.[/i]\n\nHe was tall. Taller than anyone in the crew. Had these hands — scarred across every knuckle, but gentle when they needed to be. He'd annotate star charts in green ink because he said black reminded him of corporate memos. Stupid detail to remember. But I remember it every time I pick up a pen.",
+      "next": "rowan_personality"
+    },
+    "rowan_personality": {
+      "speaker": "Vesper",
+      "text": "He laughed too loud. Terrible cook — burned everything, even ration paste, which I didn't think was possible. But he could read a room faster than anyone I've met. Knew who was lying, who was scared, who was about to break. That's what made him good. Not the tactics. The [i]seeing[/i].",
+      "next": "rowan_personality_response"
+    },
+    "rowan_personality_response": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "Sounds like he saw you.",
+          "next": "rowan_saw_her"
+        },
+        {
+          "text": "You learned that from him. The seeing.",
+          "next": "learned_seeing"
+        },
+        {
+          "text": "How long were you together?",
+          "next": "training_years"
+        }
+      ]
+    },
+    "rowan_saw_her": {
+      "speaker": "Vesper",
+      "text": "[i]Her hands still. For a moment she looks younger — the angles of her face softening into something almost fragile.[/i]\n\nYeah. He did. First person who ever did. And the last, for a long time.",
+      "reputation": {
+        "vesper": 1
+      },
+      "next": "training_years"
+    },
+    "learned_seeing": {
+      "speaker": "Vesper",
+      "text": "I tried. Don't know if I'm as good at it. He made it look easy — compassion without weakness, empathy without vulnerability. I just fake it and check my sightlines.",
+      "next": "training_years"
+    },
+    "training_years": {
+      "speaker": "Vesper",
+      "text": "Three years. Best three years of my life. He turned me into something more than a survivor. He made me a [i]tactician[/i]. Then he got himself killed.",
+      "next": "killed_reaction"
+    },
+    "killed_reaction": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "What happened?",
+          "next": "what_happened"
+        },
+        {
+          "text": "[Empathy DC 14] You blame yourself.",
+          "next": "empathy_check",
+          "skill_check": {
+            "stat": "empathy",
+            "skill": "empathy",
+            "dc": 14,
+            "threshold": 14,
+            "on_success": "empathy_success",
+            "on_failure": "empathy_failure"
+          }
+        },
+        {
+          "text": "[i]Say nothing. Let her speak.[/i]",
+          "next": "silence_space"
+        }
+      ]
+    },
+    "empathy_check": {
+      "speaker": "SYSTEM",
+      "text": "[Rolling Empathy check...]",
+      "next": "empathy_success"
+    },
+    "empathy_success": {
+      "speaker": "Avyanna",
+      "text": "You blame yourself. I can see it in how you hold Clarity. Like you're carrying his weight.",
+      "reputation": {
+        "vesper": 2
+      },
+      "set_flag": "vesper_guilt_understood",
+      "next": "blame_confirmed"
+    },
+    "empathy_failure": {
+      "speaker": "Avyanna",
+      "text": "It wasn't your fault. You know that, right?",
+      "next": "empathy_failure_response"
+    },
+    "empathy_failure_response": {
+      "speaker": "Vesper",
+      "text": "[i]She looks at you with something between pity and frustration.[/i]\n\nYou don't know enough to say that. But... thanks for trying.",
+      "next": "what_happened"
+    },
+    "silence_space": {
+      "speaker": "Vesper",
+      "text": "[i]The silence stretches. When she speaks again, her voice is quieter.[/i]",
+      "next": "what_happened"
+    },
+    "blame_confirmed": {
+      "speaker": "Vesper",
+      "text": "[i]She stops cleaning the rifle. Her hands are very still.[/i]\n\nYeah. I do.",
+      "next": "blame_story"
+    },
+    "blame_story": {
+      "speaker": "Vesper",
+      "text": "We were running extraction on a research facility. Corporate black site, experimental weapons. Rowan planned it — perfect op, clean exits, minimal risk. But I saw a secondary objective. Datacore with intel we could sell.",
+      "next": "blame_story_2"
+    },
+    "blame_story_2": {
+      "speaker": "Vesper",
+      "text": "I pushed for it. Said we could handle both. He trusted my judgment. So we split the team.",
+      "next": "the_night_rowan_died"
+    },
+    "the_night_rowan_died": {
+      "speaker": "Vesper",
+      "text": "[i]She picks up the cleaning rod. Puts it down. Picks it up again. Her jaw works like she's chewing on glass.[/i]\n\nThe facility was called Heron-7. Underground. Three levels. The lights were that corporate white — the kind that makes everything look like a morgue. I can still smell it. Recycled air and floor wax and fear.",
+      "next": "night_detail_2"
+    },
+    "night_detail_2": {
+      "speaker": "Vesper",
+      "text": "My team hit the datacore on sublevel two. Clean breach, minimal contacts. I was feeling good about it. Feeling [i]smart[/i]. That's when the alarms went.",
+      "next": "night_detail_3"
+    },
+    "night_detail_3": {
+      "speaker": "Vesper",
+      "text": "Not the facility alarms. Those, we'd killed. Corporate rapid-response. Someone on the inside had flagged us. My team got pinned in a server corridor — no cover, no exits, just racks of humming databanks and a kill-funnel doorway.",
+      "next": "night_detail_4"
+    },
+    "night_detail_4": {
+      "speaker": "Vesper",
+      "text_variants": [
+        {
+          "condition": {
+            "flag": "nyx_saw_shard"
+          },
+          "text": "[i]Her fingers trace the stock of Clarity. The same motion. Over and over.[/i]\n\nYou know that feeling when Nyx touched the shard? That moment where everything just... stops? Where the air goes thick and you know — you [i]know[/i] — something irreversible is happening? That's what it felt like when I heard Rowan's voice on the comm."
+        },
+        {
+          "condition": {},
+          "text": "[i]Her fingers trace the stock of Clarity. The same motion. Over and over.[/i]\n\nI heard him on the comm. Calm. Always calm. He said, '[i]Vesper, hold position. I'm coming to you.[/i]' And I wanted to scream at him to stay, to not, to run. But I couldn't speak."
+        }
+      ],
+      "next": "night_detail_5"
+    },
+    "night_detail_5": {
+      "speaker": "Vesper",
+      "text": "He came down the service corridor at a dead sprint. Forty meters of open ground with no cover. He was carrying a breaching charge he'd pulled from the primary objective. He blew the wall behind us — made an exit where there wasn't one.",
+      "next": "night_detail_6"
+    },
+    "night_detail_6": {
+      "speaker": "Vesper",
+      "text": "Then he turned around and held the doorway.",
+      "next": "night_the_doorway"
+    },
+    "night_the_doorway": {
+      "speaker": "Vesper",
+      "text": "[i]Her voice drops. Not to a whisper — to something harder. The voice of someone reciting a report they've memorized against their will.[/i]\n\nHe took the first round in the shoulder. Kept firing. Second round — thigh. He dropped to one knee. Kept firing. Third round, center mass. He...",
+      "next": "night_the_doorway_2"
+    },
+    "night_the_doorway_2": {
+      "speaker": "Vesper",
+      "text": "[i]She stops. Her knuckles are white around the cleaning rod. The starlight catches something wet on her cheek but she doesn't acknowledge it.[/i]\n\nHe looked back at me. Just once. And he smiled. That stupid, gentle, Rowan smile. Like he was forgiving me for something I hadn't even understood yet.",
+      "next": "night_the_doorway_3"
+    },
+    "night_the_doorway_3": {
+      "speaker": "Vesper",
+      "text": "I dragged him through the breach. Half-carried him up two flights while the team covered us. He was trying to talk — giving tactical updates, can you believe that? Bleeding out and still calling positions. '[i]Three contacts, east stairwell. Watch your spacing.[/i]'",
+      "next": "night_the_shuttle"
+    },
+    "night_the_shuttle": {
+      "speaker": "Vesper",
+      "text": "We made the shuttle pad. Forty meters from extraction. He stopped walking. I pulled. He said, '[i]Vesper. It's okay. The math works.[/i]' And I said, '[i]Shut up, the math doesn't work, you're coming with me.[/i]'",
+      "next": "night_the_shuttle_2"
+    },
+    "night_the_shuttle_2": {
+      "speaker": "Vesper",
+      "text": "[i]Her voice breaks. She covers it with a cough, but it's too late. The mask slipped.[/i]\n\nHe died on the shuttle pad. Thirty-seven meters from the ramp. I counted later. I counted because that's what he taught me to do. Measure everything. Quantify the loss. As if numbers could make it make sense.",
+      "next": "night_aftermath_response"
+    },
+    "night_aftermath_response": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "[i]Reach across the console. Take her hand.[/i]",
+          "next": "take_her_hand"
+        },
+        {
+          "text": "Thirty-seven meters. You've carried that number a long time.",
+          "next": "carried_number"
+        },
+        {
+          "text": "[Insight DC 16] The math works — he was telling you something.",
+          "next": "insight_check_math",
+          "skill_check": {
+            "stat": "insight",
+            "skill": "insight",
+            "dc": 16,
+            "threshold": 16,
+            "on_success": "insight_math_success",
+            "on_failure": "insight_math_failure"
+          }
+        },
+        {
+          "text": "[i]Say nothing. Just be here.[/i]",
+          "next": "just_be_here"
+        }
+      ]
+    },
+    "take_her_hand": {
+      "speaker": "SYSTEM",
+      "text": "[i]You reach across the star charts — across the black-inked routes and the red warnings and the cold coffee rings — and take her hand. She flinches. Then her fingers close around yours, tight enough to hurt.[/i]",
+      "reputation": {
+        "vesper": 2
+      },
+      "next": "split_consequence"
+    },
+    "carried_number": {
+      "speaker": "Vesper",
+      "text": "Twelve years. Thirty-seven meters. I dream about it sometimes. In the dream I'm faster. In the dream those thirty-seven meters don't exist. I step off the shuttle pad and he's right there.",
+      "reputation": {
+        "vesper": 1
+      },
+      "next": "split_consequence"
+    },
+    "insight_check_math": {
+      "speaker": "SYSTEM",
+      "text": "[Rolling Insight check...]",
+      "next": "insight_math_success"
+    },
+    "insight_math_success": {
+      "speaker": "Avyanna",
+      "text": "'The math works.' He wasn't talking about the mission. He was telling you the trade was worth it. His life for the whole team's.",
+      "reputation": {
+        "vesper": 2
+      },
+      "set_flag": "vesper_rowan_math_understood",
+      "next": "math_realization"
+    },
+    "insight_math_failure": {
+      "speaker": "Avyanna",
+      "text": "What did he mean? The math works?",
+      "next": "math_she_explains"
+    },
+    "math_she_explains": {
+      "speaker": "Vesper",
+      "text": "I don't know. I've turned it over for twelve years. Maybe he meant the mission. Maybe he meant... something else. I'll never know.",
+      "next": "split_consequence"
+    },
+    "math_realization": {
+      "speaker": "Vesper",
+      "text": "[i]She stares at you. Her mouth opens. Closes. Opens again.[/i]\n\nI... I never... [i]Twelve years[/i] and I never read it that way. I thought he was delirious. Running numbers. But you're right. That's exactly what he'd say. One life for six. The math works.\n\n[i]She presses her palm flat against the star charts, steadying herself.[/i]\n\nGod. That makes it worse. And better. Both. How is it both?",
+      "reputation": {
+        "vesper": 2
+      },
+      "set_flag": "vesper_rowan_forgiveness",
+      "next": "split_consequence"
+    },
+    "just_be_here": {
+      "speaker": "SYSTEM",
+      "text": "[i]You don't speak. You don't move. You let the nav deck hold the weight of her words — the hum of the ship's reactor, the creak of the hull, the distant pulse of stars through the viewport. Vesper's breathing evens out. She nods, once, like you've passed a test she didn't know she was giving.[/i]",
+      "reputation": {
+        "vesper": 1
+      },
+      "next": "split_consequence"
+    },
+    "split_consequence": {
+      "speaker": "Vesper",
+      "text": "Security was heavier than intel suggested. My team got pinned. Rowan came back for us. Took three rounds holding the doorway so we could extract. Died before we made the shuttle.",
+      "next": "aftermath_response"
+    },
+    "what_happened": {
+      "speaker": "Vesper",
+      "text": "Corporate black site extraction. I pushed for a secondary objective — datacore with valuable intel. Rowan trusted me. We split the team. Security was heavier than we thought.",
+      "next": "what_happened_2"
+    },
+    "what_happened_2": {
+      "speaker": "Vesper",
+      "text": "My squad got pinned. He came back for us. Held the doorway while we extracted. Three rounds center mass. Dead before we reached the shuttle.",
+      "next": "aftermath_response"
+    },
+    "aftermath_response": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "He made his choice. He chose to save you.",
+          "next": "choice_argument"
+        },
+        {
+          "text": "You carry that every day. I see it.",
+          "next": "carry_weight"
+        },
+        {
+          "text": "The intel — was it worth it?",
+          "next": "intel_question"
+        },
+        {
+          "text": "You were young. Learning. He knew that.",
+          "next": "young_excuse"
+        }
+      ]
+    },
+    "choice_argument": {
+      "speaker": "Vesper",
+      "text": "He made his choice because I made [i]mine[/i]. Bad tactical assessment. Greed. Overconfidence. I killed him as sure as if I pulled the trigger.",
+      "next": "guilt_deepens"
+    },
+    "carry_weight": {
+      "speaker": "Vesper",
+      "text": "Every. Single. Day. Every tactical decision I make, I ask — [i]would this get someone killed?[/i] Every person I train, I ask — [i]am I giving them the skills to survive, or just more ways to die?[/i]",
+      "reputation": {
+        "vesper": 1
+      },
+      "next": "weight_acknowledged"
+    },
+    "intel_question": {
+      "speaker": "Vesper",
+      "text": "[i]Her eyes go cold.[/i]\n\nNo. It was corrupted data. Worthless. I traded the best man I ever knew for [i]nothing[/i].",
+      "next": "worthless_trade"
+    },
+    "young_excuse": {
+      "speaker": "Vesper",
+      "text": "I was twenty. Old enough to know better. He trained me [i]specifically[/i] to know better. And I ignored everything he taught me.",
+      "next": "guilt_deepens"
+    },
+    "guilt_deepens": {
+      "speaker": "Vesper",
+      "text": "I took over after he died. Led the crew. Made myself into what he was — tactician, planner, the one who keeps everyone alive. Because I [i]owe[/i] him that.",
+      "next": "after_rowan_died"
+    },
+    "after_rowan_died": {
+      "speaker": "Vesper",
+      "text": "[i]She stands, walks to the viewport. The starlight turns her profile into something carved — all angles and tension. She presses her forehead against the glass.[/i]\n\nThe first three months, I didn't sleep. Not couldn't — [i]didn't[/i]. I'd sit at the nav console and chart routes until my eyes bled. Literally. Burst blood vessel. Elia had to sedate me.",
+      "next": "coping_mechanisms"
+    },
+    "coping_mechanisms": {
+      "speaker": "Vesper",
+      "text": "I started drinking star charts. That's what Jalen calls it — when you memorize routes until they replace your dreams. Every corridor, every jump point, every exit strategy. If I couldn't sleep without seeing Heron-7, I'd fill my head with something else. Burn the nightmares out with data.",
+      "next": "coping_mechanisms_2"
+    },
+    "coping_mechanisms_2": {
+      "speaker": "Vesper",
+      "text": "I stopped eating unless someone put food in front of me. Stopped talking unless it was operational. The crew thought I was being professional. I was being [i]dead[/i]. Walking dead. Going through the motions of a person while something inside me rotted.",
+      "next": "coping_response"
+    },
+    "coping_response": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "What brought you back?",
+          "next": "what_brought_back"
+        },
+        {
+          "text": "[Empathy DC 12] You're still doing it. Right now.",
+          "next": "empathy_check_2",
+          "skill_check": {
+            "stat": "empathy",
+            "skill": "empathy",
+            "dc": 12,
+            "threshold": 12,
+            "on_success": "still_doing_it_success",
+            "on_failure": "still_doing_it_failure"
+          }
+        },
+        {
+          "text": "But you survived.",
+          "next": "survived_response"
+        }
+      ]
+    },
+    "what_brought_back": {
+      "speaker": "Vesper",
+      "text": "A kid. Station raid, six months after Heron-7. Civilian caught in the crossfire — couldn't have been more than twelve. I pulled her out. She looked up at me and said, '[i]Are you the one who keeps people alive?[/i]'\n\n[i]She laughs, but it's thin.[/i]\n\nI said yes. And I meant it. So I had to start being alive myself, to keep that promise.",
+      "next": "debt_response"
+    },
+    "empathy_check_2": {
+      "speaker": "SYSTEM",
+      "text": "[Rolling Empathy check...]",
+      "next": "still_doing_it_success"
+    },
+    "still_doing_it_success": {
+      "speaker": "Avyanna",
+      "text": "You're still doing it. The star charts, the obsessive planning, the coffee instead of sleep. You never stopped coping. You just got better at hiding it.",
+      "reputation": {
+        "vesper": 2
+      },
+      "set_flag": "vesper_coping_seen",
+      "next": "still_doing_it_response"
+    },
+    "still_doing_it_failure": {
+      "speaker": "Avyanna",
+      "text": "At least you found a way through it.",
+      "next": "survived_response"
+    },
+    "still_doing_it_response": {
+      "speaker": "Vesper",
+      "text": "[i]She turns from the viewport. In the starlight, her expression is stripped bare — no wit, no armor, no angles. Just a woman who's been running from a shuttle pad for twelve years.[/i]\n\nYeah. I am. And I don't know how to stop. Because stopping means feeling it. All of it. Every meter of those thirty-seven.",
+      "next": "debt_response"
+    },
+    "survived_response": {
+      "speaker": "Vesper",
+      "text": "Survived. That's one word for it. Rowan would've called it something sharper. '[i]Existing isn't living, Vesper. Surviving isn't enough.[/i]' He said that to me once. Didn't understand it then. Starting to now.",
+      "next": "debt_response"
+    },
+    "weight_acknowledged": {
+      "speaker": "Vesper",
+      "text": "That's why I'm meticulous. Why I triple-check exit vectors. Why I won't let anyone take unnecessary risks. Because I've seen what happens when you get [i]sloppy[/i].",
+      "next": "methodology_choice"
+    },
+    "worthless_trade": {
+      "speaker": "Vesper",
+      "text": "So yeah. I remember. Every time I plan an op, every time I calculate risk, every time I save someone's life — I remember the one life I [i]couldn't[/i] save.",
+      "next": "cant_save_response"
+    },
+    "debt_response": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "You honor him by keeping others alive.",
+          "next": "honor_path"
+        },
+        {
+          "text": "You're punishing yourself. He wouldn't want that.",
+          "next": "punishment_path"
+        },
+        {
+          "text": "How many have you saved since then?",
+          "next": "saved_count"
+        }
+      ]
+    },
+    "methodology_choice": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "That's not sloppy. That's [i]care[/i].",
+          "next": "care_recognition"
+        },
+        {
+          "text": "But you can't control everything.",
+          "next": "control_limits"
+        },
+        {
+          "text": "Is that sustainable? Long-term?",
+          "next": "sustainable_question"
+        }
+      ]
+    },
+    "cant_save_response": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "You've saved others since. That counts.",
+          "next": "others_count"
+        },
+        {
+          "text": "Like you've saved me. More than once.",
+          "next": "saved_avyanna"
+        },
+        {
+          "text": "One death doesn't erase a lifetime of good calls.",
+          "next": "balance_argument"
+        }
+      ]
+    },
+    "honor_path": {
+      "speaker": "Vesper",
+      "text": "Maybe. Or maybe I'm just too stubborn to let anyone else die on my watch. Either way, it keeps people breathing.",
+      "next": "philosophy_accepted"
+    },
+    "punishment_path": {
+      "speaker": "Vesper",
+      "text": "Maybe I am. But if punishing myself means twelve years of zero preventable casualties, I'll take that trade.",
+      "next": "philosophy_accepted"
+    },
+    "saved_count": {
+      "speaker": "Vesper",
+      "text": "[i]She's quiet for a long moment.[/i]\n\nForty-three. Forty-three people who should be dead, but aren't. Because I learned from my mistakes.",
+      "reputation": {
+        "vesper": 1
+      },
+      "set_flag": "vesper_shared_count",
+      "next": "count_reflection"
+    },
+    "care_recognition": {
+      "speaker": "Vesper",
+      "text": "[i]Something shifts in her expression. Not quite vulnerability, but close.[/i]\n\nYeah. I guess it is.",
+      "reputation": {
+        "vesper": 1
+      },
+      "set_flag": "vesper_combat_synergy",
+      "next": "avyanna_echoes"
+    },
+    "control_limits": {
+      "speaker": "Vesper",
+      "text": "No. I can't. But I can control [i]my[/i] decisions. My planning. My execution. That's enough.",
+      "next": "acceptance_path"
+    },
+    "sustainable_question": {
+      "speaker": "Vesper",
+      "text": "Probably not. But I'll burn out before I let someone die because I didn't check the angles.",
+      "next": "burnout_response"
+    },
+    "others_count": {
+      "speaker": "Vesper",
+      "text": "Forty-three, last count. Forty-three people breathing because I learned. But that doesn't balance the scale.",
+      "next": "scale_argument"
+    },
+    "saved_avyanna": {
+      "speaker": "Vesper",
+      "text": "[i]Her eyes meet yours. Something unguarded in them.[/i]\n\nYeah. Like I saved you. And I'd do it again. Every time.",
+      "reputation": {
+        "vesper": 2
+      },
+      "set_flag": "vesper_combat_synergy",
+      "next": "avyanna_echoes"
+    },
+    "balance_argument": {
+      "speaker": "Vesper",
+      "text": "Tell that to Rowan. Oh wait — you can't. Because I got him killed.",
+      "next": "harsh_reality"
+    },
+    "philosophy_accepted": {
+      "speaker": "Vesper",
+      "text": "Rowan used to say, '[i]Every plan is a promise you make to the people counting on you.[/i]' I keep my promises now.",
+      "next": "promise_response"
+    },
+    "count_reflection": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "That's extraordinary.",
+          "next": "extraordinary_response"
+        },
+        {
+          "text": "But you still count the one you lost.",
+          "next": "still_counting"
+        },
+        {
+          "text": "He'd be proud of that.",
+          "next": "proud_statement"
+        }
+      ]
+    },
+    "avyanna_echoes": {
+      "speaker": "Vesper",
+      "text": "[i]She sits back down. Picks up Clarity's barrel, then sets it down again — the first time you've seen her abandon the ritual mid-motion.[/i]\n\nCan I tell you something that scares me?",
+      "next": "avyanna_echoes_response"
+    },
+    "avyanna_echoes_response": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "Of course.",
+          "next": "vesper_fear_avyanna"
+        },
+        {
+          "text": "I didn't think anything scared you.",
+          "next": "vesper_fear_deflection"
+        },
+        {
+          "text": "[i]Nod.[/i]",
+          "next": "vesper_fear_avyanna"
+        }
+      ]
+    },
+    "vesper_fear_deflection": {
+      "speaker": "Vesper",
+      "text": "[i]A ghost of a smile.[/i]\n\nPlenty of things scare me. I just shoot at most of them. This one I can't.",
+      "next": "vesper_fear_avyanna"
+    },
+    "vesper_fear_avyanna": {
+      "speaker": "Vesper",
+      "text": "You remind me of him. Not in the obvious ways — you don't look like him, don't talk like him, don't move like him. But there's this... [i]thing[/i] you do. This hope. Like the universe is broken and you know it's broken and you're going to fix it anyway.",
+      "next": "vesper_fear_avyanna_2"
+    },
+    "vesper_fear_avyanna_2": {
+      "speaker": "Vesper",
+      "text": "Rowan had that. That stubborn, impossible belief that people were worth saving. That the next mission would be the one that mattered. That you could be good in a galaxy that rewards cruelty.",
+      "next": "vesper_fear_avyanna_3"
+    },
+    "vesper_fear_avyanna_3": {
+      "speaker": "Vesper",
+      "text_variants": [
+        {
+          "condition": {
+            "flag": "bee_manifested"
+          },
+          "text": "[i]She looks up at the amber glow still pulsing in the wiring. Bee's residual warmth.[/i]\n\nAnd I'm terrified. Because last time I followed someone with that kind of hope, I got them killed. And now here you are, with your impossible missions and your pet ghost-light and your absolute refusal to leave anyone behind. And I'm following you anyway. Because I can't help it. Because that hope is [i]contagious[/i] and I hate it and I need it."
+        },
+        {
+          "condition": {},
+          "text": "And I'm terrified. Because last time I followed someone with that kind of hope, I got them killed. And now here you are, pulling us into impossible missions, refusing to leave anyone behind. And I'm [i]following[/i] you. Again. Because that hope is contagious and I hate it and I need it and I don't know which feeling is stronger."
+        }
+      ],
+      "next": "vesper_fear_response"
+    },
+    "vesper_fear_response": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "I'm not Rowan. And this isn't Heron-7.",
+          "next": "not_rowan"
+        },
+        {
+          "text": "Then help me be smarter than he was. Keep me honest.",
+          "next": "keep_me_honest"
+        },
+        {
+          "text": "[Insight DC 14] You're not afraid of losing me. You're afraid of caring again.",
+          "next": "insight_check_caring",
+          "skill_check": {
+            "stat": "insight",
+            "skill": "insight",
+            "dc": 14,
+            "threshold": 14,
+            "on_success": "insight_caring_success",
+            "on_failure": "insight_caring_failure"
+          }
+        },
+        {
+          "text": "[i]Let her words sit. Don't rush to fix them.[/i]",
+          "next": "let_it_sit"
+        }
+      ]
+    },
+    "not_rowan": {
+      "speaker": "Vesper",
+      "text": "I know. That's what makes it worse. Because if you were him, I'd know the pattern. I'd know the risks. You're something new. And I don't have a playbook for new.",
+      "next": "vulnerability_moment"
+    },
+    "keep_me_honest": {
+      "speaker": "Vesper",
+      "text": "[i]She looks at you sharply — then something in her face unknots.[/i]\n\nYou mean that. You actually mean that. Rowan never asked for that. He just trusted his own judgment. You're asking me to check yours.",
+      "reputation": {
+        "vesper": 2
+      },
+      "set_flag": "vesper_tactical_bond",
+      "next": "vulnerability_moment"
+    },
+    "insight_check_caring": {
+      "speaker": "SYSTEM",
+      "text": "[Rolling Insight check...]",
+      "next": "insight_caring_success"
+    },
+    "insight_caring_success": {
+      "speaker": "Avyanna",
+      "text": "You're not afraid of losing me. You're afraid of what it means that you care. Because caring is what killed Rowan — not the bullets, not the bad intel. The fact that he cared enough to come back for you.",
+      "reputation": {
+        "vesper": 2
+      },
+      "set_flag": "vesper_fear_named",
+      "next": "fear_named_response"
+    },
+    "insight_caring_failure": {
+      "speaker": "Avyanna",
+      "text": "You don't have to be afraid. Not with me.",
+      "next": "vulnerability_moment"
+    },
+    "fear_named_response": {
+      "speaker": "Vesper",
+      "text": "[i]She makes a sound — half laugh, half something broken. She covers her mouth with her hand. When she lowers it, her eyes are bright and raw.[/i]\n\nDamn you. Damn you for seeing that. I spent twelve years building walls and you just — [i]she gestures vaguely[/i] — walked through them like they weren't there.",
+      "next": "vulnerability_moment"
+    },
+    "let_it_sit": {
+      "speaker": "SYSTEM",
+      "text": "[i]The nav deck is quiet. The reactor hums. Stars turn slowly past the viewport. Vesper's breathing is ragged, and you let it be ragged. You don't fill the silence. You don't fix it. You witness it.\n\nAfter a long moment, she exhales — long and shuddering — and nods.[/i]",
+      "reputation": {
+        "vesper": 1
+      },
+      "next": "vulnerability_moment"
+    },
+    "vulnerability_moment": {
+      "speaker": "Vesper",
+      "text": "[i]She puts Clarity down. Not carefully — she just sets it aside, like it doesn't matter. Like the ritual can wait. She presses both palms flat on the star charts and leans forward, head bowed, breathing slowly.\n\nWhen she looks up, the mask is gone. No wit. No edge. No angles. Just Vesper — tired, scared, stubbornly alive.[/i]",
+      "next": "vulnerability_words"
+    },
+    "vulnerability_words": {
+      "speaker": "Vesper",
+      "text": "I don't know how to do this. The... trusting. The hoping. I know how to plan ops and check sightlines and keep people alive through sheer force of paranoia. But this — [i]she gestures between you[/i] — this terrifies me more than any firefight.",
+      "next": "vulnerability_words_2"
+    },
+    "vulnerability_words_2": {
+      "speaker": "Vesper",
+      "text": "Because firefights have rules. Exit strategies. Contingencies. People? People die in ways you can't plan for. They die thirty-seven meters from the shuttle. They die smiling. They die and you have to keep going because forty-three other people need you to keep going.",
+      "next": "vulnerability_choice"
+    },
+    "vulnerability_choice": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "Then don't do it alone. That's not a weakness — it's a tactic.",
+          "next": "tactic_reframe"
+        },
+        {
+          "text": "I'm scared too. Every day. But I'd rather be scared with you watching my back.",
+          "next": "scared_together"
+        },
+        {
+          "text": "[i]Move to stand beside her at the viewport.[/i]",
+          "next": "stand_beside"
+        },
+        {
+          "text": "What would Rowan tell you right now?",
+          "next": "rowan_ghost_advice"
+        }
+      ]
+    },
+    "tactic_reframe": {
+      "speaker": "Vesper",
+      "text": "[i]She laughs — a real laugh, startled out of her.[/i]\n\nA tactic. Trust as a force multiplier. God, you even speak my language. Rowan would've liked you. He would've liked you a lot.",
+      "reputation": {
+        "vesper": 2
+      },
+      "set_flag": "vesper_combat_synergy",
+      "next": "emotional_resolution"
+    },
+    "scared_together": {
+      "speaker": "Vesper",
+      "text": "[i]Her throat works. She looks at you, and for a moment the twelve years between Heron-7 and now collapse into nothing.[/i]\n\nYeah. Yeah, okay. Scared together. That's... I can work with that. That's a plan I understand.",
+      "reputation": {
+        "vesper": 2
+      },
+      "set_flag": "vesper_combat_synergy",
+      "next": "emotional_resolution"
+    },
+    "stand_beside": {
+      "speaker": "SYSTEM",
+      "text": "[i]You move around the console and stand beside her at the viewport. Not touching. Just close enough that she can feel you there — a presence, a proof that the universe isn't entirely composed of empty shuttle pads and corrupted data.\n\nThe stars wheel past. Cold and distant and beautiful in the way that only things that don't care about you can be beautiful.\n\nVesper's shoulder touches yours. She doesn't pull away.[/i]",
+      "reputation": {
+        "vesper": 2
+      },
+      "set_flag": "vesper_combat_synergy",
+      "next": "emotional_resolution"
+    },
+    "rowan_ghost_advice": {
+      "speaker": "Vesper",
+      "text": "[i]She's quiet for so long you think she won't answer. Then:[/i]\n\nHe'd say, '[i]Stop using my death as an excuse to stop living.[/i]' He'd say it gently, because he was gentle. And then he'd say something about star charts and sunrises and how the void is just the space between lights.\n\n[i]She wipes her eyes with the heel of her hand, efficient, like clearing a scope.[/i]\n\nGod, I miss him. I miss him every day. But I'm starting to think... maybe missing someone doesn't have to mean drowning in them.",
+      "reputation": {
+        "vesper": 2
+      },
+      "set_flag": "vesper_shared_rowan",
+      "next": "emotional_resolution"
+    },
+    "emotional_resolution": {
+      "speaker": "Vesper",
+      "text": "Thanks. For listening. For... understanding. Most people don't ask. They just see the rifle and assume I'm fine.",
+      "next": "gratitude_response"
+    },
+    "acceptance_path": {
+      "speaker": "Vesper",
+      "text": "That's all any of us can do. Control what we can. Make the best calls possible. Keep moving forward.",
+      "next": "forward_together"
+    },
+    "burnout_response": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "Let me help carry that weight.",
+          "next": "share_burden"
+        },
+        {
+          "text": "You don't have to do this alone.",
+          "next": "not_alone"
+        },
+        {
+          "text": "That's not a plan. That's slow suicide.",
+          "next": "harsh_truth"
+        }
+      ]
+    },
+    "scale_argument": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "Maybe it's not about balance. Maybe it's about growth.",
+          "next": "growth_perspective"
+        },
+        {
+          "text": "Forty-three lives. That's not nothing.",
+          "next": "not_nothing"
+        },
+        {
+          "text": "What would Rowan say?",
+          "next": "rowan_wisdom"
+        }
+      ]
+    },
+    "harsh_reality": {
+      "speaker": "Vesper",
+      "text": "[i]The bitterness in her voice is sharp enough to cut.[/i]\n\nSorry. That was... I'm not good at this. Talking. Feelings. I usually just shoot things.",
+      "next": "deflection_response"
+    },
+    "promise_response": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "And you've kept them. Forty-three times over.",
+          "next": "promises_kept"
+        },
+        {
+          "text": "He sounds like he was remarkable.",
+          "next": "rowan_remarkable"
+        },
+        {
+          "text": "That's a good philosophy.",
+          "next": "good_philosophy"
+        }
+      ]
+    },
+    "extraordinary_response": {
+      "speaker": "Vesper",
+      "text": "It's necessary. This life — freelance ops, corporate raids, void stations falling apart — people die [i]easy[/i]. Keeping them alive is the hard part.",
+      "next": "closing_moment"
+    },
+    "still_counting": {
+      "speaker": "Vesper",
+      "text": "Always. He's the reason I count at all. The reminder that [i]one mistake[/i] is all it takes.",
+      "next": "closing_moment"
+    },
+    "proud_statement": {
+      "speaker": "Vesper",
+      "text": "[i]Her throat works. She looks away.[/i]\n\nMaybe. I hope so. That's why I do it.",
+      "reputation": {
+        "vesper": 1
+      },
+      "set_flag": "vesper_shared_rowan",
+      "next": "closing_moment"
+    },
+    "gratitude_response": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "You're not just fine. You're human.",
+          "next": "human_recognition"
+        },
+        {
+          "text": "Anytime you need to talk, I'm here.",
+          "next": "standing_offer"
+        },
+        {
+          "text": "[i]Rest a hand on her shoulder.[/i]",
+          "next": "physical_comfort"
+        }
+      ]
+    },
+    "forward_together": {
+      "speaker": "Vesper",
+      "text": "Yeah. Together. That's... that's new for me. But good.",
+      "reputation": {
+        "vesper": 1
+      },
+      "set_flag": "vesper_shared_rowan",
+      "next": "closing_professional"
+    },
+    "share_burden": {
+      "speaker": "Vesper",
+      "text": "[i]She looks at you for a long moment. Something shifts in her eyes.[/i]\n\nYeah. Okay. I'd like that.",
+      "reputation": {
+        "vesper": 2
+      },
+      "set_flag": "vesper_combat_synergy",
+      "next": "emotional_resolution"
+    },
+    "not_alone": {
+      "speaker": "Vesper",
+      "text": "I know. You've proven that. More than once. I just... it's hard to trust that. After Rowan.",
+      "next": "trust_acknowledged"
+    },
+    "harsh_truth": {
+      "speaker": "Vesper",
+      "text": "[i]She laughs — short, bitter.[/i]\n\nYeah. You're not wrong. But at least it's a suicide that saves people.",
+      "next": "deflection_response"
+    },
+    "growth_perspective": {
+      "speaker": "Vesper",
+      "text": "Growth. Huh. Never thought of it that way. Just thought of it as... penance.",
+      "reputation": {
+        "vesper": 1
+      },
+      "next": "penance_to_growth"
+    },
+    "not_nothing": {
+      "speaker": "Vesper",
+      "text": "No. It's not. But some days it feels like I'm running up a debt I'll never clear.",
+      "next": "debt_endless"
+    },
+    "rowan_wisdom": {
+      "speaker": "Vesper",
+      "text": "[i]She's quiet. When she speaks, her voice is soft.[/i]\n\nHe'd say, '[i]Stop counting corpses and start counting sunrises.[/i]' He was better at hope than I am.",
+      "reputation": {
+        "vesper": 2
+      },
+      "set_flag": "vesper_shared_rowan",
+      "next": "rowan_wisdom_reflection"
+    },
+    "deflection_response": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "You're doing fine. This takes courage.",
+          "next": "courage_recognized"
+        },
+        {
+          "text": "I'm glad you're talking to me.",
+          "next": "glad_talking"
+        },
+        {
+          "text": "Shooting things is easier. I get it.",
+          "next": "shared_understanding"
+        }
+      ]
+    },
+    "promises_kept": {
+      "speaker": "Vesper",
+      "text": "Yeah. I have. And I'll keep keeping them. For him. For everyone.",
+      "set_flag": "vesper_shared_rowan",
+      "next": "closing_moment"
+    },
+    "rowan_remarkable": {
+      "speaker": "Vesper",
+      "text": "He was. Best tactician I ever knew. Better person. The kind who believed people were worth saving, even when they proved him wrong.",
+      "next": "rowan_remarkable_detail"
+    },
+    "rowan_remarkable_detail": {
+      "speaker": "Vesper",
+      "text": "He kept a journal. Wrote in it every night. I found it after — couldn't read it for three years. When I finally did, the last entry was about me. About how proud he was. How I was going to be better than him.\n\n[i]She touches the breast pocket of her jacket. There's something flat and rectangular inside it.[/i]\n\nI carry it. Every op. Every mission. Stupid, right? Sentimental. He'd have called it a tactical liability — extra weight, emotional compromise. But I carry it.",
+      "next": "closing_moment"
+    },
+    "good_philosophy": {
+      "speaker": "Vesper",
+      "text": "It kept me alive this long. Kept others alive too. That's enough.",
+      "next": "closing_professional"
+    },
+    "closing_moment": {
+      "speaker": "Vesper",
+      "text": "[i]She reassembles Clarity with practiced efficiency. The conversation is over, but something has shifted. She's lighter, somehow.[/i]\n\nThanks. For listening. For not telling me it wasn't my fault. For just... being here.",
+      "set_flag": "deep_vesper_complete",
+      "next": "closing_vesper_thanks"
+    },
+    "closing_vesper_thanks": {
+      "speaker": "Vesper",
+      "text_variants": [
+        {
+          "condition": {
+            "flag": "vesper_rowan_forgiveness"
+          },
+          "text": "[i]She touches the journal in her pocket.[/i]\n\nYou said the math works. That he was choosing, not just dying. I'm going to sit with that for a while. Might change some things. Might change a lot of things.\n\n[i]She almost smiles — a real one, fragile as spun glass.[/i]\n\nDon't tell anyone I cried. I have a reputation."
+        },
+        {
+          "condition": {
+            "flag": "vesper_fear_named"
+          },
+          "text": "You named the thing I couldn't name. The fear. Twelve years of carrying it around like shrapnel and you just — pulled it out. Still hurts. But cleaner now.\n\n[i]She picks up Clarity again. This time the ritual feels different — less compulsion, more care.[/i]\n\nDon't expect me to be nice about it. That's not who I am. But I'll be honest. That's more than most people get."
+        },
+        {
+          "condition": {},
+          "text": "I don't do this. Talk. Share. Whatever this is. But you made it... easier. Somehow.\n\n[i]She slings Clarity across her back.[/i]\n\nWe speak of this to no one. Especially Jalen. He'll write a song about it and I'll have to shoot him."
+        }
+      ],
+      "next": "final_words"
+    },
+    "human_recognition": {
+      "speaker": "Vesper",
+      "text": "[i]She almost smiles.[/i]\n\nHuman. Yeah. I forget that sometimes. Good to be reminded.",
+      "reputation": {
+        "vesper": 1
+      },
+      "set_flag": "vesper_shared_rowan",
+      "next": "final_words_warm"
+    },
+    "standing_offer": {
+      "speaker": "Vesper",
+      "text": "I'll remember that. Not sure how often I'll take you up on it, but... I'll remember.",
+      "set_flag": "deep_vesper_complete",
+      "next": "final_words"
+    },
+    "physical_comfort": {
+      "speaker": "Vesper",
+      "text": "[i]She stiffens for a moment, then relaxes. Her hand comes up to briefly rest on yours.[/i]\n\nThanks. I needed this.",
+      "reputation": {
+        "vesper": 2
+      },
+      "set_flag": "vesper_combat_synergy",
+      "next": "final_words_warm"
+    },
+    "closing_professional": {
+      "speaker": "Vesper",
+      "text": "[i]She stands, slinging Clarity across her back. The moment of vulnerability has passed, but not forgotten.[/i]\n\nGood talk. We should do this again. Maybe without the emotional bloodletting.",
+      "set_flag": "deep_vesper_complete",
+      "next": "end"
+    },
+    "trust_acknowledged": {
+      "speaker": "Vesper",
+      "text": "But I'm trying. That's something, right?",
+      "next": "trying_response"
+    },
+    "penance_to_growth": {
+      "speaker": "Vesper",
+      "text": "Maybe it can be both. Penance that grows into something better. Something Rowan would recognize.",
+      "reputation": {
+        "vesper": 1
+      },
+      "set_flag": "vesper_shared_rowan",
+      "next": "closing_moment"
+    },
+    "debt_endless": {
+      "speaker": "Vesper",
+      "text": "But that's my problem. Not yours. You've listened. That's more than most people do.",
+      "next": "closing_professional"
+    },
+    "rowan_wisdom_reflection": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "Then let's try counting sunrises together.",
+          "next": "sunrise_together"
+        },
+        {
+          "text": "Maybe you can learn that from him too.",
+          "next": "learn_hope"
+        },
+        {
+          "text": "He sounds wise. You honor him by remembering.",
+          "next": "honor_memory"
+        }
+      ]
+    },
+    "courage_recognized": {
+      "speaker": "Vesper",
+      "text": "Courage. Huh. Usually that involves getting shot at. But yeah. Thanks.",
+      "set_flag": "deep_vesper_complete",
+      "next": "final_words"
+    },
+    "glad_talking": {
+      "speaker": "Vesper",
+      "text": "Me too. More than I expected. You're... you're good at this. Listening. Understanding. Keep that.",
+      "reputation": {
+        "vesper": 1
+      },
+      "set_flag": "deep_vesper_complete",
+      "next": "final_words_warm"
+    },
+    "shared_understanding": {
+      "speaker": "Vesper",
+      "text": "[i]She actually smiles — small, but genuine.[/i]\n\nYeah. Clear objectives. Measurable outcomes. No emotions to navigate. But this... this was good too.",
+      "set_flag": "deep_vesper_complete",
+      "next": "final_words"
+    },
+    "trying_response": {
+      "speaker": "Avyanna",
+      "choices": [
+        {
+          "text": "It's everything.",
+          "next": "everything_affirm"
+        },
+        {
+          "text": "It's a start. That's all we need.",
+          "next": "start_affirm"
+        }
+      ]
+    },
+    "sunrise_together": {
+      "speaker": "Vesper",
+      "text": "[i]Her expression softens. Something like hope flickers there.[/i]\n\nYeah. I'd like that. Together.",
+      "reputation": {
+        "vesper": 2
+      },
+      "set_flag": "vesper_shared_rowan",
+      "next": "final_words_warm"
+    },
+    "learn_hope": {
+      "speaker": "Vesper",
+      "text": "Maybe. It's harder than tactics. But... I'm willing to try.",
+      "reputation": {
+        "vesper": 1
+      },
+      "set_flag": "vesper_shared_rowan",
+      "next": "final_words"
+    },
+    "honor_memory": {
+      "speaker": "Vesper",
+      "text": "I try. Every day. Every decision. Every life I save. He's there.",
+      "set_flag": "deep_vesper_complete",
+      "next": "final_words"
+    },
+    "everything_affirm": {
+      "speaker": "Vesper",
+      "text": "[i]She nods slowly.[/i]\n\nOkay. Then I'll keep trying. With you.",
+      "reputation": {
+        "vesper": 2
+      },
+      "set_flag": "vesper_combat_synergy",
+      "next": "final_words_warm"
+    },
+    "start_affirm": {
+      "speaker": "Vesper",
+      "text": "A start. Yeah. I can work with that.",
+      "set_flag": "deep_vesper_complete",
+      "next": "final_words"
+    },
+    "final_words": {
+      "speaker": "Vesper",
+      "text": "Next time we're in the field, watch my six. I'll watch yours. That's what Rowan would do. What he [i]did[/i] do. We honor him by staying alive.",
+      "next": "final_scene"
+    },
+    "final_words_warm": {
+      "speaker": "Vesper",
+      "text": "[i]She picks up Clarity, but this time there's warmth in her eyes.[/i]\n\nNext time we're in the field, we keep each other alive. That's the promise. That's how we honor everyone we've lost. By making sure we don't lose anyone else.",
+      "next": "final_scene_warm"
+    },
+    "final_scene": {
+      "speaker": "SYSTEM",
+      "text": "[i]Vesper turns back to the nav console. She picks up a pen — green ink, you notice — and begins annotating a route. Her handwriting is small, precise, certain.\n\nThe viewport fills with stars. Somewhere in the ship, the reactor hums its endless lullaby. The star charts flutter in the ventilation draft, black lines and red warnings and blue safe-passages rustling like paper wings.\n\nShe doesn't look up as you leave. But just before the door closes, you hear her voice — quiet, stripped of wit, stripped of armor:\n\n\"Avyanna. Thanks.\"\n\nThe door seals. The corridor is silent. But something has changed — a weight redistributed, a burden shared, a promise made in starlight and gun oil and the space between two people who've learned that trust is the most dangerous weapon of all.[/i]",
+      "set_flag": "deep_vesper_complete",
+      "next": "end"
+    },
+    "final_scene_warm": {
+      "speaker": "SYSTEM",
+      "text_variants": [
+        {
+          "condition": {
+            "flag": "vesper_rowan_math_understood"
+          },
+          "text": "[i]Vesper walks to the nav console and picks up a pen. Green ink. She stares at it for a moment, then uncaps it and begins to write — not route annotations, but something else. Something personal. The journal's breast-pocket silhouette is visible through her jacket.\n\nShe's writing to Rowan. You know it without asking.\n\nYou leave quietly. The door seals behind you, and the corridor is warm with reactor heat and Bee's residual amber glow. Somewhere behind that door, a woman is learning that the math was never about subtraction. It was about what you carry forward.\n\nThirty-seven meters. Forty-three lives. And one more person who finally, finally, doesn't have to count alone.[/i]"
+        },
+        {
+          "condition": {},
+          "text": "[i]Vesper slings Clarity across her back and walks with you to the door. She pauses at the threshold — one hand on the frame, starlight catching the oil on her knuckles.\n\nFor a moment she looks like she might say something else. Something bigger. Instead, she reaches out and adjusts the collar of your jacket — a small, precise gesture, the kind of care she usually reserves for rifle maintenance.\n\n\"Stay alive out there. That's an order.\"\n\nThe door closes. The corridor stretches ahead, quiet and warm with reactor heat. Behind you, through the bulkhead, you can hear Vesper humming — low and tuneless and unmistakably human.\n\nShe hasn't hummed in twelve years.[/i]"
+        }
+      ],
+      "set_flag": "deep_vesper_complete",
+      "next": "end"
+    }
+  }
+}

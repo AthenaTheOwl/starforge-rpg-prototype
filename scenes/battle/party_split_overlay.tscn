@@ -1,0 +1,117 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjt4k8vx7n2p5"]
+
+[ext_resource type="Script" path="res://scripts/ui/party_split_ui.gd" id="1_party_split"]
+
+[node name="PartySplitOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 300.0
+offset_bottom = 600.0
+script = ExtResource("1_party_split")
+
+[node name="MainPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HeaderLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "TEAM B STATUS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MainPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="EnemiesLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Enemies: 0"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="MainPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MemberScrollContainer" type="ScrollContainer" parent="MainPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MemberList" type="VBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/MemberScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+
+[node name="HSeparator3" type="HSeparator" parent="MainPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="OrdersLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Orders:"
+horizontal_alignment = 1
+
+[node name="OrderButtons" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="HoldBtn" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/OrderButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hold"
+tooltip_text = "Defensive: -30% damage taken, -50% damage dealt"
+
+[node name="AdvanceBtn" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/OrderButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Advance"
+tooltip_text = "Balanced: Normal damage and defense"
+
+[node name="RetreatBtn" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/OrderButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Retreat"
+tooltip_text = "Recovery: -50% damage taken, no damage dealt, +10% HP/turn"
+
+[node name="HSeparator4" type="HSeparator" parent="MainPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="StatusLogLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Status Updates:"
+horizontal_alignment = 1
+
+[node name="StatusLogScroll" type="ScrollContainer" parent="MainPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 120)
+
+[node name="StatusLog" type="RichTextLabel" parent="MainPanel/MarginContainer/VBoxContainer/StatusLogScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+fit_content = true
+scroll_following = true

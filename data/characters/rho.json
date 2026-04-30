@@ -1,0 +1,111 @@
+{
+	"id": "rho",
+	"name": "Rho Sable",
+	"pronouns": "he/him",
+	"role": "Heavy Weapons / Tank-AoE DPS",
+	"description": "Demolitions expert and heavy weapons specialist. Brings overwhelming firepower and durability.",
+
+	"hp_max": 115,
+	"speed": 7,
+	"attack": 18,
+	"armor": 12,
+	"shields": 6,
+	"wards": 2,
+
+	"relic_weapon": {
+		"name_1": "Proportional",
+		"name_2": null,
+		"type": "rotary_cannon",
+		"inlay": "Mercy Detonation Bracket",
+		"inlay_effect": "Shaped explosives; controlled blast radius"
+	},
+
+	"ability_slots": [
+		{
+			"slot": "core_1",
+			"name": "Suppressing Fire",
+			"primitives": ["strike"],
+			"description": "AoE barrage of physical rounds. Hits all enemies in area and reduces their speed.",
+			"base_damage": 14,
+			"damage_type": "physical",
+			"heat_cost": 2,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 3,
+			"charges": 3,
+			"statuses": [{"name": "slowed", "duration": 2}]
+		},
+		{
+			"slot": "core_2",
+			"name": "Proportional Response",
+			"primitives": ["strike"],
+			"description": "Concentrated heavy fire on a single target. Devastating physical damage.",
+			"base_damage": 35,
+			"damage_type": "physical",
+			"heat_cost": 2,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 3,
+			"charges": 3,
+			"statuses": []
+		},
+		{
+			"slot": "utility_1",
+			"name": "Breaching Charge",
+			"primitives": ["strike"],
+			"description": "AoE thermal explosive. Deals thermal damage and destroys all cover in area.",
+			"base_damage": 20,
+			"damage_type": "thermal",
+			"heat_cost": 2,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 2,
+			"charges": 2,
+			"statuses": [{"name": "cover_destroyed", "duration": 99}]
+		},
+		{
+			"slot": "utility_2",
+			"name": "Fortify",
+			"primitives": ["guard"],
+			"description": "Brace and reinforce armor plating. Gain bonus armor for 2 turns.",
+			"base_damage": 0,
+			"damage_type": "physical",
+			"heat_cost": 1,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 3,
+			"charges": 3,
+			"statuses": [{"name": "fortified", "duration": 2}]
+		},
+		{
+			"slot": "reaction",
+			"name": "Blast Shield",
+			"primitives": ["guard"],
+			"description": "Absorb damage for an adjacent ally using heavy armor plating.",
+			"base_damage": 0,
+			"damage_type": "physical",
+			"heat_cost": 1,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 2,
+			"charges": 2,
+			"statuses": [{"name": "shielding_ally", "duration": 1}]
+		},
+		{
+			"slot": "keystone",
+			"name": "The Breachwright",
+			"primitives": ["strike", "vent"],
+			"description": "Massive AoE detonation combining thermal and physical damage. Destroys all cover.",
+			"base_damage": 40,
+			"damage_type": "thermal",
+			"heat_cost": 3,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 1,
+			"charges": 1,
+			"statuses": [{"name": "cover_destroyed", "duration": 99}, {"name": "burning", "duration": 2, "dot_damage": 8, "dot_type": "thermal"}]
+		}
+	],
+
+	"tier": 1
+}

@@ -1,0 +1,38 @@
+{
+  "id": "corp_drone_controller",
+  "name": "Corporate Drone Controller",
+  "family": "corporate",
+  "description": "Remote drone support specialist. Fragile but dangerous at range, relying on autonomous units to deal damage and gather intel.",
+  "hp_max": 30,
+  "speed": 9,
+  "attack": 6,
+  "armor": 2,
+  "shields": 8,
+  "wards": 0,
+  "weakness": "Jamming drones disables primary offense and reconnaissance capabilities.",
+  "abilities": [
+    {
+      "name": "Drone Strike",
+      "base_damage": 15,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "statuses": []
+    },
+    {
+      "name": "Surveillance Ping",
+      "base_damage": 0,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "statuses": [
+        {
+          "name": "revealed",
+          "duration": 2
+        }
+      ]
+    }
+  ]
+}

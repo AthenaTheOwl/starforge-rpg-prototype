@@ -1,0 +1,27 @@
+{
+  "id": "act1_corp_assault",
+  "name": "Corporate Assault Force",
+  "description": "Heavy assault configuration. A corporate heavy anchors the line while a drone controller provides ranged support and two troopers flank. Coordinated and dangerous.",
+  "waves": [
+    {
+      "description": "Corporate Assault Squad",
+      "enemies": [
+        {"type": "corp_heavy", "count": 1},
+        {"type": "corp_drone_controller", "count": 1},
+        {"type": "corp_trooper", "count": 2}
+      ]
+    }
+  ],
+  "environment": {
+    "static_zone": false,
+    "open_ground": true,
+    "drone_surveillance": true
+  },
+  "victory_condition": "defeat_all",
+  "defeat_consequence": "retry",
+  "rewards": {
+    "experience": 200,
+    "flags": ["corp_assault_repelled"]
+  },
+  "loot": []
+}

@@ -1,0 +1,39 @@
+{
+  "id": "raider_scrapper",
+  "name": "Raider Scrapper",
+  "family": "raiders",
+  "description": "Fast-moving melee fighter who closes distance quickly and scavenges parts mid-combat to stay in the fight.",
+  "hp_max": 35,
+  "speed": 13,
+  "attack": 14,
+  "armor": 3,
+  "shields": 0,
+  "wards": 0,
+  "weakness": "",
+  "abilities": [
+    {
+      "name": "Rush Slash",
+      "base_damage": 14,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "statuses": []
+    },
+    {
+      "name": "Scavenge",
+      "base_damage": 0,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "target": "self",
+      "statuses": [
+        {
+          "name": "heal",
+          "value": 10
+        }
+      ]
+    }
+  ]
+}

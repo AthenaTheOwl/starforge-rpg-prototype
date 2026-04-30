@@ -1,0 +1,22 @@
+{
+  "id": "act1_glitter_vein",
+  "name": "Glitter Vein",
+  "description": "A seam of aurum dust runs through the wall like a wound someone taught to sparkle. The workers used to lower their voices here.",
+  "actions": [
+    {
+      "type": "examine",
+      "label": "Inspect the aurum seam",
+      "examine_text": "The glitter catches on your gloves. Beautiful, poisonous, billable. The company's whole theology in one mineral line."
+    },
+    {
+      "type": "move",
+      "label": "Return to the mine tunnels",
+      "target_location": "act1_mine_tunnels"
+    },
+    {
+      "type": "move",
+      "label": "Enter the anomaly chamber",
+      "target_location": "act1_anomaly_chamber"
+    }
+  ]
+}

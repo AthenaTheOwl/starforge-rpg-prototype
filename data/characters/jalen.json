@@ -1,0 +1,111 @@
+{
+	"id": "jalen",
+	"name": "Jalen Kade",
+	"pronouns": "he/him",
+	"role": "Pilot / Utility-Support",
+	"description": "Navigator and pilot. Uses Bearing technique and ship systems rather than a traditional relic weapon.",
+
+	"hp_max": 80,
+	"speed": 13,
+	"attack": 12,
+	"armor": 5,
+	"shields": 8,
+	"wards": 4,
+
+	"relic_weapon": {
+		"name_1": "Bearing",
+		"name_2": null,
+		"type": "technique",
+		"inlay": null,
+		"inlay_effect": "Navigation technique; no traditional relic weapon"
+	},
+
+	"ability_slots": [
+		{
+			"slot": "core_1",
+			"name": "Bearing",
+			"primitives": ["echo"],
+			"description": "Navigation utility. Reveals map layout, escape routes, and environmental hazards.",
+			"base_damage": 0,
+			"damage_type": "resonance",
+			"heat_cost": 0,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 4,
+			"charges": 4,
+			"statuses": []
+		},
+		{
+			"slot": "core_2",
+			"name": "Evasive Maneuver",
+			"primitives": ["guard"],
+			"description": "Issue evasion commands. All party members gain dodge buff for 1 turn.",
+			"base_damage": 0,
+			"damage_type": "physical",
+			"heat_cost": 1,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 3,
+			"charges": 3,
+			"statuses": [{"name": "evading", "duration": 1}]
+		},
+		{
+			"slot": "utility_1",
+			"name": "Crownstep Stabilizer",
+			"primitives": ["veil"],
+			"description": "Stabilize local lattice conditions. Reduces CLI by 1.0.",
+			"base_damage": 0,
+			"damage_type": "resonance",
+			"heat_cost": 2,
+			"uses_lattice": true,
+			"cli_cost": -1.0,
+			"charges_max": 2,
+			"charges": 2,
+			"statuses": []
+		},
+		{
+			"slot": "utility_2",
+			"name": "System Override",
+			"primitives": ["sever"],
+			"description": "Disable one enemy tech ability for 2 turns. Locks out a chosen skill.",
+			"base_damage": 0,
+			"damage_type": "resonance",
+			"heat_cost": 2,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 2,
+			"charges": 2,
+			"statuses": [{"name": "ability_locked", "duration": 2}]
+		},
+		{
+			"slot": "reaction",
+			"name": "Emergency Thrust",
+			"primitives": ["guard"],
+			"description": "Rapidly reposition an ally to a safer location, removing them from danger.",
+			"base_damage": 0,
+			"damage_type": "physical",
+			"heat_cost": 1,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 2,
+			"charges": 2,
+			"statuses": []
+		},
+		{
+			"slot": "keystone",
+			"name": "Crown Gate Pulse",
+			"primitives": ["vent"],
+			"description": "Channel ship systems into a massive AoE shock blast. Hits all enemies.",
+			"base_damage": 32,
+			"damage_type": "resonance",
+			"heat_cost": 3,
+			"uses_lattice": true,
+			"cli_cost": 0.8,
+			"charges_max": 1,
+			"charges": 1,
+			"statuses": [{"name": "shocked", "duration": 1, "dot_damage": 5, "dot_type": "resonance"}]
+		}
+	],
+
+	"tier": 1
+}

@@ -1,0 +1,221 @@
+{
+	"start_node": "start",
+	"nodes": {
+		"start": {
+			"speaker": "SYSTEM",
+			"text": "[i]Lumen Thief bridge. Post-boarding action. Debris still cooling in corridors behind you. Elisira stands near the console, hands at her sides, pistols visible but not drawn. She's watching you with the particular attention of someone cataloging capability, not threat.[/i]",
+			"next": "elisira_opening"
+		},
+		"elisira_opening": {
+			"speaker": "Elisira",
+			"text": "You stabilized the cargo bay containment field. I watched the sensor trace. Precision work. Efficient.",
+			"next": "avyanna_deflect"
+		},
+		"avyanna_deflect": {
+			"speaker": "Avyanna",
+			"text": "[i]Uncertain. She's cataloging me. That's never comfortable.[/i] I just... did what needed doing.",
+			"next": "elisira_assessment"
+		},
+		"elisira_assessment": {
+			"speaker": "Elisira",
+			"text": "That's the answer I wanted. No performance. No embellishment. You assessed, you acted, you didn't wait for permission. [i]A pause. Something in her expression shifts—not warmth, but acknowledgment.[/i] You've been doing that since you came aboard. Initiative without grandstanding.",
+			"choices": [
+				{
+					"text": "[Insight] Read her intent. What is she actually saying?",
+					"next": "insight_success",
+					"skill_check": {
+						"stat": "insight",
+						"skill": "insight",
+						"dc": 10,
+						"threshold": 3,
+						"on_success": "insight_success",
+						"on_failure": "insight_failure"
+					}
+				},
+				{
+					"text": "Is this... feedback? Or something else?",
+					"next": "direct_question"
+				},
+				{
+					"text": "I'm just doing my part. Nothing special.",
+					"next": "deflect_capability"
+				}
+			]
+		},
+		"insight_success": {
+			"speaker": "SYSTEM",
+			"text": "[i]You watch the way she stands. Not blocking exits—giving you space. The way her hands stay visible, no sudden movements. The careful calibration of someone who knows what trust looks like and is deliberately offering it. She's not evaluating your performance. She's acknowledging you've already passed.[/i]",
+			"next": "insight_response"
+		},
+		"insight_response": {
+			"speaker": "Avyanna",
+			"text": "You're not assessing me. You're... telling me I've earned something.",
+			"next": "elisira_impressed"
+		},
+		"elisira_impressed": {
+			"speaker": "Elisira",
+			"text": "[i]A flicker of something—surprise, maybe. Approval.[/i] Yes. Exactly that. You've been crew since the day we pulled you out. But trust is different. Trust is earned, not given. You've earned it. I wanted you to know that.",
+			"reputation": {"elisira": 3},
+			"next": "offer_terms"
+		},
+		"insight_failure": {
+			"speaker": "SYSTEM",
+			"text": "[i]You try to read her expression, but Elisira is practiced at hiding. All you see is the surface—professional, composed, unreadable. Whatever her intent, she's not revealing it yet.[/i]",
+			"next": "elisira_clarifies"
+		},
+		"elisira_clarifies": {
+			"speaker": "Elisira",
+			"text": "You've been crew since we pulled you aboard. But crew and [i]trusted[/i] crew are different things. You've moved from one category to the other. I wanted to acknowledge that.",
+			"next": "offer_terms"
+		},
+		"direct_question": {
+			"speaker": "Avyanna",
+			"text": "Is this... feedback? Or something else?",
+			"next": "elisira_direct_answer"
+		},
+		"elisira_direct_answer": {
+			"speaker": "Elisira",
+			"text": "Recognition. You have skills we need. Pattern recognition. Technical intuition. The ability to act under pressure without collapsing. [i]A pause.[/i] More than that—you use those skills without waiting to be told. That's rare.",
+			"reputation": {"elisira": 1},
+			"next": "offer_terms"
+		},
+		"deflect_capability": {
+			"speaker": "Avyanna",
+			"text": "I'm just doing my part. Nothing special.",
+			"next": "elisira_deflect_response"
+		},
+		"elisira_deflect_response": {
+			"speaker": "Elisira",
+			"text": "That's exactly what makes it special. [i]She gestures toward the corridor where the boarding action happened.[/i] You didn't freeze. You didn't wait for orders. You saw what needed doing and you did it. That's trust-worthy.",
+			"next": "offer_terms"
+		},
+		"offer_terms": {
+			"speaker": "Elisira",
+			"text": "You already have equal share in crew decisions. Your own quarters. Medical care. Food that isn't designed to keep you barely functional. [i]A beat.[/i] But I wanted to be clear: those aren't provisional. You're not on trial anymore. You're crew. Full weight, full trust.",
+			"next": "avyanna_terms_reaction"
+		},
+		"avyanna_terms_reaction": {
+			"speaker": "SYSTEM",
+			"text": "[i]The words land differently than you expected. Not an offer—an acknowledgment. She's not giving you something new. She's telling you that what you already have is permanent. The presence behind your eyes pulses—cautious, hopeful.[/i]",
+			"choices": [
+				{
+					"text": "Acknowledge. 'Thank you. That... means something.'",
+					"next": "accept_immediately",
+					"set_flag": "bonded_with_elisira",
+					"reputation": {"elisira": 2, "elia": 1}
+				},
+				{
+					"text": "Question. 'What changed? Why tell me now?'",
+					"next": "question_cost"
+				},
+				{
+					"text": "Test the boundary. 'And if I wanted to leave?'",
+					"next": "test_refusal"
+				}
+			]
+		},
+		"accept_immediately": {
+			"speaker": "Avyanna",
+			"text": "Thank you. That... means something. [i]The words feel strange. Like claiming something you're not sure you deserve, but want anyway.[/i]",
+			"next": "elisira_acceptance"
+		},
+		"elisira_acceptance": {
+			"speaker": "Elisira",
+			"text": "[i]A nod. Final. No ceremony.[/i] Good. Keep doing what you're doing. [i]She turns to leave, then pauses.[/i] You've earned your place here. Don't forget that.",
+			"next": "end"
+		},
+		"question_cost": {
+			"speaker": "Avyanna",
+			"text": "What changed? Why tell me now?",
+			"next": "elisira_cost_answer"
+		},
+		"elisira_cost_answer": {
+			"speaker": "Elisira",
+			"text": "[i]Something in her expression shifts—not evasion, but consideration.[/i] Time and observation. You could have leveraged your position. Used your skills as bargaining chips. Held back when things got dangerous. You didn't. That told me what I needed to know.",
+			"reputation": {"elisira": 2},
+			"next": "cost_followup"
+		},
+		"cost_followup": {
+			"speaker": "SYSTEM",
+			"text": "[i]She's being honest. Not flattering you, just stating what she observed. Trust earned through action, not words.[/i]",
+			"choices": [
+				{
+					"text": "'I appreciate that. Knowing where I stand.'",
+					"next": "accept_after_cost",
+					"set_flag": "bonded_with_elisira",
+					"reputation": {"elisira": 3}
+				},
+				{
+					"text": "'I... wasn't sure you noticed.'",
+					"next": "vulnerability"
+				}
+			]
+		},
+		"accept_after_cost": {
+			"speaker": "Avyanna",
+			"text": "I appreciate that. Knowing where I stand.",
+			"next": "elisira_acceptance"
+		},
+		"vulnerability": {
+			"speaker": "Avyanna",
+			"text": "I... wasn't sure you noticed. Or if it mattered.",
+			"next": "elisira_vulnerability_response"
+		},
+		"elisira_vulnerability_response": {
+			"speaker": "Elisira",
+			"text": "[i]A rare softness in her expression.[/i] I notice. Elia notices. We both do. You matter. Your contributions matter. [i]A pause.[/i] That's why I'm telling you this.",
+			"reputation": {"elisira": 3},
+			"next": "vulnerability_accept",
+			"set_flag": "bonded_with_elisira"
+		},
+		"vulnerability_accept": {
+			"speaker": "Avyanna",
+			"text": "[i]Something loosens in your chest. Relief, maybe. Or the beginning of belonging.[/i] Thank you.",
+			"next": "elisira_acceptance"
+		},
+		"test_refusal": {
+			"speaker": "Avyanna",
+			"text": "And if I wanted to leave? What happens then?",
+			"next": "elisira_refusal_answer"
+		},
+		"elisira_refusal_answer": {
+			"speaker": "Elisira",
+			"text": "[i]She meets your eyes. No threat. No pressure. Just information.[/i] We'd drop you at the next station. Give you a stipend for transit and lodging. Provide references if you need work. [i]A beat.[/i] You'd leave as crew, not as a liability. The trust doesn't reverse just because you choose a different path.",
+			"reputation": {"elisira": 2},
+			"next": "refusal_response"
+		},
+		"refusal_response": {
+			"speaker": "SYSTEM",
+			"text": "[i]She means it. You can see it in the way she's already mentally planning the logistics—not with resentment, but with the same care she'd give any crew member. The trust is real. And it's yours to keep, even if you leave.[/i]",
+			"choices": [
+				{
+					"text": "'I'm not going anywhere. Just... needed to know.'",
+					"next": "accept_after_test",
+					"set_flag": "bonded_with_elisira",
+					"reputation": {"elisira": 3}
+				},
+				{
+					"text": "'That's... good to know. Thank you.'",
+					"next": "measured_acceptance"
+				}
+			]
+		},
+		"accept_after_test": {
+			"speaker": "Avyanna",
+			"text": "I'm not going anywhere. Just... needed to know the boundaries were real.",
+			"next": "elisira_acceptance"
+		},
+		"measured_acceptance": {
+			"speaker": "Avyanna",
+			"text": "That's... good to know. Thank you for being clear about it.",
+			"next": "elisira_measured_response"
+		},
+		"elisira_measured_response": {
+			"speaker": "Elisira",
+			"text": "[i]A nod.[/i] Autonomy matters. You're crew, not property. I want you to know that explicitly. [i]She turns to leave.[/i] The choice is always yours.",
+			"reputation": {"elisira": 2},
+			"next": "end",
+			"set_flag": "bonded_with_elisira"
+		}
+	}
+}

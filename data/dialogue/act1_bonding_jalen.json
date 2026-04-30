@@ -1,0 +1,209 @@
+{
+	"start_node": "start",
+	"nodes": {
+		"start": {
+			"speaker": "SYSTEM",
+			"text": "[i]Maintenance corridor, deck three. Jalen is crouched beside an open access panel, datapads scattered around him, muttering to himself with the particular intensity of someone who's forgotten the rest of the ship exists.[/i]",
+			"next": "jalen_discovery"
+		},
+		"jalen_discovery": {
+			"speaker": "Jalen",
+			"text": "[i]Not looking up, voice rapid and excited.[/i] This is—this isn't background noise. This is structured data. Hidden in the telemetry we pulled from that last mission. Someone embedded a monitoring array in the station systems and disguised it as routine diagnostics. [i]He finally looks up, eyes bright.[/i] Oh. Avyanna. Perfect timing. Look at this.",
+			"next": "avyanna_response_discovery"
+		},
+		"avyanna_response_discovery": {
+			"speaker": "Avyanna",
+			"text": "[i]Careful. He's excited, but I don't know what he's found.[/i] I... saw you were working on something. What is it?",
+			"next": "jalen_explanation"
+		},
+		"jalen_explanation": {
+			"speaker": "Jalen",
+			"text": "It's beautiful. Whoever built this was a genius. They embedded resonance sensors in standard station infrastructure—temperature, pressure, Lattice coherence, all feeding into a hidden database. [i]Gesturing rapidly.[/i] The company has no idea. They've been sitting on intelligence infrastructure for years and treating it like maintenance logs.",
+			"choices": [
+				{
+					"text": "[Tech] Examine the interface. Try to understand what he's seeing.",
+					"next": "tech_success",
+					"skill_check": {
+						"stat": "tech",
+						"skill": "tech",
+						"dc": 10,
+						"threshold": 3,
+						"on_success": "tech_success",
+						"on_failure": "tech_failure"
+					}
+				},
+				{
+					"text": "Why is this important? What does it do?",
+					"next": "ask_importance"
+				},
+				{
+					"text": "Should we share this with the others?",
+					"next": "ask_sharing"
+				}
+			]
+		},
+		"tech_success": {
+			"speaker": "SYSTEM",
+			"text": "[i]You lean closer to the datapad. The interface is elegant—data streams flowing in patterns that almost make sense. You recognize fragments: resonance signatures, structural stress markers, something that looks like predictive modeling. This isn't monitoring. This is analysis. Someone was studying the Lattice itself through station operations.[/i]",
+			"next": "tech_interpretation"
+		},
+		"tech_interpretation": {
+			"speaker": "Avyanna",
+			"text": "It's not just monitoring. It's learning. Tracking patterns in the Lattice and predicting... something. Failures? Opportunities?",
+			"next": "jalen_excited"
+		},
+		"jalen_excited": {
+			"speaker": "Jalen",
+			"text": "[i]Eyes widening, almost bouncing.[/i] Yes! Exactly! You see it! This array was predicting Lattice events before they happened. Whoever built this knew things the corporations are still guessing at. [i]A pause, suddenly serious.[/i] And if we can access the full database, we might know them too.",
+			"reputation": {"jalen": 3},
+			"next": "offer_proposition"
+		},
+		"tech_failure": {
+			"speaker": "SYSTEM",
+			"text": "[i]You try to make sense of the interface, but it's too complex. Data flows in patterns you can't parse. Whatever Jalen sees, it's beyond your current understanding.[/i]",
+			"next": "tech_admission"
+		},
+		"tech_admission": {
+			"speaker": "Avyanna",
+			"text": "I don't understand what I'm looking at. It's too complex.",
+			"next": "jalen_patient"
+		},
+		"jalen_patient": {
+			"speaker": "Jalen",
+			"text": "[i]No judgment, just enthusiasm redirected.[/i] That's okay! I can teach you. This is advanced stuff—took me years to get comfortable with Lattice telemetry. But you have the instinct. I can see it in how you're tracking the data flow. [i]A beat.[/i] You're trying to understand, not just observe. That's the important part.",
+			"reputation": {"jalen": 1},
+			"next": "offer_proposition"
+		},
+		"ask_importance": {
+			"speaker": "Avyanna",
+			"text": "Why is this important? What does it actually do?",
+			"next": "jalen_importance_answer"
+		},
+		"jalen_importance_answer": {
+			"speaker": "Jalen",
+			"text": "It gives us leverage. Knowledge the corporations don't have. Predictive capabilities they'd kill for. [i]A pause, his expression shifting more serious.[/i] But more than that—it's proof that someone else was fighting this fight before us. We're not the first. That matters.",
+			"reputation": {"jalen": 2},
+			"next": "offer_proposition"
+		},
+		"ask_sharing": {
+			"speaker": "Avyanna",
+			"text": "Should we share this with the others? Elia, or...?",
+			"next": "jalen_sharing_answer"
+		},
+		"jalen_sharing_answer": {
+			"speaker": "Jalen",
+			"text": "Absolutely. I'll brief everyone once I've decoded more of it. Elia will want tactical applications, Vesper will appreciate the precision of the design. [i]He meets your eyes.[/i] But I wanted to show you first. You're crew. This kind of discovery—it belongs to all of us.",
+			"reputation": {"jalen": 2},
+			"next": "offer_proposition"
+		},
+		"offer_proposition": {
+			"speaker": "Jalen",
+			"text": "[i]Standing, brushing dust off his clothes.[/i] I've been thinking. You've got an instinct for this kind of work. The way you approach problems, ask the right questions. [i]Gesturing at the datapads.[/i] Let me teach you properly. Navigation, systems theory, Lattice fundamentals. The real stuff. You're crew. You should know how this ship works.",
+			"next": "avyanna_proposition_reaction"
+		},
+		"avyanna_proposition_reaction": {
+			"speaker": "SYSTEM",
+			"text": "[i]He's offering you something more than survival training. He's offering you knowledge. The chance to understand the systems that once controlled you. The presence behind your eyes pulses—interested, curious.[/i]",
+			"choices": [
+				{
+					"text": "Accept. 'I want to learn. Teach me.'",
+					"next": "accept_immediate",
+					"set_flag": "bonded_with_jalen",
+					"reputation": {"jalen": 2, "elia": 1}
+				},
+				{
+					"text": "Ask about the crew. 'Do the others... do they think I'm ready for this?'",
+					"next": "ask_crew"
+				},
+				{
+					"text": "Express doubt. 'I'm not smart enough for this kind of work.'",
+					"next": "express_doubt"
+				}
+			]
+		},
+		"accept_immediate": {
+			"speaker": "Avyanna",
+			"text": "I want to learn. Teach me. [i]The words feel like choosing a future instead of just surviving a present.[/i]",
+			"next": "jalen_acceptance"
+		},
+		"jalen_acceptance": {
+			"speaker": "Jalen",
+			"text": "[i]A grin, bright and genuine.[/i] Yes! Okay, this is great. We'll start with basic systems theory, then move into navigation fundamentals, then—[i]He catches himself.[/i] Sorry. I get ahead of myself. This is going to be amazing. You're going to love this.",
+			"next": "end"
+		},
+		"ask_crew": {
+			"speaker": "Avyanna",
+			"text": "Do the others... do they think I'm ready for this?",
+			"next": "jalen_crew_description"
+		},
+		"jalen_crew_description": {
+			"speaker": "Jalen",
+			"text": "Elia trusts my judgment on tech matters. Always has. And Vesper mentioned you handled the combat systems training faster than expected. [i]A pause, something softer in his expression.[/i] But this isn't about them. This is about you and me. You're crew. That means I teach you what I know. That's how this works.",
+			"reputation": {"jalen": 2},
+			"next": "crew_followup"
+		},
+		"crew_followup": {
+			"speaker": "SYSTEM",
+			"text": "[i]He means it. You can hear it in his voice—genuine conviction. This isn't charity or obligation. He actually wants to share this with you.[/i]",
+			"choices": [
+				{
+					"text": "'Then yes. I want to learn.'",
+					"next": "accept_after_crew",
+					"set_flag": "bonded_with_jalen",
+					"reputation": {"jalen": 3}
+				},
+				{
+					"text": "'I need time to think about it.'",
+					"next": "need_time"
+				}
+			]
+		},
+		"accept_after_crew": {
+			"speaker": "Avyanna",
+			"text": "Then yes. I want to learn.",
+			"next": "jalen_acceptance"
+		},
+		"express_doubt": {
+			"speaker": "Avyanna",
+			"text": "I'm not smart enough for this kind of work. You're talking about things I don't understand.",
+			"next": "jalen_doubt_response"
+		},
+		"jalen_doubt_response": {
+			"speaker": "Jalen",
+			"text": "[i]Immediate, almost fierce.[/i] That's what they want you to think. The systems. The corporations. Keep people believing they're not smart enough, not capable enough, not worthy enough to understand. [i]A beat, gentler.[/i] But you asked the right questions just now. You tracked the logic. Intelligence isn't about what you already know. It's about being willing to learn.",
+			"reputation": {"jalen": 3},
+			"next": "doubt_followup"
+		},
+		"doubt_followup": {
+			"speaker": "SYSTEM",
+			"text": "[i]His conviction is absolute. He genuinely believes you can learn this. That you're capable. The presence behind your eyes pulses—something that might be hope.[/i]",
+			"choices": [
+				{
+					"text": "'Then teach me. I want to try.'",
+					"next": "accept_after_doubt",
+					"set_flag": "bonded_with_jalen",
+					"reputation": {"jalen": 4}
+				},
+				{
+					"text": "'I appreciate that. But I need time to think.'",
+					"next": "need_time"
+				}
+			]
+		},
+		"accept_after_doubt": {
+			"speaker": "Avyanna",
+			"text": "Then teach me. I want to try.",
+			"next": "jalen_acceptance"
+		},
+		"need_time": {
+			"speaker": "Avyanna",
+			"text": "I need some time. To think about this.",
+			"next": "jalen_patience"
+		},
+		"jalen_patience": {
+			"speaker": "Jalen",
+			"text": "[i]A nod, understanding.[/i] Sure, of course. No pressure. [i]He turns back to the datapads, already getting distracted by the data.[/i] I'll be here when you're ready. Probably still trying to crack this encryption.",
+			"next": "end"
+		}
+	}
+}

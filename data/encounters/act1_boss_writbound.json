@@ -1,0 +1,35 @@
+{
+  "id": "act1_boss_writbound",
+  "name": "Writbound Knight — Contract Enforcer",
+  "description": "BOSS ENCOUNTER. Elite Writbound enforcer bound by ancient contract. At half health, shield regeneration activates and Lattice shards manifest to defend the knight. Party split mechanic active.",
+  "waves": [
+    {
+      "description": "Writbound Knight - Phase 1",
+      "enemies": [
+        {"type": "writbound_knight", "count": 1}
+      ]
+    },
+    {
+      "description": "Phase 2 - Shield Regen + Shard Support at 50% HP",
+      "enemies": [
+        {"type": "husk_shard", "count": 2}
+      ],
+      "trigger": "writbound_50_percent_hp",
+      "special": "knight_gains_shield_regen"
+    }
+  ],
+  "environment": {
+    "static_zone": true,
+    "contract_chamber": true,
+    "boss_encounter": true,
+    "party_split": true,
+    "resonance_amplifiers": true
+  },
+  "victory_condition": "defeat_all",
+  "defeat_consequence": "retry",
+  "rewards": {
+    "experience": 500,
+    "flags": ["writbound_knight_defeated", "act1_final_boss_complete"]
+  },
+  "loot": []
+}

@@ -1,0 +1,1648 @@
+{
+	"start_node": "start",
+	"nodes": {
+		"start": {
+			"speaker": "Narration",
+			"text": "[i]The briefing room. All seven crew members present. The holographic display shows a station—corporate, fortified, wrong. This is it. The job that changes everything.[/i]",
+			"next": "narration_war_room"
+		},
+		"narration_war_room": {
+			"speaker": "Narration",
+			"text": "[i]The table is scarred alloy. Seven chairs, none matching. Elia stands at the head, hands flat on the surface. The holo-projector hums—blue light carves a rotating schematic into the dark. Aurum Extraction Station K-12. Four levels. Thirty-seven rooms. One objective. Everyone knows the math: this is the hardest thing they've ever done together.[/i]",
+			"next": "elia_opens"
+		},
+		"elia_opens": {
+			"speaker": "Elia",
+			"text": "Floor check. Everyone's here. Good. [i][She activates the display.][/i] This is the target. Aurum Extraction forward station. Four levels, heavy security, civilian workers mixed with corporate enforcement.",
+			"next": "elia_opens_2"
+		},
+		"elia_opens_2": {
+			"speaker": "Elia",
+			"text": "No rehearsal. No second pass. We get one window and we use it or we lose Avyanna's legal protection permanently. [i][She meets each pair of eyes in turn.][/i] So I need everyone sharp. Questions held until intel review is done.",
+			"next": "vesper_posture"
+		},
+		"vesper_posture": {
+			"speaker": "Narration",
+			"text": "[i]Vesper sits with her legs crossed, rifle case leaning against her chair. Her fingers rest on the stock—not nervous, but listening through it, the way a violinist touches strings.[/i]",
+			"next": "rho_posture"
+		},
+		"rho_posture": {
+			"speaker": "Narration",
+			"text": "[i]Rho leans back, arms folded across the chest plate he never fully removes. His grin is present but dimmed—the kind he wears when he's already doing math on casualties.[/i]",
+			"next": "nyx_posture"
+		},
+		"nyx_posture": {
+			"speaker": "Narration",
+			"text": "[i]Nyx sits furthest from the projector, hood drawn, staff across her knees. The Lattice wards in the station schematic pulse faintly and she tracks them the way a hawk tracks movement in grass.[/i]",
+			"next": "jalen_posture"
+		},
+		"jalen_posture": {
+			"speaker": "Narration",
+			"text": "[i]Jalen has three screens open on the table, each running different data feeds. His eyes move faster than his hands. He hasn't looked up since the schematic loaded.[/i]",
+			"next": "elisira_posture"
+		},
+		"elisira_posture": {
+			"speaker": "Narration",
+			"text": "[i]Elisira stands behind her chair, not sitting. Arms at her sides. Still as architecture. Whatever she's thinking, it's behind walls older than the station they're about to crack open.[/i]",
+			"next": "avyanna_posture"
+		},
+		"avyanna_posture": {
+			"speaker": "Narration",
+			"text": "[i]You sit at the table's edge. The shard at the base of your skull hums—faint, steady, like a second heartbeat. You are the reason for all of this. The weight of that hasn't lessened.[/i]",
+			"next": "elia_begins_briefing"
+		},
+		"elia_begins_briefing": {
+			"speaker": "Elia",
+			"text": "Jalen. Intel first. Give us everything.",
+			"next": "jalen_intel_start"
+		},
+
+		"jalen_intel_start": {
+			"speaker": "Jalen",
+			"text": "[i][Tapping screens, pulling data into the holographic display.][/i] Aurum Extraction Station K-12. Officially registered as a mineral processing outpost. Unofficially—",
+			"next": "jalen_intel_2"
+		},
+		"jalen_intel_2": {
+			"speaker": "Jalen",
+			"text": "—it's a data nexus. Primordial extraction samples, Lattice research logs, and personnel records for every corporate black-site operative in the sector. All of it scheduled for transfer to Compact jurisdiction in six hours.",
+			"next": "jalen_intel_3"
+		},
+		"jalen_intel_3": {
+			"speaker": "Jalen",
+			"text": "[i][He zooms the schematic.][/i] Four levels. Sublevel is maintenance and utilities—low security, mostly automated. Ground floor is civilian operations and processing. Second floor is corporate offices and the comm array. Top floor—",
+			"next": "jalen_intel_4"
+		},
+		"jalen_intel_4": {
+			"speaker": "Jalen",
+			"text": "[i][His voice drops.][/i] Top floor is the data core. That's where the extraction records live. Hardened servers, physical airgap, no remote access. To get the data, someone has to be in the room.",
+			"next": "jalen_timeline"
+		},
+		"jalen_timeline": {
+			"speaker": "Jalen",
+			"text": "We have a six-hour window. After that, the transfer convoy arrives and it's out of reach. [i][He looks grim.][/i] This is our only shot.",
+			"next": "jalen_tech_detail"
+		},
+		"jalen_tech_detail": {
+			"speaker": "Jalen",
+			"text": "Internal comms run on a closed frequency—military-grade encryption. I can crack it, but I'll need forty seconds of uninterrupted access to a relay node. There's one on each floor.",
+			"next": "jalen_layout_detail"
+		},
+		"jalen_layout_detail": {
+			"speaker": "Jalen",
+			"text": "Elevator system is centrally controlled—once they lock it down, you're taking stairs or making your own paths. Emergency bulkheads on every floor can seal in under three seconds. [i][He pauses.][/i] If they seal the data core, we need shaped charges or a very creative Lattice operator to get through.",
+			"next": "elisira_intel_add"
+		},
+		"elisira_intel_add": {
+			"speaker": "Elia",
+			"text": "Elisira. You said you had intercepted comms.",
+			"next": "elisira_comms_1"
+		},
+		"elisira_comms_1": {
+			"speaker": "Elisira",
+			"text": "[i]She steps forward. A data chip appears in her hand like a card trick.[/i] Three days of encrypted traffic. Corporate internal. I broke it this morning.",
+			"next": "elisira_comms_2"
+		},
+		"elisira_comms_2": {
+			"speaker": "Elisira",
+			"text": "They know someone's coming. Not us specifically—but they've raised security posture. Double shifts, additional automated defenses on sublevels two and three. [i][Beat.][/i] And they've requested something called a 'Lattice containment package.'",
+			"next": "nyx_reacts_containment"
+		},
+		"nyx_reacts_containment": {
+			"speaker": "Nyx",
+			"text": "[i]Sharp intake of breath.[/i] Containment package. That's Writbound hardware.",
+			"next": "elisira_comms_3"
+		},
+		"elisira_comms_3": {
+			"speaker": "Elisira",
+			"text": "[i]Flat.[/i] Correct. The comms reference 'specialized personnel' arriving with the convoy. If that means Writbound operatives, our six-hour window is also our window before this becomes a fundamentally different kind of fight.",
+			"next": "elisira_comms_4"
+		},
+		"elisira_comms_4": {
+			"speaker": "Elisira",
+			"text": "One more thing. The station commander's name is Harlan Dreeve. Former Compact military, discharged for 'excessive initiative.' [i][The faintest curl of contempt.][/i] He'll fight smart. He won't surrender.",
+			"next": "elisira_inside_knowledge"
+		},
+		"elisira_inside_knowledge": {
+			"speaker": "Elisira",
+			"text": "I've been inside corporate operations. Their doctrine is containment first, elimination second. They'll try to lock you in before they try to kill you. [i][She looks at Elia.][/i] The bulkheads are the real weapon. Not the guards.",
+			"next": "elia_thanks_intel"
+		},
+		"elia_thanks_intel": {
+			"speaker": "Elia",
+			"text": "[i]Nodding.[/i] Good. That's the landscape. Now—threat assessment. Rho, what are we walking into?",
+			"next": "rho_assessment"
+		},
+
+		"rho_assessment": {
+			"speaker": "Rho",
+			"text": "Security is military-grade. Automated turrets, reinforced bulkheads, probably a few surprises we haven't mapped. [i][His grin is sharp.][/i] Standard nightmare scenario.",
+			"next": "rho_assessment_2"
+		},
+		"rho_assessment_2": {
+			"speaker": "Rho",
+			"text": "Ground floor: light infantry. Corporate enforcement—body armor, sidearms, crowd-control training. They're used to scaring miners, not fighting operators. We cut through them fast.",
+			"next": "rho_assessment_3"
+		},
+		"rho_assessment_3": {
+			"speaker": "Rho",
+			"text": "Second floor: heavy infantry. Military-grade hardware, tactical training, probably wired reflexes on the squad leads. These ones know how to fight in corridors. [i][He leans forward.][/i] They'll use the bulkheads to channel us into kill zones.",
+			"next": "rho_assessment_4"
+		},
+		"rho_assessment_4": {
+			"speaker": "Rho",
+			"text": "Top floor data core: unknown. Could be light, could be a fortress. Jalen's data doesn't cover internal defenses on that level. [i][He looks at the schematic.][/i] I don't like unknowns.",
+			"next": "rho_assessment_turrets"
+		},
+		"rho_assessment_turrets": {
+			"speaker": "Rho",
+			"text": "Automated turrets on sublevels are Kessler-pattern—rotating, thermal-tracking, suppressive fire. Not accurate, but they don't need to be. They pin you down while the infantry flanks. Standard corporate layered defense.",
+			"next": "rho_assessment_final"
+		},
+		"rho_assessment_final": {
+			"speaker": "Rho",
+			"text": "[i][Settling back.][/i] Total estimated hostiles: forty to sixty. We're seven. That's roughly eight to one. [i][The grin widens.][/i] I've had worse odds. But not by much.",
+			"next": "vesper_intel"
+		},
+		"vesper_intel": {
+			"speaker": "Vesper",
+			"text": "Intel suggests they're preparing to move [b]Primordial extraction samples[/b]—including records of Site K-9. If those records reach Compact jurisdiction, Avyanna becomes a legal recovery target.",
+			"next": "vesper_sniper_assessment"
+		},
+		"vesper_sniper_assessment": {
+			"speaker": "Vesper",
+			"text": "Sight lines inside the station are short—fifteen meters maximum on most corridors. That limits my effectiveness indoors. [i][She touches the rifle case.][/i] I'm most useful at the extraction point or in any open areas. Inside the core, I switch to close-quarters protocols.",
+			"next": "vesper_civilian_concern"
+		},
+		"vesper_civilian_concern": {
+			"speaker": "Vesper",
+			"text": "[i]Quieter.[/i] Civilian workers. Jalen said there are processing staff on the ground floor. Non-combatants. [i][She looks at Elia.][/i] Rules of engagement need to be clear. We're not them.",
+			"next": "elia_roe"
+		},
+		"elia_roe": {
+			"speaker": "Elia",
+			"text": "[i]Firm.[/i] No civilian casualties. Period. If a civilian is between you and the objective, you find another path. Anyone who violates that answers to me personally.",
+			"next": "rho_roe_response"
+		},
+		"rho_roe_response": {
+			"speaker": "Rho",
+			"text": "[i]No argument. Just a nod.[/i] Copy. Clean hands.",
+			"next": "nyx_concern"
+		},
+		"nyx_concern": {
+			"speaker": "Nyx",
+			"text": "The station has Synthetic wards. Strong ones. I can disrupt them, but it'll take time—and it'll light us up like a flare. Once I start, stealth is over.",
+			"next": "nyx_lattice_detail"
+		},
+		"nyx_lattice_detail": {
+			"speaker": "Nyx",
+			"text": "The wards are layered. Outer shell is standard—I can peel it in under a minute. But there's something underneath. Deeper. [i][She frowns.][/i] The signature doesn't read like corporate tech. It reads like Lattice architecture. Old Lattice.",
+			"next": "nyx_lattice_detail_2"
+		},
+		"nyx_lattice_detail_2": {
+			"speaker": "Nyx",
+			"text": "If they've built Writbound containment into the station's ward structure, I'm not just fighting their security—I'm fighting the building itself. [i][She meets your eyes.][/i] And Avyanna, your shard will react. Count on it.",
+			"next": "nyx_writbound_warning"
+		},
+		"nyx_writbound_warning": {
+			"speaker": "Nyx",
+			"text": "Writbound operatives are not soldiers. They're channelers—Lattice practitioners who've bonded with containment entities. Think of a Synthetic ward that can think, adapt, and hunt. [i][Her jaw tightens.][/i] I've fought one before. I won. Barely.",
+			"next": "bee_first_analysis"
+		},
+		"bee_first_analysis": {
+			"speaker": "BEE",
+			"text": "{BEE:: lattice-resonance-detected | station-wards-anomalous | sub-harmonic matches primordial extraction signature—this facility was built around something, not on top of it}",
+			"next": "avyanna_bee_reaction"
+		},
+		"avyanna_bee_reaction": {
+			"speaker": "Narration",
+			"text": "[i]The shard pulses—warm, insistent. BEE's analysis bleeds through like ink through paper. The station wasn't just built to store data. It was built to contain something. And that something is still there.[/i]",
+			"next": "player_ask_bee"
+		},
+		"player_ask_bee": {
+			"speaker": "Avyanna",
+			"text": "BEE says the station was built around something. The Lattice signature underneath the wards—it's not security. It's containment. The facility is a cage.",
+			"next": "crew_bee_reaction"
+		},
+		"crew_bee_reaction": {
+			"speaker": "Narration",
+			"text": "[i]Silence. The kind that means everyone just recalculated the risk.[/i]",
+			"next": "elia_bee_response"
+		},
+		"elia_bee_response": {
+			"speaker": "Elia",
+			"text": "[i]Steady.[/i] Does that change the objective?",
+			"next": "bee_objective_analysis"
+		},
+		"bee_objective_analysis": {
+			"speaker": "BEE",
+			"text": "{BEE:: objective unchanged | data core still primary target | additional variable: contained entity may react to shard proximity | recommend: caution in sublevel approach}",
+			"next": "nyx_responds_bee"
+		},
+		"nyx_responds_bee": {
+			"speaker": "Nyx",
+			"text": "[i]To Avyanna, low.[/i] Your ghost has good instincts. If there's something caged under that station, my ward disruption might wake it up. [i][She doesn't look afraid. She looks fascinated.][/i] We should plan for that.",
+			"next": "elia_threat_summary"
+		},
+		"elia_threat_summary": {
+			"speaker": "Elia",
+			"text": "So. Forty to sixty hostiles. Military-grade security. Automated defenses. A station commander who won't quit. Possible Writbound operatives. Lattice wards that fight back. And something caged underneath it all. [i][She exhales.][/i] Anyone want to walk?",
+			"next": "elia_threat_pause"
+		},
+		"elia_threat_pause": {
+			"speaker": "Narration",
+			"text": "[i]No one moves. No one speaks. The offer is genuine—Elia would let them go. But they're here.[/i]",
+			"next": "rho_stays"
+		},
+		"rho_stays": {
+			"speaker": "Rho",
+			"text": "[i]Cracking his knuckles.[/i] I walked into worse on Meridian. At least this time I like the people I'm walking with.",
+			"text_variants": {
+				"rho_bonded": "[i]Cracking his knuckles, then catching your eye with something warmer than his usual grin.[/i] I walked into worse on Meridian. But I didn't have family watching my back then."
+			},
+			"next": "vesper_stays"
+		},
+		"vesper_stays": {
+			"speaker": "Vesper",
+			"text": "[i]Not looking up from her rifle.[/i] Don't insult me by asking.",
+			"text_variants": {
+				"vesper_bonded": "[i]Not looking up from her rifle, but her voice carries something almost soft.[/i] You already know the answer. Don't waste breath asking."
+			},
+			"next": "nyx_stays"
+		},
+		"nyx_stays": {
+			"speaker": "Nyx",
+			"text": "Old Lattice architecture? This might be the most interesting thing I've done in years. [i][Her smile is sharp and genuine.][/i] I'm in.",
+			"text_variants": {
+				"nyx_bonded": "Old Lattice architecture and a crew worth protecting? [i][Her smile reaches her eyes—rare and genuine.][/i] I'm exactly where I should be."
+			},
+			"next": "jalen_stays"
+		},
+		"jalen_stays": {
+			"speaker": "Jalen",
+			"text": "[i]Without looking up from his screens.[/i] My code is already halfway through their encryption. Walking away now would be professionally embarrassing.",
+			"text_variants": {
+				"jalen_bonded": "[i]He looks up—actually looks up—and meets your eyes.[/i] I built half these systems for people like them. It's time I took them apart for people like us."
+			},
+			"next": "elisira_stays"
+		},
+		"elisira_stays": {
+			"speaker": "Elisira",
+			"text": "[i]One word.[/i] No.",
+			"text_variants": {
+				"elisira_bonded": "[i]One word, but she holds Elia's gaze when she says it, and something passes between them that isn't language.[/i] No."
+			},
+			"next": "elia_acknowledges_crew"
+		},
+		"elia_acknowledges_crew": {
+			"speaker": "Elia",
+			"text": "[i]The faintest smile—pride, grief, gratitude braided together.[/i] Good. Then let's talk strategy.",
+			"next": "strategy_approach_choice"
+		},
+
+		"strategy_approach_choice": {
+			"speaker": "Elia",
+			"text": "Two ways to hit this. We go quiet—infiltration, disable security in sequence, reach the data core before they know we're inside. Or we go loud—simultaneous breach, overwhelming force, speed over subtlety. [i][She looks at you.][/i] Avyanna. You've seen how we work. What's your read?",
+			"next": "approach_player_choice"
+		},
+		"approach_player_choice": {
+			"speaker": "Narration",
+			"text": "[i]The crew watches you. This isn't delegation—it's trust. Elia is testing whether you can read the board and call the play.[/i]",
+			"choices": [
+				{
+					"text": "[Stealth Approach] Infiltration. Disable their eyes before they see us coming.",
+					"next": "stealth_choice_check",
+					"set_flag": "approach_stealth"
+				},
+				{
+					"text": "[Assault Approach] Overwhelming force. Hit them so hard they can't organize a response.",
+					"next": "assault_choice_check",
+					"set_flag": "approach_assault"
+				},
+				{
+					"text": "[Hybrid Approach] Both. Stealth team disables security while assault team waits at the breach point. Synchronized.",
+					"next": "hybrid_choice_check",
+					"set_flag": "approach_hybrid"
+				}
+			]
+		},
+		"stealth_choice_check": {
+			"speaker": "Narration",
+			"text": "[i]You outline the stealth approach. Elia watches you draw the route on the holographic display—maintenance tunnels, service corridors, security blind spots. This requires tactical precision.[/i]",
+			"type": "skill_check",
+			"check": {
+				"character": "avyanna",
+				"stat": "tactics",
+				"skill": "tactics",
+				"threshold": 14,
+				"dc": 14,
+				"on_success": "stealth_choice_success",
+				"on_failure": "stealth_choice_failure"
+			},
+			"next": "stealth_choice_failure"
+		},
+		"stealth_choice_success": {
+			"speaker": "Narration",
+			"text": "[i]Your hand moves with confidence across the display. Entry points, timing windows, fallback routes—the plan unfolds like a mechanism.[/i]",
+			"next": "stealth_crew_react_good"
+		},
+		"stealth_crew_react_good": {
+			"speaker": "Vesper",
+			"text": "[i]Leaning forward. Impressed.[/i] That's clean. Service corridor approach avoids every turret emplacement on levels one and two. Where did you learn to read floor plans?",
+			"next": "jalen_stealth_good"
+		},
+		"jalen_stealth_good": {
+			"speaker": "Jalen",
+			"text": "[i]Pulling up schematics.[/i] She's right—the maintenance tunnels connect to the elevator shaft on sublevel two. I can loop their internal cameras from there. We'd have maybe eight minutes of invisibility.",
+			"next": "elisira_stealth_good"
+		},
+		"elisira_stealth_good": {
+			"speaker": "Elisira",
+			"text": "[i]Appraising.[/i] Silent approach favors precision eliminations. Suppressed weapons, close work. [i][She touches the pistol at her hip.][/i] This is what I'm built for.",
+			"next": "elia_approves_stealth",
+			"reputation": {
+				"vesper": 1,
+				"elisira": 1
+			}
+		},
+		"elia_approves_stealth": {
+			"speaker": "Elia",
+			"text": "[i]Nodding slowly.[/i] Good call. Stealth gives us the element of surprise and keeps civilians out of crossfire. The risk is if we're detected early—then we're deep inside with no support.",
+			"next": "stealth_nyx_concern"
+		},
+		"stealth_nyx_concern": {
+			"speaker": "Nyx",
+			"text": "One problem. My ward disruption isn't quiet. The moment I start peeling their Lattice defenses, every Synthetic sensor in the station knows. [i][She thinks.][/i] Unless I work from inside the ward structure itself. Slower, but silent.",
+			"next": "stealth_rho_concern"
+		},
+		"stealth_rho_concern": {
+			"speaker": "Rho",
+			"text": "[i]Frowning.[/i] Stealth means I can't bring the rotary cannon. Corridors, suppressed weapons, careful footwork. [i][Beat.][/i] I can do it. I just want everyone to know I'm doing it under protest.",
+			"next": "approach_decided"
+		},
+		"stealth_choice_failure": {
+			"speaker": "Narration",
+			"text": "[i]You sketch the approach on the display, but the routing is rough—a blind spot in your timing leaves a gap in camera coverage. Vesper catches it.[/i]",
+			"next": "vesper_corrects_stealth"
+		},
+		"vesper_corrects_stealth": {
+			"speaker": "Vesper",
+			"text": "[i]Leaning forward, tapping the display.[/i] That corridor has overlapping camera arcs. We'd need to loop them simultaneously, not in sequence. [i][She adjusts the route.][/i] But the core idea is sound. Let me clean it up.",
+			"next": "stealth_corrected"
+		},
+		"stealth_corrected": {
+			"speaker": "Elia",
+			"text": "The instinct is right—stealth approach. Vesper and Jalen will refine the routing. [i][She looks at you.][/i] Good eye for the entry point. The execution needs work, but that's what a crew is for.",
+			"next": "stealth_nyx_concern"
+		},
+
+		"assault_choice_check": {
+			"speaker": "Narration",
+			"text": "[i]You outline the assault approach. Breach points, suppressive fire lanes, room-clearing sequences. The display fills with red arrows. This requires understanding of force application.[/i]",
+			"type": "skill_check",
+			"check": {
+				"character": "avyanna",
+				"stat": "tactics",
+				"skill": "tactics",
+				"threshold": 14,
+				"dc": 14,
+				"on_success": "assault_choice_success",
+				"on_failure": "assault_choice_failure"
+			},
+			"next": "assault_choice_failure"
+		},
+		"assault_choice_success": {
+			"speaker": "Narration",
+			"text": "[i]The plan unfolds across the display like a controlled detonation—every breach timed, every fire lane covered, every fallback accounted for.[/i]",
+			"next": "rho_assault_good"
+		},
+		"rho_assault_good": {
+			"speaker": "Rho",
+			"text": "[i]Grinning—full, genuine, dangerous.[/i] Now you're speaking my language. Simultaneous breach on three entry points—they can't reinforce all of them. We pick the weakest and punch through.",
+			"next": "elia_assault_good"
+		},
+		"elia_assault_good": {
+			"speaker": "Elia",
+			"text": "Speed and violence of action. If we hit hard enough, their command structure collapses before Dreeve can organize a response. [i][She traces the assault route.][/i] Thirty seconds from breach to second floor. Ninety seconds to the data core.",
+			"next": "vesper_assault_concern"
+		},
+		"vesper_assault_concern": {
+			"speaker": "Vesper",
+			"text": "[i]Cool.[/i] Civilian casualties become a real risk in a direct assault. Ground floor processing workers—if they panic, they run into our fire lanes.",
+			"next": "jalen_assault_solution"
+		},
+		"jalen_assault_solution": {
+			"speaker": "Jalen",
+			"text": "I can trigger a fire alarm on the ground floor sixty seconds before breach. Civilian evacuation protocols are automatic—they'll clear the processing areas before we enter.",
+			"next": "elia_approves_assault",
+			"reputation": {
+				"rho": 1,
+				"elia": 1
+			}
+		},
+		"elia_approves_assault": {
+			"speaker": "Elia",
+			"text": "[i]Decisive.[/i] Do it. Assault approach, pre-breach civilian evacuation. The trade-off is they'll know we're coming sixty seconds early. [i][She looks at Rho.][/i] Can we still achieve surprise?",
+			"next": "rho_assault_answer"
+		},
+		"rho_assault_answer": {
+			"speaker": "Rho",
+			"text": "They'll know something is wrong. They won't know what until we're already inside. Sixty seconds of confusion is enough.",
+			"next": "approach_decided"
+		},
+		"assault_choice_failure": {
+			"speaker": "Narration",
+			"text": "[i]Your fire lanes overlap in two places—friendly fire risk. Rho catches it before you finish.[/i]",
+			"next": "rho_corrects_assault"
+		},
+		"rho_corrects_assault": {
+			"speaker": "Rho",
+			"text": "[i]Not unkind, but direct.[/i] Those two corridors create a crossfire problem—our own people get caught in the overlap. [i][He adjusts the display.][/i] Stagger the breach by four seconds. Team one enters here, team two sweeps in from the service corridor after the first volley clears.",
+			"next": "assault_corrected"
+		},
+		"assault_corrected": {
+			"speaker": "Elia",
+			"text": "Right idea, needs calibration. Rho's adjustment fixes the crossfire issue. [i][She nods at you.][/i] The aggression is correct. Sometimes speed is the safest option.",
+			"next": "vesper_assault_concern"
+		},
+
+		"hybrid_choice_check": {
+			"speaker": "Narration",
+			"text": "[i]A combined approach. The most complex option—two teams, synchronized timing, overlapping contingencies. This requires exceptional tactical awareness.[/i]",
+			"type": "skill_check",
+			"check": {
+				"character": "avyanna",
+				"stat": "tactics",
+				"skill": "tactics",
+				"threshold": 16,
+				"dc": 16,
+				"on_success": "hybrid_choice_success",
+				"on_failure": "hybrid_choice_failure"
+			},
+			"next": "hybrid_choice_failure"
+		},
+		"hybrid_choice_success": {
+			"speaker": "Narration",
+			"text": "[i]The display lights up like a symphony score—two movements, perfectly timed, each dependent on the other. Infiltration team disables cameras and turrets. Assault team breaches the moment the lights go dark.[/i]",
+			"next": "elia_hybrid_impressed"
+		},
+		"elia_hybrid_impressed": {
+			"speaker": "Elia",
+			"text": "[i]Both eyebrows raised.[/i] That's... ambitious. And elegant. Stealth team cripples their eyes, assault team hits while they're blind. [i][She traces the timing on the display.][/i] The synchronization has to be perfect. Five seconds off and the stealth team is exposed with no support.",
+			"next": "vesper_hybrid"
+		},
+		"vesper_hybrid": {
+			"speaker": "Vesper",
+			"text": "[i]Studying the display, nodding slowly.[/i] It solves both problems. Stealth for the approach, force for the objective. And it gives us a fallback—if the stealth team is detected, assault team breaches early.",
+			"next": "elisira_hybrid"
+		},
+		"elisira_hybrid": {
+			"speaker": "Elisira",
+			"text": "[i]For the first time, something like respect in her voice.[/i] This is how the Compact's best units operate. Paired operations. [i][She looks at you.][/i] You've either studied their doctrine or you have very good instincts.",
+			"reputation": {
+				"elia": 2,
+				"elisira": 1
+			},
+			"next": "approach_decided"
+		},
+		"hybrid_choice_failure": {
+			"speaker": "Narration",
+			"text": "[i]The concept is strong, but your timing windows don't align—the stealth team would be in position three minutes before the assault team is ready. Elisira sees the gap.[/i]",
+			"next": "elisira_corrects_hybrid"
+		},
+		"elisira_corrects_hybrid": {
+			"speaker": "Elisira",
+			"text": "[i]Stepping to the display.[/i] The idea is correct. The timing isn't. [i][Her fingers adjust the sequence with surgical precision.][/i] Stealth team enters here. Assault team repositions to secondary breach point—closer approach, tighter window. Synchronization at T-minus-zero.",
+			"next": "hybrid_corrected"
+		},
+		"hybrid_corrected": {
+			"speaker": "Elia",
+			"text": "Hybrid approach. Elisira's timing fixes. This is the hardest option to execute, but it gives us the most flexibility. [i][She looks at you.][/i] Bold thinking. That's what we need.",
+			"next": "approach_decided"
+		},
+
+		"approach_decided": {
+			"speaker": "Elia",
+			"text": "Approach is set. Now the hard part. [i][She dims the display, leaving only the station outline.][/i] We split into two teams. This isn't optional—one team takes the data core, one team holds extraction. If the hold team fails, nobody gets out.",
+			"next": "elisira_plan"
+		},
+		"elisira_plan": {
+			"speaker": "Elisira",
+			"text": "[i]Single syllable, command weight.[/i] Split. [i][She gestures to the display.][/i] Four go in—fast, loud, direct assault on the data core. Three hold extraction point and provide fire support.",
+			"next": "elisira_split_logic"
+		},
+		"elisira_split_logic": {
+			"speaker": "Elisira",
+			"text": "Assault team needs a breacher, a ward specialist, a close-quarters fighter, and either tech support or precision fire. Hold team needs range, coordination, and someone who can anchor a defensive position against superior numbers.",
+			"next": "crew_weighs_in_intro"
+		},
+		"crew_weighs_in_intro": {
+			"speaker": "Elia",
+			"text": "Before we assign, I want everyone's input. Speak to your strengths and your limits. No ego. [i][She looks around the table.][/i] Vesper. Start.",
+			"next": "vesper_weighs_in"
+		},
+		"vesper_weighs_in": {
+			"speaker": "Vesper",
+			"text": "Indoor corridors limit my effective range. I'm strongest at extraction—long sight lines, elevated position, counter-sniper work. [i][She pauses.][/i] That said, if you need me inside, I can switch to close-quarters. I'm not useless at ten meters. Just... suboptimal.",
+			"next": "vesper_weighs_in_2"
+		},
+		"vesper_weighs_in_2": {
+			"speaker": "Vesper",
+			"text": "[i]Quieter.[/i] My concern is comms. If the assault team hits a bulkhead seal and I can't reach them—if I can't see them—I'm shooting blind. I need eyes on the team or I'm just a body holding a position.",
+			"next": "rho_weighs_in"
+		},
+		"rho_weighs_in": {
+			"speaker": "Rho",
+			"text": "I'm your breacher. That's not ego, that's physics—I'm the only one who can put a shaped charge through a reinforced bulkhead and walk through the hole. Put me on the assault team.",
+			"next": "rho_weighs_in_2"
+		},
+		"rho_weighs_in_2": {
+			"speaker": "Rho",
+			"text": "[i]Sobering.[/i] Limitation: I'm loud. If stealth is the priority, I need to stay quiet until the breach moment. I can do it—but everyone should know it goes against every instinct I have.",
+			"next": "rho_weighs_in_3"
+		},
+		"rho_weighs_in_3": {
+			"speaker": "Rho",
+			"text": "[i]Lower. Honest.[/i] And if we're talking limits—I can't protect everyone at once. In Meridian, I tried to cover two exits. Lost people at both. [i][He meets Elia's eyes.][/i] Don't split my attention. Give me one job and I'll do it.",
+			"next": "nyx_weighs_in"
+		},
+		"nyx_weighs_in": {
+			"speaker": "Nyx",
+			"text": "I have to be on the assault team. The data core will have the heaviest wards—if there are Writbound elements, that's where they'll be anchored. Without me, you hit that wall and stop.",
+			"next": "nyx_weighs_in_2"
+		},
+		"nyx_weighs_in_2": {
+			"speaker": "Nyx",
+			"text": "[i]Her eyes find you.[/i] And Avyanna's shard will react to the Lattice architecture. If she's on the assault team, I need to be there to manage the resonance. If she's not—I need to manage it remotely, and that's harder.",
+			"next": "nyx_weighs_in_3"
+		},
+		"nyx_weighs_in_3": {
+			"speaker": "Nyx",
+			"text": "Warning: once I engage their wards, I'm committed. I can't split my focus between offense and defense. Whoever's near me needs to keep hostiles off my back while I work. [i][She looks at Rho.][/i] That means you.",
+			"next": "jalen_weighs_in"
+		},
+		"jalen_weighs_in": {
+			"speaker": "Jalen",
+			"text": "I can go either way. Inside, I crack their security systems in real-time—cameras, bulkheads, automated defenses. Outside, I coordinate comms and run electronic warfare from the ship.",
+			"next": "jalen_weighs_in_2"
+		},
+		"jalen_weighs_in_2": {
+			"speaker": "Jalen",
+			"text": "Trade-off: if I'm inside, I'm vulnerable. I'm not a fighter. I'll need protection while I work. If I'm outside, I have the ship's full processing power but limited access—I can only crack systems I can reach through the comm relay.",
+			"next": "jalen_weighs_in_3"
+		},
+		"jalen_weighs_in_3": {
+			"speaker": "Jalen",
+			"text": "[i]Adjusting his glasses.[/i] Honestly? The data core's airgap means someone needs to be physically present to extract. If that someone isn't me, you need to give me five minutes to teach whoever goes in how to run the extraction protocol. It's not complicated. It's just specific.",
+			"next": "elisira_weighs_in"
+		},
+		"elisira_weighs_in": {
+			"speaker": "Elisira",
+			"text": "I know how corporate security thinks. I know Dreeve's likely deployment pattern. I know where his blind spots are because they're the same blind spots I exploited when I was inside the system. [i][Flat.][/i] Assault team.",
+			"next": "elisira_weighs_in_2"
+		},
+		"elisira_weighs_in_2": {
+			"speaker": "Elisira",
+			"text": "But I should also say this: if Dreeve recognizes me, it changes the calculus. He'll know our intel is deeper than surface level. He may trigger a data purge rather than let us take the records intact.",
+			"next": "elisira_weighs_in_3"
+		},
+		"elisira_weighs_in_3": {
+			"speaker": "Elisira",
+			"text": "[i]Meeting Elia's eyes.[/i] I'm a tactical asset and a potential liability. Use me where you think the math works.",
+			"next": "elia_weighs_in"
+		},
+		"elia_weighs_in": {
+			"speaker": "Elia",
+			"text": "I go where the crew needs me. Assault team wants a corridor fighter—that's me. Hold team wants an anchor who won't break—that's also me. [i][She looks at you.][/i] This is your call, Avyanna.",
+			"next": "elia_split_question"
+		},
+		"elia_split_question": {
+			"speaker": "Elia",
+			"text": "[i]Looking at you.[/i] Avyanna. You've been training with all of us. You know our strengths. [i][Beat.][/i] Who goes in, and who holds the line?",
+			"next": "player_choice"
+		},
+		"player_choice": {
+			"speaker": "Narration",
+			"text": "[i]All eyes on you. The weight of the decision is real. Who you send in determines tactics. Who holds the line determines if anyone gets out.[/i]",
+			"choices": [
+				{
+					"text": "[Assault: Elia, Elisira, Rho, Nyx | Hold: Vesper, Jalen, Avyanna]",
+					"next": "assault_team_1",
+					"set_flag": "assault_team_close_quarters"
+				},
+				{
+					"text": "[Assault: Elia, Vesper, Nyx, Avyanna | Hold: Elisira, Rho, Jalen]",
+					"next": "assault_team_2",
+					"set_flag": "assault_team_mixed_range"
+				},
+				{
+					"text": "[Assault: Elisira, Rho, Nyx, Jalen | Hold: Elia, Vesper, Avyanna]",
+					"next": "assault_team_3",
+					"set_flag": "assault_team_tactical_precision"
+				}
+			]
+		},
+		"assault_team_1": {
+			"speaker": "Elia",
+			"text": "[i]Nodding.[/i] Heavy assault. Rho breaches, I clear corridors, Elisira handles precision eliminations, Nyx disrupts their wards. Fast and brutal.",
+			"next": "hold_team_1"
+		},
+		"hold_team_1": {
+			"speaker": "Vesper",
+			"text": "[i]Calm.[/i] Jalen pilots extraction, I provide overwatch and counter-sniper. Avyanna coordinates comms and tracks hostiles. [i][She looks at you.][/i] You'll be our eyes.",
+			"next": "team_1_reactions"
+		},
+		"team_1_reactions": {
+			"speaker": "Rho",
+			"text": "[i]Grinning.[/i] This is going to be loud. I like it.",
+			"next": "team_1_nyx_react"
+		},
+		"team_1_nyx_react": {
+			"speaker": "Nyx",
+			"text": "Rho breaches, I follow through the gap. His explosions will mask my ward disruptions—by the time they realize I'm in their Lattice, it's already peeled. [i][She almost smiles.][/i] Symbiotic chaos.",
+			"next": "team_1_elisira_react"
+		},
+		"team_1_elisira_react": {
+			"speaker": "Elisira",
+			"text": "I'll handle Dreeve personally if we encounter him. [i][She checks her pistols—a gesture that's half maintenance, half ritual.][/i] He won't expect me. That advantage lasts exactly once.",
+			"next": "team_1_jalen_react"
+		},
+		"team_1_jalen_react": {
+			"speaker": "Jalen",
+			"text": "I'll run electronic warfare from the extraction point. Camera loops, comms jamming, bulkhead overrides—whatever the assault team needs, I'll push remotely. [i][He looks at Vesper.][/i] You and I need a shared tactical display.",
+			"next": "team_1_vesper_avyanna"
+		},
+		"team_1_vesper_avyanna": {
+			"speaker": "Vesper",
+			"text": "[i]To you.[/i] Avyanna. At the extraction point, your shard may pick up things Jalen's sensors miss. Lattice signatures, ward shifts, personnel movement. Trust what you feel. Report what you sense. [i][She holds your gaze.][/i] I'll handle the rest.",
+			"next": "team_1_confirmation"
+		},
+		"team_1_confirmation": {
+			"speaker": "Elia",
+			"text": "[i]To the assault team.[/i] We go fast. We go hard. We do not stop until we're in the data core. [i][To the hold team.][/i] You are our lifeline. If you fall, we die in there. [i][Beat.][/i] No pressure.",
+			"next": "final_briefing"
+		},
+		"assault_team_2": {
+			"speaker": "Vesper",
+			"text": "[i]Raised eyebrow.[/i] Mixed range. Elia closes distance, I provide precision fire, Nyx handles wards, Avyanna... [i][She looks at you.][/i] You're coming in with us?",
+			"next": "avyanna_in_assault"
+		},
+		"avyanna_in_assault": {
+			"speaker": "Avyanna",
+			"text": "[i]Steady.[/i] I can track Lattice signatures. I'll know where the wards are before you hit them.",
+			"next": "team_2_elia_react"
+		},
+		"team_2_elia_react": {
+			"speaker": "Elia",
+			"text": "[i]Searching your face.[/i] You understand what going inside means. If the extraction point falls, we're trapped. If the wards react to your shard, you become a beacon.",
+			"next": "team_2_avyanna_response"
+		},
+		"team_2_avyanna_response": {
+			"speaker": "Narration",
+			"text": "[i]You nod. There's no bravery in it—just clarity. Your shard is the reason they built this cage. You should be the one to open it.[/i]",
+			"next": "hold_team_2"
+		},
+		"hold_team_2": {
+			"speaker": "Elisira",
+			"text": "[i]Flat.[/i] Rho breaches from range. Jalen coordinates timing. I handle counter-assault if they flank. [i][Beat.][/i] Surgical.",
+			"next": "team_2_rho_react"
+		},
+		"team_2_rho_react": {
+			"speaker": "Rho",
+			"text": "[i]Cracking his neck.[/i] Hold team with the big gun. Fine. Anyone comes near that extraction point, they meet the rotary cannon. [i][He glances at Elisira.][/i] Try to leave some for me.",
+			"next": "team_2_elisira_react"
+		},
+		"team_2_elisira_react": {
+			"speaker": "Elisira",
+			"text": "[i]Dry.[/i] I don't leave things.",
+			"next": "team_2_jalen_react"
+		},
+		"team_2_jalen_react": {
+			"speaker": "Jalen",
+			"text": "I'll run overwatch from the hold position. Full electronic warfare suite. [i][He looks at Nyx.][/i] When you hit the wards, I'll try to map the resonance pattern from outside. Might give you an edge.",
+			"next": "team_2_confirmation"
+		},
+		"team_2_confirmation": {
+			"speaker": "Elia",
+			"text": "[i]To Avyanna.[/i] Stay close to me. If it gets ugly, you run. Understood?",
+			"next": "team_2_avyanna_final"
+		},
+		"team_2_avyanna_final": {
+			"speaker": "Narration",
+			"text": "[i]You don't agree to run. You just nod. Elia sees the difference but doesn't press it.[/i]",
+			"next": "final_briefing"
+		},
+		"assault_team_3": {
+			"speaker": "Elisira",
+			"text": "[i]Single nod.[/i] Precision strike. Rho breaches clean, Nyx disrupts wards without flare, Jalen maps optimal routes in real-time. No waste.",
+			"next": "hold_team_3"
+		},
+		"hold_team_3": {
+			"speaker": "Elia",
+			"text": "[i]Grim smile.[/i] Vesper and I hold extraction. Long-range dominance, close-quarters fallback. Avyanna coordinates. [i][She looks at you.][/i] This puts you in the most danger if they breach our perimeter.",
+			"next": "team_3_vesper_react"
+		},
+		"team_3_vesper_react": {
+			"speaker": "Vesper",
+			"text": "[i]Quiet.[/i] They won't breach. Not while I'm watching.",
+			"next": "team_3_elisira_react"
+		},
+		"team_3_elisira_react": {
+			"speaker": "Elisira",
+			"text": "Jalen—you're inside with me. I need real-time security overrides. Can you keep up?",
+			"next": "team_3_jalen_react"
+		},
+		"team_3_jalen_react": {
+			"speaker": "Jalen",
+			"text": "[i]A flash of something—pride, maybe, or stubbornness.[/i] I built systems like these. I'll take them apart faster than you can walk through them.",
+			"next": "team_3_rho_react"
+		},
+		"team_3_rho_react": {
+			"speaker": "Rho",
+			"text": "Clean breaches on Elisira's mark. Shaped charges, precision placement, minimal collateral. [i][He looks at Nyx.][/i] I'll make the holes. You do the magic.",
+			"next": "team_3_nyx_react"
+		},
+		"team_3_nyx_react": {
+			"speaker": "Nyx",
+			"text": "With Jalen mapping the ward architecture from inside, I can target specific nodes instead of brute-forcing the whole structure. More efficient. Less noise. [i][She looks satisfied.][/i] This is the smart play.",
+			"next": "team_3_confirmation"
+		},
+		"team_3_confirmation": {
+			"speaker": "Elia",
+			"text": "[i]To the assault team.[/i] Elisira has command inside. Follow her calls. [i][To you.][/i] Avyanna—you coordinate between teams. You're our bridge. If comms go down, you're the last thread holding this together.",
+			"next": "final_briefing"
+		},
+
+		"final_briefing": {
+			"speaker": "Elia",
+			"text": "[i]Standing.[/i] Everyone clear on roles? Questions? Concerns? [i][She looks around the table.][/i] Speak now.",
+			"next": "final_questions_choice"
+		},
+		"final_questions_choice": {
+			"speaker": "Narration",
+			"text": "[i]The table is quiet. But the silence is full of things unsaid.[/i]",
+			"choices": [
+				{
+					"text": "[Ask about contingencies] What if the assault team gets trapped?",
+					"next": "contingency_question"
+				},
+				{
+					"text": "[Ask about the entity] What if whatever's caged under the station wakes up?",
+					"next": "entity_question"
+				},
+				{
+					"text": "[Ask about Dreeve] What do we know about the station commander?",
+					"next": "dreeve_question"
+				},
+				{
+					"text": "[Stay silent] You've said enough. Let them prepare.",
+					"next": "crew_silence"
+				}
+			]
+		},
+		"contingency_question": {
+			"speaker": "Elia",
+			"text": "If the assault team is trapped behind a sealed bulkhead, the hold team has ninety seconds to reach them before the station's internal security converges. [i][She's thought about this.][/i] After ninety seconds, the assault team fights through or finds another way out. The hold team does not abandon the extraction point to rescue them.",
+			"next": "contingency_hard_truth"
+		},
+		"contingency_hard_truth": {
+			"speaker": "Elia",
+			"text": "[i]Harder.[/i] If the assault team cannot reach the data core and cannot retreat, the hold team extracts without them. That's the order. [i][She looks at each assault team member.][/i] You volunteered for the harder job. You knew the math.",
+			"next": "rho_contingency"
+		},
+		"rho_contingency": {
+			"speaker": "Rho",
+			"text": "[i]Quiet.[/i] Understood. But for the record—if it comes to that, I'll be the one holding the door so everyone else gets out. That's not heroism. That's physics. I'm the hardest to kill.",
+			"next": "contingency_to_silence"
+		},
+		"contingency_to_silence": {
+			"speaker": "Narration",
+			"text": "[i]No one argues with him. Not because they agree, but because they know he means it.[/i]",
+			"next": "other_questions_choice"
+		},
+		"entity_question": {
+			"speaker": "Nyx",
+			"text": "[i]She's been waiting for someone to ask.[/i] If the contained entity reacts to our presence—specifically to Avyanna's shard—it could do several things. Amplify the station's wards. Disrupt Lattice operations on both sides. Or...",
+			"next": "nyx_entity_detail"
+		},
+		"nyx_entity_detail": {
+			"speaker": "Nyx",
+			"text": "...it could try to communicate. Primordial entities aren't mindless. They're alien. If it recognizes the shard, it might reach for Avyanna. [i][She meets your eyes.][/i] If that happens, you tell me immediately. Don't try to manage it alone.",
+			"next": "bee_entity_analysis"
+		},
+		"bee_entity_analysis": {
+			"speaker": "BEE",
+			"text": "{BEE:: primordial-contact-protocol logged | host-protection: priority-absolute | note: if the cage opens, I will not be a passive observer}",
+			"next": "entity_to_silence"
+		},
+		"entity_to_silence": {
+			"speaker": "Narration",
+			"text": "[i]BEE's words settle into your bones. The shard pulses once—acknowledgment or warning, you're not sure which.[/i]",
+			"next": "other_questions_choice"
+		},
+		"dreeve_question": {
+			"speaker": "Elisira",
+			"text": "Harlan Dreeve. Forty-seven. Former Compact Shock Infantry, decorated twice, court-martialed once. Discharged for executing prisoners during the Veritas Corridor incident. Aurum hired him the same week.",
+			"next": "elisira_dreeve_2"
+		},
+		"elisira_dreeve_2": {
+			"speaker": "Elisira",
+			"text": "He's competent, ruthless, and loyal to whoever signs his contract. He won't surrender because surrender means a tribunal—and he's already had one. [i][Her voice is flat, clinical.][/i] He'll fight to the last.",
+			"next": "elisira_dreeve_3"
+		},
+		"elisira_dreeve_3": {
+			"speaker": "Elisira",
+			"text": "[i]Softer—barely.[/i] I've met men like him before. They're not evil. They're empty. They filled the hole with duty and orders. Take away the structure and they collapse. [i][She looks at Elia.][/i] Don't try to reason with him. Just be faster.",
+			"next": "dreeve_to_silence"
+		},
+		"dreeve_to_silence": {
+			"speaker": "Narration",
+			"text": "[i]Elisira steps back. Whatever she left unsaid about her own time inside the system hangs in the air like smoke.[/i]",
+			"next": "other_questions_choice"
+		},
+		"other_questions_choice": {
+			"speaker": "Narration",
+			"text": "[i]The briefing continues.[/i]",
+			"choices": [
+				{
+					"text": "[Ask another question]",
+					"next": "final_questions_choice"
+				},
+				{
+					"text": "[No more questions. Move on.]",
+					"next": "crew_silence"
+				}
+			]
+		},
+
+		"crew_silence": {
+			"speaker": "Narration",
+			"text": "[i]Silence. Not fear. Readiness. Everyone knows what's at stake.[/i]",
+			"next": "bee_tactical_full"
+		},
+		"bee_tactical_full": {
+			"speaker": "BEE",
+			"text": "{BEE:: tactical-summary compiled | threat-level: severe | crew-cohesion: high | probability-of-mission-success: 34.7% | probability-of-zero-casualties: 11.2% | personal-annotation: numbers lie—this crew defies probability}",
+			"next": "avyanna_bee_private"
+		},
+		"avyanna_bee_private": {
+			"speaker": "Narration",
+			"text": "[i]You feel BEE's analysis like a weight in your chest. Thirty-four percent. One in nine chance everyone comes home. The shard warms, and beneath the numbers, you sense something else—something BEE doesn't quantify. Belief.[/i]",
+			"next": "elia_dismisses_briefing"
+		},
+		"elia_dismisses_briefing": {
+			"speaker": "Elia",
+			"text": "Briefing's done. Four hours until insertion. Gear up, rest, do whatever you need to do. [i][She pauses.][/i] I want everyone back here in three hours for final checks.",
+			"next": "crew_disperses"
+		},
+		"crew_disperses": {
+			"speaker": "Narration",
+			"text": "[i]The crew rises. Chairs scrape. The holographic station rotates in empty blue light. But no one leaves immediately—they linger, finding reasons to stay close. This is the last quiet before the storm.[/i]",
+			"next": "personal_moments_choice"
+		},
+
+		"personal_moments_choice": {
+			"speaker": "Narration",
+			"text": "[i]The briefing room empties slowly. You have time to speak with someone before preparations begin.[/i]",
+			"choices": [
+				{
+					"text": "[Find Vesper] She's in the observation deck, cleaning her rifle.",
+					"next": "personal_vesper"
+				},
+				{
+					"text": "[Find Rho] He's in the cargo bay, checking his charges.",
+					"next": "personal_rho"
+				},
+				{
+					"text": "[Find Nyx] She's in the engine room, meditating near the Lattice conduits.",
+					"next": "personal_nyx"
+				},
+				{
+					"text": "[Find Jalen] He's at his workstation, running simulations.",
+					"next": "personal_jalen"
+				},
+				{
+					"text": "[Find Elisira] She's in the armory, alone.",
+					"next": "personal_elisira"
+				},
+				{
+					"text": "[Stay with Elia] She hasn't left the briefing room.",
+					"next": "personal_elia"
+				}
+			]
+		},
+
+		"personal_vesper": {
+			"speaker": "Narration",
+			"text": "[i]The observation deck. Stars turn beyond the viewport. Vesper sits cross-legged on the floor, rifle disassembled across a cloth with the precision of a surgical kit. She doesn't look up when you enter. She knew you were there before the door opened.[/i]",
+			"next": "vesper_personal_1"
+		},
+		"vesper_personal_1": {
+			"speaker": "Vesper",
+			"text": "[i]Hands moving, reassembling by touch.[/i] You don't have to check on me.",
+			"text_variants": {
+				"vesper_bonded": "[i]Hands moving, but she shifts to make space beside her.[/i] I was wondering if you'd come."
+			},
+			"next": "vesper_personal_choice"
+		},
+		"vesper_personal_choice": {
+			"speaker": "Narration",
+			"text": "[i]Her hands are steady. Her breathing is controlled. But there's a tension in her shoulders that the rifle cleaning isn't reaching.[/i]",
+			"choices": [
+				{
+					"text": "I'm not checking on you. I'm asking you to check on me.",
+					"next": "vesper_personal_honest"
+				},
+				{
+					"text": "Are you scared?",
+					"next": "vesper_personal_direct"
+				},
+				{
+					"text": "[Sit quietly beside her]",
+					"next": "vesper_personal_silent"
+				}
+			]
+		},
+		"vesper_personal_honest": {
+			"speaker": "Vesper",
+			"text": "[i]Her hands pause. Just for a moment.[/i] That's... unusually honest. [i][She looks at you.][/i] What do you need?",
+			"next": "vesper_personal_depth"
+		},
+		"vesper_personal_direct": {
+			"speaker": "Vesper",
+			"text": "[i]A breath of something that might be a laugh.[/i] Scared. That's a word for people who can still choose to leave. [i][She slots the barrel into place.][/i] I'm... aware of consequences.",
+			"next": "vesper_personal_depth"
+		},
+		"vesper_personal_silent": {
+			"speaker": "Narration",
+			"text": "[i]You sit. The stars turn. Vesper's hands continue their ritual. For a while, that's enough.[/i]",
+			"next": "vesper_personal_depth"
+		},
+		"vesper_personal_depth": {
+			"speaker": "Vesper",
+			"text": "[i]Quietly, after a long moment.[/i] I've been in operations where people died. I've been the reason some of them didn't. [i][She looks at the stars.][/i] But I've never done it with people I—",
+			"next": "vesper_personal_catch"
+		},
+		"vesper_personal_catch": {
+			"speaker": "Vesper",
+			"text": "[i]She stops. Recalibrates. When she speaks again, the sniper is back.[/i] People I've trained with this long. The calculus changes when you know someone's patterns. Their breathing. Their tells. [i][Beat.][/i] It makes you better. And it makes losing them worse.",
+			"next": "vesper_personal_resolve"
+		},
+		"vesper_personal_resolve": {
+			"speaker": "Vesper",
+			"text": "So no. I'm not scared. I'm precise. And tomorrow, precision keeps people alive. [i][She chambers a round—a sound like a period at the end of a sentence.][/i] Including you.",
+			"reputation": {
+				"vesper": 1
+			},
+			"next": "personal_return"
+		},
+
+		"personal_rho": {
+			"speaker": "Narration",
+			"text": "[i]The cargo bay. Rho sits surrounded by shaped charges, detonators, and enough ordnance to crack a small moon. His hands move with surprising delicacy—each charge measured, calibrated, placed in sequence.[/i]",
+			"next": "rho_personal_1"
+		},
+		"rho_personal_1": {
+			"speaker": "Rho",
+			"text": "[i]Without looking up.[/i] Pull up a crate. Just don't touch the blue ones. Those are temperamental.",
+			"text_variants": {
+				"rho_bonded": "[i]He looks up and smiles—not the sharp grin, but something quieter.[/i] Hey. Grab a seat. I could use the company."
+			},
+			"next": "rho_personal_choice"
+		},
+		"rho_personal_choice": {
+			"speaker": "Narration",
+			"text": "[i]He handles explosives like a sculptor handles clay. There's reverence in it. And underneath the steady hands, something heavier.[/i]",
+			"choices": [
+				{
+					"text": "You mentioned Meridian. What happened there?",
+					"next": "rho_personal_meridian"
+				},
+				{
+					"text": "How do you stay calm before something like this?",
+					"next": "rho_personal_calm"
+				},
+				{
+					"text": "[Help him sort the charges in silence]",
+					"next": "rho_personal_help"
+				}
+			]
+		},
+		"rho_personal_meridian": {
+			"speaker": "Rho",
+			"text": "[i]His hands slow. Not stop—slow.[/i] Meridian was a mining colony. Corporate dispute turned into a siege. Thirty of us went in to break it. Twelve came out.",
+			"next": "rho_meridian_2"
+		},
+		"rho_meridian_2": {
+			"speaker": "Rho",
+			"text": "[i]He picks up a charge, turns it in his hands.[/i] I tried to hold two positions at once. Ego. I was big enough, strong enough—I thought I could cover both. [i][His voice drops.][/i] I was wrong.",
+			"next": "rho_personal_truth"
+		},
+		"rho_personal_calm": {
+			"speaker": "Rho",
+			"text": "[i]He laughs—short, honest.[/i] Calm? I'm not calm. I'm focused. There's a difference. Calm means you think you're safe. Focused means you know you're not, and you're working the problem anyway.",
+			"next": "rho_personal_truth"
+		},
+		"rho_personal_help": {
+			"speaker": "Narration",
+			"text": "[i]You sort charges by color, by weight, by the careful labels Rho has written in small, neat handwriting. He watches you handle them with respect and nods once—approval.[/i]",
+			"next": "rho_personal_truth"
+		},
+		"rho_personal_truth": {
+			"speaker": "Rho",
+			"text": "[i]Quieter than you've ever heard him.[/i] I like this crew. I like the way Elia runs things—no thrones, just floors. I like that Vesper insults me and means it as affection. I like that Jalen thinks his way out of problems I'd punch through.",
+			"next": "rho_personal_truth_2"
+		},
+		"rho_personal_truth_2": {
+			"speaker": "Rho",
+			"text": "[i]He meets your eyes.[/i] And I like that you're here. A kid with a shard in her skull and more courage than sense. [i][The grin comes back, but warmer.][/i] Reminds me why I stopped doing this for money.",
+			"reputation": {
+				"rho": 1
+			},
+			"next": "personal_return"
+		},
+
+		"personal_nyx": {
+			"speaker": "Narration",
+			"text": "[i]The engine room. The Lattice conduits pulse with subdued light—the ship's nervous system, half-alive, humming with potential. Nyx sits in the center of it, cross-legged, staff across her knees, eyes closed. The air around her tastes like static.[/i]",
+			"next": "nyx_personal_1"
+		},
+		"nyx_personal_1": {
+			"speaker": "Nyx",
+			"text": "[i]Eyes still closed.[/i] Your shard is loud today. I could feel you coming from two corridors away.",
+			"text_variants": {
+				"nyx_bonded": "[i]Eyes opening, and there's warmth in them.[/i] I was reaching for your shard without thinking. It's become a habit. You feel like a lighthouse."
+			},
+			"next": "nyx_personal_choice"
+		},
+		"nyx_personal_choice": {
+			"speaker": "Narration",
+			"text": "[i]The conduits pulse in time with something—your heartbeat, or hers, or both.[/i]",
+			"choices": [
+				{
+					"text": "What does the station's Lattice architecture feel like from here?",
+					"next": "nyx_personal_lattice"
+				},
+				{
+					"text": "You said you fought a Writbound before. Tell me.",
+					"next": "nyx_personal_writbound"
+				},
+				{
+					"text": "[Sit with her. Match your breathing to the conduit pulse.]",
+					"next": "nyx_personal_meditate"
+				}
+			]
+		},
+		"nyx_personal_lattice": {
+			"speaker": "Nyx",
+			"text": "[i]She extends a hand, fingers splayed. The air between you shimmers.[/i] Feel it? Even from here—across void, across distance—the station's ward structure broadcasts. Cold. Geometric. Like a scream pressed into a grid.",
+			"next": "nyx_personal_fear"
+		},
+		"nyx_personal_writbound": {
+			"speaker": "Nyx",
+			"text": "[i]Her eyes open. The memory is right there, behind them.[/i] Kallos Station. Three years ago. A containment entity had bonded with a security operative. He could reshape walls, seal doors with a thought, turn the architecture into a weapon. [i][She touches a scar beneath her collar.][/i] I won because I'm stubborn and he was overconfident. That's not a strategy I'd recommend.",
+			"next": "nyx_personal_fear"
+		},
+		"nyx_personal_meditate": {
+			"speaker": "Narration",
+			"text": "[i]You sit. You breathe. The conduits pulse. And for a moment, through the shard, you feel what Nyx feels—the Lattice as a living thing, vast and old and full of doors.[/i]",
+			"next": "nyx_personal_fear"
+		},
+		"nyx_personal_fear": {
+			"speaker": "Nyx",
+			"text": "[i]After a silence that stretches like taffy:[/i] I'm not afraid of dying. I'm afraid of losing my connection. The Lattice is... it's how I understand the world. If those Writbound wards tear through my defenses—if they sever that—",
+			"next": "nyx_personal_fear_2"
+		},
+		"nyx_personal_fear_2": {
+			"speaker": "Nyx",
+			"text": "[i]She shakes her head.[/i] It would be like going deaf. Blind. Worse. It would be like forgetting that music exists. [i][She looks at you.][/i] Protect my back in there. Not my body—my focus. Keep them off me long enough to do my work.",
+			"reputation": {
+				"nyx": 1
+			},
+			"next": "personal_return"
+		},
+
+		"personal_jalen": {
+			"speaker": "Narration",
+			"text": "[i]Jalen's workstation. Six screens, three keyboards, and a coffee cup that's been refilled so many times it's developed geological strata. His eyes move faster than his hands, and his hands are already blurring.[/i]",
+			"next": "jalen_personal_1"
+		},
+		"jalen_personal_1": {
+			"speaker": "Jalen",
+			"text": "[i]He holds up one finger—wait.[/i] ...[i]typing intensifies[/i]... [i]another thirty seconds[/i]... Done. Partial decryption of their secondary comm channel. [i][He spins his chair to face you.][/i] What's up?",
+			"text_variants": {
+				"jalen_bonded": "[i]He sees you and immediately saves his work—actually saves and closes a screen. For Jalen, that's the equivalent of a standing ovation.[/i] Hey. Come look at this."
+			},
+			"next": "jalen_personal_choice"
+		},
+		"jalen_personal_choice": {
+			"speaker": "Narration",
+			"text": "[i]His desk is chaos with a system. Every piece of paper, every data chip, every tangled cable has a place he remembers even if no one else could find it.[/i]",
+			"choices": [
+				{
+					"text": "Can you walk me through the data extraction protocol? In case something goes wrong.",
+					"next": "jalen_personal_tech"
+				},
+				{
+					"text": "How are you holding up?",
+					"next": "jalen_personal_honest"
+				},
+				{
+					"text": "[Look at his simulations. Try to understand the numbers.]",
+					"next": "jalen_personal_learn"
+				}
+			]
+		},
+		"jalen_personal_honest": {
+			"speaker": "Jalen",
+			"text": "[i]He stops typing. Actually stops. His hands go still on the keys and he stares at them like they belong to someone else.[/i] Holding up. That's a generous way to describe what I'm doing. I'm running simulations because if I stop, I'll think about the fact that I built systems exactly like the ones we're about to break into.",
+			"next": "jalen_personal_honest_2"
+		},
+		"jalen_personal_honest_2": {
+			"speaker": "Jalen",
+			"text": "[i]He looks at you.[/i] I was corporate. Did you know that? Three years as a systems architect for Meridian Industrial. I built the security that kept people like us out. [i][He swallows.][/i] Now I'm on this side of the wall, and I keep wondering if someone like me is in there right now, building the thing that kills one of us.",
+			"next": "jalen_personal_truth"
+		},
+		"jalen_personal_learn": {
+			"speaker": "Narration",
+			"text": "[i]You lean in. The screens show probability cascades, security response models, timing optimizations. The numbers are dense, but patterns emerge—the way Jalen sees the world, translated into data.[/i]",
+			"next": "jalen_personal_learn_2"
+		},
+		"jalen_personal_learn_2": {
+			"speaker": "Jalen",
+			"text": "[i]He notices you reading. His expression shifts—surprise, then something warmer.[/i] You see the pattern? The security response clusters here—predictable, because corporate doctrine values consistency over creativity. That's their weakness. [i][He points.][/i] And that gap is where we get in.",
+			"next": "jalen_personal_truth"
+		},
+		"jalen_personal_tech": {
+			"speaker": "Jalen",
+			"text": "[i]He lights up—genuinely, completely. This is his language.[/i] Okay. The data core is airgapped—no wireless access. Physical terminal only. You'll see a console with a biometric lock. I'll spoof the biometrics remotely if I'm on the hold team, but if comms are down—",
+			"next": "jalen_tech_detail_2"
+		},
+		"jalen_tech_detail_2": {
+			"speaker": "Jalen",
+			"text": "—you use this. [i][He hands you a data chip, small and warm.][/i] Insert it into the console. It'll bypass the biometric and start the data pull. Takes ninety seconds. Don't remove it early or the files corrupt.",
+			"next": "jalen_tech_check"
+		},
+		"jalen_tech_check": {
+			"speaker": "Narration",
+			"text": "[i]He walks you through the process. Terminal identification, chip insertion, progress indicators. It's not complicated—but in a firefight, nothing is simple.[/i]",
+			"type": "skill_check",
+			"check": {
+				"character": "avyanna",
+				"stat": "tech",
+				"skill": "tech",
+				"threshold": 12,
+				"dc": 12,
+				"on_success": "jalen_tech_success",
+				"on_failure": "jalen_tech_failure"
+			},
+			"next": "jalen_tech_failure"
+		},
+		"jalen_tech_success": {
+			"speaker": "Jalen",
+			"text": "[i]Surprised. Pleased.[/i] You picked that up fast. Most people need three run-throughs. [i][He leans back.][/i] If I go down, you can finish the extraction. That's... that's good to know.",
+			"set_flag": "avyanna_knows_extraction",
+			"reputation": {
+				"jalen": 1
+			},
+			"next": "jalen_personal_truth"
+		},
+		"jalen_tech_failure": {
+			"speaker": "Jalen",
+			"text": "[i]Patient.[/i] Close. The sequence is insert-confirm-wait. Not insert-wait-confirm. Let's run it again. [i][He smiles.][/i] You'll get it. The important part is you asked.",
+			"next": "jalen_personal_truth"
+		},
+		"jalen_personal_truth": {
+			"speaker": "Jalen",
+			"text": "[i]After the tutorial, quieter:[/i] You know what scares me? It's not the guns or the wards. It's the data. What if we get in there and the records show something we can't undo? What if Avyanna's extraction history is worse than we think?",
+			"next": "jalen_personal_truth_2"
+		},
+		"jalen_personal_truth_2": {
+			"speaker": "Jalen",
+			"text": "[i]He takes off his glasses, rubs his eyes.[/i] I build systems. I believe in information. But some information breaks people. [i][He puts the glasses back on.][/i] I guess that's why we have each other. To hold the weight together.",
+			"next": "personal_return"
+		},
+
+		"personal_elisira": {
+			"speaker": "Narration",
+			"text": "[i]The armory. Elisira stands at the workbench, field-stripping her dual pistols with the mechanical grace of a concert pianist warming up. The room smells like gun oil and old metal. She doesn't acknowledge your entry.[/i]",
+			"next": "elisira_personal_1"
+		},
+		"elisira_personal_1": {
+			"speaker": "Elisira",
+			"text": "[i]Without turning.[/i] If you're here to ask if I'm alright, the answer is yes. If you're here for something else, say it.",
+			"text_variants": {
+				"elisira_bonded": "[i]She glances over her shoulder—brief, but warm enough to notice.[/i] You. Good. I wanted to say something before tomorrow."
+			},
+			"next": "elisira_personal_choice"
+		},
+		"elisira_personal_choice": {
+			"speaker": "Narration",
+			"text": "[i]Her hands don't stop moving. Disassemble, clean, reassemble. A ritual older than the crew.[/i]",
+			"choices": [
+				{
+					"text": "You know Dreeve. Is this personal for you?",
+					"next": "elisira_personal_dreeve"
+				},
+				{
+					"text": "What were you, before?",
+					"next": "elisira_personal_before"
+				},
+				{
+					"text": "[Pick up a cleaning kit and work on your own weapon beside her]",
+					"next": "elisira_personal_parallel"
+				}
+			]
+		},
+		"elisira_personal_dreeve": {
+			"speaker": "Elisira",
+			"text": "[i]Her hands slow—not stop.[/i] I don't know Dreeve. I know the type. The machine made him and the machine will use him until he breaks. [i][She slots a component into place.][/i] That's not personal. That's pattern recognition.",
+			"next": "elisira_personal_deeper"
+		},
+		"elisira_personal_before": {
+			"speaker": "Elisira",
+			"text": "[i]A pause. The kind that means she's deciding how much truth to spend.[/i] I was a tool. A very expensive, very effective tool. I did what they pointed me at and I did it well. [i][Beat.][/i] That's not who I am now. But it's who I know how to be.",
+			"next": "elisira_personal_deeper"
+		},
+		"elisira_personal_parallel": {
+			"speaker": "Narration",
+			"text": "[i]You work side by side. The rhythm of maintenance is shared language—clean, inspect, assemble. After a while, the silence becomes comfortable. Elisira's shoulders drop a fraction. That's trust, from her.[/i]",
+			"next": "elisira_personal_deeper"
+		},
+		"elisira_personal_deeper": {
+			"speaker": "Elisira",
+			"text": "[i]After a long silence:[/i] I chose this crew. Not the other way around. Elia thinks she recruited me. She didn't. I watched them for weeks before I made contact. Measured their patterns. Their ethics. Their weaknesses.",
+			"next": "elisira_personal_deeper_2"
+		},
+		"elisira_personal_deeper_2": {
+			"speaker": "Elisira",
+			"text": "[i]She holds a pistol up to the light, checking the barrel.[/i] They're good people doing hard work without losing themselves. That's rare. That's worth protecting. [i][She looks at you sidelong.][/i] So is whatever's growing in you. The shard, the entity—BEE. Don't let anyone take it from you.",
+			"reputation": {
+				"elisira": 1
+			},
+			"next": "personal_return"
+		},
+
+		"personal_elia": {
+			"speaker": "Narration",
+			"text": "[i]The briefing room, emptied. The holographic station still rotates in blue light. Elia stands at the window, looking out at the dark. She's removed her blade harness—a thing she almost never does. She looks smaller without it.[/i]",
+			"next": "elia_personal_1"
+		},
+		"elia_personal_1": {
+			"speaker": "Elia",
+			"text": "[i]She knows you're there. She always does.[/i] Thought you'd go find the others first.",
+			"text_variants": {
+				"elia_bonded": "[i]She turns, and there's something unguarded in her expression. Just for a moment.[/i] I'm glad it's you."
+			},
+			"next": "elia_personal_choice"
+		},
+		"elia_personal_choice": {
+			"speaker": "Narration",
+			"text": "[i]Without the harness, without the table between you, she's just a person carrying too much and pretending it weighs nothing.[/i]",
+			"choices": [
+				{
+					"text": "How do you carry this? Knowing you might send people to die?",
+					"next": "elia_personal_weight"
+				},
+				{
+					"text": "Are we going to make it?",
+					"next": "elia_personal_odds"
+				},
+				{
+					"text": "[Say nothing. Just stand beside her and look at the stars.]",
+					"next": "elia_personal_quiet"
+				}
+			]
+		},
+		"elia_personal_weight": {
+			"speaker": "Elia",
+			"text": "[i]Long exhale.[/i] I don't carry it. I hold it. There's a difference. Carrying implies you can put it down. [i][She looks at her hands.][/i] I hold it because if I let go, someone else has to pick it up, and they might not be strong enough.",
+			"next": "elia_personal_truth"
+		},
+		"elia_personal_odds": {
+			"speaker": "Elia",
+			"text": "[i]She turns to face you. Direct.[/i] Honestly? I don't know. The math says no. The crew says yes. [i][A ghost of a smile.][/i] I've always bet on people over numbers.",
+			"next": "elia_personal_truth"
+		},
+		"elia_personal_quiet": {
+			"speaker": "Narration",
+			"text": "[i]You stand together. The stars don't care about your plans. The dark doesn't know your names. But here, in this small room, two people look at the void and choose not to blink.[/i]",
+			"next": "elia_personal_truth"
+		},
+		"elia_personal_truth": {
+			"speaker": "Elia",
+			"text": "[i]Quietly. The voice she uses when the floor is just her and the truth.[/i] When I started this crew, I had a rule: don't love them. Keep it professional. Respect, competence, clear roles. Don't make it personal.",
+			"next": "elia_personal_truth_2"
+		},
+		"elia_personal_truth_2": {
+			"speaker": "Elia",
+			"text": "[i]She laughs—a short, broken sound.[/i] I failed that rule the first week. Rho made me laugh. Vesper made me think. Nyx made me wonder. Jalen made me hope. Elisira made me trust. And you—",
+			"next": "elia_personal_truth_3"
+		},
+		"elia_personal_truth_3": {
+			"speaker": "Elia",
+			"text": "[i]She stops. Starts again.[/i] You made me remember why I do this. Not the contracts. Not the survival. The [i]people[/i]. [i][She meets your eyes.][/i] So yes. We're going to make it. Because I refuse to lose any of you.",
+			"reputation": {
+				"elia": 2
+			},
+			"next": "personal_return"
+		},
+
+		"personal_return": {
+			"speaker": "Narration",
+			"text": "[i]You return to the common area. The ship hums around you—alive, waiting, faithful.[/i]",
+			"choices": [
+				{
+					"text": "[Speak with someone else]",
+					"next": "personal_moments_choice"
+				},
+				{
+					"text": "[Head to the briefing room. It's time.]",
+					"next": "three_hours_later"
+				}
+			]
+		},
+
+		"three_hours_later": {
+			"speaker": "Narration",
+			"text": "[i]Three hours pass. Some of it is spent in silence. Some in the quiet work of preparation—weapons checked, charges calibrated, Lattice focuses aligned. The ship's corridors feel different now. Charged. Like the air before a storm knows what's coming.[/i]",
+			"next": "equipment_check_intro"
+		},
+		"equipment_check_intro": {
+			"speaker": "Narration",
+			"text": "[i]The gear-up room. Everyone present. The smell of gun oil, ozone, and the faint copper tang of charged Lattice components. Armor is donned in ritual silence.[/i]",
+			"next": "equipment_vesper"
+		},
+		"equipment_vesper": {
+			"speaker": "Narration",
+			"text": "[i]Vesper assembles Clarity—her primary rifle—with movements so practiced they're indistinguishable from breathing. Each component clicks into place: stock, barrel, scope, suppressor. She chambers a round and the sound is a full stop.[/i]",
+			"next": "equipment_rho"
+		},
+		"equipment_rho": {
+			"speaker": "Narration",
+			"text": "[i]Rho shrugs into his chest plate—scarred ceramic over ballistic weave, heavy enough to stop most things that would kill a normal person. He loads the rotary cannon's drum magazine with the tenderness of a parent tucking in a child. Shaped charges go into bandoliers. He doesn't count them. He knows.[/i]",
+			"next": "equipment_nyx"
+		},
+		"equipment_nyx": {
+			"speaker": "Narration",
+			"text": "[i]Nyx draws Lattice patterns on her forearms in conductive ink—temporary circuits that amplify her connection to the Threshold staff. The ink glows faintly, then settles into her skin like tattoos. She mouths words in a language that predates the Compact.[/i]",
+			"next": "equipment_jalen"
+		},
+		"equipment_jalen": {
+			"speaker": "Narration",
+			"text": "[i]Jalen straps a portable terminal to his forearm, connects three redundant comm units, and pockets seven data chips. He's already running diagnostics on each one. His sidearm goes into a hip holster—last, almost an afterthought.[/i]",
+			"next": "equipment_elisira"
+		},
+		"equipment_elisira": {
+			"speaker": "Narration",
+			"text": "[i]Elisira's preparation is the most economical. Two pistols—checked, loaded, holstered in a cross-draw rig. A thin-bladed knife in each boot. Light body armor under her jacket. She looks like she's going for a walk. That's the point.[/i]",
+			"next": "equipment_elia"
+		},
+		"equipment_elia": {
+			"speaker": "Narration",
+			"text": "[i]Elia belts her blade harness—twin short swords, balanced for corridor work. She tests the draw, once, twice, three times. The blades sing. She adds a compact sidearm, almost hidden. Last: she pulls her hair back and ties it. War face. Ready.[/i]",
+			"next": "equipment_avyanna"
+		},
+		"equipment_avyanna": {
+			"speaker": "Narration",
+			"text": "[i]You gear up. Light armor—you're not built for heavy combat yet, and the shard's weight is its own burden. A sidearm. A comm unit. Jalen's extraction chip in your inner pocket, close to your heart. And beneath it all, the shard pulses—steady, warm, aware.[/i]",
+			"next": "bee_equipment_scan"
+		},
+		"bee_equipment_scan": {
+			"speaker": "BEE",
+			"text": "{BEE:: host-systems nominal | shard-resonance stable | combat-readiness assessed | personal note: I will be with you in the dark places—you will not walk alone}",
+			"next": "equipment_insight_check"
+		},
+		"equipment_insight_check": {
+			"speaker": "Narration",
+			"text": "[i]As the crew finishes gearing up, you study their faces. Their movements. Something about the way they prepare tells you things words can't.[/i]",
+			"type": "skill_check",
+			"check": {
+				"character": "avyanna",
+				"stat": "insight",
+				"skill": "insight",
+				"threshold": 13,
+				"dc": 13,
+				"on_success": "insight_success",
+				"on_failure": "insight_pass"
+			},
+			"next": "insight_pass"
+		},
+		"insight_success": {
+			"speaker": "Narration",
+			"text": "[i]You see it—the tells. Rho's grin doesn't reach his eyes. Vesper's breathing is too controlled, compensating for adrenaline. Jalen's hands are steady but he keeps touching his sidearm like he's reminding himself it's there. Elisira is the calmest, which means she's the most prepared for the worst. Nyx's conductive ink is slightly asymmetrical—she redrew the left arm pattern. Her writing hand shook.[/i]",
+			"next": "insight_elia_detail"
+		},
+		"insight_elia_detail": {
+			"speaker": "Narration",
+			"text": "[i]And Elia. Elia has checked her blades three times instead of the usual two. She's running the numbers in her head—who might not come back, and what she'll do if that happens. She's already carrying the grief of losses that haven't occurred yet.[/i]",
+			"set_flag": "insight_crew_reads",
+			"next": "waffle_climax_ready"
+		},
+		"insight_pass": {
+			"speaker": "Narration",
+			"text": "[i]The crew is ready. Whatever they're feeling, they've packed it behind the armor and the weapons and the trained composure. Professionals.[/i]",
+			"next": "waffle_climax_ready"
+		},
+
+		"waffle_climax_ready": {
+			"speaker": "Waffle.bat",
+			"text": "[i]{WAFFLE.BAT// ALL_SYSTEMS: combat ready | CREW_VITALS: elevated but stable | PERSONAL_NOTE: bring everyone home. please.}[/i]",
+			"next": "bubbles_climax_care"
+		},
+		"bubbles_climax_care": {
+			"speaker": "Bubbles",
+			"text": "[i]Softly, through the briefing room speakers:[/i] I'll be watching. All of you. Come back safe.",
+			"next": "cinnamon_climax_ops"
+		},
+		"cinnamon_climax_ops": {
+			"speaker": "Cinnamon",
+			"text": "Ship locked for combat. All subsystems optimal. Go.",
+			"next": "elia_speech_setup"
+		},
+
+		"elia_speech_setup": {
+			"speaker": "Narration",
+			"text": "[i]The crew stands in the briefing room. Armed. Armored. Ready. The holographic station turns between them like a ghost they're about to make real. Elia steps to the head of the table. She doesn't lean on it this time. She stands straight.[/i]",
+			"next": "elia_speech_1"
+		},
+		"elia_speech_1": {
+			"speaker": "Elia",
+			"text": "I'm not going to give you a speech about duty. You know duty. You live it every day on this ship, in every job we take, in every choice we make to stay together when walking away would be easier.",
+			"next": "elia_speech_2"
+		},
+		"elia_speech_2": {
+			"speaker": "Elia",
+			"text": "I'm not going to tell you the odds. Jalen already ran them. They're bad. [i][A few grim smiles around the table.][/i] But we've beaten bad odds before. That's not luck. That's us.",
+			"next": "elia_speech_3"
+		},
+		"elia_speech_3": {
+			"speaker": "Elia",
+			"text": "What I will tell you is this: inside that station are records that will determine whether Avyanna lives free or gets dragged back into a cage. [i][She looks at you.][/i] She's one of us. That makes this simple.",
+			"next": "elia_speech_4"
+		},
+		"elia_speech_4": {
+			"speaker": "Elia",
+			"text": "[i]Harder. Commander voice.[/i] But I want to be clear about something. This is not a suicide mission. We go in, we get the data, we get out. If the objective becomes impossible, we abort. If someone goes down, we carry them. If we have to choose between the data and a life—",
+			"next": "elia_speech_5"
+		},
+		"elia_speech_5": {
+			"speaker": "Elia",
+			"text": "[i]She looks at each of them. One at a time. Taking the measure.[/i] —we choose the life. Every time. No data is worth more than any one of you. [i][Beat.][/i] Not even mine.",
+			"next": "elia_speech_6"
+		},
+		"elia_speech_6": {
+			"speaker": "Elia",
+			"text": "[i]Quieter now. Personal.[/i] I found each of you in different places. Different kinds of broken. Different kinds of strong. And we built something here—in this ugly ship, with these mismatched chairs, with a floor that holds because we [i]make[/i] it hold.",
+			"next": "elia_speech_7"
+		},
+		"elia_speech_7": {
+			"speaker": "Elia",
+			"text": "[i]Her voice is steady. Her eyes are not.[/i] I am proud. Of all of you. Of what we are. And I am asking you to walk into something dangerous, not because I have the right to ask, but because you've given me that right. Every day. By staying.",
+			"next": "elia_speech_8"
+		},
+		"elia_speech_8": {
+			"speaker": "Elia",
+			"text": "[i]She draws one blade—not a threat. A salute.[/i] So let's go take what's ours. And let's come home.",
+			"next": "speech_reaction"
+		},
+		"speech_reaction": {
+			"speaker": "Narration",
+			"text": "[i]For a moment, no one moves. Then Rho slams a fist against his chest plate—once, hard, resonant. Vesper nods. Nyx raises her staff. Jalen closes his screens. Elisira draws a pistol and holds it up, barrel to the ceiling. And you—[/i]",
+			"next": "speech_player_choice"
+		},
+		"speech_player_choice": {
+			"speaker": "Narration",
+			"text": "[i]The crew waits for you. The newest member. The reason for all of it.[/i]",
+			"choices": [
+				{
+					"text": "[Draw your weapon and raise it with the crew]",
+					"next": "speech_response_weapon"
+				},
+				{
+					"text": "[Place your hand over the shard at your neck — your answer is in the pulse of it]",
+					"next": "speech_response_shard"
+				},
+				{
+					"text": "[Simply say: 'Floor holds.']",
+					"next": "speech_response_words"
+				}
+			]
+		},
+		"speech_response_weapon": {
+			"speaker": "Narration",
+			"text": "[i]You draw your sidearm and raise it. The gesture is understood—you are one of them. The weapon is a promise: you'll fight. You'll stay. You'll hold the floor.[/i]",
+			"next": "elia_floor_holds"
+		},
+		"speech_response_shard": {
+			"speaker": "Narration",
+			"text": "[i]Your hand finds the shard. It pulses—once, strong, warm—and the Lattice conduits in the room flicker in response. BEE's presence fills the space between your heartbeats. You are not just crew. You are the reason the cage will open.[/i]",
+			"next": "bee_speech_response"
+		},
+		"bee_speech_response": {
+			"speaker": "BEE",
+			"text": "{BEE:: host-affirmation registered | crew-bond acknowledged | the floor holds because we hold it—all of us, living and lattice-born}",
+			"next": "elia_floor_holds"
+		},
+		"speech_response_words": {
+			"speaker": "Avyanna",
+			"text": "[i]Quiet. Certain.[/i] Floor holds.",
+			"next": "speech_response_words_react"
+		},
+		"speech_response_words_react": {
+			"speaker": "Narration",
+			"text": "[i]Two words. But from you—the person they're risking everything for—they land like an oath. Elia's eyes shine. She nods once.[/i]",
+			"reputation": {
+				"elia": 1
+			},
+			"next": "elia_floor_holds"
+		},
+
+		"elia_floor_holds": {
+			"speaker": "Elia",
+			"text": "[i]Voice steady, ritual.[/i] Floor holds.",
+			"next": "crew_response"
+		},
+		"crew_response": {
+			"speaker": "Narration",
+			"text": "[i]The response is immediate, overlapping, muscle memory.[/i] 'Floor holds.'",
+			"next": "elia_final_words"
+		},
+		"elia_final_words": {
+			"speaker": "Elia",
+			"text": "We go in four hours. Gear up. Rest if you can. [i][She looks at each person.][/i] We're getting those records. And we're all coming home.",
+			"next": "final_tactical_review"
+		},
+
+		"final_tactical_review": {
+			"speaker": "Narration",
+			"text": "[i]The final hour. The crew runs through comms checks, weapon safeties, and one last review of the station schematic. Tension has crystallized into focus.[/i]",
+			"next": "jalen_comms_check"
+		},
+		"jalen_comms_check": {
+			"speaker": "Jalen",
+			"text": "Comms check. Assault team, channel alpha. Hold team, channel bravo. Emergency fallback on channel delta. [i][He taps his earpiece.][/i] If you hear static on alpha, switch to delta immediately. If delta goes down—",
+			"next": "jalen_comms_check_2"
+		},
+		"jalen_comms_check_2": {
+			"speaker": "Jalen",
+			"text": "[i]He pauses.[/i] If delta goes down, fall back to visual signals. Rho's flares. Vesper's tracer rounds. Nyx's Lattice pulse. We've drilled this. Trust the training.",
+			"next": "vesper_final_review"
+		},
+		"vesper_final_review": {
+			"speaker": "Vesper",
+			"text": "Overwatch positions mapped. Primary, secondary, and tertiary fallback points for extraction. [i][She looks at the schematic one final time.][/i] Sight lines confirmed. Counter-sniper protocols loaded. If they have marksmen, I'll find them first.",
+			"next": "rho_final_review"
+		},
+		"rho_final_review": {
+			"speaker": "Rho",
+			"text": "Breach charges calibrated. Three for bulkheads, two for emergency access, one reserve. [i][He holds up the last charge.][/i] This one's for something we haven't planned for. There's always something.",
+			"next": "nyx_final_review"
+		},
+		"nyx_final_review": {
+			"speaker": "Nyx",
+			"text": "Lattice disruption array is primed. I'll hit their outer wards the moment we're in range. The inner wards—the old ones—I'll assess in real-time. [i][She flexes her fingers and the conductive ink glows.][/i] I'm ready.",
+			"next": "elisira_final_review"
+		},
+		"elisira_final_review": {
+			"speaker": "Elisira",
+			"text": "Suppressed pistols, close-quarters loadout, Dreeve's likely command post flagged on the schematic. [i][She checks her watch—mechanical, analog, the only non-digital thing about her.][/i] Two minutes to insertion window.",
+			"next": "bee_final_analysis"
+		},
+		"bee_final_analysis": {
+			"speaker": "BEE",
+			"text": "{BEE:: final tactical assessment | all variables logged | crew cohesion: maximum observed value | probability models inadequate for this variable | conclusion: they will exceed expectations—they always do}",
+			"next": "final_departure_narration"
+		},
+		"final_departure_narration": {
+			"speaker": "Narration",
+			"text": "[i]The ship drops out of drift. The station appears in the viewport—a dark shape against darker void, running lights blinking like a mechanical heartbeat. It looks small from here. It won't feel small inside.[/i]",
+			"next": "elia_go_order"
+		},
+		"elia_go_order": {
+			"speaker": "Elia",
+			"text": "[i]One last look at her crew. Every face. Every name she carries.[/i] Teams to positions. Assault team forward. Hold team, secure extraction on my mark.",
+			"next": "elia_go_order_2"
+		},
+		"elia_go_order_2": {
+			"speaker": "Elia",
+			"text": "[i]Her hand finds the hilt of her blade. The ritual begins.[/i] We go quiet. We go fast. We go together. [i][She inhales. Holds it.][/i]",
+			"next": "elia_go_final"
+		},
+		"elia_go_final": {
+			"speaker": "Elia",
+			"text": "[b]Go.[/b]",
+			"next": "end_briefing"
+		},
+		"end_briefing": {
+			"speaker": "Narration",
+			"text": "[i]The airlock opens. The station waits. Seven people step forward into the dark—armed, afraid, and unwilling to let fear make the choice for them. The floor holds. The floor always holds. Until it doesn't. And then you find out what you're really made of.[/i]",
+			"choices": [
+				{
+					"text": "[Continue]",
+					"next": "end",
+					"set_flag": "act1_climax_ready"
+				}
+			]
+		}
+	}
+}

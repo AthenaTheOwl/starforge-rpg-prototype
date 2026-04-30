@@ -1,0 +1,111 @@
+{
+	"id": "elia",
+	"name": "Elia Albarn Lagrange",
+	"pronouns": "she/her",
+	"role": "Melee Specialist / Tank-DPS Hybrid",
+	"description": "De facto leader of the party. Dual relic blade fighter who leads from the front.",
+
+	"hp_max": 120,
+	"speed": 10,
+	"attack": 17,
+	"armor": 10,
+	"shields": 0,
+	"wards": 3,
+
+	"relic_weapon": {
+		"name_1": "Mourning",
+		"name_2": "After",
+		"type": "dual_blade",
+		"inlay": "Coherence Edge",
+		"inlay_effect": "Sever Synthetic tethers on strike"
+	},
+
+	"ability_slots": [
+		{
+			"slot": "core_1",
+			"name": "The Last Argument",
+			"primitives": ["strike"],
+			"description": "Heavy melee strike with both blades. High single-target physical damage.",
+			"base_damage": 30,
+			"damage_type": "physical",
+			"heat_cost": 1,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 4,
+			"charges": 4,
+			"statuses": []
+		},
+		{
+			"slot": "core_2",
+			"name": "Blade Storm",
+			"primitives": ["strike"],
+			"description": "Rapid multi-hit attack striking up to 3 enemies in melee range.",
+			"base_damage": 16,
+			"damage_type": "physical",
+			"heat_cost": 2,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 3,
+			"charges": 3,
+			"statuses": []
+		},
+		{
+			"slot": "utility_1",
+			"name": "Defensive Stance",
+			"primitives": ["guard"],
+			"description": "Enter a defensive posture. Reduces all incoming damage by 50% for 2 turns.",
+			"base_damage": 0,
+			"damage_type": "physical",
+			"heat_cost": 1,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 3,
+			"charges": 3,
+			"statuses": [{"name": "defending", "duration": 2}]
+		},
+		{
+			"slot": "utility_2",
+			"name": "Shield Wall",
+			"primitives": ["guard"],
+			"description": "Intercept attacks aimed at a chosen ally, absorbing damage for 1 turn.",
+			"base_damage": 0,
+			"damage_type": "physical",
+			"heat_cost": 1,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 3,
+			"charges": 3,
+			"statuses": [{"name": "shielding_ally", "duration": 1}]
+		},
+		{
+			"slot": "reaction",
+			"name": "Riposte",
+			"primitives": ["strike"],
+			"description": "Counter-attack when struck in melee. Deals damage back to the attacker.",
+			"base_damage": 18,
+			"damage_type": "physical",
+			"heat_cost": 1,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 2,
+			"charges": 2,
+			"statuses": []
+		},
+		{
+			"slot": "keystone",
+			"name": "Severing Strike",
+			"primitives": ["strike", "sever"],
+			"description": "A devastating blow that ignores all shields and wards. Severs Synthetic connections.",
+			"base_damage": 40,
+			"damage_type": "physical",
+			"heat_cost": 3,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 1,
+			"charges": 1,
+			"statuses": [{"name": "severed", "duration": 2}]
+		}
+	],
+
+	"tier": 1
+}

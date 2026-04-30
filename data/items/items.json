@@ -1,0 +1,304 @@
+{
+	"items": [
+		{
+			"id": "mourning_after",
+			"name": "Mourning & After",
+			"description": "Dual relic blades that exist in a way that makes geometry uncomfortable.",
+			"lore_text": "The Last Argument carries two names: one for what came before, one for what remains.",
+			"slot_type": "primary_weapon",
+			"damage_type": "physical",
+			"base_damage": 30,
+			"is_runed": true,
+			"rune_effects": ["sever_wards", "interrupt_casting"],
+			"is_relic": true,
+			"relic_lore": "Elia's paired blades. Stories claim she cleared a fortified corridor alone in under two minutes.",
+			"stat_modifiers": {"attack": 12, "speed": 2},
+			"inlay_slots": 2,
+			"inlays": [
+				{
+					"name": "Coherence Edge",
+					"effect": "Sever Synthetic tethers, wards, or locks on contact without extraction backlash.",
+					"effects": {"sever_power": 10, "heat_on_use": 2}
+				}
+			]
+		},
+		{
+			"id": "elia_light_armor",
+			"name": "Lagrange Combat Weave",
+			"description": "Lightweight tactical armor designed for unrestricted blade movement.",
+			"lore_text": "Cut to allow full range of motion. The seams tell a story of a hundred near-misses.",
+			"slot_type": "armor",
+			"weight_class": "light",
+			"stat_modifiers": {"armor": 6, "speed": 1},
+			"base_damage": 0,
+			"is_runed": false,
+			"is_relic": false
+		},
+		{
+			"id": "proportional",
+			"name": "Proportional",
+			"description": "Relic rotary cannon. Shapes explosions to suppress collateral.",
+			"lore_text": "Named for the doctrine: force proportional to threat. In Rho's hands, mercy is measured in blast radius.",
+			"slot_type": "primary_weapon",
+			"damage_type": "thermal",
+			"base_damage": 35,
+			"is_runed": false,
+			"is_relic": true,
+			"relic_lore": "The Breachwright's signature weapon. A liability in seventeen jurisdictions.",
+			"stat_modifiers": {"attack": 15, "speed": -3},
+			"inlay_slots": 1,
+			"inlays": [
+				{
+					"name": "Mercy Detonation Bracket",
+					"effect": "Shape explosions to reduce collateral. Area attacks gain precision targeting.",
+					"effects": {"collateral_reduction": 50, "precision": 5}
+				}
+			]
+		},
+		{
+			"id": "rho_heavy_armor",
+			"name": "Breachwright Plating",
+			"description": "Heavy armor rated for demolitions work and close-range detonation.",
+			"lore_text": "Every scorch mark is a lesson learned at uncomfortable proximity.",
+			"slot_type": "armor",
+			"weight_class": "heavy",
+			"stat_modifiers": {"armor": 15, "speed": -4},
+			"base_damage": 0,
+			"is_runed": false,
+			"is_relic": false
+		},
+		{
+			"id": "veil_verdict",
+			"name": "Veil & Verdict",
+			"description": "Relic dual pistols. Surgical precision through active camouflage.",
+			"lore_text": "The youngest relic weapons. Made by a Sutured weaponsmith who owed a debt.",
+			"slot_type": "primary_weapon",
+			"damage_type": "physical",
+			"base_damage": 22,
+			"is_runed": true,
+			"rune_effects": ["ghost_shots", "sensor_spoof"],
+			"is_relic": true,
+			"relic_lore": "The Silent Verdict's instruments. Targets don't see the shots coming.",
+			"stat_modifiers": {"attack": 10, "speed": 3},
+			"inlay_slots": 2,
+			"inlays": [
+				{
+					"name": "Veil Stitch",
+					"effect": "Fire through spoofed sensor fields. Create ghost shots that appear from nowhere.",
+					"effects": {"stealth_attack": 8, "sensor_disruption": 5}
+				}
+			]
+		},
+		{
+			"id": "elisira_light_armor",
+			"name": "Veilrunner Skinsuit",
+			"description": "Ultra-light stealth armor with integrated sensor baffles.",
+			"lore_text": "The suit doesn't make you invisible. It makes the universe forget to look.",
+			"slot_type": "armor",
+			"weight_class": "light",
+			"stat_modifiers": {"armor": 4, "speed": 3},
+			"base_damage": 0,
+			"is_runed": false,
+			"is_relic": false
+		},
+		{
+			"id": "elisira_veil_focus",
+			"name": "Lattice Veil Focus",
+			"description": "Ward focus that enhances sensor spoofing and stealth fields.",
+			"lore_text": "Not a shield. A suggestion to the universe that you were never here.",
+			"slot_type": "ward_focus",
+			"stat_modifiers": {"wards": 6, "lattice_affinity": 3},
+			"base_damage": 0,
+			"is_runed": false,
+			"is_relic": false
+		},
+		{
+			"id": "clarity",
+			"name": "Clarity",
+			"description": "Relic sniper rifle. Heavily self-modified. Never misses.",
+			"lore_text": "God Eye sees what others cannot. Clarity makes the universe agree.",
+			"slot_type": "primary_weapon",
+			"damage_type": "physical",
+			"base_damage": 40,
+			"is_runed": false,
+			"is_relic": true,
+			"relic_lore": "Vesper's primary. Can shoot weapons out of hands from 200 meters. Constantly modified.",
+			"stat_modifiers": {"attack": 18, "speed": -1},
+			"inlay_slots": 2,
+			"inlays": [
+				{
+					"name": "Covenant Thread",
+					"effect": "Emotional bond-based targeting. Share threat awareness with bonded allies.",
+					"effects": {"accuracy": 10, "bond_sense": 5}
+				}
+			]
+		},
+		{
+			"id": "witness",
+			"name": "Witness",
+			"description": "Relic revolver. Sidearm of the God Eye.",
+			"lore_text": "For when distance is a luxury you can't afford.",
+			"slot_type": "secondary_weapon",
+			"damage_type": "physical",
+			"base_damage": 18,
+			"is_runed": false,
+			"is_relic": true,
+			"relic_lore": "Vesper's backup. As heavily modified as its sister weapon.",
+			"stat_modifiers": {"attack": 8},
+			"inlay_slots": 1,
+			"inlays": []
+		},
+		{
+			"id": "vesper_medium_armor",
+			"name": "Fixer's Tactical Coat",
+			"description": "Medium armor that looks like civilian clothing. Guild standard.",
+			"lore_text": "The best armor is the kind nobody knows you're wearing.",
+			"slot_type": "armor",
+			"weight_class": "medium",
+			"stat_modifiers": {"armor": 8, "speed": 0},
+			"base_damage": 0,
+			"is_runed": false,
+			"is_relic": false
+		},
+		{
+			"id": "vesper_ward_focus",
+			"name": "Covenant Thread Ward Focus",
+			"description": "Ward focus attuned to emotional bond networks. Enhances team awareness.",
+			"lore_text": "The thread doesn't protect you. It tells you who needs protecting.",
+			"slot_type": "ward_focus",
+			"stat_modifiers": {"wards": 5, "trust": 5},
+			"base_damage": 0,
+			"is_runed": false,
+			"is_relic": false
+		},
+		{
+			"id": "threshold",
+			"name": "Threshold",
+			"description": "Relic staff. Makes bullets forget their destinations.",
+			"lore_text": "The boundary between here and elsewhere is thinner than you think.",
+			"slot_type": "primary_weapon",
+			"damage_type": "resonance",
+			"base_damage": 25,
+			"is_runed": true,
+			"rune_effects": ["locality_bend", "ward_bypass"],
+			"is_relic": true,
+			"relic_lore": "The Liminal's instrument. Can adjust doorways and bend locality.",
+			"stat_modifiers": {"attack": 8, "lattice_affinity": 10},
+			"inlay_slots": 2,
+			"inlays": [
+				{
+					"name": "Suture Bloom",
+					"effect": "Healing resonance through scar-based witness doctrine. Mend wounds by acknowledging them.",
+					"effects": {"heal_power": 8, "ward_regen": 3}
+				}
+			]
+		},
+		{
+			"id": "nyx_robes",
+			"name": "Liminal Vestments",
+			"description": "Robes woven with locality-bending threads. Barely qualifies as armor.",
+			"lore_text": "The fabric exists in a state of gentle disagreement with physics.",
+			"slot_type": "armor",
+			"weight_class": "light",
+			"stat_modifiers": {"armor": 2, "wards": 4, "lattice_affinity": 5},
+			"base_damage": 0,
+			"is_runed": false,
+			"is_relic": false
+		},
+		{
+			"id": "nyx_ward_focus",
+			"name": "Suture Bloom Ward Focus",
+			"description": "Ward focus rooted in Sutured witness doctrine. Heals through acknowledgment.",
+			"lore_text": "Every scar is a lesson. Every lesson is a door.",
+			"slot_type": "ward_focus",
+			"stat_modifiers": {"wards": 8, "lattice_affinity": 4},
+			"base_damage": 0,
+			"is_runed": false,
+			"is_relic": false
+		},
+		{
+			"id": "jalen_multitool",
+			"name": "Navigator's Multitool",
+			"description": "Combination diagnostic tool, emergency weapon, and Bearing focus.",
+			"lore_text": "The tool doesn't find the path. The path finds the tool.",
+			"slot_type": "primary_weapon",
+			"damage_type": "shock",
+			"base_damage": 10,
+			"is_runed": false,
+			"is_relic": false,
+			"stat_modifiers": {"attack": 4, "speed": 2},
+			"rune_effects": []
+		},
+		{
+			"id": "jalen_medium_armor",
+			"name": "Pilot's Flight Suit",
+			"description": "Medium armor with integrated navigation displays and emergency seals.",
+			"lore_text": "Standard issue, heavily non-standard modified.",
+			"slot_type": "armor",
+			"weight_class": "medium",
+			"stat_modifiers": {"armor": 7, "speed": 1},
+			"base_damage": 0,
+			"is_runed": false,
+			"is_relic": false
+		},
+		{
+			"id": "avyanna_starter_blade",
+			"name": "Training Blade",
+			"description": "A simple blade for practice. Elia insists on starting with fundamentals.",
+			"lore_text": "Every legend started with something like this.",
+			"slot_type": "primary_weapon",
+			"damage_type": "physical",
+			"base_damage": 8,
+			"is_runed": false,
+			"is_relic": false,
+			"stat_modifiers": {"attack": 3},
+			"rune_effects": []
+		},
+		{
+			"id": "avyanna_light_armor",
+			"name": "Salvaged Work Clothes",
+			"description": "Reinforced worker clothing from Site K-9. Not much, but it's hers.",
+			"lore_text": "She kept them. Not because they're good armor. Because they're proof she survived.",
+			"slot_type": "armor",
+			"weight_class": "light",
+			"stat_modifiers": {"armor": 3},
+			"base_damage": 0,
+			"is_runed": false,
+			"is_relic": false
+		}
+	],
+	"starting_equipment": {
+		"elia": {
+			"primary_weapon": "mourning_after",
+			"armor": "elia_light_armor"
+		},
+		"rho": {
+			"primary_weapon": "proportional",
+			"armor": "rho_heavy_armor"
+		},
+		"elisira": {
+			"primary_weapon": "veil_verdict",
+			"armor": "elisira_light_armor",
+			"ward_focus": "elisira_veil_focus"
+		},
+		"vesper": {
+			"primary_weapon": "clarity",
+			"secondary_weapon": "witness",
+			"armor": "vesper_medium_armor",
+			"ward_focus": "vesper_ward_focus"
+		},
+		"nyx": {
+			"primary_weapon": "threshold",
+			"armor": "nyx_robes",
+			"ward_focus": "nyx_ward_focus"
+		},
+		"jalen": {
+			"primary_weapon": "jalen_multitool",
+			"armor": "jalen_medium_armor"
+		},
+		"avyanna": {
+			"primary_weapon": "avyanna_starter_blade",
+			"armor": "avyanna_light_armor"
+		}
+	}
+}

@@ -1,0 +1,66 @@
+{
+	"id": "act1_command_bridge",
+	"name": "Lumen Thief — Command Bridge (War Room Configuration)",
+	"description": "The bridge has transformed. What was a compact navigation hub is now something else: a war room, reconfigured for the kind of planning that happens before everything changes.\n\nThe central holographic display dominates the space—three meters wide, projecting a tactical map of Site K-9 and the surrounding extraction network. Routes highlighted in amber. Security patrol patterns in red. Structural weak points marked in green. The data Jalen pulled from the tech cache, rendered in three dimensions and annotated with the kind of precision that comes from people who've done this before.\n\nConsoles arranged in a semicircle around the holo-display, each one showing different intelligence streams: corporate security frequencies, Guild arbitration protocols, Lattice resonance readings from the deep tunnels. Vesper is at one, cross-referencing entry vectors. Rho is checking equipment manifests, muttering about ammunition counts.\n\nThe crew is here. All of them. Nyx standing near the viewport, eyes half-closed, mapping something you can't see. Jalen at navigation, plotting insertion routes that probably shouldn't be possible. Elia reviewing legal frameworks for what happens after—if there's an after.\n\nThis isn't exploration anymore. This is preparation. The kind that ends in action.\n\n[i](The conspiracy is documented. The evidence is compiled. Now comes the part where you do something about it.)[/i]",
+	"actions": [
+		{
+			"type": "examine",
+			"label": "Review mission data",
+			"requires_flag": "conspiracy_revealed",
+			"examine_text": "The holographic display shows everything you've learned:\n\n[b]CORPORATE MALFEASANCE - CONFIRMED:[/b]\n- Site K-9 operated with full knowledge of Lattice instability\n- Worker safety concerns systematically suppressed\n- Extraction quotas maintained despite critical risk thresholds\n- Documentation of 'acceptable losses' spanning 6+ years\n\n[b]OPERATIONAL TARGETS:[/b]\n- Deep tunnel access points (7-Gamma, 9-Delta)\n- Corporate data archives (on-site)\n- Worker evacuation routes (if intervention triggers lockdown)\n- Executive personnel (arrest/detention pending Guild authority)\n\n[b]MISSION PARAMETERS:[/b]\n- Primary: Secure additional evidence for Guild prosecution\n- Secondary: Disable ongoing extraction operations\n- Tertiary: Evacuate at-risk workers if opportunity permits\n\n[b]RISK ASSESSMENT:[/b]\n[color=red]HIGH[/color] - Corporate security will resist. Lattice instability may trigger cascade events. No backup available.\n\nVesper: [from across the bridge] It's not a clean op. It never was going to be. But if we don't do this, nothing changes. Site K-9 keeps running. Other sites keep running. The math stays the same.\n\n[i](You look at the map. At the routes. At the red zones marking security presence. This is what revolution looks like when you scale it down to one ship, one crew, one impossible decision.)[/i]"
+		},
+		{
+			"type": "examine",
+			"label": "Check team assignments",
+			"requires_flag": "conspiracy_revealed",
+			"examine_text": "Vesper has divided the crew into operational teams:\n\n[b]INFILTRATION TEAM:[/b] Avyanna, Vesper, Nyx\n- Objective: Access corporate archives, extract data, disable security\n- Route: Secondary maintenance corridors (Jalen's ghosts routes)\n- Equipment: Light armor, stealth priority\n\n[b]SUPPORT TEAM:[/b] Rho, Jalen, Elia\n- Objective: Monitor from ship, provide extraction/overwatch\n- Route: Lumen Thief remains in high orbit, ready for emergency retrieval\n- Equipment: Ship systems, communication relays, medical standby\n\n[b]CONTINGENCY:[/b] If Lattice cascade begins, all personnel evacuate immediately. No heroics. No exceptions.\n\nRho: [checking weapon loadouts] I don't love being stuck on the ship.\n\nVesper: [not looking up] I need someone I trust keeping the exit open. That's you.\n\nRho: [beat] ...Fine. But if you die down there, I'm going to be very annoyed.\n\n[i](The plan is solid. As solid as plans get when you're breaking into a corporate extraction site with a skeleton crew and evidence that might not be enough. But it's what you have.)[/i]"
+		},
+		{
+			"type": "talk",
+			"label": "Talk to Vesper — Strategic briefing",
+			"dialogue_id": "act1_vesper_briefing",
+			"tooltip": "Vesper wants to walk through the mission one more time",
+			"requires_flag": "conspiracy_revealed"
+		},
+		{
+			"type": "talk",
+			"label": "Talk to Nyx — Lattice considerations",
+			"dialogue_id": "act1_nyx_briefing",
+			"tooltip": "Nyx is monitoring resonance patterns",
+			"requires_flag": "conspiracy_revealed"
+		},
+		{
+			"type": "talk",
+			"label": "Talk to Jalen — Navigation and extraction",
+			"dialogue_id": "act1_jalen_briefing",
+			"tooltip": "Jalen has concerns about the insertion route",
+			"requires_flag": "conspiracy_revealed"
+		},
+		{
+			"type": "flag",
+			"label": "Assign teams (Begin mission preparation)",
+			"requires_flag": "conspiracy_revealed",
+			"flag": "teams_assigned",
+			"result_text": "You confirm the assignments. The crew moves into final preparation—checking equipment, running system diagnostics, reviewing contingencies.\n\nNyx draws protective wards on the deck plating near the airlock, murmuring something in a language you don't recognize. Rho loads magazines with the methodical patience of someone who's done this too many times. Jalen plots three backup extraction routes, muttering about probability curves.\n\nVesper stands at the holo-display, studying the map. When she sees you looking, she nods once. Not reassurance. Acknowledgment.\n\nThis is happening. You're going back to Site K-9. Not as Worker 477. As something else.\n\n[i](The shard pulses. Warm. Ready.)[/i]\n\n[b]Mission preparation complete. Act 1 climax sequence ready to launch.[/b]"
+		},
+		{
+			"type": "flag",
+			"label": "Launch mission — Return to Site K-9",
+			"requires_flag": "teams_assigned",
+			"flag": "act1_climax_ready",
+			"result_text": "Vesper: [to the crew] All right. You know the plan. Infiltration team inserts via maintenance corridor 7-C, accesses corporate archive, extracts data, gets out. Support team maintains overwatch and keeps the ship ready for emergency extraction.\n\nNyx: [quietly] The Lattice will react. It always does. Stay grounded. Don't run hot.\n\nJalen: [from navigation] Insertion window opens in forty minutes. I'll get you there. Getting you back is your job.\n\nRho: [loading a sidearm, offering it to Avyanna] You remember how to use this?\n\nAvyanna: [taking the weapon] I'm remembering a lot of things lately.\n\nVesper: [small smile] Good. Let's go ruin a quarterly earnings report.\n\n[i](The Lumen Thief drops out of high orbit. The mine grows larger in the viewport. And somewhere in the deep tunnels, the shard embedded in your skull begins to hum.)[/i]\n\n[b]ACT 1 CLIMAX SEQUENCE INITIATED.[/b]\n\n[i](TO BE CONTINUED...)[/i]"
+		},
+		{
+			"type": "move",
+			"label": "Return to ship quarters",
+			"target_location": "act1_ship_quarters",
+			"excludes_flag": "act1_climax_ready"
+		},
+		{
+			"type": "move",
+			"label": "Head to bridge",
+			"target_location": "act1_lumen_thief_bridge",
+			"excludes_flag": "act1_climax_ready"
+		}
+	]
+}

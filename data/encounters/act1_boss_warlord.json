@@ -1,0 +1,32 @@
+{
+  "id": "act1_boss_warlord",
+  "name": "The Warlord",
+  "description": "BOSS ENCOUNTER. The raider warlord stands alone - until you push them to half health. Then they rally reinforcements and the real fight begins.",
+  "waves": [
+    {
+      "description": "The Warlord - Phase 1",
+      "enemies": [
+        {"type": "raider_warlord", "count": 1}
+      ]
+    },
+    {
+      "description": "Reinforcements arrive at 50% HP",
+      "enemies": [
+        {"type": "raider_scrapper", "count": 2}
+      ],
+      "trigger": "warlord_50_percent_hp"
+    }
+  ],
+  "environment": {
+    "static_zone": false,
+    "arena_grounds": true,
+    "boss_encounter": true
+  },
+  "victory_condition": "defeat_all",
+  "defeat_consequence": "retry",
+  "rewards": {
+    "experience": 300,
+    "flags": ["warlord_defeated", "act1_boss_complete"]
+  },
+  "loot": []
+}

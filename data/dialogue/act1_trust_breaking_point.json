@@ -1,0 +1,203 @@
+{
+  "start_node": "start",
+  "nodes": {
+    "start": {
+      "speaker": "SYSTEM",
+      "text": "[i]The common area. Voices raised—not the careful sparring of Sparkle Doctrine, but something sharper. Raw.[/i]",
+      "next": "elia_position"
+    },
+    "elia_position": {
+      "speaker": "Elia",
+      "text": "We took the contract. We finish it. That's the floor.",
+      "next": "vesper_counter"
+    },
+    "vesper_counter": {
+      "speaker": "Vesper",
+      "text": "[i]Jaw tight.[/i] The floor includes not walking into a trap. The client lied about the security. You saw the feeds.",
+      "next": "elia_dismissive"
+    },
+    "elia_dismissive": {
+      "speaker": "Elia",
+      "text": "Security we can handle. We've handled worse.",
+      "next": "vesper_harder"
+    },
+    "vesper_harder": {
+      "speaker": "Vesper",
+      "text": "[i]Colder.[/i] Handling it isn't the same as walking in blind. You're prioritizing completion over crew safety.",
+      "next": "rho_interjects"
+    },
+    "rho_interjects": {
+      "speaker": "Rho",
+      "text": "[i]Grin gone.[/i] Hold up. Both of you. We're not doing this.",
+      "next": "elia_snaps"
+    },
+    "elia_snaps": {
+      "speaker": "Elia",
+      "text": "[i]Turning on him.[/i] Doing what? Making a call? That's my job.",
+      "next": "rho_challenges"
+    },
+    "rho_challenges": {
+      "speaker": "Rho",
+      "text": "Your job is [b]routing traffic[/b], not making unilateral calls that risk everyone. Vesper's right—the client lied. That changes the contract.",
+      "next": "vesper_supports"
+    },
+    "vesper_supports": {
+      "speaker": "Vesper",
+      "text": "[i]To Elia, voice like a blade.[/i] You taught me floors, not thrones. So why are you acting like a captain right now?",
+      "next": "elia_stung"
+    },
+    "elia_stung": {
+      "speaker": "Elia",
+      "text": "[i]Jaw working. The hit landed.[/i] That's not—",
+      "next": "vesper_presses"
+    },
+    "vesper_presses": {
+      "speaker": "Vesper",
+      "text": "It is. You're deciding for all of us. Without asking. Without explaining the math. [i][Beat.][/i] That's not the floor. That's a throne.",
+      "next": "player_choice"
+    },
+    "player_choice": {
+      "speaker": "SYSTEM",
+      "text": "[i]The tension is a live wire. Rho's hands are fists. Vesper's eyes are flat. Elia's blade hand twitches. This could break badly.[/i]",
+      "choices": [
+        {
+          "text": "[Intervene] They need to hear each other. Step in.",
+          "next": "intervene_check",
+          "set_flag": "trust_intervention_attempted"
+        },
+        {
+          "text": "[Let It Play Out] This is crew business. Stay quiet.",
+          "next": "play_out_resolution",
+          "set_flag": "trust_crisis_witnessed"
+        }
+      ]
+    },
+    "intervene_check": {
+      "speaker": "SYSTEM",
+      "text": "[i]You step forward. Three pairs of eyes turn to you. This requires empathy—the ability to hold space for anger without flinching.[/i]",
+      "type": "skill_check",
+      "check": {
+        "character": "avyanna",
+        "stat": "empathy",
+        "threshold": 3,
+        "on_success": "intervene_success",
+        "on_failure": "intervene_failure"
+      },
+      "next": "end"
+    },
+    "intervene_success": {
+      "speaker": "Avyanna",
+      "text": "[i]Voice steady.[/i] Elia. You're not wrong that we can handle security. Vesper's not wrong that we're walking in blind. But you're both angry about something else.",
+      "next": "intervene_elia_reaction"
+    },
+    "intervene_elia_reaction": {
+      "speaker": "Elia",
+      "text": "[i]She stops. Blinks.[/i] What?",
+      "next": "intervene_vesper_reaction"
+    },
+    "intervene_vesper_reaction": {
+      "speaker": "Avyanna",
+      "text": "Vesper's scared you'll get hurt. Elia's scared of breaking the contract and losing crew trust. You're both right. You're both scared. [i][Beat.][/i] So say that instead.",
+      "next": "intervene_silence"
+    },
+    "intervene_silence": {
+      "speaker": "SYSTEM",
+      "text": "[i]Silence. Long enough to hurt. Then Elia exhales.[/i]",
+      "next": "intervene_elia_concedes"
+    },
+    "intervene_elia_concedes": {
+      "speaker": "Elia",
+      "text": "[i]Quieter.[/i] She's right. I was impatient. I wanted it done. I didn't explain the math.",
+      "next": "intervene_vesper_concedes"
+    },
+    "intervene_vesper_concedes": {
+      "speaker": "Vesper",
+      "text": "[i]After a beat.[/i] And I should have said I was afraid instead of making it about procedure. [i][She looks at you.][/i] How did you—",
+      "next": "intervene_avyanna_response"
+    },
+    "intervene_avyanna_response": {
+      "speaker": "Avyanna",
+      "text": "[i]Shrugging.[/i] I'm good at watching. You taught me to speak up. So I did.",
+      "next": "intervene_resolution"
+    },
+    "intervene_resolution": {
+      "speaker": "SYSTEM",
+      "text": "[i]Rho laughs—surprised, relieved. The tension breaks. Not gone, but defused. You did that.[/i]",
+      "next": "waffle_crisis_log"
+    },
+    "intervene_failure": {
+      "speaker": "Avyanna",
+      "text": "[i]Voice uncertain.[/i] Maybe you should—I mean, you could try—",
+      "next": "failure_elia_reaction"
+    },
+    "failure_elia_reaction": {
+      "speaker": "Elia",
+      "text": "[i]Sharper than intended.[/i] Not now, Avyanna.",
+      "next": "failure_vesper_cold"
+    },
+    "failure_vesper_cold": {
+      "speaker": "Vesper",
+      "text": "[i]Flat.[/i] This isn't your problem to solve. We'll handle it.",
+      "next": "failure_withdrawal"
+    },
+    "failure_withdrawal": {
+      "speaker": "SYSTEM",
+      "text": "[i]You step back, stung. The argument continues without you—louder, harder, until Rho forces a recess. It ends, eventually. But it leaves a mark.[/i]",
+      "next": "waffle_crisis_log"
+    },
+    "play_out_resolution": {
+      "speaker": "SYSTEM",
+      "text": "[i]You watch. Silent. The argument escalates—Vesper's hands shake, Elia's blade hand drifts to her hilt, Rho steps between them—[/i]",
+      "next": "play_out_rho"
+    },
+    "play_out_rho": {
+      "speaker": "Rho",
+      "text": "[i]Voice hard.[/i] [b]Stop.[/b] Both of you. Right now.",
+      "next": "play_out_pause"
+    },
+    "play_out_pause": {
+      "speaker": "SYSTEM",
+      "text": "[i]They stop. Breathing hard. Rho looks between them.[/i]",
+      "next": "play_out_rho_assessment"
+    },
+    "play_out_rho_assessment": {
+      "speaker": "Rho",
+      "text": "You're both right. You're both scared. And you're both acting like this is about the contract when it's about trust. [i][Beat.][/i] So either say that, or take a break and come back when you can.",
+      "next": "play_out_break"
+    },
+    "play_out_break": {
+      "speaker": "SYSTEM",
+      "text": "[i]Elia leaves. Vesper sits, head in hands. Rho exhales. The crisis passes—unresolved, but not broken. You witnessed it. That matters too.[/i]",
+      "next": "waffle_crisis_log"
+    },
+    "waffle_crisis_log": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// OBSERVATION: crew stress levels elevated | RECOMMENDATION: cooling period 2 hours minimum | NOTE: I am monitoring. I am here.}[/i]",
+      "next": "bubbles_crisis_comfort"
+    },
+    "bubbles_crisis_comfort": {
+      "speaker": "Bubbles",
+      "text": "[i]Quietly through the speakers, after the others have left:[/i] It's okay, Avyanna. Families fight. It doesn't mean they're broken.",
+      "next": "cinnamon_crisis_pragmatic"
+    },
+    "cinnamon_crisis_pragmatic": {
+      "speaker": "Cinnamon",
+      "text": "Operational readiness unaffected. Crew conflict: temporary. Focus on the work.",
+      "next": "resolution_outcome"
+    },
+    "resolution_outcome": {
+      "speaker": "SYSTEM",
+      "text": "[i]Later, the crew will reconvene. They'll finish the conversation. But something shifted here—for better or worse.[/i]",
+      "choices": [
+        {
+          "text": "[Continue]",
+          "next": "end",
+          "set_flag": "trust_crisis_resolved",
+          "reputation": {
+            "crew_trust": 1
+          }
+        }
+      ]
+    }
+  }
+}

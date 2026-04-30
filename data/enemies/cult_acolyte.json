@@ -1,0 +1,39 @@
+{
+  "id": "cult_acolyte",
+  "name": "Cult Acolyte",
+  "family": "cult",
+  "description": "Low-ranking ward caster who channels resonance for bolts and minor healing. Fragile without ward protection.",
+  "hp_max": 30,
+  "speed": 8,
+  "attack": 6,
+  "armor": 1,
+  "shields": 2,
+  "wards": 8,
+  "weakness": "Silence effects shut down all abilities, rendering them nearly helpless.",
+  "abilities": [
+    {
+      "name": "Ward Bolt",
+      "base_damage": 12,
+      "damage_type": "resonance",
+      "heat_cost": 0,
+      "uses_lattice": true,
+      "cli_cost": 0,
+      "statuses": []
+    },
+    {
+      "name": "Minor Heal",
+      "base_damage": 0,
+      "damage_type": "resonance",
+      "heat_cost": 0,
+      "uses_lattice": true,
+      "cli_cost": 0,
+      "target": "ally",
+      "statuses": [
+        {
+          "name": "heal",
+          "value": 15
+        }
+      ]
+    }
+  ]
+}

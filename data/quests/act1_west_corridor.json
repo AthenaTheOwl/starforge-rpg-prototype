@@ -1,0 +1,24 @@
+{
+	"id": "act1_west_corridor",
+	"name": "West Corridor — Site K-9",
+	"description": "The corridor is choked with smoke and emergency lighting. The alarms have settled into a steady rhythm—the facility's heartbeat, panicking.\n\nDebris from the eastern breach has scattered this far. A ceiling panel hangs by one corner, swaying. Through the smoke, you can see the processing hub junction ahead.\n\nAnd someone is running toward you.\n\nArmored. Armed. Moving like violence is a language she speaks fluently.\n\n[i](Every instinct says run. But the Lattice says—)[/i]\n\n[i]{BEE:: incoming signature | not extraction personnel | different | DIFFERENT}[/i]",
+	"actions": [
+		{
+			"type": "talk",
+			"label": "Face the approaching figure",
+			"dialogue_id": "act1_elia_rescue"
+		},
+		{
+			"type": "examine",
+			"label": "Hide behind the debris",
+			"examine_text": "You duck behind a collapsed section of wall paneling. Old habit—make yourself small, make yourself invisible.\n\nBut the figure has already seen you. She slows, blades lowering slightly—not sheathing, lowering. The gesture of someone who is dangerous but is choosing not to be.\n\n\"I can see you,\" she says. Not unkindly. \"And I'm not here for what they're here for.\""
+		},
+		{
+			"type": "examine",
+			"label": "Check for other escape routes",
+			"examine_text": "Maintenance hatch: sealed. East corridor: on fire. West exit: blocked by the approaching figure.\n\nNorth service tunnel: possible, if you can reach the access panel twenty meters behind you. But that leads deeper into the facility.\n\n[i](Deeper in is not out. Deeper in is more extraction rooms, more monitoring stations, more of everything you're trying to leave.)[/i]\n\nThe approaching figure is your best option. Your only option.",
+			"flag": "checked_escape_routes",
+			"flag_value": true
+		}
+	]
+}

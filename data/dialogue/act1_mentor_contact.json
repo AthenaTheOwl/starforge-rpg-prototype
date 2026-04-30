@@ -1,0 +1,225 @@
+{
+	"start_node": "start",
+	"nodes": {
+		"start": {
+			"speaker": "SYSTEM",
+			"text": "[i]The comms panel crackles. Not the usual hiss of empty channels—something else. A deliberate signal, encrypted, threading through frequencies the ship shouldn't be monitoring.[/i]",
+			"next": "waffle_alert"
+		},
+		"waffle_alert": {
+			"speaker": "Waffle.bat",
+			"text": "Unknown transmission. Source: [b]redacted[/b]. Encryption: custom. Not Guild. Not Compact. Someone built this specifically to reach us.",
+			"next": "signal_incoming"
+		},
+		"signal_incoming": {
+			"speaker": "SYSTEM",
+			"text": "[i]Static blooms, then clears just enough to carry a voice—low, careful, masked beneath layers of noise.[/i]",
+			"next": "mentor_greeting"
+		},
+		"mentor_greeting": {
+			"speaker": "???",
+			"text": "[i][Static][/i] —listening? Good. Don't respond yet. Just hear this: [b]the girl you rescued from Site K-9 is more valuable than you know.[/b]",
+			"next": "mentor_warning"
+		},
+		"mentor_warning": {
+			"speaker": "???",
+			"text": "Corporate interest in Avyanna isn't coincidence. They know what she's carrying. They'll come for her. Not now—but soon. When they do, it won't be a raid. It'll be [b]legal extraction[/b].",
+			"next": "elia_listens"
+		},
+		"elia_listens": {
+			"speaker": "Elia",
+			"text": "[i]Jaw tight, hand near her blade.[/i] Who the hell is this?",
+			"next": "mentor_deflect"
+		},
+		"mentor_deflect": {
+			"speaker": "???",
+			"text": "Someone who wants her to survive. Someone who's been watching the Kennel for fifteen years. [i][Static surge][/i] —doesn't matter who I am. What matters is [b]she's a target[/b].",
+			"next": "mentor_reveal_shard"
+		},
+		"mentor_reveal_shard": {
+			"speaker": "???",
+			"text": "The shard in her spine? Pre-Synthetic. Primordial. The Debtors want it back. Aurum Extraction wants compensation. The Compact will call it [b]controlled substance trafficking[/b].",
+			"next": "mentor_lattice_hint"
+		},
+		"mentor_lattice_hint": {
+			"speaker": "???",
+			"text": "But the shard isn't what makes her dangerous. It's what it woke up. [i][Static crackle][/i] Her resonance with the Lattice—that's why they took her in the first place. That's why [b]extraction[/b] wasn't random.",
+			"next": "bee_agitation_early"
+		},
+		"bee_agitation_early": {
+			"speaker": "SYSTEM",
+			"text": "{BEE:: lattice resonance referenced — unknown source | ELEVATED | pattern matches restricted K-9 documentation}",
+			"next": "mentor_preextraction"
+		},
+		"mentor_preextraction": {
+			"speaker": "???",
+			"text": "Before they pulled her out of wherever she was born, she was [b]flagged[/b]. A Lattice-sensitive child, manifesting at age three. The Debtors bid on her like cattle at market. Aurum won.",
+			"next": "mentor_targeted"
+		},
+		"mentor_targeted": {
+			"speaker": "???",
+			"text": "She wasn't rescued from K-9, not really. She was [b]moved[/b]. From one cage to a smaller one. The shard was their leash. And now that she's loose— [i][static hiss][/i] —they want their investment back.",
+			"next": "player_choice"
+		},
+		"player_choice": {
+			"speaker": "SYSTEM",
+			"text": "[i]The voice waits. Elia looks at you. The choice is yours.[/i]",
+			"choices": [
+				{
+					"text": "[Trust] Ask them what we should do.",
+					"next": "trust_response",
+					"set_flag": "mentor_trusted",
+					"reputation": {"unknown_ally": 1}
+				},
+				{
+					"text": "[Demand Answers] Who are you? Why should we believe this?",
+					"next": "demand_response",
+					"set_flag": "mentor_questioned"
+				},
+				{
+					"text": "[Cut Transmission] This is manipulation. End it now.",
+					"next": "cut_response",
+					"set_flag": "mentor_rejected"
+				},
+				{
+					"text": "[Trace Signal] Keep them talking. Waffle—lock onto that signal.",
+					"next": "trace_attempt",
+					"set_flag": "mentor_traced"
+				}
+			]
+		},
+		"trust_response": {
+			"speaker": "???",
+			"text": "[i]A pause. The static shifts—something like relief.[/i] Smart. Keep her off station registries. Stay mobile. Don't let her touch Compact medical scanners. And when the time comes... trust the shard.",
+			"next": "trust_followup"
+		},
+		"trust_followup": {
+			"speaker": "???",
+			"text": "I'll contact you again when it's safe. Until then—[b]keep her hidden. Keep her learning.[/b]",
+			"next": "mentor_crew_warning",
+			"set_flag": "mentor_contacted"
+		},
+		"demand_response": {
+			"speaker": "???",
+			"text": "[i]A sound that might be a laugh, distorted through static.[/i] Fair question. I'm someone who failed to get her out sooner. Someone who's trying to make that right.",
+			"next": "demand_followup"
+		},
+		"demand_followup": {
+			"speaker": "???",
+			"text": "Believe me or don't. But [b]watch the corporate feeds[/b]. Watch for Aurum Extraction filing debt recovery claims. You'll see I'm right.",
+			"next": "mentor_crew_warning",
+			"set_flag": "mentor_contacted"
+		},
+		"cut_response": {
+			"speaker": "Elia",
+			"text": "[i]She kills the transmission with a single gesture.[/i] If they wanted to help, they'd show their face. We don't trust shadows.",
+			"next": "cut_followup"
+		},
+		"cut_followup": {
+			"speaker": "Waffle.bat",
+			"text": "Signal terminated. Source remains unknown. [i][Beat.][/i] Recommendation: Monitor corporate feeds anyway. Just in case.",
+			"next": "bee_react_cut",
+			"set_flag": "mentor_contacted"
+		},
+		"trace_attempt": {
+			"speaker": "Waffle.bat",
+			"text": "Attempting signal lock... Encryption is layered, rotating. I need more time. [b]Keep them talking.[/b]",
+			"skill_check": {
+				"stat": "tech",
+				"skill": "tech",
+				"dc": 12,
+				"threshold": 12,
+				"on_success": "trace_success",
+				"on_failure": "trace_failure"
+			}
+		},
+		"trace_success": {
+			"speaker": "Waffle.bat",
+			"text": "Partial lock acquired. Signal origin: [b]Crucible Station, Sublevel 9[/b]. Residential block. Registered to a dead woman—expired thirty years ago. Whoever this is, they've been a ghost a long time.",
+			"next": "trace_reaction"
+		},
+		"trace_failure": {
+			"speaker": "Waffle.bat",
+			"text": "Lost it. Encryption rotated faster than I could pin. All I caught was a region tag—somewhere in the Crucible cluster. Could be anyone.",
+			"next": "trace_reaction"
+		},
+		"trace_reaction": {
+			"speaker": "???",
+			"text": "[i]The voice turns colder.[/i] Clever. Doesn't matter. You won't find me unless I want to be found. But I'll forgive the attempt—because you're going to need what I say next.",
+			"next": "mentor_crew_warning",
+			"set_flag": "mentor_contacted"
+		},
+		"mentor_crew_warning": {
+			"speaker": "???",
+			"text": "[i][Static drops to a whisper.][/i] One more thing. Someone on your crew isn't what they seem. I don't know who. The signal noise makes it hard to be sure. But [b]someone close to you has a second loyalty.[/b]",
+			"next": "mentor_crew_warning_2",
+			"set_flag": "mentor_warning_heard"
+		},
+		"mentor_crew_warning_2": {
+			"speaker": "???",
+			"text": "Could be debt. Could be ideology. Could be blackmail. Doesn't matter. When Aurum comes knocking, someone on that ship is going to open the door. [i][The static swells.][/i] Watch for it.",
+			"next": "signal_death"
+		},
+		"signal_death": {
+			"speaker": "SYSTEM",
+			"text": "[i]The transmission collapses—not cut, not faded. Shredded. The encryption eats itself, leaving nothing but dead air and the faint smell of overheated circuitry.[/i]",
+			"next": "bee_react_full"
+		},
+		"bee_react_full": {
+			"speaker": "SYSTEM",
+			"text": "{BEE:: UNKNOWN CONTACT TERMINATED | AGITATED | lattice resonance claims require verification — crew integrity warning logged — recommend heightened monitoring of all shipboard communications}",
+			"next": "elia_aftermath"
+		},
+		"elia_aftermath": {
+			"speaker": "Elia",
+			"text": "[i]She stares at the dead comms panel for a long moment.[/i] Someone on the crew. That's a hell of a parting gift. Could be nothing. Could be the kind of nothing that gets us killed.",
+			"next": "aftermath_choice"
+		},
+		"aftermath_choice": {
+			"speaker": "SYSTEM",
+			"text": "[i]The silence on the bridge is thick enough to cut. Elia watches you, waiting.[/i]",
+			"choices": [
+				{
+					"text": "[Cautious] We tell no one about this. Not until we know more.",
+					"next": "aftermath_secret"
+				},
+				{
+					"text": "[Open] We tell the crew. If someone's compromised, transparency is our best weapon.",
+					"next": "aftermath_open"
+				},
+				{
+					"text": "[Dismissive] It's paranoia bait. Classic destabilization. Ignore it.",
+					"next": "aftermath_dismiss"
+				}
+			]
+		},
+		"aftermath_secret": {
+			"speaker": "Elia",
+			"text": "Agreed. We keep this between us. I'll watch. You watch. And if anyone so much as breathes wrong near a comm terminal— [i]she draws a finger across her throat.[/i]",
+			"next": "end",
+			"set_flag": "mentor_warning_secret"
+		},
+		"aftermath_open": {
+			"speaker": "Elia",
+			"text": "[i]She exhales through her teeth.[/i] Risky. If the mole is real, we just told them we know. But if it makes them slip up... fine. Your call, Captain.",
+			"next": "end",
+			"set_flag": "mentor_warning_shared"
+		},
+		"aftermath_dismiss": {
+			"speaker": "Elia",
+			"text": "Maybe. [i]She doesn't look convinced.[/i] But I'm sleeping with one eye open anyway. Old habit. [i]She turns and walks off the bridge without another word.[/i]",
+			"next": "end",
+			"set_flag": "mentor_warning_dismissed"
+		},
+		"bee_react_cut": {
+			"speaker": "SYSTEM",
+			"text": "{BEE:: transmission terminated prematurely | AGITATED | partial data captured — lattice resonance claims flagged for review — insufficient information to assess threat level}",
+			"next": "elia_aftermath_cut"
+		},
+		"elia_aftermath_cut": {
+			"speaker": "Elia",
+			"text": "[i]She flexes her hand, knuckles white.[/i] We cut them off before they finished. Might have been the right call. Might have cost us something. Either way—we watch our backs.",
+			"next": "end"
+		}
+	}
+}

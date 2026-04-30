@@ -1,0 +1,25 @@
+{
+  "id": "act1_raider_veterans",
+  "name": "Veteran Raiders",
+  "description": "Two hardened rim fighters. They hit hard, demoralize with war cries, and won't go down easily. Pure combat challenge.",
+  "waves": [
+    {
+      "description": "Veteran Raider Pair",
+      "enemies": [
+        {"type": "raider_veteran", "count": 2}
+      ]
+    }
+  ],
+  "environment": {
+    "static_zone": false,
+    "arena_grounds": true,
+    "no_cover": true
+  },
+  "victory_condition": "defeat_all",
+  "defeat_consequence": "retry",
+  "rewards": {
+    "experience": 100,
+    "flags": ["veterans_defeated"]
+  },
+  "loot": []
+}

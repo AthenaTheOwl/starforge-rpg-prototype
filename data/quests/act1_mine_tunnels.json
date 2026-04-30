@@ -1,0 +1,62 @@
+{
+	"id": "act1_mine_tunnels",
+	"name": "Mine Tunnels — Lower Works, Subsection 7-Gamma",
+	"description": "The Lower Works smell wrong. Stale. Mineral. The particular staleness of air that hasn't moved in years. The corridor is narrow, lit by emergency strips that flicker and dim at intervals. The walls are old alloy, pitted with corrosion.\n\nEverything down here is old. Older than the mine you know. Older than the company.\n\nA cleaning checklist clipped inside your kit reads:\n[i]1. Confirm barrier tape integrity.\n2. Clear debris from marked walkways only.\n3. Report unauthorized symbols to Shift Supervisor.\n4. Do not engage with auditory phenomena.\n5. If equipment activates spontaneously, evacuate immediately.[/i]\n\n[i](Do not engage with auditory phenomena. They put that in the checklist. Like it's normal.)[/i]",
+	"actions": [
+		{
+			"type": "examine",
+			"label": "Study the barrier tape",
+			"examine_text": "Yellow and black, faded with age. RESTRICTED SECTION — NO ENTRY.\n\nSomeone has scratched words beneath the official warning:\n[i]TAP TWICE. DON'T WHISTLE. DON'T LOOK BACK.[/i]\n\nOlder graffiti, almost worn away:\n[i]DON'T ANSWER IF IT KNOCKS.[/i]\n\nBeyond the tape, the corridor continues into darkness."
+		},
+		{
+			"type": "examine",
+			"label": "Listen to the silence",
+			"examine_text": "Something. At the edge of hearing. Not quite a sound — more like the ghost of a sound, the impression that something should be audible but isn't.\n\nIt moves through your chest, your bones, the soft tissue behind your eyes. The Lattice here is dense — thick with resonance that predates the Synthetic overlay.\n\n[i]{BEE:: signal | old frequency | pre-Synthetic | origin: deeper}[/i]"
+		},
+		{
+			"type": "flag",
+			"label": "Duck under the barrier tape",
+			"flag": "crossed_barrier",
+			"result_text": "You duck under the tape.\n\nThe extraction face is wrong. The rock here is different. Darker. Smoother. It looks almost polished. And embedded in it, partially exposed —\n\nA shard. A fragment of something, jutting from the rock like a broken bone. Maybe the length of your forearm, angular in a way that hurts to look at. Not quite black, not quite purple, shifting between the two.\n\nAnd it glows. Faintly. A light from somewhere inside, somewhere deeper than the material should allow.\n\n[i](That shouldn't be here. They sealed this section because of geological instability, not because of this.)[/i]"
+		},
+		{
+			"type": "examine",
+			"label": "Approach the shard",
+			"requires_flag": "crossed_barrier",
+			"examine_text": "The closer you get, the louder the not-sound becomes. Pressure — vibrating at a frequency your ears can't catch but your body can feel.\n\nThe shard is warm. Not surface warmth — deep warmth, radiating from the core. The geometric patterns at the edge of your vision sharpen.\n\nYour hand reaches out before you decide to reach.\n\n[i]{BEE:: contact imminent | resonance alignment: compatible | warning: irreversible}[/i]"
+		},
+		{
+			"type": "flag",
+			"label": "Touch the shard",
+			"requires_flag": "crossed_barrier",
+			"flag": "touched_shard",
+			"result_text": "Your fingers make contact.\n\nThe world inverts. For a fraction of a second — or an eternity — you are somewhere vast and old and humming with a frequency that makes your bones sing.\n\nSomething enters. Not violently. Not gently. Inevitably — the way water enters a crack in stone.\n\nThe shard cracks. The fragment embeds itself at the base of your skull, and the pain is —\n\n[i]{BEE:: INTEGRATION INITIATED | HOST: compatible | STATUS: bonding | DURATION: permanent}[/i]\n\nYou wake on the floor of the tunnel. The shard in the rock is gone. The shard in you is not."
+		},
+		{
+			"type": "combat",
+			"label": "Corp retrieval team arrives!",
+			"requires_flag": "touched_shard",
+			"enemies": [
+				{"type": "corp_trooper", "count": 3},
+				{"type": "corp_retrieval", "count": 1}
+			]
+		},
+		{
+			"type": "move",
+			"label": "Return to the upper levels",
+			"target_location": "act1_site_k9"
+		},
+		{
+			"type": "move",
+			"label": "Go deeper — Anomaly Chamber",
+			"target_location": "act1_anomaly_chamber",
+			"requires_flag": "crossed_barrier"
+		},
+		{
+			"type": "move",
+			"label": "Head toward the Glitter Vein",
+			"target_location": "act1_glitter_vein",
+			"requires_flag": "crossed_barrier"
+		}
+	]
+}

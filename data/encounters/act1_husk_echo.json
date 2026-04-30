@@ -1,0 +1,27 @@
+{
+  "id": "act1_husk_echo",
+  "name": "Husk Echo Manifestation",
+  "description": "A Lattice Echo supported by shard swarmers. The echo mirrors your abilities at reduced power - unpredictable and disorienting.",
+  "waves": [
+    {
+      "description": "Lattice Echo and Support Shards",
+      "enemies": [
+        {"type": "husk_echo", "count": 1},
+        {"type": "husk_shard", "count": 2}
+      ]
+    }
+  ],
+  "environment": {
+    "static_zone": true,
+    "lattice_corruption": true,
+    "resonance_vents": true,
+    "mirror_effects": true
+  },
+  "victory_condition": "defeat_all",
+  "defeat_consequence": "retry",
+  "rewards": {
+    "experience": 150,
+    "flags": ["echo_defeated"]
+  },
+  "loot": []
+}

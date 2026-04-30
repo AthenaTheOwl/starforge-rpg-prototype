@@ -1,0 +1,250 @@
+{
+  "start_node": "start",
+  "nodes": {
+    "start": {
+      "speaker": "SYSTEM",
+      "text": "The galley is quiet after the chaos. Emergency lights have dimmed to normal. Rho sits at the table, his massive frame somehow fitting into the corner booth. His rotary cannon rests against the wall, within reach but not threatening. He looks up as you enter.",
+      "next": "rho_opening"
+    },
+    "rho_opening": {
+      "speaker": "Rho",
+      "text": "Sit. I've been meaning to talk to you.",
+      "next": "avyanna_sits"
+    },
+    "avyanna_sits": {
+      "speaker": "SYSTEM",
+      "text": "You slide into the booth across from him. Up close, you can see the wear on his armor\u2014scratches that tell stories, scorch marks that whisper of close calls. His eyes are tired but warm.",
+      "next": "rho_reflection"
+    },
+    "rho_reflection": {
+      "speaker": "Rho",
+      "text": "I've been watching how you handle things. The crew, the fights, the hard calls. You don't flinch. You don't run. That matters more than you know.",
+      "next": "rho_continues"
+    },
+    "rho_continues": {
+      "speaker": "Rho",
+      "text": "I don't say this to everyone who walks onto this ship. Hell, I barely say it at all. But you're already one of us, Avyanna. I wanted you to know what that means. [i]What it really means.[/i]",
+      "choices": [
+        {
+          "text": "What does it cost you?",
+          "next": "ask_cost"
+        },
+        {
+          "text": "Why does loyalty matter so much to you?",
+          "next": "ask_loyalty"
+        },
+        {
+          "text": "What comes first for you\u2014mission or crew?",
+          "next": "ask_priorities"
+        }
+      ]
+    },
+    "ask_cost": {
+      "speaker": "Rho",
+      "text": "Cost? [i]Everything.[/i] I keep count, you know. Every life I've taken. Forty-seven souls before I met this crew. Seventy-three now. Each one a weight I carry. Each one a choice I made to protect the people who matter.",
+      "next": "cost_reflection"
+    },
+    "cost_reflection": {
+      "speaker": "Rho",
+      "text": "Some nights I see their faces. Raiders, corpo enforcers, cultists\u2014doesn't matter. They all had names once. But I'd do it again. Every single time. Because the alternative is losing someone I care about.",
+      "choices": [
+        {
+          "text": "That's a heavy burden to bear.",
+          "next": "heavy_burden",
+          "reputation": {
+            "rho": 1
+          }
+        },
+        {
+          "text": "You shouldn't have to carry that alone.",
+          "next": "not_alone",
+          "reputation": {
+            "rho": 2
+          }
+        },
+        {
+          "text": "At least you remember them.",
+          "next": "remembering",
+          "reputation": {
+            "rho": 1
+          }
+        }
+      ]
+    },
+    "ask_loyalty": {
+      "speaker": "Rho",
+      "text": "Because I've seen what happens when it breaks. I came up through the Frontier Militia\u2014good people, strong bonds. Then command decided we were expendable. Sent us into a meat grinder for a corpo contract.",
+      "next": "loyalty_story"
+    },
+    "loyalty_story": {
+      "speaker": "Rho",
+      "text": "Lost half my squad in an hour. The other half scattered to the void when they realized we'd been sold. I found this crew after that. Nyx doesn't trade lives for credits. She fights [i]for[/i] us, not [i]with[/i] us.",
+      "choices": [
+        {
+          "text": "Trust is earned through action.",
+          "next": "trust_earned",
+          "reputation": {
+            "rho": 1
+          }
+        },
+        {
+          "text": "You've built something better here.",
+          "next": "something_better",
+          "reputation": {
+            "rho": 1
+          }
+        },
+        {
+          "text": "I understand that kind of betrayal.",
+          "next": "shared_betrayal",
+          "reputation": {
+            "rho": 2
+          }
+        }
+      ]
+    },
+    "ask_priorities": {
+      "speaker": "Rho",
+      "text": "Crew. Always crew. The mission can go to hell if it means saving one of ours. Some people call that soft. I call it human.",
+      "next": "priorities_explanation"
+    },
+    "priorities_explanation": {
+      "speaker": "Rho",
+      "text": "We're not corpo drones. We're not disposable assets. Every person on this ship chose to be here, and I choose them back. Every. Single. Day. That's what makes us strong\u2014not firepower, not tactics. [i]Trust.[/i]",
+      "choices": [
+        {
+          "text": "That's a dangerous way to fight.",
+          "next": "dangerous_way",
+          "reputation": {
+            "rho": 2
+          }
+        },
+        {
+          "text": "It's also what keeps us alive.",
+          "next": "keeps_alive",
+          "reputation": {
+            "rho": 1
+          }
+        },
+        {
+          "text": "I'd make the same choice.",
+          "next": "same_choice",
+          "reputation": {
+            "rho": 2
+          }
+        }
+      ]
+    },
+    "heavy_burden": {
+      "speaker": "Rho",
+      "text": "It is. But burdens are easier when you're not carrying them for nothing. I carry mine for people like you. For Nyx, Vesper, Jalen. Makes the weight bearable.",
+      "next": "core_reveal"
+    },
+    "not_alone": {
+      "speaker": "Rho",
+      "text": "[i]His expression softens.[/i] Maybe I don't anymore. That's... that's new. Thank you for that, Avyanna.",
+      "next": "core_reveal"
+    },
+    "remembering": {
+      "speaker": "Rho",
+      "text": "Yeah. I owe them that much. Every name, every face\u2014it's a promise I made to myself. I won't forget the cost of protecting what matters.",
+      "next": "core_reveal"
+    },
+    "trust_earned": {
+      "speaker": "Rho",
+      "text": "Exactly. And you've earned it. The way you fight, the way you stand with us\u2014that's not something I see often. You're solid, Avyanna.",
+      "next": "core_reveal"
+    },
+    "something_better": {
+      "speaker": "Rho",
+      "text": "We have. And now you're part of it. That's not small. That's everything.",
+      "next": "core_reveal"
+    },
+    "shared_betrayal": {
+      "speaker": "Rho",
+      "text": "[i]He meets your eyes, recognition flashing there.[/i] Then you know why I'll never let it happen again. Not to you. Not to anyone on this ship.",
+      "next": "core_reveal"
+    },
+    "dangerous_way": {
+      "speaker": "Rho",
+      "text": "Maybe. But I've seen the alternative\u2014cold, calculated, everyone expendable. I'd rather die fighting for people I love than live treating them like assets.",
+      "next": "core_reveal"
+    },
+    "keeps_alive": {
+      "speaker": "Rho",
+      "text": "Exactly. We watch each other's backs because we [i]care[/i], not because it's tactical. That's the difference between surviving and living.",
+      "next": "core_reveal"
+    },
+    "same_choice": {
+      "speaker": "Rho",
+      "text": "[i]He grins\u2014genuine, warm.[/i] I knew you would. That's why I'm telling you this. You're not just here because you can fight. You're here because you're [i]one of us.[/i]",
+      "next": "core_reveal"
+    },
+    "core_reveal": {
+      "speaker": "Rho",
+      "text": "Listen. You're already crew\u2014that's not in question. I just wanted you to know what that means to me. It means I'll fight for you. Bleed for you if it comes to it. And I hope... I hope you'll fight for us too.",
+      "next": "final_choice"
+    },
+    "final_choice": {
+      "speaker": "SYSTEM",
+      "text": "Rho's hand rests on the table between you\u2014not reaching, just open. The weight of his words settles in the quiet galley. This is more than acceptance. This is [i]belonging.[/i]",
+      "choices": [
+        {
+          "text": "I'm with you. All of you. No matter what.",
+          "next": "full_commitment",
+          "set_flag": "bonded_with_rho",
+          "reputation": {
+            "rho": 2
+          }
+        },
+        {
+          "text": "I'll fight for us. But I won't lie\u2014it scares me.",
+          "next": "honest_commitment",
+          "set_flag": "bonded_with_rho",
+          "reputation": {
+            "rho": 1
+          }
+        },
+        {
+          "text": "I need time to understand what that means.",
+          "next": "need_time",
+          "reputation": {
+            "rho": -3
+          }
+        }
+      ]
+    },
+    "full_commitment": {
+      "speaker": "Rho",
+      "text": "[i]His grin splits wide, armor crinkling as he relaxes.[/i] That's what I needed to hear. Welcome home, Avyanna. For real this time.",
+      "set_flag": "rho_solidified",
+      "next": "full_commitment_end"
+    },
+    "full_commitment_end": {
+      "speaker": "SYSTEM",
+      "text": "Rho stands, picking up his cannon with practiced ease. He pauses at the doorway, looking back. The weight of his seventy-three souls seems lighter, somehow. Shared.",
+      "next": "end"
+    },
+    "honest_commitment": {
+      "speaker": "Rho",
+      "text": "Good. Fear means you understand the stakes. I'd be worried if you weren't scared. But you're here anyway\u2014that's what courage looks like.",
+      "set_flag": "rho_solidified",
+      "next": "honest_commitment_end"
+    },
+    "honest_commitment_end": {
+      "speaker": "SYSTEM",
+      "text": "Rho stands, picking up his cannon with practiced ease. He pauses at the doorway, looking back. The weight of his seventy-three souls seems lighter, somehow. Shared.",
+      "next": "end"
+    },
+    "need_time": {
+      "speaker": "Rho",
+      "text": "[i]He nods slowly, understanding in his eyes.[/i] Fair enough. Door's open when you're ready. Just... don't take too long. This galaxy doesn't wait for anyone.",
+      "next": "need_time_end"
+    },
+    "need_time_end": {
+      "speaker": "SYSTEM",
+      "text": "Rho stands, picking up his cannon with practiced ease. He pauses at the doorway, looking back. The weight of his seventy-three souls seems lighter, somehow. Shared.",
+      "next": "end"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "act1_cult_ambush",
+  "name": "Cult Hierophant Ambush",
+  "description": "A cult hierophant commands three acolytes. Mass ward buffs, resonance storms, and healing make this a war of attrition. Focus fire or be overwhelmed.",
+  "waves": [
+    {
+      "description": "Hierophant and Acolyte Circle",
+      "enemies": [
+        {"type": "cult_hierophant", "count": 1},
+        {"type": "cult_acolyte", "count": 3}
+      ]
+    }
+  ],
+  "environment": {
+    "static_zone": true,
+    "ritual_chamber": true,
+    "ward_barriers": true,
+    "resonance_amplifiers": true
+  },
+  "victory_condition": "defeat_all",
+  "defeat_consequence": "retry",
+  "rewards": {
+    "experience": 200,
+    "flags": ["hierophant_defeated"]
+  },
+  "loot": []
+}

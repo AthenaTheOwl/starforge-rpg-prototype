@@ -1,0 +1,111 @@
+{
+	"id": "vesper",
+	"name": "Vesper Rook",
+	"pronouns": "she/her",
+	"role": "Fixer / Precision DPS-Support",
+	"description": "Broker and face of the party. Sniper and social operator with sharp instincts.",
+
+	"hp_max": 70,
+	"speed": 11,
+	"attack": 18,
+	"armor": 3,
+	"shields": 6,
+	"wards": 5,
+
+	"relic_weapon": {
+		"name_1": "Clarity",
+		"name_2": "Witness",
+		"type": "sniper_revolver",
+		"inlay": "Covenant Thread",
+		"inlay_effect": "Truth binding; compels honesty in social encounters"
+	},
+
+	"ability_slots": [
+		{
+			"slot": "core_1",
+			"name": "God Eye",
+			"primitives": ["echo"],
+			"description": "Mark a target. All damage sources deal +50% to marked target for 2 turns.",
+			"base_damage": 0,
+			"damage_type": "physical",
+			"heat_cost": 1,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 3,
+			"charges": 3,
+			"statuses": [{"name": "marked", "duration": 2}]
+		},
+		{
+			"slot": "core_2",
+			"name": "Headshot",
+			"primitives": ["strike"],
+			"description": "Massive single-target sniper shot. Highest base damage single-hit in the party.",
+			"base_damage": 38,
+			"damage_type": "physical",
+			"heat_cost": 2,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 3,
+			"charges": 3,
+			"statuses": []
+		},
+		{
+			"slot": "utility_1",
+			"name": "Thread Read",
+			"primitives": ["echo"],
+			"description": "Social skill. Reveals NPC intentions, hidden motives, and dialogue options.",
+			"base_damage": 0,
+			"damage_type": "resonance",
+			"heat_cost": 0,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 3,
+			"charges": 3,
+			"statuses": []
+		},
+		{
+			"slot": "utility_2",
+			"name": "Coordinated Fire",
+			"primitives": ["echo"],
+			"description": "Direct the party's focus. All allies gain +damage for 1 turn.",
+			"base_damage": 0,
+			"damage_type": "physical",
+			"heat_cost": 1,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 2,
+			"charges": 2,
+			"statuses": [{"name": "coordinated", "duration": 1}]
+		},
+		{
+			"slot": "reaction",
+			"name": "Evasive Roll",
+			"primitives": ["guard"],
+			"description": "Dodge an incoming attack entirely. Repositions to new location.",
+			"base_damage": 0,
+			"damage_type": "physical",
+			"heat_cost": 1,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 2,
+			"charges": 2,
+			"statuses": [{"name": "evading", "duration": 1}]
+		},
+		{
+			"slot": "keystone",
+			"name": "Kill Shot",
+			"primitives": ["strike"],
+			"description": "Guaranteed critical hit if target is below 30% HP. Execute-style finisher.",
+			"base_damage": 45,
+			"damage_type": "physical",
+			"heat_cost": 3,
+			"uses_lattice": false,
+			"cli_cost": 0,
+			"charges_max": 1,
+			"charges": 1,
+			"statuses": []
+		}
+	],
+
+	"tier": 1
+}

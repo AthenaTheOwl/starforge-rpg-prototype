@@ -1,0 +1,27 @@
+{
+  "id": "act1_lumen_thief_corridors",
+  "name": "Lumen Thief Corridors",
+  "description": "The Lumen Thief's inner corridors hum with patched conduit, tired air scrubbers, and the private math of a crew learning to move together.",
+  "actions": [
+    {
+      "type": "examine",
+      "label": "Check the corridor status board",
+      "examine_text": "The board lists repairs, watch shifts, and three different handwriting styles arguing about whether the galley light is haunted or merely badly wired."
+    },
+    {
+      "type": "move",
+      "label": "Return to the bridge",
+      "target_location": "act1_lumen_thief_bridge"
+    },
+    {
+      "type": "move",
+      "label": "Go to the galley",
+      "target_location": "act1_lumen_thief_galley"
+    },
+    {
+      "type": "move",
+      "label": "Visit crew quarters",
+      "target_location": "act1_ship_quarters"
+    }
+  ]
+}

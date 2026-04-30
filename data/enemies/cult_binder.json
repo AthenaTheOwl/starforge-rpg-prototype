@@ -1,0 +1,44 @@
+{
+  "id": "cult_binder",
+  "name": "Cult Binder",
+  "family": "cult",
+  "description": "Specialist in immobilization wards. Locks targets in place while allies close in for the kill.",
+  "hp_max": 35,
+  "speed": 7,
+  "attack": 8,
+  "armor": 2,
+  "shields": 3,
+  "wards": 10,
+  "weakness": "",
+  "abilities": [
+    {
+      "name": "Binding Grasp",
+      "base_damage": 8,
+      "damage_type": "resonance",
+      "heat_cost": 0,
+      "uses_lattice": true,
+      "cli_cost": 0,
+      "statuses": [
+        {
+          "name": "bound",
+          "duration": 2
+        }
+      ]
+    },
+    {
+      "name": "Ward Shield",
+      "base_damage": 0,
+      "damage_type": "resonance",
+      "heat_cost": 0,
+      "uses_lattice": true,
+      "cli_cost": 0,
+      "target": "ally",
+      "statuses": [
+        {
+          "name": "wards_up",
+          "duration": 1
+        }
+      ]
+    }
+  ]
+}

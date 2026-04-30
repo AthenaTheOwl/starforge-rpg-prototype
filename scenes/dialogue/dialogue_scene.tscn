@@ -1,0 +1,133 @@
+[gd_scene load_steps=3 format=3 uid="uid://dialogue_scene"]
+
+[ext_resource type="Script" path="res://scripts/ui/dialogue_controller.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/ui/portrait_display.gd" id="2"]
+
+[node name="DialogueOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+script = ExtResource("1")
+
+[node name="DimBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.6)
+mouse_filter = 2
+
+[node name="PortraitLeft" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -460.0
+offset_right = 148.0
+offset_bottom = -300.0
+grow_horizontal = 1
+grow_vertical = 0
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2")
+
+[node name="PortraitRight" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -148.0
+offset_top = -460.0
+offset_right = -20.0
+offset_bottom = -300.0
+grow_horizontal = 0
+grow_vertical = 0
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2")
+
+[node name="DialoguePanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -280.0
+offset_right = -40.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBox" type="VBoxContainer" parent="DialoguePanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SpeakerLabel" type="Label" parent="DialoguePanel/VBox"]
+layout_mode = 2
+text = "SPEAKER NAME"
+
+[node name="Separator" type="HSeparator" parent="DialoguePanel/VBox"]
+layout_mode = 2
+
+[node name="DialogueText" type="RichTextLabel" parent="DialoguePanel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 80)
+bbcode_enabled = true
+text = "Dialogue text goes here..."
+fit_content = true
+scroll_active = false
+
+[node name="ChoicesContainer" type="VBoxContainer" parent="DialoguePanel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ContinueBtn" type="Button" parent="DialoguePanel/VBox"]
+layout_mode = 2
+text = "Continue"
+
+[node name="LogToggleBtn" type="Button" parent="DialoguePanel/VBox"]
+layout_mode = 2
+text = "Log"
+size_flags_horizontal = 0
+custom_minimum_size = Vector2(60, 0)
+
+[node name="DialogueLogPanel" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = 40.0
+offset_right = -80.0
+offset_bottom = -300.0
+
+[node name="LogVBox" type="VBoxContainer" parent="DialogueLogPanel"]
+layout_mode = 2
+
+[node name="LogHeader" type="Label" parent="DialogueLogPanel/LogVBox"]
+layout_mode = 2
+text = "DIALOGUE LOG"
+
+[node name="LogSeparator" type="HSeparator" parent="DialogueLogPanel/LogVBox"]
+layout_mode = 2
+
+[node name="LogScrollContainer" type="ScrollContainer" parent="DialogueLogPanel/LogVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LogText" type="RichTextLabel" parent="DialogueLogPanel/LogVBox/LogScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+fit_content = true
+scroll_active = false

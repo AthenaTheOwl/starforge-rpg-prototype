@@ -1,0 +1,18 @@
+[project]
+name = "starforge-rpg-prototype"
+version = "0.1.0"
+description = "Act 1 Godot RPG prototype copy for Starforge."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Vignesh Gopalakrishnan" }]
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests_py"]
+addopts = "-q"

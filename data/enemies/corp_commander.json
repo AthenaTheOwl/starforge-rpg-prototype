@@ -1,0 +1,39 @@
+{
+  "id": "corp_commander",
+  "name": "Corporate Commander",
+  "family": "corporate",
+  "description": "Tactical leader who coordinates squads and calls precision strikes. Dangerous alone, deadly with allies.",
+  "hp_max": 50,
+  "speed": 10,
+  "attack": 12,
+  "armor": 6,
+  "shields": 6,
+  "wards": 0,
+  "weakness": "",
+  "abilities": [
+    {
+      "name": "Rally",
+      "base_damage": 0,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "target": "all_allies",
+      "statuses": [
+        {
+          "name": "damage_up",
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "name": "Called Shot",
+      "base_damage": 18,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "statuses": []
+    }
+  ]
+}

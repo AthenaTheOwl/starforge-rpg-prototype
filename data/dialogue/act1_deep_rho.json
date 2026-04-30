@@ -1,0 +1,1025 @@
+{
+  "start_node": "start",
+  "nodes": {
+    "start": {
+      "speaker": "SYSTEM",
+      "text": "The armory is cold, lit only by emergency strips along the floor. Rho sits on an ammunition crate, his rotary cannon disassembled on the workbench beside him. He's cleaning the barrel with methodical precision. He doesn't look up when you enter, but his voice carries across the metal chamber.",
+      "next": "rho_opening"
+    },
+
+    "rho_opening": {
+      "speaker": "Rho",
+      "text": "Can't sleep either?",
+      "next": "avyanna_approaches"
+    },
+
+    "avyanna_approaches": {
+      "speaker": "SYSTEM",
+      "text": "You step closer. In the dim light, you can see the wear on his hands—scars from burns, cuts, a lifetime of handling weapons that bite back. The cannon's barrel gleams, freshly oiled. He still doesn't look at you.",
+      "next": "rho_continues"
+    },
+
+    "rho_continues": {
+      "speaker": "Rho",
+      "text": "One hundred and twelve.",
+      "next": "avyanna_confused"
+    },
+
+    "avyanna_confused": {
+      "speaker": "SYSTEM",
+      "text": "You wait. Rho fits a barrel segment back into place with a click.",
+      "choices": [
+        {
+          "text": "One hundred and twelve what?",
+          "next": "ask_count"
+        },
+        {
+          "text": "You don't have to tell me.",
+          "next": "offer_out"
+        },
+        {
+          "text": "[Stay silent. Wait for him.]",
+          "next": "patient_silence"
+        }
+      ]
+    },
+
+    "ask_count": {
+      "speaker": "Rho",
+      "text": "Lives. People I've killed. I keep count. Always have. Some people forget. I don't.",
+      "next": "count_explanation"
+    },
+
+    "offer_out": {
+      "speaker": "Rho",
+      "text": "[i]He looks up at you for the first time. His eyes are dark, tired.[/i] I know. But I need to. Been carrying this for years. Gets heavy.",
+      "reputation": {
+        "rho": 1
+      },
+      "next": "count_explanation"
+    },
+
+    "patient_silence": {
+      "speaker": "Rho",
+      "text": "[i]He glances at you, something like gratitude in his expression.[/i] One hundred and twelve lives. That's my count. Every person I've put down since I started carrying a gun.",
+      "reputation": {
+        "rho": 2
+      },
+      "next": "count_explanation"
+    },
+
+    "count_explanation": {
+      "speaker": "Rho",
+      "text": "Forty-seven before the Lumen Thief. Sixty-five after. Raiders, enforcers, cultists, husks. Doesn't matter. They were all people once. Most of them still were when I pulled the trigger.",
+      "next": "rho_barrel_work"
+    },
+
+    "rho_barrel_work": {
+      "speaker": "SYSTEM",
+      "text": "He sets down the barrel segment and picks up the firing mechanism, turning it over in his hands. His voice stays level, matter-of-fact.",
+      "next": "militia_prompt"
+    },
+
+    "militia_prompt": {
+      "speaker": "Rho",
+      "text": "First one I ever killed, I was nineteen. Frontier Militia, Third Resettlement Company. Border garrison on Yael's Reach.",
+      "next": "militia_prompt_choices"
+    },
+
+    "militia_prompt_choices": {
+      "speaker": "SYSTEM",
+      "text": "[i]He sets the firing mechanism down. His fingers rest flat on the workbench, still. The emergency strips hum beneath the silence.[/i]",
+      "choices": [
+        {
+          "text": "Frontier Militia? I thought they disbanded decades ago.",
+          "next": "militia_history"
+        },
+        {
+          "text": "What was it like out there?",
+          "next": "militia_life"
+        },
+        {
+          "text": "[Say nothing. Let him find his own way into it.]",
+          "next": "militia_life"
+        }
+      ]
+    },
+
+    "militia_history": {
+      "speaker": "Rho",
+      "text": "Disbanded. Absorbed. Sold off. Depends who you ask. Officially, Central Command folded us into the Reclamation Authority. Unofficially, they auctioned our contracts to the highest bidder and called it restructuring.",
+      "next": "militia_life"
+    },
+
+    "militia_life": {
+      "speaker": "Rho",
+      "text": "Yael's Reach was nothing. Rock, ice, a settlement of three hundred people trying to scratch something out of frozen soil. We were there to keep the raiders off their backs. Sixteen of us. One squad. That was the whole garrison.",
+      "next": "militia_squad"
+    },
+
+    "militia_squad": {
+      "speaker": "Rho",
+      "text": "Marcus Teague ran point. Best soldier I ever knew—not because he was fast or deadly, but because he thought about it. Every engagement, every round fired. He made you think about it too.",
+      "next": "militia_squad_2"
+    },
+
+    "militia_squad_2": {
+      "speaker": "Rho",
+      "text": "Senna Voss handled demolitions. Could rig a charge in the dark, by feel, in under ten seconds. Laughed too loud. Ate too fast. Slept like the dead. [i]He pauses.[/i] Turns out that was prophetic.",
+      "next": "militia_squad_3"
+    },
+
+    "militia_squad_3": {
+      "speaker": "SYSTEM",
+      "text": "[i]Rho's hands move to the barrel again, tracing the rifling grooves with one scarred thumb. The motion is automatic—something his body does while his mind is elsewhere.[/i]",
+      "next": "militia_squad_4"
+    },
+
+    "militia_squad_4": {
+      "speaker": "Rho",
+      "text": "Polk, Darien, Asha, Greer, Kotto, Lenn. I could name all sixteen. I still do, some nights. Roll call in my head. Nobody answers.",
+      "text_variants": [
+        {
+          "conditions": {
+            "flags": ["rho_mentioned_past"]
+          },
+          "text": "I told you I had people once. Polk, Darien, Asha, Greer, Kotto, Lenn—all sixteen names. I run the roll call in my head some nights. Nobody answers."
+        }
+      ],
+      "next": "militia_camaraderie"
+    },
+
+    "militia_camaraderie": {
+      "speaker": "Rho",
+      "text": "But back then? We were good. Tight. Greer cooked. Badly, but he cooked. Kotto played cards and cheated, and we let him because he lost anyway. Asha sang old colony songs when she was on watch. Off-key. Didn't matter.",
+      "next": "militia_camaraderie_2"
+    },
+
+    "militia_camaraderie_2": {
+      "speaker": "Rho",
+      "text": "That's what people don't understand about squads. It's not the fighting that binds you. It's the waiting. The boredom. The meals, the bad jokes, the knowing someone's got your flank without asking.",
+      "next": "militia_camaraderie_choice"
+    },
+
+    "militia_camaraderie_choice": {
+      "speaker": "SYSTEM",
+      "text": "[i]Something softens in his voice—not warmth, exactly. An echo of warmth. A place where warmth used to live.[/i]",
+      "choices": [
+        {
+          "text": "Sounds like a family.",
+          "next": "militia_family"
+        },
+        {
+          "text": "How long did it last?",
+          "next": "militia_end_prompt"
+        },
+        {
+          "text": "I had people like that once, too.",
+          "next": "player_shared_loss_early"
+        }
+      ]
+    },
+
+    "militia_family": {
+      "speaker": "Rho",
+      "text": "Don't use that word. [i]His jaw tightens.[/i] Family is blood. What we had was choice. Every morning, we chose to stand next to each other. That's harder. That's rarer.",
+      "reputation": {
+        "rho": 1
+      },
+      "next": "militia_end_prompt"
+    },
+
+    "player_shared_loss_early": {
+      "speaker": "SYSTEM",
+      "text": "[i]Rho looks at you—a quick, measuring glance. He nods, just once, an acknowledgment without words. He doesn't ask. He knows what that sentence costs.[/i]",
+      "reputation": {
+        "rho": 1
+      },
+      "set_flag": "player_shared_loss_with_rho",
+      "next": "militia_end_prompt"
+    },
+
+    "militia_end_prompt": {
+      "speaker": "Rho",
+      "text": "Three years on Yael's Reach. Three years keeping those people safe. Then Central Command sent new orders.",
+      "next": "betrayal_begins"
+    },
+
+    "betrayal_begins": {
+      "speaker": "SYSTEM",
+      "text": "[i]His hands stop moving. The cloth he's been using to clean the barrel goes still, pressed flat against steel. The silence in the armory thickens.[/i]",
+      "next": "betrayal_orders"
+    },
+
+    "betrayal_orders": {
+      "speaker": "Rho",
+      "text": "Redeployment. Effective immediately. Some mining installation on Caldera Nix. Corpo-owned—Meridian Extraction. They'd bought a security contract from Command. We were the product.",
+      "next": "betrayal_orders_2"
+    },
+
+    "betrayal_orders_2": {
+      "speaker": "Rho",
+      "text": "Marcus pushed back. Sent three formal objections up the chain. Said the intelligence was bad, the extraction zone was hot, the timeline was suicide. Command said acknowledged. Command said proceed.",
+      "next": "betrayal_orders_3"
+    },
+
+    "betrayal_orders_3": {
+      "speaker": "Rho",
+      "text": "Acknowledged. Proceed. [i]He repeats the words like a liturgy.[/i] Two words. That's all it took to kill eight people.",
+      "next": "betrayal_detail"
+    },
+
+    "betrayal_detail": {
+      "speaker": "SYSTEM",
+      "text": "[i]Rho reaches for the cannon's rotary assembly, begins fitting the barrels back into the housing. Each one clicks into place with mechanical precision—the sound of something being rebuilt that was once broken apart.[/i]",
+      "next": "betrayal_mission"
+    },
+
+    "betrayal_mission": {
+      "speaker": "Rho",
+      "text": "Caldera Nix was a meat grinder. Meridian knew. Command knew. The miners had unionized, armed themselves with surplus military hardware. Meridian wanted them cleared out, but didn't want corpo fingerprints on the bodies. So they bought militia hands instead.",
+      "next": "betrayal_mission_2"
+    },
+
+    "betrayal_mission_2": {
+      "speaker": "Rho",
+      "text": "We went in expecting a security sweep. Found fortified positions, crew-served weapons, people fighting for their homes. [i]He exhales slowly.[/i] Sound familiar? We'd been those people. On Yael's Reach, we were the garrison keeping settlers safe. On Caldera Nix, we were the threat.",
+      "next": "betrayal_choice"
+    },
+
+    "betrayal_choice": {
+      "speaker": "SYSTEM",
+      "text": "[i]The last barrel slots home. Rho stares at the partially assembled weapon, his reflection fractured across six polished tubes.[/i]",
+      "choices": [
+        {
+          "text": "You were used.",
+          "next": "betrayal_used"
+        },
+        {
+          "text": "Did Marcus follow the order?",
+          "next": "betrayal_marcus"
+        },
+        {
+          "text": "What did you do?",
+          "next": "betrayal_rho_action"
+        }
+      ]
+    },
+
+    "betrayal_used": {
+      "speaker": "Rho",
+      "text": "Weapon. Tool. Asset. Pick your word. They all mean the same thing—expendable.",
+      "next": "betrayal_marcus"
+    },
+
+    "betrayal_marcus": {
+      "speaker": "Rho",
+      "text": "Marcus tried to negotiate. Walked into the mine with his hands up, helmet off. Said we didn't have to do this. The miners' leader—woman named Korr—she listened. They were close to a deal.",
+      "next": "betrayal_marcus_2"
+    },
+
+    "betrayal_marcus_2": {
+      "speaker": "Rho",
+      "text": "Then Meridian's oversight team detonated the charges they'd pre-planted in the south shaft. Buried six miners alive. Made it look like we'd done it. After that, there was no talking.",
+      "next": "betrayal_rho_action"
+    },
+
+    "betrayal_rho_action": {
+      "speaker": "Rho",
+      "text": "Twelve hours of fighting in tunnels. Close quarters. You can't use a rotary cannon in a tunnel—not without killing everyone, including your own. So I carried a sidearm and a combat blade. Made it personal.",
+      "next": "betrayal_losses"
+    },
+
+    "betrayal_losses": {
+      "speaker": "Rho",
+      "text": "Kotto went first. Took a shotgun blast through a doorway. Asha dragged him back, but there was nothing left to save. Greer caught a ricochet—fragment through the neck. Bled out while Senna held pressure.",
+      "next": "betrayal_losses_2"
+    },
+
+    "betrayal_losses_2": {
+      "speaker": "Rho",
+      "text": "Polk and Darien died holding a junction so the rest of us could pull back. We heard them on comms for four minutes. Then we didn't.",
+      "next": "betrayal_losses_3"
+    },
+
+    "betrayal_losses_3": {
+      "speaker": "SYSTEM",
+      "text": "[i]Rho's voice hasn't changed—still level, still controlled. But his hands have gone white-knuckled around the cannon housing. The metal groans faintly under his grip.[/i]",
+      "next": "betrayal_marcus_death"
+    },
+
+    "betrayal_marcus_death": {
+      "speaker": "Rho",
+      "text": "Marcus took a plasma bolt in the last push. Stepped in front of Lenn. Didn't hesitate. Didn't flinch. Just—moved. Like it was the most natural thing in the world.",
+      "next": "betrayal_marcus_death_2"
+    },
+
+    "betrayal_marcus_death_2": {
+      "speaker": "Rho",
+      "text": "[i]He sets the cannon down carefully, like something fragile.[/i] He looked at me. Right at me. Didn't say anything. Didn't have to. I knew what he was saying. [i]Keep them alive.[/i]",
+      "next": "betrayal_senna"
+    },
+
+    "betrayal_senna": {
+      "speaker": "Rho",
+      "text": "Senna died setting charges to collapse the tunnel behind us. Bought us ninety seconds. She was laughing when the ceiling came down. I still hear it.",
+      "next": "aftermath_begin"
+    },
+
+    "aftermath_begin": {
+      "speaker": "SYSTEM",
+      "text": "[i]The armory's emergency strips flicker once—a brief stutter of light that makes the shadows jump. Rho doesn't notice, or doesn't care.[/i]",
+      "next": "aftermath_survivors"
+    },
+
+    "aftermath_survivors": {
+      "speaker": "Rho",
+      "text": "Eight of us walked into Caldera Nix as a squad. Eight walked out as strangers. We couldn't look at each other. Couldn't speak. Lenn deserted that night. Took a shuttle and vanished. Don't blame her.",
+      "next": "aftermath_scatter"
+    },
+
+    "aftermath_scatter": {
+      "speaker": "Rho",
+      "text": "The rest scattered over the next month. Some went freelance. Some crawled into bottles. Ferris ate his sidearm on a station platform in front of fifty people. Nobody stopped him. Nobody even looked up.",
+      "next": "aftermath_rho"
+    },
+
+    "aftermath_rho": {
+      "speaker": "Rho",
+      "text": "I filed my discharge papers. Command marked me as 'voluntary separation, no benefits.' Three years of service. Eight dead friends. And I walked away with a duffel bag and a cannon they forgot to requisition back.",
+      "next": "aftermath_rho_choice"
+    },
+
+    "aftermath_rho_choice": {
+      "speaker": "SYSTEM",
+      "text": "[i]He taps the cannon—two knuckle-raps against the housing, almost affectionate.[/i]",
+      "choices": [
+        {
+          "text": "That's Proportional. The cannon Command forgot.",
+          "next": "proportional_reveal"
+        },
+        {
+          "text": "What did you do after?",
+          "next": "drifting"
+        },
+        {
+          "text": "You survived. That has to count for something.",
+          "next": "survival_response"
+        }
+      ]
+    },
+
+    "proportional_reveal": {
+      "speaker": "Rho",
+      "text": "Proportional. [i]The ghost of something crosses his face—not quite a smile.[/i] Marcus named it. Said the recoil was proportional to the stupidity of whoever we were pointing it at.",
+      "next": "proportional_meaning"
+    },
+
+    "survival_response": {
+      "speaker": "Rho",
+      "text": "[i]He shakes his head slowly.[/i] Surviving isn't counting. Surviving is just... still being here. The counting comes later, when you decide what to do with the time they gave you.",
+      "next": "drifting"
+    },
+
+    "drifting": {
+      "speaker": "Rho",
+      "text": "Drifted for two years. Freelance security. Cargo guard. Whatever kept me moving. Didn't stay anywhere long enough to learn names. Names make it harder.",
+      "next": "drifting_2"
+    },
+
+    "drifting_2": {
+      "speaker": "Rho",
+      "text": "The count went up. Forty, forty-five, forty-seven. Pirates mostly. Raider crews. People who shot first. I told myself that made it different. [i]He pauses.[/i] It didn't.",
+      "next": "proportional_transition"
+    },
+
+    "proportional_transition": {
+      "speaker": "SYSTEM",
+      "text": "[i]Rho lifts Proportional's barrel assembly, sights down its length with one eye closed. The weapon is enormous—meant for suppression platforms, not infantry carry. The fact that he handles it at all speaks to something beyond training.[/i]",
+      "next": "proportional_meaning"
+    },
+
+    "proportional_meaning": {
+      "speaker": "Rho",
+      "text": "People think I carry this thing out of sentiment. Big man, big gun, simple story. They're wrong.",
+      "next": "proportional_meaning_2"
+    },
+
+    "proportional_meaning_2": {
+      "speaker": "Rho",
+      "text": "Proportional is the last piece of Third Resettlement Company that still exists. Every scratch on this housing is a firefight. Every dent is a story. Marcus's handwriting is still on the maintenance log inside the stock plate.",
+      "next": "proportional_meaning_3"
+    },
+
+    "proportional_meaning_3": {
+      "speaker": "Rho",
+      "text": "I clean it every night because that's what we did. Squad ritual. End of shift, maintain your weapon. Senna always finished first. Kotto always finished last. Marcus inspected every piece himself.",
+      "next": "proportional_meaning_4"
+    },
+
+    "proportional_meaning_4": {
+      "speaker": "Rho",
+      "text": "So I clean it. Not sentiment. Remembrance. As long as I maintain this weapon, Third Company still has one soldier doing the nightly check. As long as I carry it, they're still here.",
+      "text_variants": [
+        {
+          "conditions": {
+            "flags": ["rho_shared_burden"]
+          },
+          "text": "So I clean it. Not sentiment. Remembrance. As long as I maintain this weapon, Third Company still has one soldier doing the nightly check. [i]He glances at you.[/i] Maybe two, now."
+        }
+      ],
+      "next": "rho_weight"
+    },
+
+    "rho_weight": {
+      "speaker": "Rho",
+      "text": "People think heavy weapons means you don't see the details. They're wrong. I see everything. The way they fall. The moment they realize. I carry every one of them.",
+      "text_variants": [
+        {
+          "conditions": {
+            "flags": ["dinner_watched_rho"]
+          },
+          "text": "You watched me at dinner. Saw me staring at nothing. This is what I see. One hundred and twelve faces. Some nights they're all I can see."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Why do you keep count?",
+          "next": "why_count"
+        },
+        {
+          "text": "That's a hell of a burden.",
+          "next": "acknowledge_burden"
+        },
+        {
+          "text": "They would have killed us.",
+          "next": "justify_kills"
+        }
+      ]
+    },
+
+    "why_count": {
+      "speaker": "Rho",
+      "text": "Because forgetting would be easy. Too easy. If I stop counting, I stop being human. I become the weapon. And I've seen what that does to people.",
+      "reputation": {
+        "rho": 1
+      },
+      "next": "weapon_talk"
+    },
+
+    "acknowledge_burden": {
+      "speaker": "Rho",
+      "text": "[i]He nods slowly.[/i] Yeah. But someone has to carry it. Better me than Vesper. Better me than Jalen. They've got enough weight.",
+      "reputation": {
+        "rho": 2
+      },
+      "next": "weapon_talk"
+    },
+
+    "justify_kills": {
+      "speaker": "Rho",
+      "text": "Most of them, yeah. But does that make it easier? Does that make me sleep better? [i]He shakes his head.[/i] No. It just means I'm still alive to keep counting.",
+      "reputation": {
+        "rho": 1
+      },
+      "next": "weapon_talk"
+    },
+
+    "weapon_talk": {
+      "speaker": "Rho",
+      "text": "This cannon. You know why I keep it with me? Why I clean it myself, every night?",
+      "next": "cannon_pause"
+    },
+
+    "cannon_pause": {
+      "speaker": "SYSTEM",
+      "text": "He runs his hand along the firing mechanism, almost tender.",
+      "next": "cannon_revelation"
+    },
+
+    "cannon_revelation": {
+      "speaker": "Rho",
+      "text": "Because it's the one thing that's never lied to me. It doesn't pretend to be anything but what it is. Doesn't make promises it can't keep. When I pull this trigger, I know exactly what happens.",
+      "next": "cannon_continues"
+    },
+
+    "cannon_continues": {
+      "speaker": "Rho",
+      "text": "Command lied. Told us we were liberators, heroes. Sent us to die for corpo contracts. My old squad—half of them died believing the lies. The other half died when they realized the truth.",
+      "next": "loss_revelation"
+    },
+
+    "loss_revelation": {
+      "speaker": "Rho",
+      "text": "I couldn't protect them. Couldn't save Marcus when he took a plasma bolt meant for me. Couldn't save Senna when the ceiling collapsed. Couldn't save [i]any[/i] of them.",
+      "next": "finding_crew_transition"
+    },
+
+    "finding_crew_transition": {
+      "speaker": "SYSTEM",
+      "text": "[i]He exhales—a long, controlled breath, the kind a man uses to hold himself together. His hands find Proportional's stock and grip it, knuckles white, steadying himself on the only anchor he trusts.[/i]",
+      "choices": [
+        {
+          "text": "How did you end up on the Lumen Thief?",
+          "next": "finding_crew"
+        },
+        {
+          "text": "I lost people too. Not the same way, but—I understand the weight.",
+          "next": "player_loss_share"
+        },
+        {
+          "text": "[Let the silence hold. He'll continue when he's ready.]",
+          "next": "finding_crew"
+        }
+      ]
+    },
+
+    "player_loss_share": {
+      "speaker": "SYSTEM",
+      "text": "[i]Rho goes still. He doesn't look at you, but something shifts in the set of his shoulders—a tension releasing, barely perceptible. He nods. Once.[/i]",
+      "set_flag": "player_shared_loss_with_rho",
+      "reputation": {
+        "rho": 1
+      },
+      "next": "player_loss_response"
+    },
+
+    "player_loss_response": {
+      "speaker": "Rho",
+      "text": "I know. [i]Two words, but they carry everything—recognition, respect, the understanding that some things don't need elaboration.[/i] I know you do.",
+      "next": "finding_crew"
+    },
+
+    "finding_crew": {
+      "speaker": "Rho",
+      "text": "Docked at Venn Station for a resupply. Broke. Out of contracts. Hadn't spoken to another person in eleven days. Walked into a bar and Nyx was there, arguing with a dock foreman twice her size about fuel prices.",
+      "next": "finding_crew_2"
+    },
+
+    "finding_crew_2": {
+      "speaker": "Rho",
+      "text": "She was losing the argument. Badly. But she didn't back down. Didn't bluff, didn't threaten. Just kept talking. Kept pushing. Foreman eventually dropped his price out of sheer exhaustion.",
+      "next": "finding_crew_3"
+    },
+
+    "finding_crew_3": {
+      "speaker": "Rho",
+      "text": "[i]Something that might be amusement crosses his face.[/i] She saw me watching. Walked over. Said, 'You look like you need a job and a meal, in that order.' She was right about both.",
+      "next": "finding_crew_4"
+    },
+
+    "finding_crew_4": {
+      "speaker": "Rho",
+      "text": "First job was a cargo run. Simple. Legal, even. Halfway through, we got hit by raiders. Three ships. Nyx didn't panic. Vesper didn't panic. Jalen—he was already aboard by then—he just started prepping the guns like it was Tuesday.",
+      "next": "finding_crew_5"
+    },
+
+    "finding_crew_5": {
+      "speaker": "Rho",
+      "text": "Nobody gave me orders. Nobody told me where to stand. Nyx just looked at me and said, 'You know what to do.' And I did. Proportional did the rest.",
+      "next": "why_stayed"
+    },
+
+    "why_stayed": {
+      "speaker": "SYSTEM",
+      "text": "[i]He sets the firing mechanism back into its housing. The assembly is almost complete now—Proportional taking shape under his hands like a ritual nearing its conclusion.[/i]",
+      "next": "why_stayed_2"
+    },
+
+    "why_stayed_2": {
+      "speaker": "Rho",
+      "text": "After the fight, Nyx didn't debrief me. Didn't file a report. She poured two drinks and asked if I wanted to stay. Not 'we need your gun.' Not 'you're useful.' Just—'do you want to stay?'",
+      "next": "why_stayed_3"
+    },
+
+    "why_stayed_3": {
+      "speaker": "Rho",
+      "text": "Nobody had asked me what I wanted in years. I forgot people did that.",
+      "next": "loyalty_philosophy"
+    },
+
+    "loyalty_philosophy": {
+      "speaker": "Rho",
+      "text": "Loyalty. [i]He says the word like he's testing a blade's edge.[/i] Command used that word. Said it a lot. Loyalty to the service. Loyalty to the mission. Means nothing when the people saying it are selling your blood by the liter.",
+      "next": "loyalty_philosophy_2"
+    },
+
+    "loyalty_philosophy_2": {
+      "speaker": "Rho",
+      "text": "Real loyalty isn't given. It's earned. Slowly. Through a hundred small moments where someone could have lied and didn't. Could have left and stayed. Could have looked away and chose to see.",
+      "next": "loyalty_philosophy_3"
+    },
+
+    "loyalty_philosophy_3": {
+      "speaker": "Rho",
+      "text": "Nyx earned it. Vesper earned it. Jalen earned it every time he pulled someone out of fire instead of returning it. Even Elisira—she's difficult, but she's honest about it. I respect that.",
+      "text_variants": [
+        {
+          "conditions": {
+            "flags": ["elisira_conflict_resolved"]
+          },
+          "text": "Nyx earned it. Vesper earned it. Jalen earned it every time he pulled someone out of fire instead of returning it. Elisira and I don't always agree, but she showed up when it mattered. That's enough."
+        }
+      ],
+      "next": "empathy_check"
+    },
+
+    "empathy_check": {
+      "speaker": "SYSTEM",
+      "text": "His hands have stopped moving. The firing mechanism rests in his lap, forgotten. His shoulders carry a weight that has nothing to do with armor.",
+      "choices": [
+        {
+          "text": "[Empathy DC 12] You carry their weight because you loved them.",
+          "next": "empathy_roll",
+          "skill_check": {
+            "stat": "empathy",
+            "skill": "empathy",
+            "dc": 12,
+            "on_success": "empathy_success",
+            "on_failure": "empathy_fail_soft"
+          }
+        },
+        {
+          "text": "You can't protect everyone.",
+          "next": "empathy_fail"
+        },
+        {
+          "text": "What would they want you to do?",
+          "next": "empathy_neutral"
+        },
+        {
+          "text": "Maybe the guilt isn't yours to carry. Command gave the order.",
+          "next": "challenge_guilt"
+        }
+      ]
+    },
+
+    "empathy_roll": {
+      "speaker": "SYSTEM",
+      "text": "[i]The words land in the silence between you.[/i]",
+      "next": "empathy_success"
+    },
+
+    "challenge_guilt": {
+      "speaker": "Rho",
+      "text": "[i]His jaw tightens.[/i] Command pulled the trigger on the contract. I pulled the trigger on the gun. Both of us killed them. Blaming command doesn't wash the blood off my hands. It just gives it somewhere else to drip.",
+      "next": "challenge_guilt_2"
+    },
+
+    "challenge_guilt_2": {
+      "speaker": "SYSTEM",
+      "text": "[i]He looks at you, and there's something hard in his eyes—not anger, but a refusal to be absolved.[/i]",
+      "choices": [
+        {
+          "text": "There's a difference between guilt and responsibility. You know the difference.",
+          "next": "challenge_guilt_insight",
+          "reputation": {
+            "rho": 1
+          }
+        },
+        {
+          "text": "Fair enough. I won't try to take it from you.",
+          "next": "challenge_guilt_respect",
+          "reputation": {
+            "rho": 1
+          }
+        }
+      ]
+    },
+
+    "challenge_guilt_insight": {
+      "speaker": "Rho",
+      "text": "[i]He's quiet for a long time. When he speaks, the hardness is gone.[/i] Responsibility. Yeah. Maybe that's the word I've been looking for. Guilt is a cage. Responsibility is a direction.",
+      "reputation": {
+        "rho": 1
+      },
+      "next": "core_question"
+    },
+
+    "challenge_guilt_respect": {
+      "speaker": "Rho",
+      "text": "[i]He nods, and something in him eases—not because you agreed, but because you stopped pushing.[/i] Good. Don't try. It's mine. But... thanks for seeing it clearly.",
+      "next": "core_question"
+    },
+
+    "empathy_success": {
+      "speaker": "Rho",
+      "text": "[i]His breath catches. He looks at you—really looks—and something breaks behind his eyes.[/i] Yeah. Yeah, I did. And that's why it hurts. Because they mattered. Because losing them [i]meant something.[/i]",
+      "reputation": {
+        "rho": 2
+      },
+      "set_flag": "rho_shared_burden",
+      "next": "empathy_success_continue"
+    },
+
+    "empathy_fail_soft": {
+      "speaker": "Rho",
+      "text": "[i]He looks at you, then away. The moment passes—whatever door might have opened stays closed, but not locked.[/i] Maybe. Maybe that's part of it.",
+      "reputation": {
+        "rho": 1
+      },
+      "next": "core_question"
+    },
+
+    "empathy_success_continue": {
+      "speaker": "Rho",
+      "text": "I never... I never said that out loud before. That I loved them. That it still hurts. [i]He closes his eyes.[/i] Thank you. For understanding that.",
+      "next": "core_question"
+    },
+
+    "empathy_fail": {
+      "speaker": "Rho",
+      "text": "I know. Doesn't make it easier. Doesn't make the weight lighter. Just means I keep carrying it.",
+      "reputation": {
+        "rho": 1
+      },
+      "next": "core_question"
+    },
+
+    "empathy_neutral": {
+      "speaker": "Rho",
+      "text": "[i]He considers this.[/i] Marcus would tell me to stop being a damn martyr. Senna would laugh and say I'm too stubborn to die anyway. Maybe they'd be right.",
+      "reputation": {
+        "rho": 1
+      },
+      "next": "core_question"
+    },
+
+    "core_question": {
+      "speaker": "Rho",
+      "text": "So why do I stay here? Why do I keep doing this? One hundred and twelve lives, Avyanna. What makes one hundred and thirteen worth it?",
+      "next": "core_pause"
+    },
+
+    "core_pause": {
+      "speaker": "SYSTEM",
+      "text": "The question hangs between you. This is the heart of it—the reason he's telling you all of this.",
+      "choices": [
+        {
+          "text": "Because the Lumen Thief is different. This crew is worth it.",
+          "next": "crew_worth"
+        },
+        {
+          "text": "Because you still have people to protect.",
+          "next": "protection_worth"
+        },
+        {
+          "text": "Because you're looking for redemption.",
+          "next": "redemption_worth"
+        },
+        {
+          "text": "I don't know. Maybe you shouldn't.",
+          "next": "challenge_worth"
+        }
+      ]
+    },
+
+    "crew_worth": {
+      "speaker": "Rho",
+      "text": "[i]He nods slowly.[/i] Nyx doesn't trade lives. Vesper sees people, not assets. Jalen fights like every life matters—even the enemy's. That's rare out here. That's worth protecting.",
+      "reputation": {
+        "rho": 2
+      },
+      "next": "why_matters"
+    },
+
+    "protection_worth": {
+      "speaker": "Rho",
+      "text": "Yeah. And you're one of them now. That's not small. That's everything. Every person I protect—every person who makes it home—that's why I keep counting. Because they matter.",
+      "reputation": {
+        "rho": 2
+      },
+      "next": "why_matters"
+    },
+
+    "redemption_worth": {
+      "speaker": "Rho",
+      "text": "[i]He shakes his head.[/i] Not redemption. Can't redeem one hundred and twelve lives. But maybe... maybe I can make them mean something. Make sure they weren't wasted on lies.",
+      "reputation": {
+        "rho": 1
+      },
+      "next": "why_matters"
+    },
+
+    "challenge_worth": {
+      "speaker": "Rho",
+      "text": "[i]His eyes narrow, then soften.[/i] You're asking if I've thought about stopping. Yeah. Every day. But then I remember—if I stop, who protects them? Who carries the weight so they don't have to?",
+      "reputation": {
+        "rho": 1
+      },
+      "next": "why_matters"
+    },
+
+    "why_matters": {
+      "speaker": "Rho",
+      "text": "I stay because this crew needs someone willing to do the hard thing. Someone who'll stand between them and the void and say 'not today.' That's me. That's what I'm good at.",
+      "next": "cannon_matters"
+    },
+
+    "cannon_matters": {
+      "speaker": "Rho",
+      "text": "And this cannon—this ugly, brutal, honest piece of metal—it's the tool I use to keep them safe. It doesn't lie. It doesn't pretend. When I fire it, I know exactly what I'm choosing.",
+      "text_variants": [
+        {
+          "conditions": {
+            "flags": ["trust_intervention_attempted"]
+          },
+          "text": "You tried to save someone back in the ruins. Tried to pull them back from the edge. That's who you are. [i]He taps the cannon.[/i] This is who I am. We both protect people. Just different methods."
+        }
+      ],
+      "next": "rho_question"
+    },
+
+    "rho_question": {
+      "speaker": "Rho",
+      "text": "Here's what I need to know, Avyanna. Really know. When it comes down to it—when the count goes to one hundred and thirteen, one hundred and twenty, one hundred and fifty—can you stand next to someone like me?",
+      "next": "rho_question_clarify"
+    },
+
+    "rho_question_clarify": {
+      "speaker": "Rho",
+      "text": "Can you fight beside someone who counts their kills? Who carries the weight of every trigger pull? Because that's who I am. And I need to know if that changes how you see me.",
+      "choices": [
+        {
+          "text": "You're not defined by your kill count. You're defined by who you protect.",
+          "next": "accept_burden",
+          "reputation": {
+            "rho": 2
+          },
+          "set_flag": "deep_rho_complete"
+        },
+        {
+          "text": "I see someone who refuses to forget. That takes courage.",
+          "next": "accept_memory",
+          "reputation": {
+            "rho": 2
+          },
+          "set_flag": "deep_rho_complete"
+        },
+        {
+          "text": "I see a weapon trying to be human. I respect the struggle.",
+          "next": "accept_struggle",
+          "reputation": {
+            "rho": 1
+          },
+          "set_flag": "deep_rho_complete"
+        },
+        {
+          "text": "I see someone carrying too much. Let me help.",
+          "next": "offer_help",
+          "reputation": {
+            "rho": 2
+          },
+          "set_flag": "deep_rho_complete"
+        }
+      ]
+    },
+
+    "accept_burden": {
+      "speaker": "Rho",
+      "text": "[i]His shoulders drop—not in defeat, but in relief.[/i] That's... that's what I needed to hear. Not that the count doesn't matter. But that it's not [i]all[/i] that matters.",
+      "next": "path_split"
+    },
+
+    "accept_memory": {
+      "speaker": "Rho",
+      "text": "[i]He meets your eyes, and for the first time tonight, there's something like peace there.[/i] Courage. Never thought of it that way. Maybe you're right. Maybe remembering is its own kind of bravery.",
+      "next": "path_split"
+    },
+
+    "accept_struggle": {
+      "speaker": "Rho",
+      "text": "[i]He laughs—short, dry, unexpected.[/i] Weapon trying to be human. Yeah. That's about right. Some days I'm not sure which side is winning. But I keep trying.",
+      "next": "path_split"
+    },
+
+    "offer_help": {
+      "speaker": "Rho",
+      "text": "[i]He stares at you for a long moment. Then he nods.[/i] Yeah. Yeah, okay. I've been carrying this alone for too long. If you're offering... I'll take the help.",
+      "set_flag": "rho_combat_coordination",
+      "next": "path_split_help"
+    },
+
+    "path_split": {
+      "speaker": "SYSTEM",
+      "text": "Rho picks up the firing mechanism again, slots it back into the cannon assembly. His movements are steadier now, less mechanical. He's still carrying the weight—but maybe it's lighter.",
+      "choices": [
+        {
+          "text": "What happens when you reach two hundred?",
+          "next": "future_count"
+        },
+        {
+          "text": "Do you ever see them? The ones you've lost?",
+          "next": "haunted_question"
+        },
+        {
+          "text": "How do I make sure I'm worth protecting?",
+          "next": "worth_question"
+        }
+      ]
+    },
+
+    "path_split_help": {
+      "speaker": "SYSTEM",
+      "text": "Rho picks up the firing mechanism again, slots it back into the cannon assembly. His movements are steadier now, less mechanical. He's still carrying the weight—but you're carrying it with him.",
+      "choices": [
+        {
+          "text": "We'll carry the count together.",
+          "next": "shared_burden_path"
+        },
+        {
+          "text": "In combat, I'll watch your back. Always.",
+          "next": "combat_coordination_path"
+        },
+        {
+          "text": "When it gets heavy, you tell me. Deal?",
+          "next": "check_in_path"
+        }
+      ]
+    },
+
+    "future_count": {
+      "speaker": "Rho",
+      "text": "I keep counting. Keep remembering. Keep making sure each one matters. And I keep protecting the people who make it worth carrying.",
+      "next": "peace_ending"
+    },
+
+    "haunted_question": {
+      "speaker": "Rho",
+      "text": "Marcus and Senna? Every night. Sometimes in dreams. Sometimes when I'm awake. They're not angry. They just... watch. Making sure I don't waste what they gave me.",
+      "next": "peace_ending"
+    },
+
+    "worth_question": {
+      "speaker": "Rho",
+      "text": "[i]He looks at you, surprised.[/i] You already are. You asked. You listened. You didn't run. That's more than most people do. That's enough.",
+      "reputation": {
+        "rho": 1
+      },
+      "next": "peace_ending"
+    },
+
+    "shared_burden_path": {
+      "speaker": "Rho",
+      "text": "[i]He extends his hand—scarred, calloused, steady.[/i] Together, then. One hundred and twelve becomes our count. Not just mine. I can live with that.",
+      "reputation": {
+        "rho": 2
+      },
+      "next": "bonded_ending"
+    },
+
+    "combat_coordination_path": {
+      "speaker": "Rho",
+      "text": "Yeah. And I'll watch yours. We move as a unit from now on. I fire, you position. You engage, I suppress. That's how we keep each other alive.",
+      "reputation": {
+        "rho": 2
+      },
+      "next": "bonded_ending"
+    },
+
+    "check_in_path": {
+      "speaker": "Rho",
+      "text": "[i]He nods slowly, something like gratitude crossing his face.[/i] Deal. I'm not good at asking for help. But for you, I'll try. That's... that's a promise.",
+      "reputation": {
+        "rho": 2
+      },
+      "next": "bonded_ending"
+    },
+
+    "peace_ending": {
+      "speaker": "SYSTEM",
+      "text": "Rho finishes reassembling the cannon. He lifts it, testing the weight, the balance. When he sets it down, he meets your eyes.",
+      "next": "peace_final"
+    },
+
+    "peace_final": {
+      "speaker": "Rho",
+      "text": "Thank you. For listening. For not judging. For seeing the human under the weapon. That's rare. That's valuable. [i]He stands.[/i] I'll remember this. Add it to the count—but the good kind. The kind that makes carrying the rest easier.",
+      "next": "peace_departure"
+    },
+
+    "peace_departure": {
+      "speaker": "SYSTEM",
+      "text": "He picks up the cannon, settles it against his shoulder with practiced ease. At the doorway, he pauses. When he looks back, the weight is still there—but it's different now. Acknowledged. Shared, in some small way. He nods once, then disappears into the corridor. The armory is quiet. One hundred and twelve souls rest a little easier tonight.",
+      "next": "end"
+    },
+
+    "bonded_ending": {
+      "speaker": "SYSTEM",
+      "text": "Rho finishes reassembling the cannon. He lifts it, testing the weight, the balance. When he sets it down, something has changed. The weapon looks the same. Rho looks lighter.",
+      "next": "bonded_final"
+    },
+
+    "bonded_final": {
+      "speaker": "Rho",
+      "text": "You know what the best part is? I don't have to explain anymore. You just [i]get it.[/i] That's... [i]He shakes his head, almost smiling.[/i] That's everything, Avyanna. Thank you.",
+      "next": "bonded_departure"
+    },
+
+    "bonded_departure": {
+      "speaker": "SYSTEM",
+      "text": "He picks up the cannon, settles it against his shoulder with practiced ease. At the doorway, he pauses. When he looks back, there's warmth in his eyes—the kind that comes from being truly seen. One hundred and twelve souls. Two people carrying them. The weight hasn't changed. But the burden is lighter. He nods once, a warrior's salute. Then he's gone. The armory feels less cold.",
+      "next": "end"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "act1_husk_swarm",
+  "name": "Husk Swarm",
+  "description": "Lattice shards respond to resonance signatures. Four crystalline entities converge - individually weak but dangerous in numbers.",
+  "waves": [
+    {
+      "description": "Lattice Shard Swarm",
+      "enemies": [
+        {"type": "husk_shard", "count": 4}
+      ]
+    }
+  ],
+  "environment": {
+    "static_zone": true,
+    "resonance_vents": true,
+    "lattice_corruption": true
+  },
+  "victory_condition": "defeat_all",
+  "defeat_consequence": "retry",
+  "rewards": {
+    "experience": 200,
+    "flags": ["husk_swarm_defeated"]
+  },
+  "loot": []
+}

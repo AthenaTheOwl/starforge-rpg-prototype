@@ -1,0 +1,484 @@
+{
+	"start_node": "start",
+	"nodes": {
+		"start": {
+			"speaker": "SYSTEM",
+			"text": "[i]The hull screams before the alarms do. Someone is cutting through the starboard cargo bay. Thermal lance. Military-grade.[/i]",
+			"next": "waffle_report"
+		},
+		"waffle_report": {
+			"speaker": "Waffle.bat",
+			"text": "Unregistered vessel. Modified hauler. They've locked on. Cutting through starboard cargo. Five life signs — four moving in. One's still on their ship. Pilot, probably, or someone who knows better.",
+			"next": "elia_weapons"
+		},
+		"elia_weapons": {
+			"speaker": "Elia",
+			"text": "Weapons?",
+			"next": "waffle_weapons"
+		},
+		"waffle_weapons": {
+			"speaker": "Waffle.bat",
+			"text": "Standard pulse rifles, mostly. One plasma cutter doubling as close-range. And... one of them is doing something with the Lattice. Badly.",
+			"next": "floor_check"
+		},
+		"floor_check": {
+			"speaker": "Rho",
+			"text": "Floor check. Who's calling pattern?",
+			"next": "elia_orders"
+		},
+		"elia_orders": {
+			"speaker": "Elia",
+			"text": "Routing traffic. Starboard cargo breach, four mobile hostiles plus ship-bound. Rho, junction funnel. Elisira, comms intercept. Nyx, Lattice interference on standby.",
+			"next": "floor_holds"
+		},
+		"floor_holds": {
+			"speaker": "SYSTEM",
+			"text": "[i]The response comes fast, overlapping, muscle memory. 'Floor holds.' — from every voice. No one asked permission. No one gave orders. The pattern just happened.[/i]",
+			"next": "elia_restraint"
+		},
+		"elia_restraint": {
+			"speaker": "Elia",
+			"text": "Don't kill anyone we don't have to.",
+			"next": "rho_restraint"
+		},
+		"rho_restraint": {
+			"speaker": "Rho",
+			"text": "[i]Something in his shoulders tightens — the weight of a count that never stops.[/i] I know.",
+			"next": "elisira_intel"
+		},
+		"elisira_intel": {
+			"speaker": "Elisira",
+			"text": "Their comms say the independent contractor vessel will be easy. That they've done this before. That the 'captain' won't be a problem.",
+			"next": "elia_captain_reaction"
+		},
+		"elia_captain_reaction": {
+			"speaker": "Elia",
+			"text": "[i]Jaw tightening.[/i] They said captain?",
+			"next": "elisira_package"
+		},
+		"elisira_package": {
+			"speaker": "Elisira",
+			"text": "The pilot keeps asking about 'the package.' They're here for something specific. He mentioned docking fees. His kids. He's doing this because the alternative is worse.",
+			"next": "elia_thought"
+		},
+		"elia_thought": {
+			"speaker": "SYSTEM",
+			"text": "[i](Always. It's always the same. The ones at the bottom eating the ones further down.)[/i]",
+			"next": "cargo_bay_confrontation"
+		},
+		"cargo_bay_confrontation": {
+			"speaker": "Elia",
+			"text": "Gentlemen.",
+			"next": "pirate_demand"
+		},
+		"pirate_demand": {
+			"speaker": "Lead Pirate",
+			"text": "Down on the ground. Hands visible. Now.",
+			"next": "elia_refuses"
+		},
+		"elia_refuses": {
+			"speaker": "Elia",
+			"text": "I don't think I will. You've cut through my hull. That's going to need repair. You've also made assumptions about command structure that I find... philosophically distasteful.",
+			"next": "elia_floors"
+		},
+		"elia_floors": {
+			"speaker": "Elia",
+			"text": "You came here expecting a captain. A throat to cut. Someone whose death makes the rest compliant. We don't have that. We have a ship full of people who work together. Floors, not thrones. No hierarchy for you to decapitate.",
+			"next": "pirate_angry"
+		},
+		"pirate_angry": {
+			"speaker": "Lead Pirate",
+			"text": "Lady, I don't care about your —",
+			"next": "elia_moves"
+		},
+		"elia_moves": {
+			"speaker": "SYSTEM",
+			"text": "[i]She moves. The blade doesn't hurry. It arrives at the necessary points in the necessary order.[/i]",
+			"next": "approach_choice"
+		},
+		"approach_choice": {
+			"speaker": "SYSTEM",
+			"text": "[i]The raiders are down. The fight lasted seconds. Now comes the question: what happens to the survivors?[/i]",
+			"choices": [
+				{
+					"text": "Restrain them. Patch their wounds. Turn them over to the Guild.",
+					"next": "nonlethal_resolution",
+					"set_flag": "prologue_nonlethal",
+					"reputation": {"guild": 1}
+				},
+				{
+					"text": "Let Rho secure them. No need for gentleness — they attacked first.",
+					"next": "harsh_resolution",
+					"set_flag": "prologue_harsh"
+				},
+				{
+					"text": "Check on the pilot. The one with the kids who stayed on the ship.",
+					"next": "pilot_mercy",
+					"set_flag": "prologue_mercy",
+					"reputation": {"guild": 1}
+				}
+			]
+		},
+		"nonlethal_resolution": {
+			"speaker": "Elia",
+			"text": "Patch them up. File the waiver. Guild can sort the rest.",
+			"next": "rho_nonlethal"
+		},
+		"rho_nonlethal": {
+			"speaker": "Rho",
+			"text": "[i]He lowers the cannon. Relief in his shoulders — one less number on the count.[/i] Zip ties and field dressings. Coming up.",
+			"next": "bubbles_wrap"
+		},
+		"harsh_resolution": {
+			"speaker": "Rho",
+			"text": "[i]His jaw tightens.[/i] Secure. Not gentle, but secure. They'll live to regret it.",
+			"next": "bubbles_wrap"
+		},
+		"pilot_mercy": {
+			"speaker": "Elisira",
+			"text": "The pilot's still on the ship. Heart rate elevated. He hasn't moved. He's waiting to find out if he's a widower's husband or an orphan-maker.",
+			"next": "elia_pilot"
+		},
+		"elia_pilot": {
+			"speaker": "Elia",
+			"text": "Hail him. Tell him his crew's alive. Tell him to undock and go home. The debt that made him do this isn't going away because we broke his friends.",
+			"next": "bubbles_wrap"
+		},
+		"bubbles_wrap": {
+			"speaker": "Bubbles",
+			"text": "[i]Through earpiece, voice like warm water over stones.[/i] Drones secured. Four hostiles accounted for. Hull breach sealed — temporary. Jalen will have opinions about the weld quality.",
+			"next": "waffle_post_boarding"
+		},
+		"waffle_post_boarding": {
+			"speaker": "Waffle.bat",
+			"text": "[i]{WAFFLE.BAT// DAMAGE_REPORT: hull breach sealed temporary | HOSTILE_COUNT: 4 neutralized, 1 departed | CREW_STATUS: all accounted for | MOOD: relieved}[/i]",
+			"next": "cinnamon_post_boarding"
+		},
+		"cinnamon_post_boarding": {
+			"speaker": "Cinnamon",
+			"text": "Structural integrity holding. Drill bay unaffected. Recommend permanent weld within six hours.",
+			"next": "end_prologue"
+		},
+		"end_prologue": {
+			"speaker": "SYSTEM",
+			"text": "[i]The boarding action is over. The coffee machine resumes its mechanical sulk, as if nothing happened. The Lumen Thief flies on.[/i]",
+			"next": "arrival_transition"
+		},
+
+		"arrival_transition": {
+			"speaker": "SYSTEM",
+			"text": "[i]Hours earlier. Before the boarding. Before the blood and the blade. The memory rewinds to where it actually started — to a docking clamp engaging, to a hatch cycling open, to the first breath of recycled air that wasn't the Kennel's.[/i]",
+			"next": "arrival_sensory_1"
+		},
+		"arrival_sensory_1": {
+			"speaker": "SYSTEM",
+			"text": "[i]The Lumen Thief smells like engine grease, coffee that's been on the burner too long, and something faintly botanical — herbs, maybe, growing somewhere under UV. The air recyclers hum a half-tone lower than the Kennel's. Your body notices before your mind does. The pitch is wrong. Everything is wrong.[/i]",
+			"next": "arrival_sensory_2"
+		},
+		"arrival_sensory_2": {
+			"speaker": "SYSTEM",
+			"text": "[i]The corridor is narrow. Cables bundled along the ceiling with mismatched zip ties. A child's drawing taped to a bulkhead — stick figures under a yellow sun. Someone has written 'JALEN DO NOT TOUCH' on a panel in permanent marker. The ship is alive in ways the Kennel never was.[/i]",
+			"next": "arrival_disorientation"
+		},
+		"arrival_disorientation": {
+			"speaker": "SYSTEM",
+			"text": "[i]Your legs don't trust the gravity. The Kennel ran point-eight-seven standard; this ship runs full G. Every step feels like pushing through shallow water. The shard at the base of your skull pulses once — a faint heat, like a match struck and snuffed — and you steady yourself against the wall.[/i]",
+			"next": "first_glimpse_jalen"
+		},
+		"first_glimpse_jalen": {
+			"speaker": "SYSTEM",
+			"text": "[i]A man passes through the junction ahead, arms full of conduit piping, muttering calculations to himself. Tall. Broad. Hands stained with coolant. He glances at you — not unkindly, not warmly — the way you'd clock a new piece of equipment. Then he's gone, around the corner, still muttering.[/i]",
+			"next": "first_glimpse_vesper"
+		},
+		"first_glimpse_vesper": {
+			"speaker": "SYSTEM",
+			"text": "[i]In the galley doorway, a young woman sits cross-legged on the floor, disassembling a drone component with surgical precision. Her eyes are somewhere else entirely — focused on a middle distance that doesn't exist in this room. She doesn't look up. The parts click together in her hands like they're teaching themselves.[/i]",
+			"next": "first_glimpse_nyx"
+		},
+		"first_glimpse_nyx": {
+			"speaker": "SYSTEM",
+			"text": "[i]The med bay is open. Inside, someone is organizing vials by color, humming something atonal. Dark hair. Steady hands. A holographic anatomy chart rotates slowly beside her — not human anatomy. Something older. She notices you watching and offers a single, precise nod. Permission to exist in her space. Nothing more.[/i]",
+			"next": "first_glimpse_rho"
+		},
+		"first_glimpse_rho": {
+			"speaker": "SYSTEM",
+			"text": "[i]The big one is in the cargo hold, doing pull-ups from a ceiling strut. Each rep is silent — controlled. A man that size should make noise. He drops, lands soft as a held breath, and picks up a cup of tea from the floor. Chamomile. He drinks it without irony.[/i]",
+			"next": "first_glimpse_elisira"
+		},
+		"first_glimpse_elisira": {
+			"speaker": "SYSTEM",
+			"text": "[i]You hear her before you see her. A voice from the comms station, reciting intercepted transmissions in three languages simultaneously — not translating, experiencing. When she turns, her expression is a library deciding whether to let you in.[/i]",
+			"next": "elia_welcome"
+		},
+		"elia_welcome": {
+			"speaker": "Elia",
+			"text": "[i]She's waiting at the end of the corridor. Leaning against the bulkhead. Arms folded. Not a pose — a position. Load-bearing patience.[/i] You're Avyanna.",
+			"next": "avyanna_confirm"
+		},
+		"avyanna_confirm": {
+			"speaker": "Avyanna",
+			"text": "Yes.",
+			"next": "elia_practical_1"
+		},
+		"elia_practical_1": {
+			"speaker": "Elia",
+			"text": "Elia. I coordinate. The extraction package said you'd need medical attention, food, and somewhere horizontal. Medical's down the hall — Nyx runs it. Food's in the galley — help yourself, clean your plate. Bunk's this way.",
+			"next": "elia_practical_2"
+		},
+		"elia_practical_2": {
+			"speaker": "Elia",
+			"text": "[i]She starts walking. Doesn't check if you follow. Trusts that you will, or doesn't care either way.[/i] Ground rules. Nobody enters your space without asking. Lock works from inside only. You eat when you're hungry, sleep when you can. Don't touch anything in the engine room without asking Jalen first. He bites.",
+			"next": "elia_no_warmth"
+		},
+		"elia_no_warmth": {
+			"speaker": "Elia",
+			"text": "Questions can wait until you've slept. Most things can.",
+			"next": "quarters_approach"
+		},
+		"quarters_approach": {
+			"speaker": "SYSTEM",
+			"text": "[i]The bunk is small. A cot bolted to the wall. A shelf. A porthole the size of a dinner plate showing nothing but the slow wheel of stars. Someone has left a folded blanket — not standard issue, hand-knitted, one corner unraveling. The pillow smells like detergent, not disinfectant. That difference means everything.[/i]",
+			"next": "quarters_details"
+		},
+		"quarters_details": {
+			"speaker": "SYSTEM",
+			"text": "[i]The walls are scratched. Previous occupants carved initials, tallied days, drew constellations. A small shelf holds three items left behind: a dead succulent in a chipped mug, a dog-eared paperback with the cover torn off, and a bolt that someone polished smooth as a worry stone.[/i]",
+			"next": "elia_leaves"
+		},
+		"elia_leaves": {
+			"speaker": "Elia",
+			"text": "[i]She pauses at the threshold.[/i] The lock is the button on the left. Green means open. Red means yours. Use red whenever you need to. Nobody will ask why.",
+			"next": "elia_leaves_2"
+		},
+		"elia_leaves_2": {
+			"speaker": "SYSTEM",
+			"text": "[i]She leaves. The door closes. You press the button. The light goes red. And for the first time in — how long? Years? — the locked door is keeping others out, not keeping you in.[/i]",
+			"next": "alone_processing_1"
+		},
+		"alone_processing_1": {
+			"speaker": "SYSTEM",
+			"text": "[i]You sit on the cot. The springs protest. The blanket is rough under your fingers. Real. Not a simulation, not a test, not a Kennel trick where they let you feel safe before the next round of extraction. The shard hums at the base of your skull — a low, persistent warmth, the way an old wound aches before rain.[/i]",
+			"next": "alone_processing_2"
+		},
+		"alone_processing_2": {
+			"speaker": "SYSTEM",
+			"text": "[i]The extraction. You remember it in fragments. Hands pulling you through a maintenance shaft. The taste of copper. Someone saying 'move, move, move' in a voice that expected to be obeyed. The Kennel alarms wailing behind you — that particular frequency they use to make your teeth hurt. And then the shuttle. And then nothing, for a while.[/i]",
+			"next": "alone_shard"
+		},
+		"alone_shard": {
+			"speaker": "SYSTEM",
+			"text": "[i]The shard. They put it in you at the Kennel. Or it put itself in you. The doctors disagreed. You remember the surgery — the light, the restraints, the sound of the drill. You remember waking up different. You remember the word they used: 'compatible.' Like you were a port and it was a cable. Like compatibility was all that mattered.[/i]",
+			"next": "alone_free"
+		},
+		"alone_free": {
+			"speaker": "SYSTEM",
+			"text": "[i]Free. The word sits in your chest like something swallowed wrong. You are on a ship full of strangers. You have no money, no identity papers, no contacts outside the people who extracted you. The shard is fused to your spine. You are free the way a falling object is free — no longer held, but not yet landed.[/i]",
+			"next": "attitude_choice"
+		},
+		"attitude_choice": {
+			"speaker": "SYSTEM",
+			"text": "[i]You stare at the locked red light on the door. How does this feel?[/i]",
+			"choices": [
+				{
+					"text": "Grateful. They didn't have to take you. Whatever comes next, this is better.",
+					"next": "attitude_grateful",
+					"set_flag": "prologue_attitude_grateful"
+				},
+				{
+					"text": "Wary. Kind strangers are the most dangerous kind. You've learned that.",
+					"next": "attitude_wary",
+					"set_flag": "prologue_attitude_wary"
+				},
+				{
+					"text": "Numb. You can't feel anything yet. Maybe later. Maybe never.",
+					"next": "attitude_numb",
+					"set_flag": "prologue_attitude_numb"
+				}
+			]
+		},
+		"attitude_grateful": {
+			"speaker": "SYSTEM",
+			"text": "[i]The gratitude is a physical thing — pressure behind your eyes, tightness in your throat. You press your palm against the blanket. Someone knitted this. Chose the yarn. Counted the stitches. That effort exists in the world, and now it's keeping you warm. You let yourself feel it. Just for a moment.[/i]",
+			"next": "bee_first_signal"
+		},
+		"attitude_wary": {
+			"speaker": "SYSTEM",
+			"text": "[i]You check the lock twice. Map the room — one entrance, one porthole too small to crawl through, cot bolted down, shelf removable. The bolt on the shelf is heavy enough to swing. You note this and hate yourself for noting it. The Kennel taught you to think like this. The Kennel taught you everything wrong.[/i]",
+			"next": "bee_first_signal"
+		},
+		"attitude_numb": {
+			"speaker": "SYSTEM",
+			"text": "[i]Nothing. The room is a room. The blanket is a blanket. Your hands are in your lap and they don't feel like yours. Somewhere behind the numbness there is a person who will have opinions about all of this, but she's not here right now. She left sometime during the extraction and hasn't come back yet.[/i]",
+			"next": "bee_first_signal"
+		},
+		"bee_first_signal": {
+			"speaker": "SYSTEM",
+			"text": "[i]A flicker. Not visual — deeper. Like a word on the tip of your tongue, except the tongue is your spine and the word is in a language you've never heard. The shard pulses once, twice. A rhythm that almost sounds like —[/i]",
+			"next": "bee_proto_message"
+		},
+		"bee_proto_message": {
+			"speaker": "SYSTEM",
+			"text": "[i]{BEE:: ...ledger... | STATUS: sub-threshold | DETAIL: signal below conscious parsing — catalogued as somatic noise}[/i]",
+			"next": "bee_dismissed"
+		},
+		"bee_dismissed": {
+			"speaker": "SYSTEM",
+			"text": "[i]You rub the back of your neck. Stress. Extraction aftershock. The doctors at the Kennel said the shard would produce phantom signals during periods of elevated cortisol. They said a lot of things. Most of them were lies, but this one might be true. You let it go.[/i]",
+			"next": "crew_interaction_choice"
+		},
+		"crew_interaction_choice": {
+			"speaker": "SYSTEM",
+			"text": "[i]A knock at the door. Soft. Then a voice — not Elia's. Someone checking in. You could answer, or not. But when you look at the door, you realize you want to. Even that small want feels like progress. Who is it?[/i]",
+			"choices": [
+				{
+					"text": "It's Rho. You recognize the careful weight of his knock — deliberate, like he's afraid of breaking something.",
+					"next": "interact_rho",
+					"set_flag": "prologue_met_rho"
+				},
+				{
+					"text": "It's Elisira. Her voice carries even through the door — measured, warm at the edges.",
+					"next": "interact_elisira",
+					"set_flag": "prologue_met_elisira"
+				},
+				{
+					"text": "It's Jalen. You can hear him shifting his weight, impatient, something metal clinking in his hands.",
+					"next": "interact_jalen",
+					"set_flag": "prologue_met_jalen"
+				}
+			]
+		},
+		"interact_rho": {
+			"speaker": "Rho",
+			"text": "[i]He fills the doorway. Holds out a thermos — battered, dented, clearly beloved.[/i] Chamomile. It's, uh. It helps. After adrenaline. Allegedly.",
+			"next": "interact_rho_2"
+		},
+		"interact_rho_2": {
+			"speaker": "Rho",
+			"text": "[i]He doesn't come in. Doesn't lean on the frame. Gives you the full doorway to close if you want.[/i] I'm Rho. I carry heavy things and try not to break them. That's... basically the job description.",
+			"next": "interact_rho_3"
+		},
+		"interact_rho_3": {
+			"speaker": "SYSTEM",
+			"text": "[i]His hands are enormous. The thermos looked like a toy in them. But he held it like it was made of glass.[/i]",
+			"next": "interact_rho_response",
+			"reputation": {"rho": 1}
+		},
+		"interact_rho_response": {
+			"speaker": "Avyanna",
+			"text": "Thank you.",
+			"next": "interact_rho_exit"
+		},
+		"interact_rho_exit": {
+			"speaker": "Rho",
+			"text": "[i]A nod. He turns to leave, then stops.[/i] The gravity's higher here than what you're used to. Drink water. Your joints will thank you in the morning. [i]And he's gone. Quiet as something that big has no right to be.[/i]",
+			"next": "ftl_approach"
+		},
+		"interact_elisira": {
+			"speaker": "Elisira",
+			"text": "[i]She stands at an angle — not directly in front of the door, but offset. Giving you sightlines. Deliberate.[/i] I brought you something to eat. Nothing complicated. Rice, protein, broth. The galley has more, but your stomach won't be ready for more.",
+			"next": "interact_elisira_2"
+		},
+		"interact_elisira_2": {
+			"speaker": "Elisira",
+			"text": "I'm Elisira. I listen to things — signals, chatter, what people say between the things they say. You don't have to talk to me. But if you do, I'll hear you. That's not a promise. It's just what I am.",
+			"next": "interact_elisira_3"
+		},
+		"interact_elisira_3": {
+			"speaker": "SYSTEM",
+			"text": "[i]Her eyes are steady. Not searching — receiving. You get the sense that she's already heard everything your body is broadcasting: the fear, the exhaustion, the razor-thin hope. She doesn't comment on any of it.[/i]",
+			"next": "interact_elisira_response",
+			"reputation": {"elisira": 1}
+		},
+		"interact_elisira_response": {
+			"speaker": "Avyanna",
+			"text": "Thank you.",
+			"next": "interact_elisira_exit"
+		},
+		"interact_elisira_exit": {
+			"speaker": "Elisira",
+			"text": "[i]She sets the tray on the floor inside the threshold — not reaching in, not crossing the line.[/i] Eat when you want. Leave the tray outside when you're done. Or don't. No one's counting. [i]A pause.[/i] Welcome aboard, Avyanna.",
+			"next": "ftl_approach"
+		},
+		"interact_jalen": {
+			"speaker": "Jalen",
+			"text": "[i]He's holding a piece of conduit and looks mildly annoyed about everything in general.[/i] So you're the new one. Right. I'm Jalen. I keep this ship from becoming a very expensive coffin. Don't touch anything in the engine room. I'm not being dramatic — the plasma coils will actually kill you.",
+			"next": "interact_jalen_2"
+		},
+		"interact_jalen_2": {
+			"speaker": "Jalen",
+			"text": "[i]He glances past you at the bunk.[/i] The heating vent rattles at oh-three-hundred. It's not broken — it's a pressure equalization thing. If it bothers you, stuff a sock in it. Left side.",
+			"next": "interact_jalen_3"
+		},
+		"interact_jalen_3": {
+			"speaker": "SYSTEM",
+			"text": "[i]It's the most practical kindness you've received in years — someone telling you how to sleep better in a new place. He doesn't seem to realize he's being kind. He seems to think he's being efficient.[/i]",
+			"next": "interact_jalen_response",
+			"reputation": {"jalen": 1}
+		},
+		"interact_jalen_response": {
+			"speaker": "Avyanna",
+			"text": "Thank you.",
+			"next": "interact_jalen_exit"
+		},
+		"interact_jalen_exit": {
+			"speaker": "Jalen",
+			"text": "[i]He waves the conduit like a dismissal.[/i] Don't thank me. Thank whoever designed the pressure system on this heap. [i]He's already walking away, muttering about weld integrity.[/i]",
+			"next": "ftl_approach"
+		},
+		"ftl_approach": {
+			"speaker": "SYSTEM",
+			"text": "[i]A tone sounds through the ship — three rising notes, almost musical. An announcement system that someone bothered to make pleasant.[/i]",
+			"next": "cinnamon_ftl_warning"
+		},
+		"cinnamon_ftl_warning": {
+			"speaker": "Cinnamon",
+			"text": "FTL transit in ninety seconds. Secure loose items. First-time passengers: the nausea is temporary. The sense of existential dislocation is also temporary but takes longer.",
+			"next": "ftl_pre_jump"
+		},
+		"ftl_pre_jump": {
+			"speaker": "SYSTEM",
+			"text": "[i]You don't know what to secure. You grip the edge of the cot. The engines change pitch — the hum deepens, drops below hearing, becomes a vibration in your molars, your sternum, the shard. Especially the shard. It resonates like a tuning fork struck against the universe's spine.[/i]",
+			"next": "ftl_jump"
+		},
+		"ftl_jump": {
+			"speaker": "SYSTEM",
+			"text": "[i]The jump happens. It doesn't feel like acceleration. It feels like being turned inside out and put back — everything in the right place, but briefly aware of its own assembly. Your vision whites. Your ears ring. The stars in the porthole stretch into lines, then vanish, replaced by the churning non-color of FTL space. It looks like static. It looks like the inside of a thought.[/i]",
+			"next": "ftl_aftermath"
+		},
+		"ftl_aftermath": {
+			"speaker": "SYSTEM",
+			"text": "[i]Your stomach lurches. Your fingers ache from gripping the cot. The shard flares — a bright, sharp heat — and for one instant you hear something. Not words. A frequency. A tone that sounds like geometry, like architecture, like a door being measured for a key. Then it's gone.[/i]",
+			"next": "bee_ftl_signal"
+		},
+		"bee_ftl_signal": {
+			"speaker": "SYSTEM",
+			"text": "[i]{BEE:: ...transit-resonance... | STATUS: signal spike during FTL boundary crossing | DETAIL: harmonic match 0.03 above noise floor — still sub-threshold — still deniable}[/i]",
+			"next": "ftl_settle"
+		},
+		"ftl_settle": {
+			"speaker": "SYSTEM",
+			"text": "[i]The nausea passes. The non-color outside the porthole settles into a slow, nauseating churn. You breathe. The ship breathes. Somewhere, the coffee machine gurgles its permanent complaint. Normal. This is normal here. You will learn what normal means.[/i]",
+			"next": "sleep_attempt"
+		},
+		"sleep_attempt": {
+			"speaker": "SYSTEM",
+			"text": "[i]You lie down. The cot is too soft — the Kennel used slabs, said it was better for spinal alignment, said a lot of things about what was better for you. This mattress has a dip where someone else slept before you, and you fit into the shape they left. A stranger's ghost, cradling you.[/i]",
+			"next": "sleep_sounds"
+		},
+		"sleep_sounds": {
+			"speaker": "SYSTEM",
+			"text": "[i]The ship speaks in its sleep. The heating vent ticks. The hull groans against FTL pressure. Footsteps pass your door — someone on a late watch, their stride unhurried. A murmur of voices from the galley. Laughter. The sound is so foreign it takes you a moment to identify it.[/i]",
+			"next": "sleep_shard"
+		},
+		"sleep_shard": {
+			"speaker": "SYSTEM",
+			"text": "[i]The shard is warm. Not painful. Warm the way a hand on your shoulder would be warm, if anyone had touched you gently in the last three years. You close your eyes. Behind them, faint geometric patterns bloom and fade — the ghost of BEE's signal, or the ghost of a ghost. You are too tired to be afraid of it.[/i]",
+			"next": "sleep_final"
+		},
+		"sleep_final": {
+			"speaker": "SYSTEM",
+			"text": "[i]Sleep comes. Not peacefully — it never does — but it comes. And in the space between waking and unconsciousness, in that liminal dark where the body finally lets go of its vigil, you feel something you haven't felt since before the Kennel. Not hope. Not yet. But the absence of the certainty that tomorrow will be worse. And that absence — that tiny, fragile void where despair used to be — is enough. For now. It's enough.[/i]",
+			"next": "end"
+		}
+	}
+}

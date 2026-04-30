@@ -1,0 +1,25 @@
+# Godot
+.godot/
+.pytest_cache/
+__pycache__/
+*.pyc
+*.pyo
+.beads/
+daemon/
+mayor/
+refinery/
+polecats/
+*.log
+*.import
+
+# Beads issue tracker
+.beads/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~

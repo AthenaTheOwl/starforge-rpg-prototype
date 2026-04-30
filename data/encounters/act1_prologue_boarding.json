@@ -1,0 +1,23 @@
+{
+	"id": "act1_prologue_boarding",
+	"name": "Boarding Action — Prologue",
+	"description": "Unregistered raiders breach the Lumen Thief's starboard cargo bay. Mismatched armor, rusty coordination, desperation debt on their wrists. Four mobile hostiles plus one demolitions specialist.",
+	"waves": [
+		{
+			"description": "Raider Boarding Party",
+			"enemies": [
+				{"type": "raider", "count": 4},
+				{"type": "raider_demo", "count": 1}
+			]
+		}
+	],
+	"environment": {
+		"static_zone": false,
+		"ship_interior": true,
+		"narrow_corridors": true
+	},
+	"rewards": {
+		"experience": 75,
+		"flags": ["prologue_boarding_complete"]
+	}
+}

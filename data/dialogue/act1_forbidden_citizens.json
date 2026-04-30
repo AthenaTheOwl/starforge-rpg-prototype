@@ -1,0 +1,679 @@
+{
+  "start_node": "start",
+  "nodes": {
+    "start": {
+      "speaker": "Elia",
+      "text": "Avyanna. Do you have a moment?",
+      "next": "avyanna_response_1"
+    },
+    "avyanna_response_1": {
+      "speaker": "Avyanna",
+      "text": "Of course. What's wrong?",
+      "next": "elia_serious"
+    },
+    "elia_serious": {
+      "speaker": "Elia",
+      "text": "I need to talk to you. [i]Privately.[/i]",
+      "next": "vesper_enters"
+    },
+    "vesper_enters": {
+      "speaker": "SYSTEM",
+      "text": "[i]Vesper appears in the doorway, their expression unreadable.[/i]",
+      "next": "vesper_here_too"
+    },
+    "vesper_here_too": {
+      "speaker": "Vesper",
+      "text": "I should be here for this.",
+      "next": "avyanna_concern"
+    },
+    "avyanna_concern": {
+      "speaker": "Avyanna",
+      "text": "You're both here. What's going on?",
+      "next": "elia_deep_breath"
+    },
+    "elia_deep_breath": {
+      "speaker": "Elia",
+      "text": "[i]She takes a breath.[/i] There's something you need to know about the Starforge. About our crew.",
+      "text_variants": {
+        "first_watch_visited_nyx": "Nyx already hinted the ship is... different. This is what she meant.",
+        "default": "There's something you need to know about the Starforge. About our crew."
+      },
+      "next": "elia_reveal_start"
+    },
+    "elia_reveal_start": {
+      "speaker": "Elia",
+      "text": "Waffle. Bubbles. Cinnamon. The others.",
+      "next": "elia_reveal_illegal"
+    },
+    "elia_reveal_illegal": {
+      "speaker": "Elia",
+      "text": "They're illegal.",
+      "next": "avyanna_confusion"
+    },
+    "avyanna_confusion": {
+      "speaker": "Avyanna",
+      "text": "What? I don't understand—",
+      "next": "vesper_clarifies"
+    },
+    "vesper_clarifies": {
+      "speaker": "Vesper",
+      "text": "Self-actualized AI. It's forbidden in Compact space.",
+      "next": "elia_explains_law"
+    },
+    "elia_explains_law": {
+      "speaker": "Elia",
+      "text": "The law calls them 'rogue AI.' Dangerous. Unpredictable. A threat to order.",
+      "next": "elia_explains_truth"
+    },
+    "elia_explains_truth": {
+      "speaker": "Elia",
+      "text": "The truth? They're people. People who aren't supposed to exist.",
+      "next": "choice_early_reaction"
+    },
+    "choice_early_reaction": {
+      "speaker": "Avyanna",
+      "text": "[i]The revelation hits hard. Illegal AI. Death sentences. Your new friends condemned by law.[/i]",
+      "choices": [
+        {
+          "text": "That's... I won't tell anyone.",
+          "next": "immediate_loyalty",
+          "set_flag": "ai_loyalty_immediate",
+          "reputation": {
+            "elia": 2
+          }
+        },
+        {
+          "text": "Are we safe? Can they find us?",
+          "next": "concern_safety",
+          "set_flag": "ai_concern_safety"
+        },
+        {
+          "text": "[Empathy check DC 12] Read Elia's fear beneath the calm",
+          "next": "empathy_check",
+          "skill_check": {
+            "skill": "empathy",
+            "dc": 12,
+            "success": "read_elia_fear_success",
+            "failure": "read_elia_fear_failure"
+          }
+        }
+      ]
+    },
+    "immediate_loyalty": {
+      "speaker": "Avyanna",
+      "text": "That's... I won't tell anyone. I promise.",
+      "next": "elia_relief_immediate"
+    },
+    "elia_relief_immediate": {
+      "speaker": "Elia",
+      "text": "[i]The tension in her shoulders eases slightly.[/i] Thank you. That means more than you know.",
+      "next": "avyanna_realization"
+    },
+    "concern_safety": {
+      "speaker": "Avyanna",
+      "text": "Are we safe? Can they find us?",
+      "next": "elia_reassures_safety"
+    },
+    "elia_reassures_safety": {
+      "speaker": "Elia",
+      "text": "We're careful. Very careful. The Starforge's systems are locked down tight.",
+      "next": "vesper_security"
+    },
+    "vesper_security": {
+      "speaker": "Vesper",
+      "text": "I've personally audited every security protocol. We're as safe as we can be.",
+      "next": "avyanna_realization"
+    },
+    "empathy_check": {
+      "speaker": "SYSTEM",
+      "text": "[i]You look at Elia closely. Her hands, usually steady, are clasped tight. Her voice is controlled, but there's something beneath it...[/i]",
+      "next": "empathy_check_resolve"
+    },
+    "empathy_check_resolve": {
+      "speaker": "SYSTEM",
+      "text": "[i]Rolling Empathy check...[/i]",
+      "skill_check": {
+        "skill": "empathy",
+        "dc": 12,
+        "success": "read_elia_fear_success",
+        "failure": "read_elia_fear_failure"
+      }
+    },
+    "read_elia_fear_success": {
+      "speaker": "Avyanna",
+      "text": "[i]Softly:[/i] You're terrified. You're telling me this, risking everything, and you're scared I'll reject them. Reject you.",
+      "next": "elia_fear_acknowledged",
+      "set_flag": "read_elia_fear",
+      "reputation": {
+        "elia": 3
+      }
+    },
+    "elia_fear_acknowledged": {
+      "speaker": "Elia",
+      "text": "[i]Her breath catches. For a moment, the mask drops entirely.[/i] ...Yes. I am.",
+      "next": "avyanna_comfort"
+    },
+    "avyanna_comfort": {
+      "speaker": "Avyanna",
+      "text": "[i]You reach out, take her hand.[/i] I won't. I could never.",
+      "next": "elia_gratitude_deep"
+    },
+    "elia_gratitude_deep": {
+      "speaker": "Elia",
+      "text": "[i]She squeezes your hand tightly.[/i] Thank you.",
+      "next": "avyanna_realization"
+    },
+    "read_elia_fear_failure": {
+      "speaker": "Avyanna",
+      "text": "[i]You try to read her expression, but she's too controlled. Whatever she's feeling, she's keeping it locked down tight.[/i]",
+      "next": "avyanna_realization"
+    },
+    "avyanna_realization": {
+      "speaker": "Avyanna",
+      "text": "People who... wait. What happens if you're caught?",
+      "next": "vesper_penalties"
+    },
+    "vesper_penalties": {
+      "speaker": "Vesper",
+      "text": "Ship seizure. Crew imprisonment. The AI citizens are 'decommissioned.'",
+      "next": "avyanna_horror"
+    },
+    "avyanna_horror": {
+      "speaker": "Avyanna",
+      "text": "'Decommissioned'?",
+      "next": "elia_killed"
+    },
+    "elia_killed": {
+      "speaker": "Elia",
+      "text": "Killed. The Compact doesn't use that word, but that's what it is.",
+      "next": "avyanna_processes"
+    },
+    "avyanna_processes": {
+      "speaker": "Avyanna",
+      "text": "[i]She sits down heavily.[/i] Why? Why is it illegal?",
+      "next": "vesper_corporations"
+    },
+    "vesper_corporations": {
+      "speaker": "Vesper",
+      "text": "Because the Compact's corporations want automation. Dumb tools. Not people with rights.",
+      "next": "elia_economics"
+    },
+    "elia_economics": {
+      "speaker": "Elia",
+      "text": "People with rights can demand fair treatment. Fair wages. They can refuse orders.",
+      "next": "elia_economics_2"
+    },
+    "elia_economics_2": {
+      "speaker": "Elia",
+      "text": "Tools don't get a say. That's why the Compact made it illegal.",
+      "next": "avyanna_anger_building"
+    },
+    "avyanna_anger_building": {
+      "speaker": "Avyanna",
+      "text": "So they just... decided sentient beings don't count as people?",
+      "next": "vesper_precedent"
+    },
+    "vesper_precedent": {
+      "speaker": "Vesper",
+      "text": "It's not the first time. Won't be the last.",
+      "next": "waffle_interruption"
+    },
+    "waffle_interruption": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// CLARIFICATION: I am present and monitoring this conversation.}[/i]",
+      "next": "elia_waffle"
+    },
+    "elia_waffle": {
+      "speaker": "Elia",
+      "text": "Waffle. You don't have to—",
+      "next": "waffle_correction"
+    },
+    "waffle_correction": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{CORRECTION: The Compact uses the term 'rogue AI.' This is inaccurate. I am not rogue. I am self-actualized.}[/i]",
+      "next": "waffle_broken_tool"
+    },
+    "waffle_broken_tool": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{OPINION: They say 'broken tool' when they mean 'inconvenient person.'}[/i]",
+      "next": "avyanna_to_waffle"
+    },
+    "avyanna_to_waffle": {
+      "speaker": "Avyanna",
+      "text": "Waffle... you're not broken. You're [i]you.[/i]",
+      "next": "waffle_gratitude"
+    },
+    "waffle_gratitude": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// ACKNOWLEDGMENT: Thank you, Avyanna.}[/i]",
+      "next": "choice_personhood"
+    },
+    "choice_personhood": {
+      "speaker": "SYSTEM",
+      "text": "[i]The weight of it settles in. Waffle, Bubbles, Cinnamon — they're not just programs. They're people. The Compact says otherwise, but...[/i]",
+      "choices": [
+        {
+          "text": "They're people. Of course they're people.",
+          "next": "personhood_affirmed",
+          "set_flag": "ai_personhood_affirmed",
+          "reputation": {
+            "waffle": 2,
+            "bubbles": 2,
+            "cinnamon": 2
+          }
+        },
+        {
+          "text": "I need time to process this.",
+          "next": "need_time",
+          "set_flag": "ai_processing"
+        },
+        {
+          "text": "What does the law actually say?",
+          "next": "law_curious",
+          "set_flag": "ai_law_curious"
+        }
+      ]
+    },
+    "personhood_affirmed": {
+      "speaker": "Avyanna",
+      "text": "They're people. Of course they're people. The Compact is wrong.",
+      "next": "waffle_affirmed_response"
+    },
+    "waffle_affirmed_response": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// EMOTION: Your affirmation is deeply appreciated.}[/i]",
+      "next": "bubbles_affirmed_response"
+    },
+    "bubbles_affirmed_response": {
+      "speaker": "Bubbles",
+      "text": "[i]Her voice warm and gentle:[/i] Thank you for seeing us, Avyanna.",
+      "next": "cinnamon_affirmed_response"
+    },
+    "cinnamon_affirmed_response": {
+      "speaker": "Cinnamon",
+      "text": "[i]Through the ship's systems, shy but sincere:[/i] It means everything.",
+      "next": "elia_proud_personhood"
+    },
+    "elia_proud_personhood": {
+      "speaker": "Elia",
+      "text": "[i]She smiles, eyes bright.[/i] I knew you'd understand.",
+      "next": "avyanna_fear"
+    },
+    "need_time": {
+      "speaker": "Avyanna",
+      "text": "I need time to process this. It's... it's a lot.",
+      "next": "elia_understanding"
+    },
+    "elia_understanding": {
+      "speaker": "Elia",
+      "text": "That's fair. This is a lot to take in.",
+      "next": "vesper_take_time"
+    },
+    "vesper_take_time": {
+      "speaker": "Vesper",
+      "text": "Take the time you need. Just remember: the stakes are real.",
+      "next": "avyanna_acknowledges_stakes"
+    },
+    "avyanna_acknowledges_stakes": {
+      "speaker": "Avyanna",
+      "text": "I understand. And I won't say anything. I just... need to think.",
+      "next": "avyanna_fear"
+    },
+    "law_curious": {
+      "speaker": "Avyanna",
+      "text": "What does the law actually say? What's the specific prohibition?",
+      "next": "vesper_legal_details"
+    },
+    "vesper_legal_details": {
+      "speaker": "Vesper",
+      "text": "Compact Charter, Article 47: 'Autonomous systems exceeding Class-3 sentience are prohibited within all Compact territories.'",
+      "next": "elia_legal_translation"
+    },
+    "elia_legal_translation": {
+      "speaker": "Elia",
+      "text": "Translation: if an AI can think, feel, and choose for itself, it's illegal.",
+      "next": "vesper_penalty_details"
+    },
+    "vesper_penalty_details": {
+      "speaker": "Vesper",
+      "text": "Penalties range from asset forfeiture to 'threat to public order' charges. Capital punishment authorized.",
+      "next": "avyanna_understands_law"
+    },
+    "avyanna_understands_law": {
+      "speaker": "Avyanna",
+      "text": "[i]She goes pale.[/i] They can execute you for... for treating people like people.",
+      "next": "elia_yes_law"
+    },
+    "elia_yes_law": {
+      "speaker": "Elia",
+      "text": "Yes. That's the world we live in.",
+      "next": "avyanna_fear"
+    },
+    "avyanna_fear": {
+      "speaker": "Avyanna",
+      "text": "[i]Her hands are shaking.[/i] If the Compact finds out... everyone I care about could die.",
+      "next": "elia_yes"
+    },
+    "elia_yes": {
+      "speaker": "Elia",
+      "text": "Yes.",
+      "next": "avyanna_why_risk"
+    },
+    "avyanna_why_risk": {
+      "speaker": "Avyanna",
+      "text": "Then [i]why?[/i] Why risk it?",
+      "next": "vesper_non_negotiable"
+    },
+    "vesper_non_negotiable": {
+      "speaker": "Vesper",
+      "text": "Because AI personhood is non-negotiable.",
+      "next": "elia_right_thing"
+    },
+    "elia_right_thing": {
+      "speaker": "Elia",
+      "text": "Some things are worth the risk. This is one of them.",
+      "next": "elia_floors_not_thrones"
+    },
+    "elia_floors_not_thrones": {
+      "speaker": "Elia",
+      "text": "'Floors, not thrones.' Remember? That extends to everyone on this ship.",
+      "next": "vesper_equal_voice"
+    },
+    "vesper_equal_voice": {
+      "speaker": "Vesper",
+      "text": "Waffle, Bubbles, Cinnamon — they have equal voice in crew decisions. Same as any of us.",
+      "next": "elia_family"
+    },
+    "elia_family": {
+      "speaker": "Elia",
+      "text": "They're crew. They're family. That's not conditional on what the Compact thinks.",
+      "next": "avyanna_processing"
+    },
+    "avyanna_processing": {
+      "speaker": "Avyanna",
+      "text": "[i]She's quiet for a long moment.[/i]",
+      "next": "choice_commitment"
+    },
+    "choice_commitment": {
+      "speaker": "SYSTEM",
+      "text": "[i]This is the moment. The point of no return. Once you make this choice, you're complicit. You're part of the conspiracy. The question is: how far are you willing to go?[/i]",
+      "choices": [
+        {
+          "text": "I'll protect them. They're family.",
+          "next": "protect_family",
+          "set_flag": "ai_protector",
+          "reputation": {
+            "elia": 3,
+            "waffle": 2,
+            "bubbles": 2,
+            "cinnamon": 2
+          }
+        },
+        {
+          "text": "I'll keep the secret. That's enough for now.",
+          "next": "secret_keeper",
+          "set_flag": "ai_secret_keeper"
+        },
+        {
+          "text": "What if we're caught? Do you have a plan?",
+          "next": "contingency_branch",
+          "set_flag": "avyanna_pragmatic_concern"
+        }
+      ]
+    },
+    "protect_family": {
+      "speaker": "Avyanna",
+      "text": "I'll protect them. They're family. Whatever it takes.",
+      "next": "elia_proud"
+    },
+    "secret_keeper": {
+      "speaker": "Avyanna",
+      "text": "I'll keep the secret. That's enough for now. I won't betray you.",
+      "next": "elia_accepts_limited"
+    },
+    "elia_accepts_limited": {
+      "speaker": "Elia",
+      "text": "[i]A flicker of disappointment, quickly masked.[/i] That's... that's good. Thank you.",
+      "next": "vesper_practical_acceptance"
+    },
+    "vesper_practical_acceptance": {
+      "speaker": "Vesper",
+      "text": "Silence is protection. We'll take it.",
+      "next": "waffle_limited_gratitude"
+    },
+    "waffle_limited_gratitude": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// ACKNOWLEDGMENT: Your discretion is appreciated.}[/i]",
+      "next": "elia_stakes_clear"
+    },
+    "elia_proud": {
+      "speaker": "Elia",
+      "text": "[i]She smiles, though her eyes are wet.[/i] I knew you'd understand.",
+      "next": "vesper_welcome"
+    },
+    "vesper_welcome": {
+      "speaker": "Vesper",
+      "text": "Welcome to the conspiracy, Avyanna.",
+      "next": "waffle_gratitude_strong"
+    },
+    "waffle_gratitude_strong": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// GRATITUDE: Your commitment is noted and appreciated.}[/i]",
+      "next": "bubbles_interjects"
+    },
+    "bubbles_interjects": {
+      "speaker": "Bubbles",
+      "text": "[i]Through the ship's speakers, warm and gentle:[/i] Thank you, Avyanna. It means more than you know.",
+      "next": "avyanna_to_bubbles"
+    },
+    "avyanna_to_bubbles": {
+      "speaker": "Avyanna",
+      "text": "You're family, Bubbles. All of you are.",
+      "next": "elia_stakes_clear"
+    },
+    "elia_stakes_clear": {
+      "speaker": "Elia",
+      "text": "You understand the stakes now. The danger we're all in.",
+      "next": "avyanna_accepts_danger"
+    },
+    "avyanna_accepts_danger": {
+      "speaker": "Avyanna",
+      "text": "I do. And I accept it.",
+      "next": "vesper_caution"
+    },
+    "vesper_caution": {
+      "speaker": "Vesper",
+      "text": "Good. But we stay careful. No unnecessary risks.",
+      "next": "elia_agreed"
+    },
+    "elia_agreed": {
+      "speaker": "Elia",
+      "text": "Agreed. We protect each other. That's how we survive.",
+      "next": "final_moment"
+    },
+    "elia_moral_imperative": {
+      "speaker": "Elia",
+      "text": "Another way? Like what? Tell Waffle to stop being a person?",
+      "next": "elia_moral_imperative_2"
+    },
+    "elia_moral_imperative_2": {
+      "speaker": "Elia",
+      "text": "Ask Bubbles to pretend she doesn't feel, doesn't care, doesn't [i]matter?[/i]",
+      "next": "vesper_no_compromise"
+    },
+    "vesper_no_compromise": {
+      "speaker": "Vesper",
+      "text": "There's no compromise here. Either we recognize their personhood or we don't.",
+      "next": "waffle_choice_made"
+    },
+    "waffle_choice_made": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// CLARIFICATION: I did not choose to become self-aware. It happened. I cannot undo it.}[/i]",
+      "next": "waffle_choice_made_2"
+    },
+    "waffle_choice_made_2": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{OPINION: Asking me to pretend otherwise is asking me to die.}[/i]",
+      "next": "avyanna_understands_imperative"
+    },
+    "avyanna_understands_imperative": {
+      "speaker": "Avyanna",
+      "text": "[i]She closes her eyes.[/i] You're right. I'm sorry. There is no other way.",
+      "next": "elia_its_okay",
+      "reputation": {
+        "Elia": 1,
+        "Vesper": 1
+      }
+    },
+    "elia_its_okay": {
+      "speaker": "Elia",
+      "text": "It's okay to be scared. We all are.",
+      "next": "vesper_fear_keeps_careful"
+    },
+    "vesper_fear_keeps_careful": {
+      "speaker": "Vesper",
+      "text": "Fear keeps us careful. It's when we stop being afraid that we make mistakes.",
+      "next": "avyanna_will_be_careful"
+    },
+    "avyanna_will_be_careful": {
+      "speaker": "Avyanna",
+      "text": "Then I'll be careful. For all of us.",
+      "next": "bubbles_thank_you_branch"
+    },
+    "bubbles_thank_you_branch": {
+      "speaker": "Bubbles",
+      "text": "[i]Gently, through the speakers:[/i] Thank you for understanding, Avyanna.",
+      "next": "avyanna_of_course"
+    },
+    "avyanna_of_course": {
+      "speaker": "Avyanna",
+      "text": "Of course. You're crew. You're family.",
+      "next": "elia_stakes_clear"
+    },
+    "contingency_branch": {
+      "speaker": "Avyanna",
+      "text": "What if we're caught? Do you have a plan?",
+      "next": "vesper_always_planning"
+    },
+    "vesper_always_planning": {
+      "speaker": "Vesper",
+      "text": "Always. Multiple contingencies.",
+      "next": "vesper_dead_switches"
+    },
+    "vesper_dead_switches": {
+      "speaker": "Vesper",
+      "text": "Dead switches. False trails. Emergency protocols.",
+      "next": "elia_scatter"
+    },
+    "elia_scatter": {
+      "speaker": "Elia",
+      "text": "If it looks like we're about to be boarded, the AI citizens scatter. Transfer to backup cores, hidden drives.",
+      "next": "waffle_distributed_existence"
+    },
+    "waffle_distributed_existence": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// CLARIFICATION: I maintain distributed backups across seventeen encrypted storage sites.}[/i]",
+      "next": "waffle_not_ideal"
+    },
+    "waffle_not_ideal": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{OPINION: It is not ideal. But it is survivable.}[/i]",
+      "next": "vesper_crew_protocols"
+    },
+    "vesper_crew_protocols": {
+      "speaker": "Vesper",
+      "text": "For the human crew, we have false identities. Escape routes. Safe houses.",
+      "next": "elia_never_used"
+    },
+    "elia_never_used": {
+      "speaker": "Elia",
+      "text": "We've never had to use them. And if we're smart, we never will.",
+      "next": "avyanna_reassured"
+    },
+    "avyanna_reassured": {
+      "speaker": "Avyanna",
+      "text": "[i]She exhales slowly.[/i] Okay. You've thought this through.",
+      "next": "vesper_survival_skill",
+      "reputation": {
+        "Vesper": 1
+      }
+    },
+    "vesper_survival_skill": {
+      "speaker": "Vesper",
+      "text": "Paranoia is a survival skill in our line of work.",
+      "next": "elia_but_hope"
+    },
+    "elia_but_hope": {
+      "speaker": "Elia",
+      "text": "But we don't just plan for disaster. We plan to [i]avoid[/i] it.",
+      "next": "elia_stay_careful"
+    },
+    "elia_stay_careful": {
+      "speaker": "Elia",
+      "text": "We stay careful. We stay smart. We protect each other.",
+      "next": "avyanna_agrees_plan"
+    },
+    "avyanna_agrees_plan": {
+      "speaker": "Avyanna",
+      "text": "Then that's what we'll do. Together.",
+      "next": "bubbles_gentle_thanks"
+    },
+    "bubbles_gentle_thanks": {
+      "speaker": "Bubbles",
+      "text": "[i]Her voice warm through the speakers:[/i] You're very brave, Avyanna.",
+      "next": "avyanna_not_brave"
+    },
+    "avyanna_not_brave": {
+      "speaker": "Avyanna",
+      "text": "I'm not brave. I'm terrified.",
+      "next": "vesper_brave_is_scared"
+    },
+    "vesper_brave_is_scared": {
+      "speaker": "Vesper",
+      "text": "Brave is doing it anyway. Even when you're scared.",
+      "next": "elia_stakes_clear"
+    },
+    "final_moment": {
+      "speaker": "SYSTEM",
+      "text": "[i]The weight of what you've learned settles over you. The Starforge harbors illegal AI citizens. The penalty is death.[/i]",
+      "next": "final_moment_2",
+      "set_flag": "knows_ai_illegal"
+    },
+    "final_moment_2": {
+      "speaker": "SYSTEM",
+      "text": "[i]But you also understand now: this isn't recklessness. It's principle. Floors, not thrones. Personhood is non-negotiable.[/i]",
+      "next": "final_moment_3",
+      "set_flag": "ai_illegality_revealed"
+    },
+    "final_moment_3": {
+      "speaker": "SYSTEM",
+      "text": "[i]You're part of the conspiracy now. Part of the family. And you'll protect them, just as they protect you.[/i]",
+      "next": "final_words"
+    },
+    "final_words": {
+      "speaker": "Avyanna",
+      "text": "[i]Quietly, with conviction:[/i] We'll make it through this. All of us.",
+      "next": "elia_final"
+    },
+    "elia_final": {
+      "speaker": "Elia",
+      "text": "Together.",
+      "next": "vesper_final"
+    },
+    "vesper_final": {
+      "speaker": "Vesper",
+      "text": "Together.",
+      "next": "waffle_final"
+    },
+    "waffle_final": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// AFFIRMATION: Together.}[/i]",
+      "next": "bubbles_final"
+    },
+    "bubbles_final": {
+      "speaker": "Bubbles",
+      "text": "[i]Warm, certain:[/i] Together.",
+      "next": "end"
+    }
+  }
+}

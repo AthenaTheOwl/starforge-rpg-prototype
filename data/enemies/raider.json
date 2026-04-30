@@ -1,0 +1,33 @@
+{
+  "id": "raider",
+  "name": "Raider",
+  "family": "raiders",
+  "description": "Common void raider armed with salvaged weapons. Aggressive but poorly armored — dangerous in numbers.",
+  "hp_max": 28,
+  "speed": 10,
+  "attack": 11,
+  "armor": 2,
+  "shields": 0,
+  "wards": 0,
+  "weakness": "",
+  "abilities": [
+    {
+      "name": "Salvage Pistol",
+      "base_damage": 10,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "statuses": []
+    },
+    {
+      "name": "Desperate Lunge",
+      "base_damage": 15,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "statuses": []
+    }
+  ]
+}

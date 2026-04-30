@@ -1,0 +1,39 @@
+{
+  "id": "writbound_inspector",
+  "name": "Writbound Inspector",
+  "family": "writbound",
+  "description": "Layer 1 bureaucratic enforcer. Revokes credentials and restricts ability usage through contractual authority. Appears Act 7 onward.",
+  "hp_max": 45,
+  "speed": 9,
+  "attack": 10,
+  "armor": 4,
+  "shields": 6,
+  "wards": 0,
+  "weakness": "",
+  "abilities": [
+    {
+      "name": "Credential Revoke",
+      "base_damage": 0,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "statuses": [
+        {
+          "name": "restricted",
+          "duration": 2,
+          "effect": "reduces_ability_charges"
+        }
+      ]
+    },
+    {
+      "name": "Compliance Check",
+      "base_damage": 12,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "statuses": []
+    }
+  ]
+}

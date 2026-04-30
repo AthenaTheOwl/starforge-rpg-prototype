@@ -1,0 +1,236 @@
+{
+  "start_node": "start",
+  "nodes": {
+    "start": {
+      "speaker": "SYSTEM",
+      "text": "[i]Abandoned memorial shrine. Candles long dead. Dust settling on offerings no one remembers. Nyx stands at the center, fingers tracing patterns in the air\u2014not physically moving debris, but doing something to the space itself. She doesn't turn when you approach, but you know she knows you're there.[/i]",
+      "next": "nyx_acknowledgment"
+    },
+    "nyx_acknowledgment": {
+      "speaker": "Nyx",
+      "text": "[i]Still focused on her work, voice calm and distant.[/i] The lattice here is knotted. Someone died badly. The echo hasn't settled. [i]Finally turning to face you.[/i] You feel it too. I can tell by how you're standing.",
+      "next": "avyanna_response_acknowledgment"
+    },
+    "avyanna_response_acknowledgment": {
+      "speaker": "Avyanna",
+      "text": "[i]The presence behind my eyes has been restless since we entered. Something in this place resonates wrong.[/i] I feel... something. I don't know what.",
+      "next": "nyx_observation"
+    },
+    "nyx_observation": {
+      "speaker": "Nyx",
+      "text": "Grief. Old and unprocessed. It saturates the space. [i]A pause, head tilting slightly.[/i] You're sensitive to it. The thing in your chest makes you a receiver for resonances most people can't detect. [i]Meeting your eyes directly.[/i] That's dangerous. But also valuable.",
+      "choices": [
+        {
+          "text": "[Empathy] Try to understand what she's feeling here.",
+          "next": "empathy_success",
+          "skill_check": {
+            "stat": "empathy",
+            "skill": "empathy",
+            "dc": 10,
+            "threshold": 4,
+            "on_success": "empathy_success",
+            "on_failure": "empathy_failure"
+          }
+        },
+        {
+          "text": "Why are you here? What are you doing?",
+          "next": "ask_purpose"
+        },
+        {
+          "text": "The thing in my chest... what do you know about it?",
+          "next": "ask_shard"
+        }
+      ]
+    },
+    "empathy_success": {
+      "speaker": "SYSTEM",
+      "text": "[i]You watch Nyx more carefully. The way she holds herself\u2014precise, controlled, but there's tension underneath. She's not just observing the grief in this space. She's holding herself separate from it. Deliberately. Like someone who knows what it's like to be consumed by emotion and refuses to let it happen again.[/i]",
+      "next": "empathy_insight"
+    },
+    "empathy_insight": {
+      "speaker": "Avyanna",
+      "text": "You're not fixing this because it's a problem. You're fixing it because leaving grief unresolved... that hurts you. Personally.",
+      "next": "nyx_surprised"
+    },
+    "nyx_surprised": {
+      "speaker": "Nyx",
+      "text": "[i]Something flickers across her face\u2014surprise, then a slow, considering nod.[/i] Yes. Unresolved resonance creates... noise. It makes the lattice harder to read. Harder to think through. [i]A pause, quieter.[/i] And yes, it bothers me. I prefer elegance to chaos.",
+      "reputation": {
+        "nyx": 2
+      },
+      "next": "offer_training"
+    },
+    "empathy_failure": {
+      "speaker": "SYSTEM",
+      "text": "[i]You try to read Nyx's emotional state, but she's too controlled. Whatever she's feeling, it's locked away behind layers of discipline and distance.[/i]",
+      "next": "empathy_uncertain"
+    },
+    "empathy_uncertain": {
+      "speaker": "Avyanna",
+      "text": "I can't tell what you're feeling. You're too... calm.",
+      "next": "nyx_explanation"
+    },
+    "nyx_explanation": {
+      "speaker": "Nyx",
+      "text": "[i]A slight smile, not quite warm but not cold either.[/i] That's intentional. Emotional regulation is necessary when you manipulate reality. Too much feeling, and the lattice responds unpredictably. [i]A beat.[/i] But you're right to look. Most people don't try.",
+      "reputation": {
+        "nyx": 1
+      },
+      "next": "offer_training"
+    },
+    "ask_purpose": {
+      "speaker": "Avyanna",
+      "text": "Why are you here? What are you doing?",
+      "next": "nyx_purpose_answer"
+    },
+    "nyx_purpose_answer": {
+      "speaker": "Nyx",
+      "text": "Cleaning. Someone left damage here\u2014emotional, lattice-level. If I don't smooth it out, it'll compound. Create interference. Eventually collapse into something worse. [i]Gesturing at the space.[/i] This is maintenance. The universe prefers order, but it won't enforce it on its own.",
+      "reputation": {
+        "nyx": 1
+      },
+      "next": "offer_training"
+    },
+    "ask_shard": {
+      "speaker": "Avyanna",
+      "text": "The thing in my chest... what do you know about it?",
+      "next": "nyx_shard_answer"
+    },
+    "nyx_shard_answer": {
+      "speaker": "Nyx",
+      "text": "[i]Direct, clinical.[/i] It's old. Primordial, probably. Not hostile\u2014it's had plenty of opportunities to harm you and hasn't. But it's learning. Adapting to you. [i]A pause.[/i] The question isn't what it wants. It's what you'll become together.",
+      "reputation": {
+        "nyx": 1
+      },
+      "next": "offer_training"
+    },
+    "offer_training": {
+      "speaker": "Nyx",
+      "text": "[i]She finishes whatever she was doing to the space. The air feels clearer, less oppressive.[/i] I've been meaning to start your resonance training. You're already sensing more than you realize. [i]Meeting your eyes again.[/i] I'd rather you understood it than feared it.",
+      "next": "avyanna_training_reaction"
+    },
+    "avyanna_training_reaction": {
+      "speaker": "SYSTEM",
+      "text": "[i]Training. Not study, not observation\u2014teaching. Nyx is offering to share her expertise, crew helping crew. But her careful distance remains. This is trust, but measured. Extended only as far as you're willing to meet her.[/i]",
+      "choices": [
+        {
+          "text": "Accept. 'I want to understand. Teach me.'",
+          "next": "accept_immediate",
+          "set_flag": "bonded_with_nyx",
+          "reputation": {
+            "nyx": 2,
+            "elia": 1
+          }
+        },
+        {
+          "text": "Ask about trust. 'Would you trust me with this? Given what's inside me?'",
+          "next": "ask_trust"
+        },
+        {
+          "text": "Express fear. 'What if I can't control it? What if I hurt someone?'",
+          "next": "express_fear"
+        }
+      ]
+    },
+    "accept_immediate": {
+      "speaker": "Avyanna",
+      "text": "I want to understand. Teach me. [i]The words feel like choosing to face the thing you've been avoiding.[/i]",
+      "next": "nyx_acceptance"
+    },
+    "nyx_acceptance": {
+      "speaker": "Nyx",
+      "text": "[i]A nod. Simple. Final.[/i] Good. We'll start with resonance awareness exercises. Learning to distinguish your feelings from lattice feedback. [i]A pause, something almost gentle.[/i] You won't be alone in this. I understand what it's like to carry something vast.",
+      "next": "end"
+    },
+    "ask_trust": {
+      "speaker": "Avyanna",
+      "text": "Would you trust me with this? Given what's inside me? Knowing it could be dangerous?",
+      "next": "nyx_trust_answer"
+    },
+    "nyx_trust_answer": {
+      "speaker": "Nyx",
+      "text": "[i]She considers the question seriously.[/i] Trust is provisional. It's built through consistent behavior, not granted wholesale. [i]A beat.[/i] But yes, I trust you. Provisionally. Because you're asking the question. Because you're worried about harming others. That suggests a moral framework I can work with.",
+      "reputation": {
+        "nyx": 1
+      },
+      "next": "trust_followup"
+    },
+    "trust_followup": {
+      "speaker": "SYSTEM",
+      "text": "[i]It's not the warm reassurance you might have wanted. But it's honest. Nyx isn't pretending the risk doesn't exist. She's just willing to work with you on managing it.[/i]",
+      "choices": [
+        {
+          "text": "'That's fair. I'll work to earn more than provisional trust.'",
+          "next": "accept_after_trust",
+          "set_flag": "bonded_with_nyx",
+          "reputation": {
+            "nyx": 3
+          }
+        },
+        {
+          "text": "'I need time to think about this.'",
+          "next": "need_time"
+        }
+      ]
+    },
+    "accept_after_trust": {
+      "speaker": "Avyanna",
+      "text": "That's fair. I'll work to earn more than provisional trust.",
+      "next": "nyx_acceptance"
+    },
+    "express_fear": {
+      "speaker": "Avyanna",
+      "text": "What if I can't control it? What if I hurt someone? The crew. You.",
+      "next": "nyx_fear_response"
+    },
+    "nyx_fear_response": {
+      "speaker": "Nyx",
+      "text": "[i]Her expression shifts\u2014not dismissive, but firm.[/i] Then we'll work on control together. The thing inside you responds to your intent, your emotional state. [i]A pause.[/i] Fear is reasonable. But it's not predictive. You haven't hurt anyone yet. That suggests the entity aligns with your values, not against them.",
+      "reputation": {
+        "nyx": 1
+      },
+      "next": "fear_followup"
+    },
+    "fear_followup": {
+      "speaker": "Nyx",
+      "text": "Besides, I can contain lattice-level threats. If you lose control, I'll intervene. You're not doing this unsupervised. [i]Something almost warm in her voice.[/i] You're not alone with this burden.",
+      "reputation": {
+        "nyx": 2
+      },
+      "next": "fear_decision"
+    },
+    "fear_decision": {
+      "speaker": "SYSTEM",
+      "text": "[i]She means it. You can see it in the steadiness of her gaze. She's not afraid of you. She's prepared to help you. There's a difference.[/i]",
+      "choices": [
+        {
+          "text": "'Then I'll trust you to help me. I accept.'",
+          "next": "accept_after_fear",
+          "set_flag": "bonded_with_nyx",
+          "reputation": {
+            "nyx": 2
+          }
+        },
+        {
+          "text": "'I appreciate that. But I still need time.'",
+          "next": "need_time"
+        }
+      ]
+    },
+    "accept_after_fear": {
+      "speaker": "Avyanna",
+      "text": "Then I'll trust you to help me. I accept.",
+      "next": "nyx_acceptance"
+    },
+    "need_time": {
+      "speaker": "Avyanna",
+      "text": "I need some time. To think about this.",
+      "next": "nyx_patience"
+    },
+    "nyx_patience": {
+      "speaker": "Nyx",
+      "text": "[i]A nod, no disappointment.[/i] Time is reasonable. Take what you need. [i]She returns to examining the shrine, already refocusing on the lattice work.[/i] Find me when you've decided.",
+      "next": "end"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "corp_retrieval",
+  "name": "Corporate Retrieval Agent",
+  "family": "corporate",
+  "description": "Specialized operative sent to recover assets and personnel. Equipped with suppression gear and restraint systems.",
+  "hp_max": 50,
+  "speed": 9,
+  "attack": 12,
+  "armor": 6,
+  "shields": 4,
+  "wards": 0,
+  "weakness": "",
+  "abilities": [
+    {
+      "name": "Suppression Shot",
+      "base_damage": 14,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "statuses": []
+    },
+    {
+      "name": "Restraint Net",
+      "base_damage": 0,
+      "damage_type": "physical",
+      "heat_cost": 0,
+      "uses_lattice": false,
+      "cli_cost": 0,
+      "statuses": [
+        {
+          "name": "slowed",
+          "duration": 2
+        }
+      ]
+    }
+  ]
+}

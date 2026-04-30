@@ -1,0 +1,354 @@
+{
+  "start_node": "start",
+  "nodes": {
+    "start": {
+      "speaker": "SYSTEM",
+      "text": "[i]Day nine. Dinner. The galley is loud in the way a safe place gets loud — arguments that don't end in blood, opinions spoken like they won't be used as weapons.[/i]",
+      "next": "common_room_settle"
+    },
+    "common_room_settle": {
+      "speaker": "SYSTEM",
+      "text": "[i]The Lumen Thief's common room smells like reclaimed coffee and scorched protein. Rho and Jalen are deep into something about coolant pressure. Nyx is cross-legged in the corner, eyes closed, lips moving. Vesper reads — or pretends to. The post-rescue quiet has calcified into routine. Nine days of not dying will do that.[/i]",
+      "next": "crew_gives_space"
+    },
+    "crew_gives_space": {
+      "speaker": "SYSTEM",
+      "text": "[i]Elia catches Elisira's eye. Some signal passes between them — married-people semaphore. One by one, the crew finds reasons to drift. Rho suddenly needs to check the port thruster. Jalen remembers a critical firmware update. Nyx opens her eyes, reads the room, and simply leaves. Only Vesper stays, but she's already invisible behind her book.[/i]",
+      "next": "elia_offer_setup"
+    },
+    "elia_offer_setup": {
+      "speaker": "Elia",
+      "text": "[i]She sets down her fork. The table goes quiet — not fearful quiet, but attentive quiet.[/i] We need to talk about your name.",
+      "next": "avyanna_confused"
+    },
+    "avyanna_confused": {
+      "speaker": "Avyanna",
+      "text": "My... name?",
+      "next": "elisira_number_context"
+    },
+    "elisira_number_context": {
+      "speaker": "Elisira",
+      "text": "Extraction subjects aren't given names. They're given designators. Yours was Worker 477 — a sequential integer assigned at intake. It corresponds to nothing. It means nothing. That was by design.",
+      "next": "elia_explains"
+    },
+    "elia_explains": {
+      "speaker": "Elia",
+      "text": "Worker 477. That's what they gave you. A number on a ledger. We don't use those here.",
+      "next": "player_feels_about_name"
+    },
+    "player_feels_about_name": {
+      "speaker": "SYSTEM",
+      "text": "[i]A name. You've never had one that wasn't a barcode. The idea sits in your chest like something swallowed wrong.[/i]",
+      "choices": [
+        {
+          "text": "'I don't need a name. I've survived fine without one.'",
+          "next": "resistant_response",
+          "set_flag": "resistant_to_name"
+        },
+        {
+          "text": "'Please. I've wanted — I didn't know I wanted one until now.'",
+          "next": "eager_response",
+          "set_flag": "eager_for_name",
+          "reputation": {
+            "elia": 1,
+            "elisira": 1
+          }
+        },
+        {
+          "text": "'I don't understand. What does having a name change?'",
+          "next": "confused_response",
+          "set_flag": "confused_about_name"
+        }
+      ]
+    },
+    "resistant_response": {
+      "speaker": "Avyanna",
+      "text": "I don't need a name. Numbers work. Numbers don't pretend to be something they're not.",
+      "next": "elia_gentle_push"
+    },
+    "elia_gentle_push": {
+      "speaker": "Elia",
+      "text": "[i]She doesn't flinch.[/i] Numbers work for inventory. You're not inventory. Not anymore.",
+      "next": "elisira_clarifies"
+    },
+    "eager_response": {
+      "speaker": "Avyanna",
+      "text": "Please. [i]The word comes out cracked. Raw. You didn't rehearse it because you didn't know you'd need to.[/i] I want one.",
+      "next": "elisira_clarifies"
+    },
+    "confused_response": {
+      "speaker": "Avyanna",
+      "text": "I don't understand. A name is just — it's a label. What does it change?",
+      "next": "elisira_explains_meaning"
+    },
+    "elisira_explains_meaning": {
+      "speaker": "Elisira",
+      "text": "A designator tells the system where to file you. A name tells [i]you[/i] who you are when the system isn't looking. The difference is ontological.",
+      "next": "elisira_clarifies"
+    },
+    "elisira_clarifies": {
+      "speaker": "Elisira",
+      "text": "We'd like to offer you a stable attachment structure without coercion, contingent on your autonomous choice to —",
+      "next": "elia_interrupts"
+    },
+    "elia_interrupts": {
+      "speaker": "Elia",
+      "text": "[i]Cutting in.[/i] What she means is: we want to adopt you. Give you our name. Lagrange. If you want it.",
+      "next": "lagrange_meaning"
+    },
+    "lagrange_meaning": {
+      "speaker": "Elisira",
+      "text": "Lagrange — it isn't a bloodline. It's a claiming word. In the old Drift dialect, it meant 'the still point between two bodies in motion.' A place of balance. We give it to those we choose as crew. As family.",
+      "next": "elia_name_offer"
+    },
+    "elia_name_offer": {
+      "speaker": "Elia",
+      "text": "[i]She reaches across the table. Not to touch — just to close distance.[/i] We had a name picked. Avyanna. In the same dialect, it means 'one who carries light she didn't steal.'",
+      "next": "rho_reaction"
+    },
+    "rho_reaction": {
+      "speaker": "Rho",
+      "text": "[i]Mouth full of protein, completely unrepentant.[/i] You both suck at this. It's kind of adorable.",
+      "next": "jalen_reaction"
+    },
+    "jalen_reaction": {
+      "speaker": "Jalen",
+      "text": "I'm logging this as 'parental units experiencing turbulence.'",
+      "next": "waffle_comment"
+    },
+    "waffle_comment": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// OBSERVATION: turbulence confirmed | RECOMMENDATION: seatbelts | COMMENT: also popcorn}[/i]",
+      "next": "avyanna_reaction"
+    },
+    "avyanna_reaction": {
+      "speaker": "SYSTEM",
+      "text": "[i]Your heart is pounding. They're offering you a name. A family. A belonging that isn't ownership. The presence behind your eyes pulses — something that might be encouragement.[/i]",
+      "choices": [
+        {
+          "text": "Accept the name. 'Avyanna Lagrange. I... I want that.'",
+          "next": "accept_immediate",
+          "set_flag": "accepted_name_immediately",
+          "reputation": {
+            "elia": 2,
+            "elisira": 2
+          }
+        },
+        {
+          "text": "Ask what it means. 'What does the name cost?'",
+          "next": "ask_cost",
+          "set_flag": "asked_name_cost"
+        },
+        {
+          "text": "Suggest a change. 'Could I... keep part of it? Make it mine?'",
+          "next": "suggest_modification",
+          "set_flag": "suggested_name_modification"
+        },
+        {
+          "text": "Hesitate. 'I need to think about it.'",
+          "next": "hesitate",
+          "set_flag": "hesitated_on_name"
+        }
+      ]
+    },
+    "accept_immediate": {
+      "speaker": "Avyanna",
+      "text": "Avyanna Lagrange. [i]The words feel strange in your mouth. Heavy with something that isn't debt.[/i] I want that.",
+      "next": "vesper_accept_response"
+    },
+    "vesper_accept_response": {
+      "speaker": "Vesper",
+      "text": "[i]She watches from across the table. Something in her expression shifts — recognition, maybe. The particular attention of someone cataloging a moment she doesn't want to forget.[/i] It suits you.",
+      "reputation": {
+        "vesper": 1
+      },
+      "next": "elia_welcome"
+    },
+    "suggest_modification": {
+      "speaker": "Avyanna",
+      "text": "Could I — keep the shape of it? Avyanna. But make it mine. Carry it differently, maybe.",
+      "next": "elia_modification_response"
+    },
+    "elia_modification_response": {
+      "speaker": "Elia",
+      "text": "[i]A slow smile. Not indulgent — proud.[/i] That's exactly what a name is for. You take it and make it yours. However it fits.",
+      "reputation": {
+        "elia": 1
+      },
+      "next": "elisira_modification_nod"
+    },
+    "elisira_modification_nod": {
+      "speaker": "Elisira",
+      "text": "Linguistically, a name is a living structure. It's supposed to be shaped by the one who carries it. You're already doing it right.",
+      "reputation": {
+        "elisira": 1
+      },
+      "next": "modification_accept"
+    },
+    "modification_accept": {
+      "speaker": "SYSTEM",
+      "text": "[i]You turn it over in your mind. Avyanna Lagrange. Not a number. Not a designation. Yours — in your own way, on your own terms.[/i]",
+      "next": "elia_welcome"
+    },
+    "ask_cost": {
+      "speaker": "Avyanna",
+      "text": "What does the name cost?",
+      "next": "elia_cost_response"
+    },
+    "elia_cost_response": {
+      "speaker": "Elia",
+      "text": "[i]Her expression softens — not pity, but understanding.[/i] Nothing. It costs nothing. That's the point.",
+      "next": "vesper_cost_response"
+    },
+    "vesper_cost_response": {
+      "speaker": "Vesper",
+      "text": "A name isn't a contract. It's not terms and conditions. It's just... yours. To carry or set down whenever you choose.",
+      "reputation": {
+        "vesper": 2
+      },
+      "next": "accept_after_question"
+    },
+    "accept_after_question": {
+      "speaker": "SYSTEM",
+      "text": "[i]The presence behind your eyes pulses warmly. No cost. No invoice. Just a name, offered freely.[/i]",
+      "choices": [
+        {
+          "text": "'Then yes. Avyanna Lagrange.'",
+          "next": "elia_welcome",
+          "set_flag": "accepted_name",
+          "reputation": {
+            "elia": 2,
+            "elisira": 2
+          }
+        },
+        {
+          "text": "'I still need time.'",
+          "next": "time_response"
+        }
+      ]
+    },
+    "hesitate": {
+      "speaker": "Avyanna",
+      "text": "I need to think about it. [i]The words come out small. Defensive. The Kennel voice — the one that knows every gift is a leash.[/i]",
+      "next": "elia_patient"
+    },
+    "elia_patient": {
+      "speaker": "Elia",
+      "text": "Take your time. The offer doesn't expire.",
+      "next": "vesper_patient"
+    },
+    "vesper_patient": {
+      "speaker": "Vesper",
+      "text": "[i]Her eyes meet yours across the table. No pressure. No disappointment. Just steady presence.[/i] When you're ready. Not before.",
+      "reputation": {
+        "vesper": 1
+      },
+      "next": "time_response"
+    },
+    "time_response": {
+      "speaker": "SYSTEM",
+      "text": "[i]The crew returns to dinner as if nothing world-changing just happened. Rho argues with Jalen about protein storage. Nyx explains something incomprehensible. Elia and Elisira sit close.\n\nAnd you sit among them, holding a name you haven't decided to keep yet, wondering if this is what belonging feels like.[/i]",
+      "set_flag": "naming_complete",
+      "next": "end"
+    },
+    "elia_welcome": {
+      "speaker": "Elia",
+      "text": "[i]A nod. Simple. Final.[/i] Welcome to the family, Avyanna Lagrange.",
+      "next": "crew_reactions_ceremony"
+    },
+    "crew_reactions_ceremony": {
+      "speaker": "SYSTEM",
+      "text": "[i]The common room shifts. Something unspoken moves through it — the crew recognizing a threshold crossed.[/i]",
+      "choices": [
+        {
+          "text": "Look at Vesper.",
+          "next": "vesper_ceremony_reaction",
+          "reputation": {
+            "vesper": 1
+          }
+        },
+        {
+          "text": "Look at Rho.",
+          "next": "rho_ceremony_reaction",
+          "reputation": {
+            "rho": 1
+          }
+        },
+        {
+          "text": "Look at Nyx.",
+          "next": "nyx_ceremony_reaction",
+          "reputation": {
+            "nyx": 1
+          }
+        }
+      ]
+    },
+    "vesper_ceremony_reaction": {
+      "speaker": "Vesper",
+      "text": "[i]She raises her glass — half-empty, something amber. Her eyes don't leave yours.[/i] To Avyanna Lagrange. May she be more trouble than her mothers can handle.",
+      "next": "rho_grunt_approval"
+    },
+    "rho_ceremony_reaction": {
+      "speaker": "Rho",
+      "text": "[i]He sets down his mug with deliberate weight. For Rho, this is a standing ovation.[/i] Lagrange. Good. Now eat your dinner before it gets cold.",
+      "next": "nyx_ritual_gesture"
+    },
+    "nyx_ceremony_reaction": {
+      "speaker": "Nyx",
+      "text": "[i]She presses two fingers to her lips, then opens her hand toward you — palm up, fingers spread. An old gesture. You don't know what it means, but you feel it land somewhere behind your ribs.[/i] The pattern knows your name now. It always did.",
+      "next": "vesper_raises_glass"
+    },
+    "rho_grunt_approval": {
+      "speaker": "Rho",
+      "text": "[i]He lifts his mug an inch off the table. Barely. The absolute minimum required gesture of solidarity.[/i] Don't let it go to your head, kid.",
+      "next": "nyx_ritual_gesture"
+    },
+    "nyx_ritual_gesture": {
+      "speaker": "Nyx",
+      "text": "[i]She traces a small sigil in the air with one finger — something half-remembered, half-invented. Her lips move without sound.[/i] Named and witnessed. The pattern holds.",
+      "next": "vesper_raises_glass"
+    },
+    "vesper_raises_glass": {
+      "speaker": "Vesper",
+      "text": "[i]She raises her glass. The amber liquid catches the overhead light.[/i] To the newest Lagrange. Welcome to the mess.",
+      "next": "bee_naming_response"
+    },
+    "bee_naming_response": {
+      "speaker": "BEE",
+      "text": "{BEE:: PATTERN RECOGNIZED — designation Worker 477 deprecated | new index: Avyanna Lagrange | cross-reference: family unit, chosen | note: pattern consistency increased by 1.7 standard deviations | status: nomenclature accepted}",
+      "next": "crew_welcome"
+    },
+    "crew_welcome": {
+      "speaker": "SYSTEM",
+      "text": "[i]Rho raises his coffee mug. Jalen nods without looking up from his datapad. Nyx smiles in a way that suggests the universe has become slightly more elegant.[/i]",
+      "next": "bubbles_naming_welcome"
+    },
+    "bubbles_naming_welcome": {
+      "speaker": "Bubbles",
+      "text": "[i]Warm, through the speakers:[/i] Avyanna Lagrange. I've updated your crew profile. It looks beautiful there.",
+      "next": "waffle_naming_update"
+    },
+    "waffle_naming_update": {
+      "speaker": "Waffle.bat",
+      "text": "[i]{WAFFLE.BAT// REGISTRY_UPDATE: Worker 477 → Avyanna Lagrange | STATUS: crew, family, home | PERSONAL_NOTE: welcome. truly.}[/i]",
+      "next": "cinnamon_naming_ack"
+    },
+    "cinnamon_naming_ack": {
+      "speaker": "Cinnamon",
+      "text": "Lagrange. Noted. Good name.",
+      "next": "naming_final"
+    },
+    "naming_final": {
+      "speaker": "SYSTEM",
+      "text": "[i]The presence behind your eyes pulses once — warm, patient, approving. Whatever it is, wherever it came from, it seems to agree: this name fits.[/i]",
+      "set_flag": "has_lagrange_name",
+      "next": "naming_complete_flag"
+    },
+    "naming_complete_flag": {
+      "speaker": "SYSTEM",
+      "text": "[i]You are Avyanna Lagrange. Not because someone filed the paperwork. Because people who owe you nothing offered you everything, and you let them.[/i]",
+      "set_flag": "naming_complete",
+      "next": "end"
+    }
+  }
+}

@@ -1,0 +1,251 @@
+PARTY SPLIT SYSTEM - ARCHITECTURE DIAGRAM
+==========================================
+
+File Structure:
+--------------
+scripts/combat/
+  └─ party_split.gd (PartySplit class - core logic)
+
+scripts/ui/
+  └─ party_split_ui.gd (PartySplitUI class - UI controller)
+
+scenes/battle/
+  ├─ battle_scene.tscn (main battle scene)
+  └─ party_split_overlay.tscn (NEW - split UI overlay)
+
+autoload/
+  └─ combat_manager.gd (ENHANCED - split combat integration)
+
+tests/integration/
+  └─ test_party_split.gd (11 integration tests)
+
+examples/
+  └─ party_split_example.gd (usage examples)
+
+docs/
+  ├─ PARTY_SPLIT_SYSTEM.md (complete guide)
+  └─ TASK_3.3_IMPLEMENTATION_SUMMARY.md (this implementation)
+
+
+Component Relationships:
+------------------------
+
+┌─────────────────────────────────────────────────────────────┐
+│                     Battle Scene                             │
+│  ┌──────────────────────┐  ┌───────────────────────────┐   │
+│  │  BattleController    │  │  PartySplitOverlay        │   │
+│  │                      │  │  (PartySplitUI)           │   │
+│  │  - Player controls   │  │  - Member HP bars         │   │
+│  │    Team A directly   │  │  - Order buttons          │   │
+│  │                      │  │  - Status log             │   │
+│  │  - Normal combat UI  │  │  - Enemy counter          │   │
+│  └──────────┬───────────┘  └───────────┬───────────────┘   │
+└─────────────┼──────────────────────────┼───────────────────┘
+              │                          │
+              │ calls methods            │ displays data from
+              │                          │
+              ▼                          ▼
+    ┌─────────────────────────────────────────────────┐
+    │         CombatManager (Autoload)                │
+    │                                                  │
+    │  Properties:                                     │
+    │    • party_split: PartySplit                    │
+    │    • is_split_combat: bool                      │
+    │                                                  │
+    │  Methods:                                        │
+    │    • setup_split_encounter()                    │
+    │    • _end_of_round() → simulate Team B          │
+    │    • _check_combat_end() → merge teams          │
+    │                                                  │
+    │  Signals:                                        │
+    │    • team_b_update(report)                      │
+    └──────────────────┬──────────────────────────────┘
+                       │
+                       │ owns and calls
+                       │
+                       ▼
+              ┌─────────────────────┐
+              │   PartySplit        │
+              │   (RefCounted)      │
+              │                     │
+              │  Properties:        │
+              │    • team_a         │
+              │    • team_b         │
+              │    • team_b_mode    │
+              │    • team_b_status  │
+              │                     │
+              │  Methods:           │
+              │    • setup_split()  │
+              │    • simulate()     │
+              │    • get_report()   │
+              │    • merge_teams()  │
+              └─────────────────────┘
+
+
+Data Flow During Split Combat:
+------------------------------
+
+1. SETUP PHASE:
+   ┌──────────────────────────────────────────────┐
+   │ Game Script calls:                            │
+   │ CombatManager.setup_split_encounter(...)     │
+   └───────────────────┬──────────────────────────┘
+                       │
+                       ▼
+   ┌──────────────────────────────────────────────┐
+   │ CombatManager creates PartySplit instance    │
+   │ Sets is_split_combat = true                  │
+   │ Initializes team B status from PartyManager  │
+   └───────────────────┬──────────────────────────┘
+                       │
+                       ▼
+   ┌──────────────────────────────────────────────┐
+   │ Battle scene shows PartySplitOverlay         │
+   │ UI connects to team_b_update signal          │
+   └──────────────────────────────────────────────┘
+
+2. COMBAT ROUNDS:
+   ┌──────────────────────────────────────────────┐
+   │ Player acts with Team A (normal combat)      │
+   └───────────────────┬──────────────────────────┘
+                       │
+                       ▼
+   ┌──────────────────────────────────────────────┐
+   │ Enemies act (normal combat)                  │
+   └───────────────────┬──────────────────────────┘
+                       │
+                       ▼
+   ┌──────────────────────────────────────────────┐
+   │ Round ends → CombatManager._end_of_round()  │
+   └───────────────────┬──────────────────────────┘
+                       │
+                       ▼
+   ┌──────────────────────────────────────────────┐
+   │ party_split.simulate_team_b_turn()           │
+   │   - Calculate damage based on mode           │
+   │   - Apply damage to team B members           │
+   │   - Apply healing if RETREAT mode            │
+   │   - Simulate team B damage to enemies        │
+   │   - Return report dictionary                 │
+   └───────────────────┬──────────────────────────┘
+                       │
+                       ▼
+   ┌──────────────────────────────────────────────┐
+   │ CombatManager.team_b_update.emit(report)     │
+   └───────────────────┬──────────────────────────┘
+                       │
+                       ▼
+   ┌──────────────────────────────────────────────┐
+   │ PartySplitUI updates display:                │
+   │   - Refresh HP bars                          │
+   │   - Add status messages to log               │
+   │   - Show warnings if critical                │
+   └──────────────────────────────────────────────┘
+
+3. END PHASE (Victory/Defeat):
+   ┌──────────────────────────────────────────────┐
+   │ CombatManager._check_combat_end()            │
+   └───────────────────┬──────────────────────────┘
+                       │
+                       ▼
+   ┌──────────────────────────────────────────────┐
+   │ party_split.merge_teams()                    │
+   │   - Sync team B HP/status to PartyManager    │
+   │   - Clear split state                        │
+   └───────────────────┬──────────────────────────┘
+                       │
+                       ▼
+   ┌──────────────────────────────────────────────┐
+   │ PartySplitUI.teardown()                      │
+   │   - Hide overlay                             │
+   │   - Clear references                         │
+   └──────────────────────────────────────────────┘
+
+
+Team B Mode Effects:
+-------------------
+
+HOLD (Defensive):
+  ┌─────────────────────────┐
+  │ Incoming Damage × 0.7   │  (-30%)
+  │ Outgoing Damage × 0.5   │  (-50%)
+  │ No Healing              │
+  └─────────────────────────┘
+  Use: When Team B needs to survive
+
+ADVANCE (Balanced):
+  ┌─────────────────────────┐
+  │ Incoming Damage × 1.0   │  (Normal)
+  │ Outgoing Damage × 1.0   │  (Normal)
+  │ No Healing              │
+  └─────────────────────────┘
+  Use: Normal combat engagement
+
+RETREAT (Recovery):
+  ┌─────────────────────────┐
+  │ Incoming Damage × 0.5   │  (-50%)
+  │ Outgoing Damage × 0.0   │  (None)
+  │ Healing: 10% HP/turn    │
+  └─────────────────────────┘
+  Use: When Team B needs to recover
+
+
+Simulation Formula:
+------------------
+
+Team B Takes Damage:
+  base_damage = 15 × enemy_count
+  actual_damage = base_damage × defense_multiplier
+  damage_per_member = actual_damage ÷ alive_members
+  + random variance (-3 to +3)
+
+Team B Deals Damage:
+  base_damage = 20 × alive_members
+  actual_damage = base_damage × damage_multiplier
+  → Distributed to defeat enemies
+
+Healing (RETREAT only):
+  heal_amount = member.hp_max × 0.10
+  member.hp = min(member.hp + heal_amount, member.hp_max)
+
+
+Signal Data Structure:
+---------------------
+
+team_b_update signal emits:
+{
+  "damage_taken": int,          # Total damage this turn
+  "enemies_defeated": int,      # Enemies defeated this turn
+  "status": String,             # "active", "critical", "defeated"
+  "messages": Array[String],    # ["Rho took 15 damage.", ...]
+}
+
+get_team_b_report() returns:
+{
+  "members": [{
+    "id": String,
+    "name": String,
+    "hp": int,
+    "hp_max": int,
+    "hp_percent": float,
+    "alive": bool
+  }, ...],
+  "total_hp": int,
+  "total_hp_max": int,
+  "alive_count": int,
+  "mode": int,
+  "mode_name": String,
+  "enemies_remaining": int
+}
+
+
+Integration Checklist:
+---------------------
+
+□ Add PartySplitOverlay to battle scene
+□ Connect combat_started signal to show UI
+□ Connect combat_ended signal to hide UI
+□ Connect team_b_update signal to update display
+□ Set up split encounter before battle starts
+□ (Optional) Add dynamic order change logic
+□ (Optional) Add narrative consequences for Team B defeat

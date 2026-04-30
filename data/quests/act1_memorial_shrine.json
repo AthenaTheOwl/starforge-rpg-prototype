@@ -1,0 +1,55 @@
+{
+	"id": "act1_memorial_shrine",
+	"name": "Memorial Shrine — The Forgotten Chapel",
+	"description": "The shrine is a pocket of stillness in a place that shouldn't be still. Tucked into an abandoned service corridor, it feels older than the mine around it—older than the company, older than the extraction operation, maybe older than human presence on this rock.\n\nCandles burn in alcoves carved into the walls, their flames barely flickering despite the ventilation currents. The air is thick with something that isn't quite incense—sweeter, stranger, like the ghost of flowers that never grew here. Dust motes hang suspended in shafts of dim light, moving in patterns that look almost deliberate.\n\nThe walls are covered in names. Hundreds of them. Thousands. Scratched into metal, etched into stone, written in fading marker. Workers who died here. Workers who disappeared. Workers who were never workers at all, just numbers that stopped appearing on the roster.\n\nAt the center of the space: a simple altar. Smooth black stone, polished by generations of hands. And above it, carved into the wall in letters that glow faintly with their own light: [i]WE REMEMBER WHAT THEY TOOK.[/i]\n\n[i](The Lattice here is dense—so dense it makes your teeth ache. The shard responds, pulsing warmth, reaching toward something old and vast and patient.)[/i]",
+	"actions": [
+		{
+			"type": "examine",
+			"label": "Examine the shrine",
+			"examine_text": "The altar is covered in offerings. Small things. Cheap things. The kind of things workers could afford: a protein bar wrapper folded into a crane. A bent screw made into a ring. A piece of aurum dust pressed into the shape of a heart.\n\nBeneath the offerings, someone has carved words into the stone: [i]'They say the debt is what we owe. But the debt is what they stole.'[/i]\n\nThe names on the walls go back decades. Centuries, maybe. Some are in languages you don't recognize. Some are just tally marks—anonymous dead, counted but not named.\n\nNear the bottom, recently scratched, you see names you recognize. Station 7 workers. People who coughed gold-dust. People who fell into machinery. People who just stopped showing up one day.\n\n[i](This is what remains when the company writes you off. Memory. Defiance. The insistence that you existed, that you mattered, even if the ledgers say otherwise.)[/i]",
+			"flag": "examined_shrine",
+			"flag_value": true
+		},
+		{
+			"type": "examine",
+			"label": "Sense the Lattice",
+			"requires_flag": "examined_shrine",
+			"examine_text": "You close your eyes and reach—not with hands, but with that other sense, the one the shard has been teaching you to use.\n\nThe Lattice here is thick. Ancient. Not the thin, bruised overlay of the Kennel, but something deeper—primordial resonance, the kind Nyx talks about when she's explaining the difference between extraction and cultivation.\n\nIt pulses like a heartbeat. Slow. Steady. Patient. And underneath the pulse, you feel something else: presence. Not singular—plural. Echoes of everyone who ever stood here, everyone who ever left an offering, everyone who ever scratched a name into the wall and said *this person mattered*.\n\nThe shard flares hot. Geometric patterns bloom across your vision. For a moment, you're not alone in your head—there's something vast and old and [i]aware[/i], looking back at you with something that might be curiosity.\n\n[i]{BEE:: resonance signature | primordial | non-hostile | recognition: mutual}[/i]\n\nThen it fades. But the warmth remains.",
+			"flag": "sensed_lattice",
+			"flag_value": true
+		},
+		{
+			"type": "examine",
+			"label": "Check the shadows",
+			"requires_flag": "sensed_lattice",
+			"examine_text": "There's someone else here.\n\nYou didn't hear them arrive. Didn't see them enter. But now that you're looking, they're impossible to miss: a figure standing near the far wall, silhouetted against the candlelight. Tall. Still. Their presence feels like the shrine itself—old, deliberate, *dense*.\n\nThey're wearing robes that might have been fine once, now worn and patched. Their hands are clasped in front of them, head slightly bowed. Not praying. Just... present. Witnessing.\n\nWhen they turn to look at you, their eyes catch the light strangely. Not quite human. Not quite anything else.\n\n[i](This is the person Vesper mentioned. The one who knows things about the Lattice. The one who left the Sutured House but never really left at all.)[/i]",
+			"flag": "nyx_noticed",
+			"flag_value": true
+		},
+		{
+			"type": "talk",
+			"label": "Talk to Nyx",
+			"dialogue_id": "act1_nyx_recruitment",
+			"tooltip": "They're waiting for you to speak first",
+			"requires_flag": "nyx_noticed"
+		},
+		{
+			"type": "examine",
+			"label": "Light a candle",
+			"examine_text": "There's a box of candles near the altar. Cheap wax, unscented. The kind the commissary sells for 2 ticks each.\n\nYou take one. Light it from the flame of another. The wick catches, and for a moment, the shrine feels warmer.\n\nYou don't know who to dedicate it to. Too many names. Too many dead. So you just set it down among the others and whisper: [i]'For everyone they forgot to count.'[/i]\n\nThe shard pulses once. Gentle. Like approval.",
+			"flag": "lit_candle",
+			"flag_value": true
+		},
+		{
+			"type": "move",
+			"label": "Return to mine tunnels",
+			"target_location": "act1_mine_tunnels"
+		},
+		{
+			"type": "move",
+			"label": "Head to ship quarters",
+			"target_location": "act1_ship_quarters",
+			"requires_flag": "nyx_recruited"
+		}
+	]
+}

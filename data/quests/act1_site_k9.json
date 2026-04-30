@@ -1,0 +1,60 @@
+{
+	"id": "act1_site_k9",
+	"name": "Site K-9 — The Kennel",
+	"description": "The corridor smells of recycled air and old fear. Fluorescent panels buzz overhead, every third one dead or dying. The walls are institutional gray—the kind of gray that exists to remind you that color is a privilege.\n\nYou are Avyanna Lagrange, Worker 477, and you have been here for as long as you can remember. The extraction schedule says you are due in forty-seven minutes.\n\nSomething is different today. The guards changed shift early. The surveillance feeds hiccupped—just for a moment, but you felt it in the Lattice like a skipped heartbeat.\n\n[i](Something is wrong. Something is finally, beautifully wrong.)[/i]",
+	"actions": [
+		{
+			"type": "examine",
+			"label": "Examine the corridor",
+			"examine_text": "The corridor stretches in both directions. To the east, the extraction wing—you know every crack in that ceiling. To the west, the processing hub where new arrivals get their numbers.\n\nThe surveillance node above the junction is dark. That never happens.\n\nWorkers call the corridors by names the company doesn't use: the Throat is the main elevator spine. Spit Lane runs behind the commissary. The Warm Wall is a pipe junction where heat leaks—workers press their hands there between shifts, stealing warmth the company hasn't priced yet.\n\n[i](You count exits automatically. Two visible, one maintenance hatch behind the panel at meter forty-three. You've always counted exits.)[/i]"
+		},
+		{
+			"type": "examine",
+			"label": "Check the Lattice",
+			"examine_text": "You close your eyes and reach—not with hands, but with that other sense, the one they've been harvesting.\n\nThe Lattice here is thin and bruised, shot through with Synthetic overlays that taste like copper and obligation. But underneath—underneath there's something. A pulse. A rhythm that doesn't belong to the extraction machinery.\n\n[i]{BEE:: anomaly detected | extraction grid interrupted | opportunity window: narrowing}[/i]\n\nThe Bee-sense is faint. A whisper behind a whisper. But it's there—and it's never been this clear before.",
+			"flag": "checked_lattice",
+			"flag_value": true
+		},
+		{
+			"type": "examine",
+			"label": "Check the debt terminal",
+			"examine_text": "The screen is grimy, cracked in one corner. Someone has scratched 'TRAP' into the metal frame, then scratched it out, then scratched it again.\n\n[b]WORKER 477 — DEBT STATUS[/b]\nPrevious Balance: 487,341 ticks\nOvernight Adjustment: +17 ticks (dormitory audit, standard)\nCurrent Balance: 487,358 ticks (debt)\nDaily Accrual Rate: 0.015% (compounding)\nYesterday's Interest: 72 ticks\nYesterday's Net Earnings: -17 ticks\nProjected Clearance Date: N/A (insufficient progress trajectory)\n\n[i](N/A. Not applicable. The system has calculated that you will never pay it off. It's not hiding it. It's just noting it, like any other data point.\n\nIf you worked a perfect shift every day—never sick, never slow—you'd earn maybe 55 ticks net. But the interest is 73. You fall behind by 18 ticks per day. The math doesn't allow escape. The math is the point.)[/i]"
+		},
+		{
+			"type": "examine",
+			"label": "Visit the medical bay",
+			"examine_text": "The medical bay smells like disinfectant and failure. Six cots. Four occupied. The lighting is the same sick yellow as everywhere else.\n\nA machine in the corner reads: PULMONARY REGENERATION UNIT. OFFLINE. PARTS PENDING (Est. 18 mo.) The label is yellowed, cracked at the edges.\n\nThe medical kiosk speaks: 'Worker 477. Respiratory function at 71% baseline. Within acceptable parameters. Wellness recommendation: Mindfulness breathing exercises at 15 ticks per module.'\n\n[i](Seventy-one percent. They want to sell you lessons in how to breathe with lungs they're killing.)[/i]"
+		},
+		{
+			"type": "examine",
+			"label": "Observe the mess hall",
+			"examine_text": "The mess hall is loud and quiet at the same time. Loud with bodies—eight hundred workers cycling through in forty-minute windows. Quiet with voices.\n\nYour ration pouch is small. The paste inside is the color of old bandages and tastes like apology.\n\n[i](Forty-five ticks. This is what your body costs. Forty-five ticks of work to keep working.)[/i]\n\nTwo workers near the serving line trade filter patches for a painkiller tab. The math of survival, worked out in whispers."
+		},
+		{
+			"type": "flag",
+			"label": "Report to Slurry Line 7 (Cinder shift)",
+			"flag": "completed_cinder_shift",
+			"result_text": "You find your station. Slurry Line 7. Watch for blockages, clear them, report anomalies. Don't get pulled into the machinery.\n\nAbove the line: SAFETY IS PRODUCTIVITY. DO NOT WHISTLE NEAR MACHINERY.\n\nThe aurum dust sticks to sweat. Your hands shimmer gold. The woman at the next station coughs—wet, heavy. Gold-lung.\n\nA man further down starts singing. An old song, about a river that leads somewhere better. No one tells him to stop. For a moment, there's something that isn't work.\n\nEight hours. 340 units. The quota is met."
+		},
+		{
+			"type": "flag",
+			"label": "Wait and listen",
+			"flag": "heard_explosion",
+			"requires_flag": "completed_cinder_shift",
+			"result_text": "You press your back against the wall and listen.\n\nForty seconds of recycled silence.\n\nThen the eastern wing detonates.\n\nThe shockwave hits through the floor first, then the sound—a deep, structural groan followed by the sharp crack of breaching charges. Professional. Precise. Someone is breaking in.\n\nAlarms scream to life. Emergency lighting floods the corridor in arterial red.\n\n[i]{BEE:: rescue probability | nonzero | move west}[/i]"
+		},
+		{
+			"type": "move",
+			"label": "Move toward the disturbance →",
+			"target_location": "act1_west_corridor",
+			"requires_flag": "heard_explosion"
+		},
+		{
+			"type": "move",
+			"label": "Head to the Lower Works (special assignment)",
+			"target_location": "act1_mine_tunnels",
+			"requires_flag": "completed_cinder_shift",
+			"excludes_flag": "heard_explosion"
+		}
+	]
+}
