@@ -1,14 +1,10 @@
 # No. 16 - starforge-rpg-prototype
 
-A curated exhibit from Starforge, an in-progress narrative game project. This
-repo is the Act 1 Godot 4 RPG prototype copy: party data, combat systems,
-branching dialogue, quests, scenes, UI scripts, and GUT test files without
-local editor state or task-daemon state.
-
-The story itself is published as
-[Starforge Canticles on Royal Road](https://www.royalroad.com/fiction/149065/starforge-canticles).
-This repo shows a hobby RPG prototype path for the published portion of that
-public serial.
+[Starforge Canticles](https://www.royalroad.com/fiction/149065/starforge-canticles)
+is a serialized speculative-fiction novel I'm publishing chapter-by-chapter on
+Royal Road. This repo is a second game-adaptation path for the same serial:
+Act 1 prototyped as a data-driven Godot 4 RPG with party management, combat,
+branching dialogue, quests, save/load, and UI.
 
 Active development happens in a private workshop. This public copy is meant for
 portfolio review and future iteration; unreleased later-act material is excluded.
@@ -66,4 +62,3 @@ Part of the Starforge cluster:
 
 - [starforge-narrative-tools](https://github.com/AthenaTheOwl/starforge-narrative-tools) - public Act 1 corpus + conversion/validation tooling
 - [starforge-renpy-demo](https://github.com/AthenaTheOwl/starforge-renpy-demo) - Act 1 Ren'Py narrative demo copy
-- [starforge-rpg-prototype](https://github.com/AthenaTheOwl/starforge-rpg-prototype) - Act 1 Godot RPG prototype copy
