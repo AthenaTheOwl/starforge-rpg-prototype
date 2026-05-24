@@ -32,10 +32,26 @@ Godot is not required for the lightweight repository checks:
 ```powershell
 python -m pytest
 python tools\validate_project.py
+python tools\playtest_audit.py
+python scripts\validate_balance.py
+python tools\check_release.py
 ```
 
 With Godot installed, run the GUT suite from the editor or CLI using the
 included `.gutconfig.json`.
+
+For the full native release gate on a machine with Godot installed:
+
+```powershell
+python tools\check_release.py --clean --fail-on-generated --require-godot --godot C:\path\to\Godot.exe
+```
+
+`tools/check_release.py` is the deterministic orchestration entry point for
+this repo. Python checks cover static project/data validation, path/dead-letter
+audit, and balance validation; Godot/GUT remains the engine-native gate. The
+`--clean` flag explicitly removes known Godot editor artifacts before and after
+the native test run; generated editor state is release-blocking. See
+`docs/deterministic-orchestration.md` for the proof gates.
 
 ## Cleanup boundary
 
@@ -46,6 +62,7 @@ Included:
 - scenes
 - scripts
 - GUT tests
+- deterministic playtest and balance validators
 - docs and examples
 
 Excluded:
@@ -62,3 +79,5 @@ Part of the Starforge cluster:
 
 - [starforge-narrative-tools](https://github.com/AthenaTheOwl/starforge-narrative-tools) - public Act 1 corpus + conversion/validation tooling
 - [starforge-renpy-demo](https://github.com/AthenaTheOwl/starforge-renpy-demo) - Act 1 Ren'Py narrative demo copy
+- [starforge-twine-demo](https://github.com/AthenaTheOwl/starforge-twine-demo) - single-HTML Twine/SugarCube demo
+- [starforge-choicescript-demo](https://github.com/AthenaTheOwl/starforge-choicescript-demo) - stat-forward ChoiceScript demo

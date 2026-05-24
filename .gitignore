@@ -11,6 +11,7 @@ refinery/
 polecats/
 *.log
 *.import
+reports/
 
 # Beads issue tracker
 .beads/

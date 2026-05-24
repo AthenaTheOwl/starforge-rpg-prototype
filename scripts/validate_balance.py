@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 Game Balance Validation Script
 Validates game balance data across characters, enemies, encounters, and dialogue.
@@ -43,22 +43,35 @@ class ValidationResult:
         if self.passes:
             print(f"{Colors.GREEN}PASS:{Colors.RESET}")
             for msg in self.passes:
-                print(f"  ✓ {msg}")
+                print(f"  PASS {safe_message(msg)}")
 
         if self.warnings:
             print(f"\n{Colors.YELLOW}WARN:{Colors.RESET}")
             for msg in self.warnings:
-                print(f"  ⚠ {msg}")
+                print(f"  WARN {safe_message(msg)}")
 
         if self.failures:
             print(f"\n{Colors.RED}FAIL:{Colors.RESET}")
             for msg in self.failures:
-                print(f"  ✗ {msg}")
+                print(f"  FAIL {safe_message(msg)}")
 
         print(f"\n{Colors.BOLD}Summary:{Colors.RESET}")
         print(f"  Passed: {Colors.GREEN}{len(self.passes)}{Colors.RESET}")
         print(f"  Warnings: {Colors.YELLOW}{len(self.warnings)}{Colors.RESET}")
         print(f"  Failed: {Colors.RED}{len(self.failures)}{Colors.RESET}")
+
+
+def safe_message(message: str) -> str:
+    """Keep validation output portable across Windows console encodings."""
+    replacements = {
+        "≤": "<=",
+        "≥": ">=",
+        "â‰¤": "<=",
+        "â‰¥": ">=",
+    }
+    for source, target in replacements.items():
+        message = message.replace(source, target)
+    return message.encode("ascii", errors="replace").decode("ascii")
 
 def find_project_root() -> Path:
     """Find the project root directory."""
@@ -517,3 +530,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

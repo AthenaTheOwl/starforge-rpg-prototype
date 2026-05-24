@@ -5,7 +5,7 @@ description = "Act 1 Godot RPG prototype copy for Starforge."
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
-authors = [{ name = "Vignesh Gopalakrishnan" }]
+authors = [{ name = "Cessnya Lin" }]
 dependencies = []
 
 [dependency-groups]
