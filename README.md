@@ -25,6 +25,29 @@ portfolio review and future iteration; unreleased later-act material is excluded
 2. Open this folder in Godot.
 3. Run the project. Main scene: `scenes/menus/title_screen.tscn`.
 
+## Browser build (needs the Godot HTML5 export toolchain)
+
+This repo is a Godot 4.6 project (GL Compatibility renderer), not a browser-ready
+bundle. A browser-playable build is feasible via Godot's **Web (HTML5)** export,
+but that requires the Godot editor plus the matching export templates, which
+produce a WebAssembly bundle. There is no checked-in HTML5 export and one cannot
+be faked without that toolchain, so this repo is documented as run-locally
+rather than one-click deployable.
+
+To produce the web build on a machine with Godot 4.6:
+
+1. Open the project in the Godot editor.
+2. Install the export templates for 4.6 (Editor > Manage Export Templates).
+3. Project > Export... > add a **Web** preset.
+4. Export the project. Godot emits `index.html`, a `.wasm`, a `.pck`, and
+   loader JS into the chosen output directory.
+5. That output directory is a static bundle you can host on any static host
+   (Vercel, Netlify, GitHub Pages, itch.io). Note: the Web export needs the
+   server to send the `Cross-Origin-Opener-Policy`/`Cross-Origin-Embedder-Policy`
+   headers (SharedArrayBuffer requirement) for threaded builds.
+
+Until that export exists, play it locally in the Godot editor as described above.
+
 ## Validate without Godot
 
 Godot is not required for the lightweight repository checks:
