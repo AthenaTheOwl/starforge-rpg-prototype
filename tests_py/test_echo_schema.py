@@ -1,8 +1,10 @@
+import json
 from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
-from validate_project import validate_check_text, validate_echoes, validate_echo_provenance, story_dialogue_order, dialogue_targets
+from validate_project import (validate_check_text, validate_echoes, validate_echo_provenance, story_dialogue_order, dialogue_targets,
+                              echo_variation_errors, story_flag_requirements)
 
 
 def test_control_graph_matches_inline_and_delegated_check_dispatch():
@@ -57,3 +59,68 @@ def test_check_nodes_cannot_carry_text_the_runtime_never_shows():
     assert not validate_check_text({"speaker": "SYSTEM", "text": "", "skill_check": {}, "next": "x_success"})
     assert not validate_check_text({"type": "skill_check", "check": {}})
     assert not validate_check_text({"speaker": "Nyx", "text": "Shown.", "next": "x_resolve"})
+
+
+def story_source(chapters, requirements=None):
+    body = "".join(f'\n\t{index}: {{"story_dialogues": {json.dumps(story)}, "optional_dialogues": {json.dumps(optional)}\n\t}},'
+                   for index, (story, optional) in enumerate(chapters))
+    gates = "".join(f'\n\t"{scene}": {json.dumps(flags)},' for scene, flags in (requirements or {}).items())
+    return f"const CHAPTER_SEQUENCE: Dictionary = {{{body}\n}}\nconst DIALOGUE_REQUIREMENTS: Dictionary = {{{gates}\n}}\n"
+
+
+def scene(nodes):
+    return {"start_node": "start", "nodes": nodes}
+
+
+def callback(flag, next_node="end"):
+    return {"speaker": "Elia", "text": "Base.", "echoes": [{"flag": flag, "text": "A consequence."}], "next": next_node}
+
+
+def test_echo_set_on_every_path_to_its_node_is_rejected():
+    choose = {"choices": [{"text": "A", "set_flag": "chosen", "next": "after"}, {"text": "B", "set_flag": "chosen", "next": "after"}]}
+    errors = echo_variation_errors({"act1_a": scene({"start": choose, "after": callback("chosen")})}, story_source([(["act1_a"], [])]))
+    assert errors == ["act1_a.json:after: echo 'chosen' always renders: every path to this node sets it"]
+    choose["choices"][1].pop("set_flag")
+    assert echo_variation_errors({"act1_a": scene({"start": choose, "after": callback("chosen")})}, story_source([(["act1_a"], [])])) == []
+
+
+def test_echo_whose_flag_is_only_set_afterwards_is_rejected():
+    nodes = {"start": callback("later", "choose"), "choose": {"choices": [{"text": "A", "set_flag": "later", "next": "end"}, {"text": "B", "next": "end"}]}}
+    assert echo_variation_errors({"act1_a": scene(nodes)}, story_source([(["act1_a"], [])])) == [
+        "act1_a.json:start: echo 'later' never renders: no path sets it before this node"]
+
+
+def test_echo_constancy_follows_story_order_and_gates_across_scenes():
+    always = scene({"start": {"speaker": "Elia", "text": "Done.", "set_flag": "briefed", "next": "end"}})
+    later = scene({"start": callback("briefed")})
+    # A mandatory earlier story scene that always sets the flag makes it constant.
+    assert echo_variation_errors({"act1_brief": always, "act1_climax": later},
+                                 story_source([(["act1_brief", "act1_climax"], [])])) == [
+        "act1_climax.json:start: echo 'briefed' always renders: every path to this node sets it"]
+    # An optional earlier scene can be skipped, so the callback varies.
+    assert echo_variation_errors({"act1_brief": always, "act1_climax": later},
+                                 story_source([([], ["act1_brief"]), (["act1_climax"], [])])) == []
+    # ...unless a story gate means the later scene only plays after it.
+    assert echo_variation_errors({"act1_brief": always, "act1_climax": later},
+                                 story_source([([], ["act1_brief"]), (["act1_climax"], [])], {"act1_climax": ["briefed"]})) == [
+        "act1_climax.json:start: echo 'briefed' always renders: every path to this node sets it"]
+
+
+def test_echo_constancy_follows_variant_routing_and_skill_check_outcomes():
+    nodes = {
+        "start": {"choices": [{"text": "Close", "set_flag": "close", "next": "route"}, {"text": "Far", "next": "route"}]},
+        "route": {"speaker": "Elia", "text": "Go.", "next": "plain", "variants": [{"conditions": {"flag": "close"}, "next": "close_end"}]},
+        "close_end": callback("close"),
+        "plain": {"type": "skill_check", "check": {"skill": "tactics", "dc": 10, "success": "won", "failure": "lost"}},
+        "won": {"speaker": "SYSTEM", "text": "Won.", "set_flag": "won", "next": "lost"},
+        "lost": callback("won"),
+    }
+    assert echo_variation_errors({"act1_a": scene(nodes)}, story_source([(["act1_a"], [])])) == [
+        "act1_a.json:close_end: echo 'close' always renders: every path to this node sets it"]
+
+
+def test_story_requirement_parser_reads_flag_gates_only():
+    source = story_source([(["act1_a"], [])]).replace("const DIALOGUE_REQUIREMENTS: Dictionary = {\n}", (
+        'const DIALOGUE_REQUIREMENTS: Dictionary = {\n\t# comment\n\t"act1_a": ["named"],'
+        '\n\t"act1_b": {"flags": ["revealed"]},\n\t"act1_c": {"relationship": {"nyx": "trusted"}},\n}'))
+    assert story_flag_requirements(source) == {"act1_a": ["named"], "act1_b": ["revealed"], "act1_c": []}
