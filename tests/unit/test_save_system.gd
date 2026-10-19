@@ -214,12 +214,13 @@ func test_nested_save_schema_has_precedence_over_legacy_root_fields() -> void:
 
 
 func test_slot_labels_are_plain_text_for_buttons() -> void:
-	SaveManager.save_game(0)
+	assert_eq(SaveManager.save_game(0), OK)
 	var screen: Control = load("res://scenes/menus/save_load_screen.tscn").instantiate()
 	add_child_autofree(screen)
 	var saved: String = screen.slots_container.get_child(0).get_child(0).text
 	var empty: String = screen.slots_container.get_child(1).get_child(0).text
 	assert_true(saved.begins_with("Save Slot 1\n"), "Saved slot keeps its name")
+	assert_true(saved.contains("Act ") and not saved.contains("Empty Slot"), "Saved slot shows save metadata")
 	assert_eq(empty, "Save Slot 2\nEmpty Slot", "Empty slot reads as plain text")
 	for label in [saved, empty]:
 		assert_false(label.contains("[b]") or label.contains("[i]"), "Button text does not render BBCode tags")
