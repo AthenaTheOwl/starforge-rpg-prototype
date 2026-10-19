@@ -83,9 +83,10 @@ python tools\check_release.py --clean --fail-on-generated --require-godot --godo
 checks cover static project/data validation, the path/dead-letter audit, and balance.
 Godot/GUT is the engine-native gate. It imports a fresh class/resource cache,
 requires every checked-in GUT method to assert and pass, then runs a seeded
-scene/combat/save smoke that emits the loaded scenes' control signals directly
-rather than clicking; only Escape is sent as a key event. Each engine step has a
-timeout; script errors and ignored or risky tests fail even on a zero exit code.
+scene/combat/save smoke that emits the loaded scenes' control signals (and calls
+the dialogue click handler) directly rather than clicking; only Escape is sent as
+a key event. Each engine step has a timeout; script errors and ignored or risky
+tests fail even on a zero exit code.
 The `--clean` flag removes known Godot editor artifacts before and after the run.
 See `docs/deterministic-orchestration.md` for the proof gates.
 

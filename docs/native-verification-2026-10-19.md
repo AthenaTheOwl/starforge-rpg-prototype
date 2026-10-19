@@ -19,8 +19,10 @@ or deferring the surname without blocking progression. Actual authored check
 choices are exercised with natural 1 and 20, requiring one roll at the correct
 node and the authored outcome rather than a premature scene end.
 Nine duplicate inline checks now delegate after their original staging to
-separate check routers. Three text-bearing checks (mentor trace, shard communion
-and the existing Elia empathy roll) also show their authored line before rolling.
+separate check routers. Nine text-bearing checks (mentor trace, shard communion,
+the Elia empathy roll, the stealth/assault/hybrid approach checks, Jalen's tech
+walkthrough, the equipment insight check and the trust-crisis intervene check)
+also show their authored line before a separate check router rolls.
 Tests verify the staging text is displayed, then the original skill/outcome
 contract rolls once.
 Graph validation follows executable successors rather than an ignored `next`.
@@ -82,7 +84,8 @@ and assert the return. Float/Int comparison warnings and teardown orphan counts
 remain in raw evidence. This is not a zero-diagnostic claim.
 
 Audio directories contain placeholders; AudioManager intentionally tolerates
-missing tracks. Custom reputation keys `guild`, `crew_trust`, `lattice_affinity`
-have no implemented state mapping. Existing location, balance and UI TODO queues
+missing tracks. Custom reputation keys `guild`, `crew_trust`, `lattice_affinity`,
+`corporate_heat`, `unknown_ally` and `QC-7` have no implemented state mapping;
+grants to them are ignored. Existing location, balance and UI TODO queues
 remain visible. The Linux CI asset SHA256 is
 `cadd3204e728a35d3f13adb7fd0d7902636b79f6b95c40c265eb73b6c35329e4`.
