@@ -18,9 +18,11 @@ from their original scene starts and follows each to its exit. It tests acceptin
 or deferring the surname without blocking progression. Actual authored check
 choices are exercised with natural 1 and 20, requiring one roll at the correct
 node and the authored outcome rather than a premature scene end.
-Nine duplicate inline checks now delegate after their original staging, using
-eight new check routers and one existing standalone check. Tests verify the
-staging text is displayed, then the original skill/outcome contract rolls once.
+Nine duplicate inline checks now delegate after their original staging to
+separate check routers. Three text-bearing checks (mentor trace, shard communion
+and the existing Elia empathy roll) also show their authored line before rolling.
+Tests verify the staging text is displayed, then the original skill/outcome
+contract rolls once.
 Graph validation follows executable successors rather than an ignored `next`.
 Packed ChapterFlow/DialogueController tests keep explicit, implicit and
 unavailable-choice terminal text visible through typewriter completion. All four
@@ -50,8 +52,10 @@ Dialogue resolves both canonical variant/check formats. Additive same-speaker
 once per render. Native tests cover true/false/unset, simultaneous flags, repeated
 renders and unchosen-choice isolation. Static schema and downstream writer checks
 reject reference metadata or same-node effects presented as executed callbacks.
-The authorized public Act 1 repairs add contextual consequences for 109 unread
+The authorized public Act 1 repairs add 115 echo lines for 109 unread
 decisions/events and reconnect existing branches while preserving original prose.
+In 29 of those lines the flag is written on every path to the node, so the line
+always renders there rather than varying by choice.
 
 Naming completion and surname acceptance remain distinct. Waffle's original
 accepted-name line is a conditional variant; deferral leaves the surname unset.

@@ -136,7 +136,11 @@
 		"trace_attempt": {
 			"speaker": "Waffle.bat",
 			"text": "Attempting signal lock... Encryption is layered, rotating. I need more time. [b]Keep them talking.[/b]",
-			"skill_check": {
+			"next": "trace_attempt_resolve"
+		},
+		"trace_attempt_resolve": {
+			"type": "skill_check",
+			"check": {
 				"stat": "tech",
 				"skill": "tech",
 				"dc": 12,

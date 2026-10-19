@@ -151,7 +151,10 @@ func test_authored_staging_is_displayed_before_one_check_in_both_outcomes():
 		["act1_deep_vesper", "night_aftermath_response", 2, ["insight_check_math"], "insight_check_math_resolve"],
 		["act1_deep_vesper", "coping_response", 1, ["empathy_check_2"], "empathy_check_2_resolve"],
 		["act1_deep_vesper", "vesper_fear_response", 2, ["insight_check_caring"], "insight_check_caring_resolve"],
-		["act1_forbidden_citizens", "choice_early_reaction", 2, ["empathy_check"], "empathy_check_resolve"],
+		["act1_forbidden_citizens", "choice_early_reaction", 2, ["empathy_check", "empathy_check_resolve"], "empathy_check_roll"],
+		# Text-bearing checks keep their authored line visible before the roll.
+		["act1_mentor_contact", "player_choice", 3, ["trace_attempt"], "trace_attempt_resolve"],
+		["act1_shard_whispers", "bee_what_are_you", 2, ["communion_attempt"], "communion_attempt_resolve"],
 	]
 	for route in routes:
 		var data := DialogueManager._load_dialogue(route[0])

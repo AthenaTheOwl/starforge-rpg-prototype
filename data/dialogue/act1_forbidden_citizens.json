@@ -130,7 +130,11 @@
     "empathy_check_resolve": {
       "speaker": "SYSTEM",
       "text": "[i]Rolling Empathy check...[/i]",
-      "skill_check": {
+      "next": "empathy_check_roll"
+    },
+    "empathy_check_roll": {
+      "type": "skill_check",
+      "check": {
         "skill": "empathy",
         "dc": 12,
         "success": "read_elia_fear_success",
