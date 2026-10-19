@@ -138,7 +138,7 @@
     "acceptance_direct": {
       "speaker": "Vesper",
       "text": "[i]Vesper nods once \u2014 crisp, final.[/i]\n\nGood. We start tomorrow. Bring questions, not excuses.",
-      "set_flag": "bonded_with_vesper",
+      "set_flag": "vesper_bonded",
       "reputation": {
         "vesper": 3
       },
@@ -165,7 +165,7 @@
     "acceptance_after_expectations": {
       "speaker": "Vesper",
       "text": "Then we have an understanding. Tomorrow, 0600. Don't be late.",
-      "set_flag": "bonded_with_vesper",
+      "set_flag": "vesper_bonded",
       "reputation": {
         "vesper": 2
       },
@@ -192,7 +192,7 @@
     "acceptance_after_hesitation": {
       "speaker": "Vesper",
       "text": "Smart choice. We'll make you sharper than any blade in the void.",
-      "set_flag": "bonded_with_vesper",
+      "set_flag": "vesper_bonded",
       "reputation": {
         "vesper": 1
       },
@@ -222,7 +222,7 @@
     "acceptance_honor": {
       "speaker": "Vesper",
       "text": "[i]Vesper's hand rests briefly on Clarity's grip \u2014 a gesture of trust.[/i]\n\nI know you won't. Tomorrow. 0600.",
-      "set_flag": "bonded_with_vesper",
+      "set_flag": "vesper_bonded",
       "reputation": {
         "vesper": 2
       },
@@ -249,7 +249,7 @@
     "acceptance_survival": {
       "speaker": "Vesper",
       "text": "Good. We start at dawn.",
-      "set_flag": "bonded_with_vesper",
+      "set_flag": "vesper_bonded",
       "reputation": {
         "vesper": 1
       },

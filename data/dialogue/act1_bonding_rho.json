@@ -31,7 +31,8 @@
         },
         {
           "text": "Why does loyalty matter so much to you?",
-          "next": "ask_loyalty"
+          "next": "ask_loyalty",
+          "set_flag": "rho_mentioned_past"
         },
         {
           "text": "What comes first for you\u2014mission or crew?",
@@ -192,7 +193,7 @@
         {
           "text": "I'm with you. All of you. No matter what.",
           "next": "full_commitment",
-          "set_flag": "bonded_with_rho",
+          "set_flag": "rho_bonded",
           "reputation": {
             "rho": 2
           }
@@ -200,7 +201,7 @@
         {
           "text": "I'll fight for us. But I won't lie\u2014it scares me.",
           "next": "honest_commitment",
-          "set_flag": "bonded_with_rho",
+          "set_flag": "rho_bonded",
           "reputation": {
             "rho": 1
           }

@@ -101,7 +101,7 @@
 				{
 					"text": "Acknowledge. 'Thank you. That... means something.'",
 					"next": "accept_immediately",
-					"set_flag": "bonded_with_elisira",
+					"set_flag": "elisira_bonded",
 					"reputation": {"elisira": 2, "elia": 1}
 				},
 				{
@@ -142,7 +142,7 @@
 				{
 					"text": "'I appreciate that. Knowing where I stand.'",
 					"next": "accept_after_cost",
-					"set_flag": "bonded_with_elisira",
+					"set_flag": "elisira_bonded",
 					"reputation": {"elisira": 3}
 				},
 				{
@@ -166,7 +166,7 @@
 			"text": "[i]A rare softness in her expression.[/i] I notice. Elia notices. We both do. You matter. Your contributions matter. [i]A pause.[/i] That's why I'm telling you this.",
 			"reputation": {"elisira": 3},
 			"next": "vulnerability_accept",
-			"set_flag": "bonded_with_elisira"
+			"set_flag": "elisira_bonded"
 		},
 		"vulnerability_accept": {
 			"speaker": "Avyanna",
@@ -191,7 +191,7 @@
 				{
 					"text": "'I'm not going anywhere. Just... needed to know.'",
 					"next": "accept_after_test",
-					"set_flag": "bonded_with_elisira",
+					"set_flag": "elisira_bonded",
 					"reputation": {"elisira": 3}
 				},
 				{
@@ -215,7 +215,7 @@
 			"text": "[i]A nod.[/i] Autonomy matters. You're crew, not property. I want you to know that explicitly. [i]She turns to leave.[/i] The choice is always yours.",
 			"reputation": {"elisira": 2},
 			"next": "end",
-			"set_flag": "bonded_with_elisira"
+			"set_flag": "elisira_bonded"
 		}
 	}
 }
