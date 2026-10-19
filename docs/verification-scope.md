@@ -31,3 +31,11 @@ The command isolates engine state under ignored `reports/native-state/`, rebuild
 the class cache, verifies every source GUT method against JUnit, and removes
 `.godot/` after the run. Native steps have 180-second timeouts. Static-only runs
 remain useful and explicitly print that engine checks were skipped.
+
+## Correction — October 19, 2026, later review
+
+Authored callbacks are now rendered only in flag states a scene walk reaches,
+not with a false flag; see the correction in the
+[native verification record](native-verification-2026-10-19.md). Static
+validation also checks that each callback can vary across the act and that
+every read flag has a writer.

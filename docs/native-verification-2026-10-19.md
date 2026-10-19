@@ -89,3 +89,22 @@ missing tracks. Custom reputation keys `guild`, `crew_trust`, `lattice_affinity`
 grants to them are ignored. Existing location, balance and UI TODO queues
 remain visible. The Linux CI asset SHA256 is
 `cadd3204e728a35d3f13adb7fd0d7902636b79f6b95c40c265eb73b6c35329e4`.
+
+## Correction — October 19, 2026, later review
+
+The 29 constant echo lines counted above were the ones whose flag is set on
+every path inside their own scene. A walk of the whole act as ChapterFlow and
+StoryManager run it (story dialogues in order behind their flag gates, optional
+scenes played or skipped) finds two more that rely on an earlier mandatory scene:
+`act1_team_briefing_complete` in the climax and `trust_crisis_resolved` in the
+briefing. Of those 31 lines, 8 now test an earlier choice that varies at their
+node and 23 were removed, leaving 92 echo lines; no original prose changed.
+
+The GUT content test no longer renders authored echoes with a false flag or with
+rival choices set together, states play does not produce. It walks each scene as
+DialogueManager runs it and renders echoes only in the flag states it reaches;
+the false/unset distinction stays covered by the synthetic unit test.
+`tools/validate_project.py` now fails an echo that always or never renders, and
+any flag the game reads without a writer. The five bond flags and
+`rho_mentioned_past` gained setters; 16 dialogue flags with no clearly intended
+setter and 11 exploration gates are listed with reasons.
