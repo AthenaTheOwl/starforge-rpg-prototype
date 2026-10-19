@@ -630,7 +630,7 @@
       "next": "souffle_comment"
     },
     "souffle_comment": {
-      "speaker": "Soufflé",
+      "speaker": "Souffle",
       "text": "[i]The ship's tertiary AI chimes through the overhead speaker — a voice like velvet over static.[/i] For the record, I've been monitoring galley temperature. It's dropped 1.3 degrees since you all sat down. Body heat distribution suggests everyone is comfortable. I adjusted the ventilation to maintain it. [i]A pause.[/i] You're welcome.",
       "next": "rho_souffle_react"
     },
@@ -640,7 +640,7 @@
       "next": "souffle_correction"
     },
     "souffle_correction": {
-      "speaker": "Soufflé",
+      "speaker": "Souffle",
       "text": "I adjusted for comfort, not endorsement. My taste protocols are reserved for music selection and interior lighting. Though I will note the stew's aroma profile is... within acceptable parameters.",
       "next": "cinnamon_dinner_brief"
     },
