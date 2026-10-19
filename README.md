@@ -133,6 +133,9 @@ Part of the Starforge cluster — one serial, several playable shapes:
 This repo is the heaviest of the four: the others tell Act 1, this one makes you
 fight through it.
 
+[Current verification scope](docs/verification-scope.md) records the October 18,
+2026 static checks, queued warnings and explicit Godot/GUT `not_run` status.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
