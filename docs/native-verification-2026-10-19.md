@@ -22,6 +22,12 @@ Nine duplicate inline checks now delegate after their original staging, using
 eight new check routers and one existing standalone check. Tests verify the
 staging text is displayed, then the original skill/outcome contract rolls once.
 Graph validation follows executable successors rather than an ignored `next`.
+Packed ChapterFlow/DialogueController tests keep explicit, implicit and
+unavailable-choice terminal text visible through typewriter completion. All four
+new closing-node callbacks remain readable, and story completion occurs only
+after the actual Continue control. Explicit choice-to-end still acknowledges the
+conversation. Legacy check buttons use the same normalized skill/difficulty
+metadata as resolution.
 
 ## Repairs and ongoing gates
 

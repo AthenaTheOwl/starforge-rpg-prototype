@@ -55,9 +55,16 @@ func _finish_dialogue() -> void:
 	for _step in range(500):
 		if not DialogueManager.is_active:
 			return
+		var history := DialogueManager.get_history()
+		if history.is_empty() or history.back().get("node_id", "") != DialogueManager.current_node_id:
+			DialogueManager._display_node(DialogueManager.current_node_id)
+			continue
 		var node: Dictionary = DialogueManager.dialogue_data["nodes"][DialogueManager.current_node_id]
 		if not DialogueManager._get_available_choices(node).is_empty():
 			DialogueManager.select_choice(0)
+		elif node.get("next", "") in ["", "end"]:
+			# The UI's explicit Continue acknowledges a displayed terminal node.
+			DialogueManager.end_dialogue()
 		else:
 			DialogueManager._display_node(DialogueManager.current_node_id)
 	assert_false(DialogueManager.is_active, "Dialogue must end within a bounded number of advances")
@@ -69,6 +76,8 @@ func test_nyx_safeguard_lesson_can_be_selected_and_completed():
 	assert_true(_select_destination("offer_training_path"), "New lesson is an actually available choice")
 	assert_eq(DialogueManager.get_history().back().get("node_id"), "offer_training_path")
 	assert_true(_walk_to("nyx_confirms_feeling"), "Traverse the lesson to its authored conclusion")
+	assert_true(DialogueManager.is_active, "The concluding line remains readable until acknowledged")
+	_finish_dialogue()
 	assert_false(DialogueManager.is_active, "The lesson exits normally")
 	assert_true(GameManager.get_flag("nyx_lattice_training", false))
 	assert_true(GameManager.get_flag("deep_nyx_complete", false))
@@ -81,6 +90,8 @@ func test_forbidden_alternative_question_rejoins_existing_stakes_and_exits():
 	assert_eq(DialogueManager.get_history().back().get("node_id"), "elia_moral_imperative")
 	assert_true(_walk_to("elia_stakes_clear"), "The rebuttal rejoins the original conversation")
 	assert_true(_walk_to("bubbles_final"), "The scene still reaches its original exit")
+	assert_true(DialogueManager.is_active, "The final words await Continue")
+	_finish_dialogue()
 	assert_false(DialogueManager.is_active)
 	assert_true(GameManager.get_flag("ai_illegality_revealed", false))
 

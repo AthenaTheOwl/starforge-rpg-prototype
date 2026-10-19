@@ -171,15 +171,17 @@ func _display_node(node_id: String) -> void:
 		"text": resolved_node.get("text", ""),
 	})
 
+	var choices := _get_available_choices(resolved_node)
+	# The controller must see the same post-effect choices the manager presents,
+	# including an empty list when all authored choices are unavailable.
+	resolved_node["choices"] = choices
 	node_displayed.emit(resolved_node)
 
-	var choices := _get_available_choices(resolved_node)
 	if choices.is_empty():
-		# Auto-advance or end
+		# Queue a successor for the UI. Terminal text remains active until the
+		# player's explicit Continue; ending here would hide it during typewriter.
 		var next: String = resolved_node.get("next", "")
-		if next.is_empty() or next == "end":
-			end_dialogue()
-		else:
+		if not next.is_empty() and next != "end":
 			current_node_id = next
 			# Small delay then auto-advance — handled by UI
 	else:
