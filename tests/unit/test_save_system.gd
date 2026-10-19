@@ -2,6 +2,20 @@ extends GutTest
 ## Unit tests for SaveManager — save/load system.
 
 
+## These tests overwrite and delete user://saves. Run them only after
+## tools/check_release.py has pointed user:// inside its isolated state root,
+## so a direct editor or CLI GUT run cannot delete a player's real saves.
+func should_skip_script():
+	var root := OS.get_environment("STARFORGE_TEST_STATE_ROOT").replace("\\", "/").simplify_path().trim_suffix("/")
+	var actual := OS.get_user_data_dir().replace("\\", "/").simplify_path()
+	if OS.get_name() == "Windows":
+		root = root.to_lower()
+		actual = actual.to_lower()
+	if root.is_empty() or not root.is_absolute_path() or not actual.begins_with(root + "/"):
+		return "user:// is outside STARFORGE_TEST_STATE_ROOT; run GUT through tools/check_release.py"
+	return false
+
+
 func before_each() -> void:
 	# Clean up any existing test saves
 	_cleanup_test_saves()
