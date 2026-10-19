@@ -435,8 +435,9 @@ func test_minimum_choices_per_large_dialogue():
 				var node = data["nodes"][node_id]
 				if node.has("choices") and node["choices"].size() > 0:
 					choice_count += 1
-			# Curated first-contact sequence is intentionally linear between two
-			# decision points. Preserve its prose; every other large scene needs 3.
+			# Deliberate design choice, not a gap: Bee's first manifestation is a
+			# curated first-contact scene kept linear between two decision points.
+			# Every other large scene needs 3.
 			var minimum := 2 if file_path.get_file() == "act1_bee_manifestation.json" else 3
 			assert_gte(choice_count, minimum,
 				"File %s has %d nodes but only %d choice points (minimum %d)" %
