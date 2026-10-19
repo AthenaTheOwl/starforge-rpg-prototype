@@ -1,8 +1,12 @@
 import json
 from pathlib import Path
+import sys
 
 
-DIALOGUE = Path(__file__).resolve().parents[1] / "data" / "dialogue"
+ROOT = Path(__file__).resolve().parents[1]
+DIALOGUE = ROOT / "data" / "dialogue"
+sys.path.insert(0, str(ROOT / "tools"))
+from validate_project import dialogue_flag_reads, unwritten_flag_reads  # noqa: E402
 
 
 def nodes(scene: str) -> dict:
@@ -29,3 +33,24 @@ def test_rho_militia_story_records_that_he_mentioned_his_past() -> None:
     [loyalty] = [choice for choice in nodes("act1_bonding_rho")["rho_continues"]["choices"] if choice["next"] == "ask_loyalty"]
     assert loyalty.get("set_flag") == "rho_mentioned_past"
     assert nodes("act1_deep_rho")["militia_squad_4"]["text_variants"][0]["conditions"]["flags"] == ["rho_mentioned_past"]
+
+
+def test_dialogue_flag_reads_cover_every_runtime_test() -> None:
+    node = {
+        "text_variants": {"default": "x", "dict_gate": "y"},
+        "variants": [{"conditions": {"flags": ["all_of"], "flag": "one", "not_flag": "none_of"}, "next": "a"}],
+        "choices": [{"text": "Go", "requires_flag": "choice_gate", "next": "a"}],
+        "echoes": [{"flag": "callback", "text": "Line."}],
+    }
+    assert dialogue_flag_reads(node) == {"dict_gate", "all_of", "one", "none_of", "choice_gate", "callback"}
+    assert dialogue_flag_reads({"text_variants": [{"conditions": {"flags": ["listed"]}, "text": "z"}]}) == {"listed"}
+
+
+def test_unwritten_reads_fail_unless_listed_and_the_list_cannot_go_stale() -> None:
+    reads = {"ghost": {"b.json:n2", "a.json:n1"}, "real": {"a.json:n3"}, "known": {"c.json:n4"}}
+    assert unwritten_flag_reads(reads, {"real"}, {"known"}) == [
+        "a.json:n1: reads flag 'ghost', which nothing writes (and 1 more)"]
+    assert unwritten_flag_reads(reads, {"real", "ghost", "known"}, {"known"}) == [
+        "known-unset flag 'known' is now written or no longer read; drop it from the list"]
+    assert unwritten_flag_reads({"real": {"a.json:n3"}}, {"real"}, {"known"}) == [
+        "known-unset flag 'known' is now written or no longer read; drop it from the list"]

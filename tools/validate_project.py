@@ -378,6 +378,92 @@ def echo_variation_errors(dialogues: dict, story_source: str) -> list[str]:
     return errors
 
 
+# Read by authored dialogue but set nowhere in this port or the Ren'Py port, and
+# no earlier choice clearly earns them, so their lines wait until the author
+# decides where each is set. shard_whispers_heard is read at the start of
+# act1_bee_manifestation, which always plays before the optional
+# act1_shard_whispers, so no setter there could show its line.
+UNSET_DIALOGUE_FLAGS = {
+    "ai_citizens_discovered", "elia_bonded", "elia_trust_high", "elia_trust_low",
+    "elisira_conflict_resolved", "first_watch_ai_citizens", "first_watch_bubbles",
+    "first_watch_cinnamon", "first_watch_waffle", "nyx_trust_high", "nyx_trust_low",
+    "rho_trust_high", "rho_trust_low", "shard_whispers_heard", "vesper_trust_high",
+    "vesper_trust_low",
+}
+# Exploration location gates. ExplorationController ignores an examine action's
+# flag, no location has a recruit action, and the exploration screen opens only
+# from the party screen, which nothing routes to. They wait with the queued
+# location routes.
+UNSET_LOCATION_FLAGS = {
+    "examined_equipment", "examined_shrine", "found_safehouse_evidence", "jalen_recruited",
+    "naming_scene_available", "nyx_noticed", "nyx_recruited", "rho_recruited",
+    "sensed_lattice", "vesper_noticed", "vesper_recruited",
+}
+
+
+def validate_flag_writers() -> list[str]:
+    """Every flag the game reads must have a writer the game can run."""
+    story_source = (ROOT / "autoload/story_manager.gd").read_text(encoding="utf-8")
+    code = {rel(path): path.read_text(encoding="utf-8")
+            for path in [*sorted((ROOT / "autoload").glob("*.gd")), *sorted((ROOT / "scripts").rglob("*.gd"))]}
+    reads: dict[str, set[str]] = {}
+    writes: set[str] = set()
+    for path in sorted((ROOT / "data" / "dialogue").glob("*.json")):
+        nodes = json.loads(path.read_text(encoding="utf-8")).get("nodes", {})
+        writes |= dialogue_flag_writes(nodes)
+        for node_id, node in nodes.items():
+            for flag in dialogue_flag_reads(node):
+                reads.setdefault(flag, set()).add(f"{rel(path)}:{node_id}")
+    for scene, flags in story_flag_requirements(story_source).items():
+        for flag in flags:
+            reads.setdefault(flag, set()).add(f"autoload/story_manager.gd:{scene}")
+    for path in sorted((ROOT / "data" / "quests").glob("*.json")):
+        for action in json.loads(path.read_text(encoding="utf-8")).get("actions", []):
+            for key in ["requires_flag", "excludes_flag"]:
+                if key in action:
+                    reads.setdefault(action[key], set()).add(rel(path))
+            # ExplorationController._execute_action writes only these two kinds.
+            if action.get("type") == "flag" and action.get("flag"):
+                writes.add(action["flag"])
+            elif action.get("type") == "recruit":
+                writes.add(action.get("flag", "recruited_" + action.get("character_id", "")))
+    for path, text in code.items():
+        writes |= set(re.findall(r'set_flag\("([^"]+)"', text))
+        for flag in re.findall(r'(?:has_flag|get_flag)\("([^"]+)"', text):
+            reads.setdefault(flag, set()).add(path)
+    # StoryManager.complete_chapter and RelationshipManager._on_tier_change.
+    writes |= {f"chapter_{index}_complete" for index in range(len(chapter_sequence(story_source)))}
+    relationships = code["autoload/relationship_manager.gd"]
+    tiers = [tier.lower() for tier in re.findall(r'Tier\.\w+: return "(\w+)"', relationships)]
+    writes |= {f"{character}_tier_{tier}" for character in re.findall(r'\n\t"(\w+)": \{"name"', relationships) for tier in tiers}
+    return unwritten_flag_reads(reads, writes, UNSET_DIALOGUE_FLAGS | UNSET_LOCATION_FLAGS)
+
+
+def dialogue_flag_reads(node: dict) -> set[str]:
+    """Flags DialogueManager tests for a node: text, variants, choices and echoes."""
+    flags = set()
+    text_variants = node.get("text_variants", {})
+    if isinstance(text_variants, dict):
+        flags |= {flag for flag in text_variants if flag != "default"}
+    else:
+        for variant in text_variants:
+            flags |= condition_flags(variant)
+    for variant in node.get("variants", []):
+        flags |= condition_flags(variant)
+    flags |= {choice["requires_flag"] for choice in node.get("choices", []) if "requires_flag" in choice}
+    flags |= {echo["flag"] for echo in node.get("echoes", []) if isinstance(echo, dict) and isinstance(echo.get("flag"), str)}
+    return flags
+
+
+def unwritten_flag_reads(reads: dict[str, set[str]], writes: set[str], known_unset: set[str]) -> list[str]:
+    errors = [f"{min(sites)}: reads flag {flag!r}, which nothing writes"
+              + (f" (and {len(sites) - 1} more)" if len(sites) > 1 else "")
+              for flag, sites in sorted(reads.items()) if flag not in writes and flag not in known_unset]
+    errors += [f"known-unset flag {flag!r} is now written or no longer read; drop it from the list"
+               for flag in sorted(known_unset) if flag in writes or flag not in reads]
+    return errors
+
+
 def validate_quest_locations() -> list[str]:
     errors: list[str] = []
     quest_root = ROOT / "data" / "quests"
@@ -435,6 +521,7 @@ def main() -> int:
         parse_json_files,
         validate_dialogue_graphs,
         validate_echo_variation,
+        validate_flag_writers,
         validate_quest_locations,
         validate_project_paths,
         validate_clean_copy,
