@@ -155,6 +155,12 @@ func test_authored_staging_is_displayed_before_one_check_in_both_outcomes():
 		# Text-bearing checks keep their authored line visible before the roll.
 		["act1_mentor_contact", "player_choice", 3, ["trace_attempt"], "trace_attempt_resolve"],
 		["act1_shard_whispers", "bee_what_are_you", 2, ["communion_attempt"], "communion_attempt_resolve"],
+		["act1_climax_setup", "approach_player_choice", 0, ["stealth_choice_check"], "stealth_choice_check_resolve"],
+		["act1_climax_setup", "approach_player_choice", 1, ["assault_choice_check"], "assault_choice_check_resolve"],
+		["act1_climax_setup", "approach_player_choice", 2, ["hybrid_choice_check"], "hybrid_choice_check_resolve"],
+		["act1_climax_setup", "jalen_personal_choice", 0, ["jalen_tech_detail_2", "jalen_tech_check"], "jalen_tech_check_resolve"],
+		["act1_climax_setup", "personal_return", 1, ["bee_equipment_scan", "equipment_insight_check"], "equipment_insight_check_resolve"],
+		["act1_trust_breaking_point", "player_choice", 0, ["intervene_check"], "intervene_check_resolve"],
 	]
 	for route in routes:
 		var data := DialogueManager._load_dialogue(route[0])
@@ -171,7 +177,7 @@ func test_authored_staging_is_displayed_before_one_check_in_both_outcomes():
 			_seed_exact_roll(roll)
 			DialogueManager.select_choice(route[2])
 			var expected: String = check["on_failure"] if roll == 1 else check["on_success"]
-			for _step in range(10):
+			for _step in range(20):
 				if DialogueManager.get_history().back().get("node_id") == expected or not DialogueManager.is_active:
 					break
 				DialogueManager._display_node(DialogueManager.current_node_id)

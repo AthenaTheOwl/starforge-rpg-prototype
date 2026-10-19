@@ -340,6 +340,9 @@
 		"stealth_choice_check": {
 			"speaker": "Narration",
 			"text": "[i]You outline the stealth approach. Elia watches you draw the route on the holographic display—maintenance tunnels, service corridors, security blind spots. This requires tactical precision.[/i]",
+			"next": "stealth_choice_check_resolve"
+		},
+		"stealth_choice_check_resolve": {
 			"type": "skill_check",
 			"check": {
 				"character": "avyanna",
@@ -349,8 +352,7 @@
 				"dc": 14,
 				"on_success": "stealth_choice_success",
 				"on_failure": "stealth_choice_failure"
-			},
-			"next": "stealth_choice_failure"
+			}
 		},
 		"stealth_choice_success": {
 			"speaker": "Narration",
@@ -410,6 +412,9 @@
 		"assault_choice_check": {
 			"speaker": "Narration",
 			"text": "[i]You outline the assault approach. Breach points, suppressive fire lanes, room-clearing sequences. The display fills with red arrows. This requires understanding of force application.[/i]",
+			"next": "assault_choice_check_resolve"
+		},
+		"assault_choice_check_resolve": {
 			"type": "skill_check",
 			"check": {
 				"character": "avyanna",
@@ -419,8 +424,7 @@
 				"dc": 14,
 				"on_success": "assault_choice_success",
 				"on_failure": "assault_choice_failure"
-			},
-			"next": "assault_choice_failure"
+			}
 		},
 		"assault_choice_success": {
 			"speaker": "Narration",
@@ -480,6 +484,9 @@
 		"hybrid_choice_check": {
 			"speaker": "Narration",
 			"text": "[i]A combined approach. The most complex option—two teams, synchronized timing, overlapping contingencies. This requires exceptional tactical awareness.[/i]",
+			"next": "hybrid_choice_check_resolve"
+		},
+		"hybrid_choice_check_resolve": {
 			"type": "skill_check",
 			"check": {
 				"character": "avyanna",
@@ -489,8 +496,7 @@
 				"dc": 16,
 				"on_success": "hybrid_choice_success",
 				"on_failure": "hybrid_choice_failure"
-			},
-			"next": "hybrid_choice_failure"
+			}
 		},
 		"hybrid_choice_success": {
 			"speaker": "Narration",
@@ -1211,6 +1217,9 @@
 		"jalen_tech_check": {
 			"speaker": "Narration",
 			"text": "[i]He walks you through the process. Terminal identification, chip insertion, progress indicators. It's not complicated—but in a firefight, nothing is simple.[/i]",
+			"next": "jalen_tech_check_resolve"
+		},
+		"jalen_tech_check_resolve": {
 			"type": "skill_check",
 			"check": {
 				"character": "avyanna",
@@ -1220,8 +1229,7 @@
 				"dc": 12,
 				"on_success": "jalen_tech_success",
 				"on_failure": "jalen_tech_failure"
-			},
-			"next": "jalen_tech_failure"
+			}
 		},
 		"jalen_tech_success": {
 			"speaker": "Jalen",
@@ -1447,6 +1455,9 @@
 		"equipment_insight_check": {
 			"speaker": "Narration",
 			"text": "[i]As the crew finishes gearing up, you study their faces. Their movements. Something about the way they prepare tells you things words can't.[/i]",
+			"next": "equipment_insight_check_resolve"
+		},
+		"equipment_insight_check_resolve": {
 			"type": "skill_check",
 			"check": {
 				"character": "avyanna",
@@ -1456,8 +1467,7 @@
 				"dc": 13,
 				"on_success": "insight_success",
 				"on_failure": "insight_pass"
-			},
-			"next": "insight_pass"
+			}
 		},
 		"insight_success": {
 			"speaker": "Narration",

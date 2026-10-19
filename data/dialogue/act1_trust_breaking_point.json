@@ -75,6 +75,9 @@
     "intervene_check": {
       "speaker": "SYSTEM",
       "text": "[i]You step forward. Three pairs of eyes turn to you. This requires empathy—the ability to hold space for anger without flinching.[/i]",
+      "next": "intervene_check_resolve"
+    },
+    "intervene_check_resolve": {
       "type": "skill_check",
       "check": {
         "character": "avyanna",
@@ -82,8 +85,7 @@
         "threshold": 3,
         "on_success": "intervene_success",
         "on_failure": "intervene_failure"
-      },
-      "next": "end"
+      }
     },
     "intervene_success": {
       "speaker": "Avyanna",
