@@ -51,6 +51,7 @@ def validate_dialogue_graphs() -> list[str]:
                 errors.append(f"{rel(path)}:{node_id}: node must be object")
                 continue
             errors.extend(f"{rel(path)}:{node_id}: {error}" for error in validate_echoes(node))
+            errors.extend(f"{rel(path)}:{node_id}: {error}" for error in validate_check_text(node))
             next_node = node.get("next")
             if isinstance(next_node, str) and next_node != "end" and next_node not in nodes:
                 errors.append(f"{rel(path)}:{node_id}: next target {next_node!r} missing")
@@ -194,6 +195,13 @@ def validate_echoes(node: dict) -> list[str]:
         if text == flag:
             errors.append("echo text must be authored prose, not a flag identifier")
     return errors
+
+
+def validate_check_text(node: dict) -> list[str]:
+    """Standalone checks roll before any text is shown, so authored text there is lost."""
+    if (node.get("type") == "skill_check" or "skill_check" in node) and node.get("text"):
+        return ["skill-check node text is never displayed; stage it on a preceding text node"]
+    return []
 
 
 def validate_quest_locations() -> list[str]:

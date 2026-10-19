@@ -2,7 +2,7 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
-from validate_project import validate_echoes, validate_echo_provenance, story_dialogue_order, dialogue_targets
+from validate_project import validate_check_text, validate_echoes, validate_echo_provenance, story_dialogue_order, dialogue_targets
 
 
 def test_control_graph_matches_inline_and_delegated_check_dispatch():
@@ -49,3 +49,11 @@ def test_echo_schema_rejects_nonrendered_or_metadata_only_entries():
         {"speaker": "Nyx", "text": "Base.", "echoes": [{"flag": "first", "text": "One."}, {"flag": "first", "text": "Duplicate."}]},
     ]:
         assert validate_echoes(payload), payload
+
+
+def test_check_nodes_cannot_carry_text_the_runtime_never_shows():
+    assert validate_check_text({"type": "skill_check", "speaker": "Nyx", "text": "Lost line.", "check": {}})
+    assert validate_check_text({"speaker": "Nyx", "text": "Lost line.", "skill_check": {}})
+    assert not validate_check_text({"speaker": "SYSTEM", "text": "", "skill_check": {}, "next": "x_success"})
+    assert not validate_check_text({"type": "skill_check", "check": {}})
+    assert not validate_check_text({"speaker": "Nyx", "text": "Shown.", "next": "x_resolve"})
