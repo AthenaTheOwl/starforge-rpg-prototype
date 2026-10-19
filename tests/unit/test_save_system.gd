@@ -192,7 +192,10 @@ func test_old_public_flat_save_preserves_available_state_and_preview_without_rew
 	GameManager.faction_reputation["compact"] = 0
 	PartyManager.get_character("avyanna")["hp"] = 1
 	StoryManager.played_dialogues.clear()
+	RelationshipManager.change_affinity("nyx", 80)
 	assert_eq(SaveManager.load_game(2), OK)
+	assert_eq(RelationshipManager.get_affinity("nyx"), RelationshipManager.CHARACTERS["nyx"]["starting_affinity"],
+		"Flat saves never stored affinity; loading one does not keep this session's")
 	assert_eq(GameManager.current_chapter, 4)
 	assert_eq(GameManager.get_flag("legacy_choice"), "wait")
 	assert_eq(GameManager.get_flag("legacy_false", true), false, "False values survive the legacy read")

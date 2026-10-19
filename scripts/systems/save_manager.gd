@@ -256,9 +256,12 @@ func _restore_save_data(data: Dictionary) -> void:
 	if data.has("story_progress"):
 		StoryManager.deserialize(data["story_progress"])
 
-	# Restore relationships
+	# Restore relationships. Older flat saves never stored affinity, so start
+	# from the defaults (as New Game does) rather than keep this session's.
 	if data.has("relationships"):
 		RelationshipManager.deserialize(data["relationships"])
+	else:
+		RelationshipManager._initialize_affinity()
 
 	# Navigate to chapter flow to resume story
 	GameManager.change_state(GameManager.GameState.EXPLORATION)
