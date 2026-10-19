@@ -269,7 +269,7 @@ func _on_continue_pressed() -> void:
 
 
 func _on_save_pressed() -> void:
-	GameManager.save_game(0)
+	SaveManager.save_game(0)
 
 
 func _get_dialogue_display_name(dialogue_id: String) -> String:

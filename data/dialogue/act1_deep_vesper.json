@@ -212,9 +212,7 @@
             "stat": "empathy",
             "skill": "empathy",
             "dc": 14,
-            "threshold": 14,
-            "on_success": "empathy_success",
-            "on_failure": "empathy_failure"
+            "threshold": 14
           }
         },
         {
@@ -226,7 +224,7 @@
     "empathy_check": {
       "speaker": "SYSTEM",
       "text": "[Rolling Empathy check...]",
-      "next": "empathy_success"
+      "next": "empathy_check_resolve"
     },
     "empathy_success": {
       "speaker": "Avyanna",
@@ -253,6 +251,12 @@
       "next": "what_happened"
     },
     "blame_confirmed": {
+      "echoes": [
+        {
+          "flag": "vesper_guilt_understood",
+          "text": "You've seen the way I grip it. Then let me put it down long enough to tell you why."
+        }
+      ],
       "speaker": "Vesper",
       "text": "[i]She stops cleaning the rifle. Her hands are very still.[/i]\n\nYeah. I do.",
       "next": "blame_story"
@@ -351,9 +355,7 @@
             "stat": "insight",
             "skill": "insight",
             "dc": 16,
-            "threshold": 16,
-            "on_success": "insight_math_success",
-            "on_failure": "insight_math_failure"
+            "threshold": 16
           }
         },
         {
@@ -381,7 +383,7 @@
     "insight_check_math": {
       "speaker": "SYSTEM",
       "text": "[Rolling Insight check...]",
-      "next": "insight_math_success"
+      "next": "insight_check_math_resolve"
     },
     "insight_math_success": {
       "speaker": "Avyanna",
@@ -512,9 +514,7 @@
             "stat": "empathy",
             "skill": "empathy",
             "dc": 12,
-            "threshold": 12,
-            "on_success": "still_doing_it_success",
-            "on_failure": "still_doing_it_failure"
+            "threshold": 12
           }
         },
         {
@@ -531,7 +531,7 @@
     "empathy_check_2": {
       "speaker": "SYSTEM",
       "text": "[Rolling Empathy check...]",
-      "next": "still_doing_it_success"
+      "next": "empathy_check_2_resolve"
     },
     "still_doing_it_success": {
       "speaker": "Avyanna",
@@ -548,6 +548,12 @@
       "next": "survived_response"
     },
     "still_doing_it_response": {
+      "echoes": [
+        {
+          "flag": "vesper_coping_seen",
+          "text": "Don't let 'checking the route' pass for an answer when you ask if I've slept."
+        }
+      ],
       "speaker": "Vesper",
       "text": "[i]She turns from the viewport. In the starlight, her expression is stripped bare — no wit, no armor, no angles. Just a woman who's been running from a shuttle pad for twelve years.[/i]\n\nYeah. I am. And I don't know how to stop. Because stopping means feeling it. All of it. Every meter of those thirty-seven.",
       "next": "debt_response"
@@ -768,9 +774,7 @@
             "stat": "insight",
             "skill": "insight",
             "dc": 14,
-            "threshold": 14,
-            "on_success": "insight_caring_success",
-            "on_failure": "insight_caring_failure"
+            "threshold": 14
           }
         },
         {
@@ -796,7 +800,7 @@
     "insight_check_caring": {
       "speaker": "SYSTEM",
       "text": "[Rolling Insight check...]",
-      "next": "insight_caring_success"
+      "next": "insight_check_caring_resolve"
     },
     "insight_caring_success": {
       "speaker": "Avyanna",
@@ -826,6 +830,12 @@
       "next": "vulnerability_moment"
     },
     "vulnerability_moment": {
+      "echoes": [
+        {
+          "flag": "vesper_tactical_bond",
+          "text": "Then when I call a bad angle, stop with me and check it. I need you to mean what you just offered."
+        }
+      ],
       "speaker": "Vesper",
       "text": "[i]She puts Clarity down. Not carefully — she just sets it aside, like it doesn't matter. Like the ritual can wait. She presses both palms flat on the star charts and leans forward, head bowed, breathing slowly.\n\nWhen she looks up, the mask is gone. No wit. No edge. No angles. Just Vesper — tired, scared, stubbornly alive.[/i]",
       "next": "vulnerability_words"
@@ -1088,6 +1098,12 @@
       "next": "closing_professional"
     },
     "closing_moment": {
+      "echoes": [
+        {
+          "flag": "vesper_shared_count",
+          "text": "I said forty-three out loud. Next time I only tell you about the one, remind me I counted the others too."
+        }
+      ],
       "speaker": "Vesper",
       "text": "[i]She reassembles Clarity with practiced efficiency. The conversation is over, but something has shifted. She's lighter, somehow.[/i]\n\nThanks. For listening. For not telling me it wasn't my fault. For just... being here.",
       "set_flag": "deep_vesper_complete",
@@ -1140,6 +1156,12 @@
       "next": "final_words_warm"
     },
     "closing_professional": {
+      "echoes": [
+        {
+          "flag": "vesper_shared_rowan",
+          "text": "I'll leave the green pen out. He'd have something to say about all that black."
+        }
+      ],
       "speaker": "Vesper",
       "text": "[i]She stands, slinging Clarity across her back. The moment of vulnerability has passed, but not forgotten.[/i]\n\nGood talk. We should do this again. Maybe without the emotional bloodletting.",
       "set_flag": "deep_vesper_complete",
@@ -1255,11 +1277,31 @@
       "next": "final_words"
     },
     "final_words": {
+      "echoes": [
+        {
+          "flag": "vesper_combat_synergy",
+          "text": "If I start planning as though I'm the only one who can hold a doorway, call me on it. I need to leave room for you in the plan."
+        },
+        {
+          "flag": "vesper_shared_rowan",
+          "text": "I'll leave the green pen out. He'd have something to say about all that black."
+        }
+      ],
       "speaker": "Vesper",
       "text": "Next time we're in the field, watch my six. I'll watch yours. That's what Rowan would do. What he [i]did[/i] do. We honor him by staying alive.",
       "next": "final_scene"
     },
     "final_words_warm": {
+      "echoes": [
+        {
+          "flag": "vesper_combat_synergy",
+          "text": "If I start planning as though I'm the only one who can hold a doorway, call me on it. I need to leave room for you in the plan."
+        },
+        {
+          "flag": "vesper_shared_rowan",
+          "text": "I'll leave the green pen out. He'd have something to say about all that black."
+        }
+      ],
       "speaker": "Vesper",
       "text": "[i]She picks up Clarity, but this time there's warmth in her eyes.[/i]\n\nNext time we're in the field, we keep each other alive. That's the promise. That's how we honor everyone we've lost. By making sure we don't lose anyone else.",
       "next": "final_scene_warm"
@@ -1286,6 +1328,50 @@
       ],
       "set_flag": "deep_vesper_complete",
       "next": "end"
+    },
+    "empathy_check_resolve": {
+      "type": "skill_check",
+      "check": {
+        "stat": "empathy",
+        "skill": "empathy",
+        "dc": 14,
+        "threshold": 14,
+        "on_success": "empathy_success",
+        "on_failure": "empathy_failure"
+      }
+    },
+    "insight_check_math_resolve": {
+      "type": "skill_check",
+      "check": {
+        "stat": "insight",
+        "skill": "insight",
+        "dc": 16,
+        "threshold": 16,
+        "on_success": "insight_math_success",
+        "on_failure": "insight_math_failure"
+      }
+    },
+    "empathy_check_2_resolve": {
+      "type": "skill_check",
+      "check": {
+        "stat": "empathy",
+        "skill": "empathy",
+        "dc": 12,
+        "threshold": 12,
+        "on_success": "still_doing_it_success",
+        "on_failure": "still_doing_it_failure"
+      }
+    },
+    "insight_check_caring_resolve": {
+      "type": "skill_check",
+      "check": {
+        "stat": "insight",
+        "skill": "insight",
+        "dc": 14,
+        "threshold": 14,
+        "on_success": "insight_caring_success",
+        "on_failure": "insight_caring_failure"
+      }
     }
   }
 }

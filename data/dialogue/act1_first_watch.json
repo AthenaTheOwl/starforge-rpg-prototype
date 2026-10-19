@@ -378,6 +378,7 @@
 		"waffle_observation": {
 			"speaker": "Waffle.bat",
 			"text": "[i]{WAFFLE.BAT// NEW-OBSERVER: Avyanna Lagrange | TRAINING-STATUS: day 1 | NOTE: she's already found two patterns I missed. concerning. impressive. concerning.}[/i]",
+			"text_variants": {"has_lagrange_name": "[i]{WAFFLE.BAT// NEW-OBSERVER: Avyanna Lagrange | TRAINING-STATUS: day 1 | NOTE: she's already found two patterns I missed. concerning. impressive. concerning.}[/i]", "default": "[i]{WAFFLE.BAT// NEW-OBSERVER: Avyanna | TRAINING-STATUS: day 1 | NOTE: she's already found two patterns I missed. concerning. impressive. concerning.}[/i]"},
 			"set_flag": "first_watch_visited_nyx",
 			"reputation": {"nyx": 1},
 			"next": "end_watch"
@@ -911,6 +912,11 @@
 		"vesper_returns_variant": {
 			"speaker": "SYSTEM",
 			"text": "[i]The hours deepen. The stars wheel imperceptibly. You and Vesper trade the kind of silence that comes from shared duty — not friendship, not yet, but something adjacent. The foundation of it.[/i]",
+			"echoes": [
+				{"flag": "bee_connection_open", "text": "[i]When Vesper falls quiet, you let your attention rest beside the warmth under your ribs. The sensor log stays open in front of you.[/i]"},
+				{"flag": "bee_connection_cautious", "text": "[i]You finish the next log entry before attending to the faint warmth. There is room for one thing at a time.[/i]"},
+				{"flag": "bee_connection_closed", "text": "[i]The quiet behind your eyes leaves room for Vesper's next words. You don't reach into it to check whether anything is still waiting.[/i]"}
+			],
 			"next": "empathy_check_vesper"
 		},
 		"empathy_check_vesper": {
@@ -1039,6 +1045,14 @@
 			"speaker": "SYSTEM",
 			"text": "[i]Your quarters. The chamomile is cold but you drink it anyway. The bunk is narrow but it's yours. The ship hums its low, patient song around you.\n\nYou kept watch. The dark did not answer. And in the morning, people you are learning to trust told you: well done.\n\nSleep comes easier this time.[/i]",
 			"set_flag": "completed_night_watch",
+			"next": "watch_released"
+		},
+		"watch_released": {
+			"speaker": "SYSTEM",
+			"text": "[i]Your fingers loosen around the empty cup.[/i]",
+			"echoes": [
+				{"flag": "completed_night_watch", "text": "[i]There is no console waiting for your hands now. You set the cup down and let the bunk take your weight.[/i]"}
+			],
 			"next": "end"
 		}
 	}

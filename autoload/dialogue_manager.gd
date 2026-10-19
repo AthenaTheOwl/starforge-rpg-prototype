@@ -52,8 +52,11 @@ func select_choice(choice_index: int) -> void:
 		_process_reputation_affinity(choice["reputation"])
 
 	# Handle skill check on choice
-	if choice.has("skill_check"):
-		var check: Dictionary = choice["skill_check"]
+	# A check with outcomes resolves here. Some canonical choices carry only a
+	# skill/DC display hint and route to an existing standalone check; navigate
+	# to that node so it rolls once instead of ending on missing outcomes.
+	if choice.has("skill_check") and _skill_check_has_outcomes(choice["skill_check"]):
+		var check := _normalize_skill_check(choice["skill_check"])
 		var result := _resolve_skill_check(check)
 		var result_name := _check_result_name(result)
 		skill_check_resolved.emit(check, result_name)
@@ -110,8 +113,8 @@ func _display_node(node_id: String) -> void:
 	var node: Dictionary = nodes[node_id]
 
 	# Handle skill_check node type (not on a choice, but as a standalone node)
-	if node.get("type", "") == "skill_check":
-		var check: Dictionary = node.get("check", {})
+	if node.get("type", "") == "skill_check" or node.has("skill_check"):
+		var check := _normalize_skill_check(node.get("check", node.get("skill_check", {})))
 		var result := _resolve_skill_check(check)
 		var result_name := _check_result_name(result)
 		skill_check_resolved.emit(check, result_name)
@@ -122,14 +125,14 @@ func _display_node(node_id: String) -> void:
 			"result": result_name,
 		})
 		if result == CheckResult.SUCCESS or result == CheckResult.CRITICAL_SUCCESS:
-			var next: String = node.get("on_success", "end")
+			var next: String = node.get("on_success", check.get("on_success", "end"))
 			if next == "end":
 				end_dialogue()
 			else:
 				current_node_id = next
 				_display_node(next)
 		else:
-			var next: String = node.get("on_failure", "end")
+			var next: String = node.get("on_failure", check.get("on_failure", "end"))
 			if next == "end":
 				end_dialogue()
 			else:
@@ -168,15 +171,17 @@ func _display_node(node_id: String) -> void:
 		"text": resolved_node.get("text", ""),
 	})
 
+	var choices := _get_available_choices(resolved_node)
+	# The controller must see the same post-effect choices the manager presents,
+	# including an empty list when all authored choices are unavailable.
+	resolved_node["choices"] = choices
 	node_displayed.emit(resolved_node)
 
-	var choices := _get_available_choices(resolved_node)
 	if choices.is_empty():
-		# Auto-advance or end
+		# Queue a successor for the UI. Terminal text remains active until the
+		# player's explicit Continue; ending here would hide it during typewriter.
 		var next: String = resolved_node.get("next", "")
-		if next.is_empty() or next == "end":
-			end_dialogue()
-		else:
+		if not next.is_empty() and next != "end":
 			current_node_id = next
 			# Small delay then auto-advance — handled by UI
 	else:
@@ -184,9 +189,10 @@ func _display_node(node_id: String) -> void:
 
 
 func _resolve_skill_check(check: Dictionary) -> CheckResult:
-	var character_id: String = check.get("character", "")
-	var stat: String = check.get("stat", "")
-	var threshold: int = check.get("threshold", 10)
+	var resolved := _normalize_skill_check(check)
+	var character_id: String = resolved.get("character", "")
+	var stat: String = resolved.get("stat", "")
+	var threshold: int = resolved.get("threshold", 10)
 
 	var c := PartyManager.get_character(character_id)
 	var stat_value: int = c.get(stat, 0)
@@ -203,6 +209,21 @@ func _resolve_skill_check(check: Dictionary) -> CheckResult:
 		return CheckResult.FAILURE
 
 
+## Canonical data contains both formats; normalize without changing authored data
+## or inventing a character/stat bonus for checks that never specified one.
+func _normalize_skill_check(check: Dictionary) -> Dictionary:
+	var resolved := check.duplicate(true)
+	for pair in [["stat", "skill"], ["threshold", "dc"], ["on_success", "success"], ["on_failure", "failure"]]:
+		if not resolved.has(pair[0]) and resolved.has(pair[1]):
+			resolved[pair[0]] = resolved[pair[1]]
+	return resolved
+
+
+func _skill_check_has_outcomes(check: Dictionary) -> bool:
+	var resolved := _normalize_skill_check(check)
+	return resolved.has("on_success") or resolved.has("on_failure")
+
+
 func _check_result_name(result: CheckResult) -> String:
 	match result:
 		CheckResult.CRITICAL_SUCCESS:
@@ -217,9 +238,10 @@ func _check_result_name(result: CheckResult) -> String:
 
 
 func _check_variant_conditions(variant: Dictionary) -> bool:
-	if not variant.has("conditions"):
-		return true
-	var conditions: Dictionary = variant["conditions"]
+	var conditions: Dictionary = variant.get("conditions", variant.get("condition", {}))
+	for flag in conditions.get("flags", []):
+		if not GameManager.has_flag(flag):
+			return false
 	if conditions.has("flag"):
 		if not GameManager.has_flag(conditions["flag"]):
 			return false
@@ -274,6 +296,16 @@ func _load_dialogue(dialogue_id: String) -> Dictionary:
 
 ## Resolve conditional text from text_variants and relationship_variants.
 func _get_node_text(node: Dictionary) -> String:
+	var text := _get_base_node_text(node)
+	# Echoes compose after variant selection. Never mutate the authored base or
+	# stop at the first match: simultaneous decisions must not hide one another.
+	for echo in node.get("echoes", []):
+		if bool(GameManager.get_flag(echo.get("flag", ""), false)):
+			text += "\n" + str(echo.get("text", ""))
+	return text
+
+
+func _get_base_node_text(node: Dictionary) -> String:
 	# Check relationship_variants first (higher priority)
 	var rel_variants: Dictionary = node.get("relationship_variants", {})
 	if not rel_variants.is_empty():
@@ -286,8 +318,12 @@ func _get_node_text(node: Dictionary) -> String:
 				return tier_variants[current_tier]
 
 	# Then check flag-based text_variants
-	var variants: Dictionary = node.get("text_variants", {})
-	if not variants.is_empty():
+	var variants: Variant = node.get("text_variants", {})
+	if variants is Array:
+		for variant in variants:
+			if _check_variant_conditions(variant):
+				return variant.get("text", node.get("text", ""))
+	elif variants is Dictionary and not variants.is_empty():
 		for flag_name in variants:
 			if flag_name != "default" and GameManager.has_flag(flag_name):
 				return variants[flag_name]
@@ -300,7 +336,15 @@ func _get_node_text(node: Dictionary) -> String:
 ## Maps dialogue reputation amounts (typically 1-5) to affinity points.
 func _process_reputation_affinity(reputation: Dictionary) -> void:
 	for character_id in reputation:
+		var canonical_id: String = character_id.to_lower()
+		if canonical_id == "waffle.bat":
+			canonical_id = "waffle"
+		# Faction/stat reputation is not a character relationship. Faction
+		# changes are handled by GameManager; unknown custom keys have no
+		# implicit crew-wide meaning.
+		if not RelationshipManager.CHARACTERS.has(canonical_id):
+			continue
 		var amount: int = reputation[character_id]
 		# +1 rep → +3 affinity, +2 → +5, +3 → +7, etc.
 		var affinity_gain := amount * 2 + 1
-		RelationshipManager.change_affinity(character_id.to_lower(), affinity_gain)
+		RelationshipManager.change_affinity(canonical_id, affinity_gain)

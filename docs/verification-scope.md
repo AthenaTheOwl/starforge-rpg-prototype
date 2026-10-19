@@ -1,27 +1,33 @@
-# Verification scope — October 18, 2026
+# Verification scope — October 19, 2026
 
-`python tools/check_release.py` passed its configured Python gates: 3 tests,
-project validation, route audit and balance validation. Godot/GUT was
-**not_run**: no executable was configured or found on the checked shell path.
-This result is static proof and does not establish gameplay readiness.
+The full native release command ran with official portable Godot 4.7.2. It passed
+Python tests, project validation, route/dead-letter and balance checks, clean
+engine import, GUT, and 28 deterministic gameplay smoke checks. The previous
+October 18 engine `not_run` status is superseded by this actual native evidence.
+The [native verification record](native-verification-2026-10-19.md) describes the
+exercised controls, repairs and diagnostic limits.
 
-The audit found 19 locations, 5 directly reachable from the opening, 13
-quests, 14 encounters and 21 enemies. Story-unlocked and one-way routes
-remain queued for review. Three explicit UI TODOs remain: discard
-confirmation, party screen and settings screen. Balance validation retained
-five warnings: the Cult Hierophant's HP, a skill check's missing outcome
-branches, and cumulative reputation for Nyx, Rho and Vesper.
+Native tests cover repaired dialogue entrances, accepting or deferring a surname,
+authored skill-check outcomes, and every callback with its flag true, false and
+absent. Multiple callbacks compose once per render. Structural reachability is
+checked separately; it does not mean every branch was played from the title.
 
-Do not silently repair these as prose or balance changes. A useful AI Product
-Team proposal would isolate one warning, define an engine-native acceptance
-test, and seek review of the intended behavior. Keep that proposal separate
-from the current curated baseline.
+The static audit still reports 19 locations, 5 directly reachable from the opening,
+13 quests, 14 encounters and 21 enemies. Story-unlocked and one-way location routes
+remain queued. Three explicit UI TODOs remain: discard confirmation, party screen
+and settings screen. Balance retains four warnings about Cult Hierophant HP
+and cumulative Nyx/Rho/Vesper reputation. These are not
+newly certified features. Missing chapter music, unsupported custom reputation
+keys, manual visual playthrough, full-campaign balance and browser deployment
+remain separate scopes documented in the native record.
 
-To close the engine proof gap on a configured machine:
+Reproduce the native gate:
 
 ```powershell
 python tools/check_release.py --clean --fail-on-generated --require-godot --godot C:\path\to\Godot.exe
 ```
 
-Record the engine version, GUT result and tested route. Keep `not_run` until
-that command executes successfully; a Python exit code cannot fill it in.
+The command isolates engine state under ignored `reports/native-state/`, rebuilds
+the class cache, verifies every source GUT method against JUnit, and removes
+`.godot/` after the run. Native steps have 180-second timeouts. Static-only runs
+remain useful and explicitly print that engine checks were skipped.

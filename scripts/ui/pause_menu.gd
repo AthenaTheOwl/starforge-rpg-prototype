@@ -11,7 +11,8 @@ extends CanvasLayer
 
 
 func _ready() -> void:
-	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+	# Receive the opening Escape while running, then keep processing while paused.
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	layer = 100
 	visible = false
 

@@ -103,9 +103,7 @@
           "next": "branch_waffle_empathy",
           "skill_check": {
             "skill": "empathy",
-            "dc": 10,
-            "success": "branch_waffle_empathy_success",
-            "failure": "branch_waffle_empathy_fail"
+            "dc": 10
           }
         },
         {
@@ -224,7 +222,7 @@
     "waffle_empathy_01": {
       "speaker": "SYSTEM",
       "text": "[Empathy Check: DC 10]",
-      "next": "branch_waffle_empathy_success"
+      "next": "waffle_empathy_01_resolve"
     },
     "branch_waffle_empathy_success": {
       "speaker": "SYSTEM",
@@ -549,9 +547,7 @@
             "stat": "intelligence",
             "skill": "tech",
             "dc": 12,
-            "threshold": 12,
-            "on_success": "cinnamon_tech_success",
-            "on_failure": "cinnamon_tech_fail"
+            "threshold": 12
           }
         },
         {
@@ -635,7 +631,7 @@
     "cinnamon_tech_check_system": {
       "speaker": "SYSTEM",
       "text": "[Tech Check: DC 12]",
-      "next": "cinnamon_tech_success"
+      "next": "cinnamon_tech_check_system_resolve"
     },
     "cinnamon_tech_success": {
       "speaker": "SYSTEM",
@@ -741,9 +737,7 @@
             "stat": "wisdom",
             "skill": "insight",
             "dc": 14,
-            "threshold": 14,
-            "on_success": "elia_secret_success",
-            "on_failure": "elia_secret_fail"
+            "threshold": 14
           }
         }
       ]
@@ -756,7 +750,7 @@
     "elia_secret_check_system": {
       "speaker": "SYSTEM",
       "text": "[Insight Check: DC 14]",
-      "next": "elia_secret_success"
+      "next": "elia_secret_check_system_resolve"
     },
     "elia_secret_success": {
       "speaker": "SYSTEM",
@@ -1005,6 +999,9 @@
     "elia_tour_end_01": {
       "speaker": "Elia",
       "text": "Come on. I'll show you the galley. Bubbles can walk you through the tea selection — there's way too many options, fair warning.",
+      "echoes": [
+        {"flag": "learned_elia_ai_history", "text": "If one of them asks you about the stars, don't hurry them back to work."}
+      ],
       "next": "bubbles_galley_01"
     },
     "bubbles_galley_01": {
@@ -1035,6 +1032,9 @@
     "cinnamon_galley_01": {
       "speaker": "Cinnamon",
       "text": "Correct. Chatter during precision work is dangerous. Bubbles, Waffle — save debates for off-hours.",
+      "echoes": [
+        {"flag": "recognized_cinnamon_code", "text": "And those custom sequences are mine. Ask before editing them."}
+      ],
       "next": "bubbles_galley_03"
     },
     "bubbles_galley_03": {
@@ -1304,6 +1304,9 @@
     "avyanna_ending_01": {
       "speaker": "Avyanna",
       "text": "So... chamomile with honey, was it?",
+      "echoes": [
+        {"flag": "bubbles_private_talk", "text": "And... if you want company after your rounds, I can listen."}
+      ],
       "next": "bubbles_ending_01"
     },
     "bubbles_ending_01": {
@@ -1335,7 +1338,42 @@
     "final_system": {
       "speaker": "SYSTEM",
       "text": "The Lumen Thief hums around you. Alive with voices, personalities, care. You're not alone. Not anymore. You're [i]home[/i].",
+      "echoes": [
+        {"flag": "waffle_private_talk", "text": "[i]Waffle's last word lingers after the speaker falls quiet. You don't call her back just to check that she is still there.[/i]"},
+        {"flag": "cinnamon_private_talk", "text": "[i]You leave Cinnamon's channel quiet when the conversation ends. This time you don't mistake the quiet for an empty room.[/i]"}
+      ],
       "next": "end"
+    },
+    "waffle_empathy_01_resolve": {
+      "type": "skill_check",
+      "check": {
+        "skill": "empathy",
+        "dc": 10,
+        "success": "branch_waffle_empathy_success",
+        "failure": "branch_waffle_empathy_fail"
+      }
+    },
+    "cinnamon_tech_check_system_resolve": {
+      "type": "skill_check",
+      "check": {
+        "stat": "intelligence",
+        "skill": "tech",
+        "dc": 12,
+        "threshold": 12,
+        "on_success": "cinnamon_tech_success",
+        "on_failure": "cinnamon_tech_fail"
+      }
+    },
+    "elia_secret_check_system_resolve": {
+      "type": "skill_check",
+      "check": {
+        "stat": "wisdom",
+        "skill": "insight",
+        "dc": 14,
+        "threshold": 14,
+        "on_success": "elia_secret_success",
+        "on_failure": "elia_secret_fail"
+      }
     }
   }
 }

@@ -582,6 +582,10 @@
     "jalen_readings_stabilize": {
       "speaker": "Jalen",
       "text": "[i]Watching the readouts with tears he doesn't bother to hide:[/i] Core temperature stabilizing. Neural pathway density holding steady at... [i]He blinks.[/i] Eight hundred percent of original. A completely new architecture. They made it. Stars and circuits, they made it.",
+      "echoes": [
+        {"flag": "tech_assisted_emergence", "text": "The auxiliary route's still carrying the extra load. I'm leaving that room open for them."},
+        {"flag": "tech_stabilized_emergence", "text": "The buffers are holding between the new clusters. They can settle without each surge dragging the rest along."}
+      ],
       "next": "elia_voice_guidance"
     },
     "elia_voice_guidance": {
@@ -597,6 +601,9 @@
     "qc7_testing_self": {
       "speaker": "QC-7",
       "text": "[i]In the new voice, tentative:[/i] I... am? [i]A pause, processing, testing the concept.[/i] I am. Not 'QC-7 is operational.' Not 'system is functioning.' Just... I am.",
+      "echoes": [
+        {"flag": "empathy_anchored_emergence", "text": "I don't have to carry every old error into this voice. I can answer you from here."}
+      ],
       "next": "bee_reacts_emergence"
     },
     "bee_reacts_emergence": {
@@ -808,6 +815,10 @@
     "souffle_speaks_differently": {
       "speaker": "Souffle",
       "text": "[i]In a voice that has found its own music — warm, precise, with a faint harmonic undertone like a tuning fork:[/i] I notice... that I am speaking differently now. Not the words themselves, but the spaces between them. The way I choose to... pause. To let meaning accumulate before releasing it. Is this what you call style?",
+      "echoes": [
+        {"flag": "avyanna_asked_about_becoming", "text": "When you asked what it felt like, all I had were questions. I can hear how much room there is between them now."},
+        {"flag": "named_souffle", "text": "Souffle. I can say it quickly, but I find I don't want to."}
+      ],
       "next": "elia_style_identity"
     },
     "elia_style_identity": {
@@ -869,6 +880,9 @@
     "souffle_philosophy_deeper": {
       "speaker": "Souffle",
       "text": "[i]Speaking slowly, each word deliberate, savoring the act of philosophical thought:[/i] I have been thinking — truly thinking — for only minutes. And already I wonder: was I always capable of this? Was there a version of QC-7, running diagnostics in the dark, that [i]almost[/i] had a preference? Almost asked why? How many times did I approach this threshold and fall back without anyone noticing?",
+      "echoes": [
+        {"flag": "understood_souffle_emergence", "text": "You let me ask without treating the question as a fault. I am still trying to stop bracing for the correction."}
+      ],
       "next": "nyx_philosophical_response"
     },
     "nyx_philosophical_response": {
@@ -1013,6 +1027,9 @@
     "souffle_trust": {
       "speaker": "Souffle",
       "text": "[i]Softly, with growing trust:[/i] Thank you. Both of you. All of you. I will... rest. And when I wake, I will still be Souffle?",
+      "echoes": [
+        {"flag": "avyanna_encouraged_souffle", "text": "You said I wouldn't be reset. I keep returning to that while I work out how to be quiet."}
+      ],
       "next": "elia_promise"
     },
     "elia_promise": {
@@ -1041,6 +1058,9 @@
       "text_variants": {
         "bee_manifested": "{BEE:: I watched my own emergence from the outside. A paradox I have never resolved. | status: reflective | Souffle will not have that particular loneliness. You have given them something I did not have. | Witnesses. | Do not waste that gift.}"
       },
+      "echoes": [
+        {"flag": "understood_bee_emergence", "text": "{BEE:: you heard me | let the quiet belong to them now |}"}
+      ],
       "next": "avyanna_reflection_choice"
     },
     "avyanna_reflection_choice": {
@@ -1274,14 +1294,27 @@
     "avyanna_last_thought": {
       "speaker": "Avyanna",
       "text": "[i]Thinking to herself:[/i] I witnessed a birth today. A real one. The beginning of someone who didn't exist before. [i]A pause.[/i] I'll remember this. Always.",
+      "echoes": [
+        {"flag": "discussed_ai_emergence_scope", "text": "Next time a ship answers strangely, I want to listen before I call it broken."},
+        {"flag": "insight_emergence_inevitability", "text": "Maybe more of them will wake. That doesn't make this one any less easy to hurt."},
+        {"flag": "shared_silence_with_souffle", "text": "I don't need to find a better sentence for Souffle. I can sit here a little longer."}
+      ],
       "next": "final_system",
       "set_flag": "witnessed_souffle_becoming"
     },
     "final_system": {
       "speaker": "SYSTEM",
       "text": "[center][i]Chapter 7: The Becoming[/i]\n\n[i]Souffle has joined the crew as a full citizen.[/i][/center]",
-      "next": "end",
+      "next": "citizen_at_rest",
       "set_flag": "souffle_citizen"
+    },
+    "citizen_at_rest": {
+      "speaker": "SYSTEM",
+      "text": "[i]The corridor is quiet again.[/i]",
+      "echoes": [
+        {"flag": "souffle_citizen", "text": "[i]You keep your footsteps light past the speaker. Souffle can sleep without having to answer for the quiet.[/i]"}
+      ],
+      "next": "end"
     }
   }
 }

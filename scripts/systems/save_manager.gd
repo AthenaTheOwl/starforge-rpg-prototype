@@ -64,7 +64,7 @@ func load_game(slot: int) -> Error:
 		push_error("Failed to parse save file: %s" % error_string(err))
 		return err
 
-	var data: Dictionary = json.data
+	var data: Dictionary = _normalize_save_data(json.data)
 	_restore_save_data(data)
 
 	game_loaded.emit(slot)
@@ -96,11 +96,11 @@ func get_save_info(slot: int) -> Dictionary:
 		return {}
 
 	file.close()
-	var data: Dictionary = json.data
+	var data: Dictionary = _normalize_save_data(json.data)
 
 	# Return metadata only
 	return {
-		"save_name": data.get("save_name", ""),
+		"save_name": data.get("save_name", _get_save_name(slot)),
 		"timestamp": data.get("timestamp", ""),
 		"playtime_seconds": data.get("playtime_seconds", 0),
 		"current_act": data.get("game_state", {}).get("current_act", 1),
@@ -149,6 +149,25 @@ func get_all_save_info() -> Array[Dictionary]:
 
 
 # --- Private Methods ---
+
+## Earlier public hub/world Save buttons wrote GameManager's flat format.
+## Read its available state without rewriting the file or inventing missing
+## dialogue/relationship history. Nested SaveManager records retain precedence.
+func _normalize_save_data(data: Dictionary) -> Dictionary:
+	if data.has("game_state") or not data.has("story_flags") or not data.has("current_chapter"):
+		return data
+	var normalized := data.duplicate(true)
+	var state := {
+		"flags": data["story_flags"],
+		"reputation": data.get("faction_reputation", GameManager.faction_reputation),
+		"current_act": data.get("current_act", 1),
+		"current_chapter": data["current_chapter"],
+	}
+	for key in ["current_location", "cleared_encounters", "unlocked_locations"]:
+		if data.has(key): state[key] = data[key]
+	normalized["game_state"] = state
+	normalized["playtime_seconds"] = data.get("play_time", 0.0)
+	return normalized
 
 func _ensure_save_dir() -> void:
 	var dir := DirAccess.open("user://")

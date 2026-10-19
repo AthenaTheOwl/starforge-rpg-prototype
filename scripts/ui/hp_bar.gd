@@ -17,6 +17,8 @@ var _tween: Tween = null
 
 
 func _ready() -> void:
+	value_changed.connect(_on_value_changed)
+	changed.connect(_on_range_changed)
 	if show_label:
 		_create_label()
 	_update_color()
@@ -91,12 +93,12 @@ func _on_tween_complete() -> void:
 	value_changed_complete.emit()
 
 
-## Override value setter to update color and label.
-func _set(property: StringName, new_value: Variant) -> bool:
-	if property == "value":
-		# Let parent handle the actual value change
-		var result := super._set(property, new_value)
-		_update_color()
-		_update_label_text()
-		return result
-	return false
+## Range owns its built-in properties; observe its signals instead of calling
+## the custom-property _set hook on a base that does not implement it.
+func _on_value_changed(_new_value: float) -> void:
+	_on_range_changed()
+
+
+func _on_range_changed() -> void:
+	_update_color()
+	_update_label_text()

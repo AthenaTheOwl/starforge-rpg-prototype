@@ -68,7 +68,8 @@ static func transition_to(scene_path: String) -> void:
 	tree.root.add_child(transition)
 
 	# Wait for ready
-	await transition.ready
+	if not transition.is_node_ready():
+		await transition.ready
 
 	# Fade out
 	await transition.fade_out()
@@ -100,7 +101,8 @@ static func transition_to_packed(scene: PackedScene) -> void:
 	var transition := SceneTransition.new()
 	tree.root.add_child(transition)
 
-	await transition.ready
+	if not transition.is_node_ready():
+		await transition.ready
 	await transition.fade_out()
 
 	var error := tree.change_scene_to_packed(scene)

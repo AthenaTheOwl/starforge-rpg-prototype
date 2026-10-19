@@ -103,11 +103,9 @@ func _on_node_displayed(node: Dictionary) -> void:
 	_pending_next = node.get("next", "")
 	_clear_choices()
 
-	# If no choices and has auto-next, show continue button
-	if node.get("choices", []).is_empty() and not _pending_next.is_empty():
-		continue_btn.visible = true
-	else:
-		continue_btn.visible = false
+	# The manager emits the actual available choices. A text-only terminal also
+	# needs Continue when next is omitted, so its final prose can be acknowledged.
+	continue_btn.visible = node.get("choices", []).is_empty()
 
 
 func _on_choices_presented(choices: Array) -> void:
@@ -121,7 +119,7 @@ func _on_choices_presented(choices: Array) -> void:
 
 		# Add skill check indicator
 		if choice.has("skill_check"):
-			var check: Dictionary = choice["skill_check"]
+			var check := DialogueManager._normalize_skill_check(choice["skill_check"])
 			var stat_name: String = check.get("stat", "???")
 			var threshold: int = check.get("threshold", 0)
 			# Capitalize stat name for display

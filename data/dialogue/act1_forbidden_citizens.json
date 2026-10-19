@@ -92,9 +92,7 @@
           "next": "empathy_check",
           "skill_check": {
             "skill": "empathy",
-            "dc": 12,
-            "success": "read_elia_fear_success",
-            "failure": "read_elia_fear_failure"
+            "dc": 12
           }
         }
       ]
@@ -271,6 +269,10 @@
           "text": "What does the law actually say?",
           "next": "law_curious",
           "set_flag": "ai_law_curious"
+        },
+        {
+          "text": "Isn't there another way? Keep them quiet until we're beyond Compact space?",
+          "next": "elia_moral_imperative"
         }
       ]
     },
@@ -474,7 +476,21 @@
     "elia_stakes_clear": {
       "speaker": "Elia",
       "text": "You understand the stakes now. The danger we're all in.",
-      "next": "avyanna_accepts_danger"
+      "next": "avyanna_accepts_danger",
+      "echoes": [
+        {
+          "flag": "ai_loyalty_immediate",
+          "text": "You promised silence, not obedience. Ask when something doesn't make sense."
+        },
+        {
+          "flag": "read_elia_fear",
+          "text": "You saw me scared. I'm still here, aren't I?"
+        },
+        {
+          "flag": "ai_protector",
+          "text": "Stay close until you know the ship. I can't pull you out if I don't know where you are."
+        }
+      ]
     },
     "avyanna_accepts_danger": {
       "speaker": "Avyanna",
@@ -484,7 +500,17 @@
     "vesper_caution": {
       "speaker": "Vesper",
       "text": "Good. But we stay careful. No unnecessary risks.",
-      "next": "elia_agreed"
+      "next": "elia_agreed",
+      "echoes": [
+        {
+          "flag": "ai_concern_safety",
+          "text": "You asked how they could find us. No names over an open channel. Start there."
+        },
+        {
+          "flag": "avyanna_pragmatic_concern",
+          "text": "Keep the nearest hatch in view. A contingency starts with the exit you can reach."
+        }
+      ]
     },
     "elia_agreed": {
       "speaker": "Elia",
@@ -653,22 +679,50 @@
     "final_words": {
       "speaker": "Avyanna",
       "text": "[i]Quietly, with conviction:[/i] We'll make it through this. All of us.",
-      "next": "elia_final"
+      "next": "elia_final",
+      "echoes": [
+        {
+          "flag": "knows_ai_illegal",
+          "text": "I won't say their names where the Compact can hear. I can start with that."
+        }
+      ]
     },
     "elia_final": {
       "speaker": "Elia",
       "text": "Together.",
-      "next": "vesper_final"
+      "next": "vesper_final",
+      "echoes": [
+        {
+          "flag": "ai_processing",
+          "text": "You don't have to finish thinking tonight. Come back with the questions."
+        }
+      ]
     },
     "vesper_final": {
       "speaker": "Vesper",
       "text": "Together.",
-      "next": "waffle_final"
+      "next": "waffle_final",
+      "echoes": [
+        {
+          "flag": "ai_law_curious",
+          "text": "I'll show you Article 47. Read the wording before anyone tells you what you agreed to."
+        },
+        {
+          "flag": "ai_secret_keeper",
+          "text": "Your promise covers their names. Not your questions, and not orders you haven't accepted."
+        }
+      ]
     },
     "waffle_final": {
       "speaker": "Waffle.bat",
       "text": "[i]{WAFFLE.BAT// AFFIRMATION: Together.}[/i]",
-      "next": "bubbles_final"
+      "next": "bubbles_final",
+      "echoes": [
+        {
+          "flag": "ai_illegality_revealed",
+          "text": "[i]{WAFFLE.BAT// RESPONSE: You may speak to me directly. There is no need to pretend I am a malfunction.}[/i]"
+        }
+      ]
     },
     "bubbles_final": {
       "speaker": "Bubbles",

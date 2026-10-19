@@ -6,6 +6,128 @@ extends GutTest
 ## methods where possible.
 
 
+func test_text_variant_array_supports_canonical_condition_shapes():
+	var original_flags := GameManager.story_flags.duplicate(true)
+	GameManager.story_flags = {"seen": true, "trusted": true}
+	assert_eq(DialogueManager._get_node_text({"text": "base", "text_variants": [
+		{"condition": {"flag": "missing"}, "text": "wrong"},
+		{"condition": {"flag": "seen"}, "text": "singular"},
+	]}), "singular")
+	assert_eq(DialogueManager._get_node_text({"text": "base", "text_variants": [
+		{"conditions": {"flags": ["seen", "missing"]}, "text": "wrong"},
+		{"conditions": {"flags": ["seen", "trusted"]}, "text": "plural"},
+	]}), "plural")
+	assert_eq(DialogueManager._get_node_text({"text": "base", "text_variants": [
+		{"conditions": {"flag": "missing"}, "text": "wrong"},
+	]}), "base", "Unmatched conditional variants retain the authored base text")
+	assert_eq(DialogueManager._get_node_text({"text": "base", "text_variants": {
+		"missing": "wrong", "seen": "dictionary", "default": "fallback",
+	}}), "dictionary", "The original dictionary format remains supported")
+	GameManager.story_flags = original_flags
+
+
+func test_echoes_compose_all_true_flags_after_variants_without_mutation():
+	var original_flags := GameManager.story_flags.duplicate(true)
+	var node := {"text": "base", "text_variants": {"first": "selected base"}, "echoes": [
+		{"flag": "first", "text": "first consequence"},
+		{"flag": "second", "text": "second consequence"},
+		{"flag": "unset", "text": "must not appear"},
+	]}
+	GameManager.story_flags = {"first": true, "second": true}
+	assert_eq(DialogueManager._get_node_text(node), "selected base\nfirst consequence\nsecond consequence")
+	assert_eq(DialogueManager._get_node_text(node), "selected base\nfirst consequence\nsecond consequence", "Repeated renders do not accumulate echoes")
+	assert_eq(node["text"], "base", "Authored base is unchanged")
+	GameManager.story_flags = {"first": false, "second": false}
+	# Existing variants retain their has_flag semantics, while echoes require a
+	# truthy saved value; false and absent decisions cannot produce consequences.
+	assert_eq(DialogueManager._get_node_text(node), "selected base")
+	GameManager.story_flags.clear()
+	assert_eq(DialogueManager._get_node_text(node), "base")
+	GameManager.story_flags = original_flags
+
+
+func test_reputation_dispatch_distinguishes_characters_from_factions():
+	var saved_affinity := RelationshipManager.affinity.duplicate(true)
+	var saved_reputation := GameManager.faction_reputation.duplicate(true)
+	_inject_dialogue(DialogueManager, {"start_node": "start", "nodes": {"start": {
+		"speaker": "Waffle.bat", "text": "Acknowledged.", "next": "end",
+		"reputation": {"Waffle.bat": 1, "guild_drift": 2, "crew_trust": 1},
+	}}})
+	DialogueManager._display_node("start")
+	assert_eq(RelationshipManager.get_affinity("waffle"), int(saved_affinity["waffle"]) + 3)
+	assert_eq(GameManager.get_reputation("guild_drift"), int(saved_reputation["guild_drift"]) + 2)
+	for character in saved_affinity:
+		if character != "waffle":
+			assert_eq(RelationshipManager.get_affinity(character), saved_affinity[character], "Faction/stat keys must not modify a crew relationship")
+	assert_false(RelationshipManager.affinity.has("crew_trust"))
+	assert_false(RelationshipManager.affinity.has("waffle.bat"))
+	RelationshipManager.affinity = saved_affinity
+	GameManager.faction_reputation = saved_reputation
+
+
+func test_unchosen_choice_cannot_produce_a_callback():
+	var saved_flags := GameManager.story_flags.duplicate(true)
+	var data := {"start_node": "start", "nodes": {
+		"start": {"speaker": "Avyanna", "text": "Choose.", "choices": [
+			{"text": "Ask", "set_flag": "asked", "next": "answer"},
+			{"text": "Wait", "set_flag": "waited", "next": "answer"},
+		]},
+		"answer": {"speaker": "Elia", "text": "Here.", "next": "end", "echoes": [
+			{"flag": "asked", "text": "An answer."}, {"flag": "waited", "text": "No hurry."},
+		]},
+	}}
+	for index in [0, 1]:
+		GameManager.story_flags.clear()
+		_inject_dialogue(DialogueManager, data)
+		DialogueManager._display_node("start")
+		DialogueManager.select_choice(index)
+		var expected: String = "asked" if index == 0 else "waited"
+		var absent: String = "waited" if index == 0 else "asked"
+		assert_true(GameManager.get_flag(expected, false))
+		assert_false(GameManager.has_flag(absent))
+		assert_eq(DialogueManager.get_history().back()["text"], "Here.\nAn answer." if index == 0 else "Here.\nNo hurry.")
+	GameManager.story_flags = saved_flags
+
+
+func test_legacy_choice_checks_follow_both_outcomes():
+	for dc in [1, 99]:
+		_seed_noncritical_roll()
+		_inject_dialogue(DialogueManager, _legacy_check_dialogue(dc, false))
+		DialogueManager.select_choice(0)
+		assert_eq(DialogueManager.current_node_id, "passed" if dc == 1 else "failed")
+	DialogueManager.end_dialogue()
+
+
+func test_legacy_standalone_checks_follow_both_outcomes():
+	for dc in [1, 99]:
+		_seed_noncritical_roll()
+		_inject_dialogue(DialogueManager, _legacy_check_dialogue(dc, true))
+		DialogueManager._display_node("start")
+		assert_eq(DialogueManager.current_node_id, "passed" if dc == 1 else "failed")
+	DialogueManager.end_dialogue()
+
+
+func _seed_noncritical_roll() -> void:
+	for value in range(100):
+		seed(value)
+		var roll: int = randi() % 20 + 1
+		if roll > 1 and roll < 20:
+			seed(value)
+			return
+
+
+func _legacy_check_dialogue(dc: int, standalone: bool) -> Dictionary:
+	var check := {"skill": "empathy", "dc": dc, "success": "passed", "failure": "failed"}
+	var start: Dictionary = {"skill_check": check} if standalone else {
+		"choices": [{"text": "Try", "skill_check": check}],
+	}
+	return {"start_node": "start", "nodes": {
+		"start": start,
+		"passed": {"text": "passed", "choices": [{"text": "Stop", "next": "end"}]},
+		"failed": {"text": "failed", "choices": [{"text": "Stop", "next": "end"}]},
+	}}
+
+
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------

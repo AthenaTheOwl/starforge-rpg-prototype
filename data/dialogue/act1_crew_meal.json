@@ -439,6 +439,12 @@
       "next": "nyx_empathy_bond"
     },
     "nyx_empathy_bond": {
+      "echoes": [
+        {
+          "flag": "dinner_nyx_opened_up",
+          "text": "I'm going to try another spoonful before I decide what to call it."
+        }
+      ],
       "speaker": "Nyx",
       "text": "[i]The smallest nod. Almost imperceptible.[/i] Different. Yes. Not bad different. Just... new variables.",
       "next": "conversation_return"
@@ -535,6 +541,12 @@
       "next": "elisira_notices"
     },
     "elisira_notices": {
+      "echoes": [
+        {
+          "flag": "dinner_elisira_elia_insight",
+          "text": "If you want to help, pass the coffee. You don't need the name."
+        }
+      ],
       "speaker": "Elisira",
       "text": "[i]Catching your eye. Not hostile — assessing.[/i] You're perceptive. That's useful. Just remember — perceptive people have a responsibility to be kind with what they see.",
       "next": "conversation_return"
@@ -860,6 +872,12 @@
       "next": "rho_story_response"
     },
     "rho_story_response": {
+      "echoes": [
+        {
+          "flag": "dinner_story_rations",
+          "text": "And if you want more bread here, you ask. You don't have to hide it in your sleeve."
+        }
+      ],
       "speaker": "Rho",
       "text": "[i]Quietly.[/i] Thanks. For telling us that.",
       "reputation": {
@@ -1083,11 +1101,23 @@
       "next": "elia_brings_back"
     },
     "elia_brings_back": {
+      "echoes": [
+        {
+          "flag": "dinner_read_crew_fear",
+          "text": "[i]You let your spoon rest instead of asking Rho why his hands have stopped. He doesn't need to explain them for you to stay at the table.[/i]"
+        }
+      ],
       "speaker": "SYSTEM",
       "text": "[i]The silence stretches. The ship hums. Someone's bowl scrapes against the table — too loud in the quiet.[/i]",
       "next": "elia_anchor"
     },
     "elia_anchor": {
+      "echoes": [
+        {
+          "flag": "dinner_writ_bound_tactics",
+          "text": "The single-jump alert gets the next watch. We get the last of the coffee."
+        }
+      ],
       "speaker": "Elia",
       "text": "[i]Setting both hands flat on the table. Deliberate. An anchor.[/i] We eat. We rest. Tomorrow we plan. That's how this works. The danger will still be there in the morning. It doesn't get our evening too.",
       "next": "elia_anchor_reaction"
@@ -1108,6 +1138,12 @@
       "next": "meal_end"
     },
     "meal_end": {
+      "echoes": [
+        {
+          "flag": "dinner_tech_insight",
+          "text": "[i]Rho sets the bottom rack in place first. Jalen opens his mouth, then closes it. Neither of them asks you to referee.[/i]"
+        }
+      ],
       "speaker": "SYSTEM",
       "text": "[i]Rho washes dishes. Jalen dries. Nyx disappears to her lab. Elia and Elisira sit close, speaking in low voices about tomorrow's work.\n\nAnd you sit at the table, in a chair that's comfortable, with a full stomach, in a room full of people who aren't keeping score.\n\nThis is what dinner is supposed to be. You're only just learning that.[/i]",
       "next": "end"

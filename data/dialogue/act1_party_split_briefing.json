@@ -7,6 +7,12 @@
 			"next": "elia_calls_order"
 		},
 		"elia_calls_order": {
+			"echoes": [
+				{
+					"flag": "mentor_warning_shared",
+					"text": "We got an anonymous warning that someone aboard has a second loyalty. Nobody's named. Nobody's accused. If you have evidence, bring it to this table."
+				}
+			],
 			"speaker": "Elia",
 			"text": "[i]Rapping her knuckles on the table.[/i] Everyone in. Seal the door. This is the last time we go over this—so listen like your life depends on it, because it does.",
 			"next": "crew_assembles"
@@ -134,6 +140,12 @@
 			"next": "elia_takes_control"
 		},
 		"elia_takes_control": {
+			"echoes": [
+				{
+					"flag": "trust_crisis_resolved",
+					"text": "We left a conversation unfinished last time. We can disagree in this room; we don't leave without knowing what the others are doing."
+				}
+			],
 			"speaker": "Elia",
 			"text": "[i]Looking between them.[/i] You're both right. And you're both wrong. A full assault triggers the wards. A pure stealth approach leaves no fallback if something goes sideways. So we do both—but we do it smart.",
 			"next": "player_tactics_check"
@@ -174,6 +186,12 @@
 			"next": "crew_impressed"
 		},
 		"crew_impressed": {
+			"echoes": [
+				{
+					"flag": "briefing_tactics_passed",
+					"text": "I'll mark each escalation on the overlay. If the eastern response stalls, we hold the western move."
+				}
+			],
 			"speaker": "Elisira",
 			"text": "[i]Studying the overlay. A single nod.[/i] Staggered escalation. The garrison commits deeper with each wave, pulling further from the western approach. It's clean.",
 			"next": "elia_approves_tactics"
@@ -200,6 +218,12 @@
 			"next": "elia_approves_corrected"
 		},
 		"elia_approves_corrected": {
+			"echoes": [
+				{
+					"flag": "briefing_elisira_corrected",
+					"text": "Ninety seconds goes on everyone's clock. We use the corrected number, not the one we wanted."
+				}
+			],
 			"speaker": "Elia",
 			"text": "Good bones. Elisira's adjustment seals it. We run with this.",
 			"next": "jalen_tech_options"
@@ -227,6 +251,16 @@
 			"next": "jalen_tech_options"
 		},
 		"jalen_tech_options": {
+			"echoes": [
+				{
+					"flag": "briefing_assault_priority",
+					"text": "Three exits for the quiet team. Fine. I need all three on my display before anyone starts making new doorways."
+				},
+				{
+					"flag": "briefing_stealth_priority",
+					"text": "Then I'm watching the quiet route first. Rho, 'something goes wrong' needs to be a comm call, not a new hole in the wall."
+				}
+			],
 			"speaker": "Jalen",
 			"text": "[i]Spinning a display toward the group. Three options shimmer in green wireframe.[/i] Tech support. I've been working on some things. Pick your poison.",
 			"next": "jalen_options_detail"
@@ -381,6 +415,12 @@
 			"next": "nyx_confirms_insight"
 		},
 		"nyx_confirms_insight": {
+			"echoes": [
+				{
+					"flag": "briefing_ward_insight",
+					"text": "If the inner lights brighten, ease off outside. More force would be feeding the lock."
+				}
+			],
 			"speaker": "Nyx",
 			"text": "[i]Eyes widening.[/i] She's right. Sympathetic resonance. The outer wards are tethered to the inner ones. Kinetic disruption on the perimeter would cascade inward as reinforcement. The assault team needs to suppress, not destroy—or I'll be cracking twice the barriers underground.",
 			"reputation": {
@@ -480,6 +520,24 @@
 			"next": "gear_check_intro"
 		},
 		"gear_check_intro": {
+			"echoes": [
+				{
+					"flag": "briefing_comms_crash",
+					"text": "When those forty-five seconds end, assume they can coordinate again. Nobody waits around to find out."
+				},
+				{
+					"flag": "briefing_drone_spoof",
+					"text": "North is what their drones see. West is where our people are. Check your own eyes before you fire."
+				},
+				{
+					"flag": "briefing_dual_tech",
+					"text": "BEE and Jalen hand off on the clock. Nobody stretches fourteen-point-seven into fifteen."
+				},
+				{
+					"flag": "briefing_sensor_loop",
+					"text": "If the sensor loop drops, call it. Eight minutes is a window, not armor."
+				}
+			],
 			"speaker": "Elia",
 			"text": "Gear check. Every piece of equipment, every charge, every med-kit—verified and verified again. Assault team, what's your loadout?",
 			"next": "gear_assault_check"
@@ -631,6 +689,20 @@
 			"next": "elia_finds_you"
 		},
 		"elia_finds_you": {
+			"echoes": [
+				{
+					"flag": "briefing_map_studied",
+					"text": "You were tracing exits, not just the way in. Keep doing that when the hologram becomes a corridor."
+				},
+				{
+					"flag": "mentor_warning_secret",
+					"text": "[i]Low enough for you alone.[/i] Nothing to put a name to yet. Keep it that way until we've got more than a voice in the static."
+				},
+				{
+					"flag": "mentor_warning_dismissed",
+					"text": "We plan from what we can check. Not from what a stranger wanted us to fear."
+				}
+			],
 			"speaker": "Elia",
 			"text": "[i]Appearing beside you. She moves like smoke when she wants to.[/i] You ready?",
 			"text_variants": {

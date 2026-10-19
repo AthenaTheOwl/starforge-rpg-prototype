@@ -294,6 +294,22 @@ def validate_encounter_validity(encounters: Dict[str, Any], enemies: Dict[str, A
     if all_valid:
         result.add_pass(f"All {len(encounters)} encounters have valid structure and enemy references")
 
+def balance_check_fields(check: Dict[str, Any]) -> Tuple[Dict[str, Any], int, int]:
+    """Adapt the canonical stat/threshold-only format without altering data.
+
+    Explicit legacy fields retain their existing balance-lint contract. Native
+    threshold-only checks use the same d20 range as the runtime/path tests.
+    """
+    normalized = check.copy()
+    minimum, maximum = 8, 18
+    if 'dc' not in normalized and 'threshold' in normalized:
+        normalized['dc'] = normalized['threshold']
+        minimum, maximum = 1, 20
+    if 'skill' not in normalized and 'stat' in normalized:
+        normalized['skill'] = normalized['stat']
+    return normalized, minimum, maximum
+
+
 def validate_skill_checks(dialogues: Dict[str, Any], result: ValidationResult):
     """Validate skill check DCs and branch structure."""
     print(f"\n{Colors.BLUE}Checking skill check DCs...{Colors.RESET}")
@@ -320,8 +336,8 @@ def validate_skill_checks(dialogues: Dict[str, Any], result: ValidationResult):
             skill_check = None
 
             # Skill checks can be in the node itself
-            if 'skill_check' in node_data:
-                skill_check = node_data['skill_check']
+            if 'skill_check' in node_data or node_data.get('type') == 'skill_check':
+                skill_check = node_data.get('skill_check', node_data.get('check', {}))
                 check_location = f"{dialogue_id}::{node_id}"
 
             # Or in choices
@@ -336,6 +352,7 @@ def validate_skill_checks(dialogues: Dict[str, Any], result: ValidationResult):
                             all_valid = False
                             continue
 
+                        skill_check, minimum, maximum = balance_check_fields(skill_check)
                         total_skill_checks += 1
 
                         # Validate DC
@@ -347,8 +364,8 @@ def validate_skill_checks(dialogues: Dict[str, Any], result: ValidationResult):
                             if not isinstance(dc, int):
                                 result.add_failure(f"Skill check at {check_location}: DC is not an integer")
                                 all_valid = False
-                            elif dc < 8 or dc > 18:
-                                result.add_failure(f"Skill check at {check_location}: DC={dc} out of range [8-18]")
+                            elif dc < minimum or dc > maximum:
+                                result.add_failure(f"Skill check at {check_location}: difficulty={dc} out of range [{minimum}-{maximum}]")
                                 all_valid = False
 
                         # Validate skill name
@@ -357,8 +374,8 @@ def validate_skill_checks(dialogues: Dict[str, Any], result: ValidationResult):
                             all_valid = False
 
             # If node itself has skill check, validate it
-            if 'skill_check' in node_data:
-                skill_check = node_data['skill_check']
+            if 'skill_check' in node_data or node_data.get('type') == 'skill_check':
+                skill_check = node_data.get('skill_check', node_data.get('check', {}))
                 check_location = f"{dialogue_id}::{node_id}"
 
                 if not isinstance(skill_check, dict):
@@ -366,6 +383,7 @@ def validate_skill_checks(dialogues: Dict[str, Any], result: ValidationResult):
                     all_valid = False
                     continue
 
+                skill_check, minimum, maximum = balance_check_fields(skill_check)
                 total_skill_checks += 1
 
                 # Validate DC
@@ -377,8 +395,8 @@ def validate_skill_checks(dialogues: Dict[str, Any], result: ValidationResult):
                     if not isinstance(dc, int):
                         result.add_failure(f"Skill check at {check_location}: DC is not an integer")
                         all_valid = False
-                    elif dc < 8 or dc > 18:
-                        result.add_failure(f"Skill check at {check_location}: DC={dc} out of range [8-18]")
+                    elif dc < minimum or dc > maximum:
+                        result.add_failure(f"Skill check at {check_location}: difficulty={dc} out of range [{minimum}-{maximum}]")
                         all_valid = False
 
                 # Validate skill name
@@ -387,8 +405,8 @@ def validate_skill_checks(dialogues: Dict[str, Any], result: ValidationResult):
                     all_valid = False
 
                 # Validate both pass and fail branches exist
-                has_success = 'on_success' in skill_check
-                has_failure = 'on_failure' in skill_check
+                has_success = 'on_success' in node_data or 'on_success' in skill_check or 'success' in skill_check
+                has_failure = 'on_failure' in node_data or 'on_failure' in skill_check or 'failure' in skill_check
 
                 if not (has_success and has_failure):
                     result.add_warning(f"Skill check at {check_location}: missing success/failure branches")
@@ -396,7 +414,7 @@ def validate_skill_checks(dialogues: Dict[str, Any], result: ValidationResult):
     if total_skill_checks == 0:
         result.add_warning("No skill checks found in dialogue files")
     elif all_valid:
-        result.add_pass(f"All {total_skill_checks} skill checks have valid DCs (8-18) and structure")
+        result.add_pass(f"All {total_skill_checks} skill checks have valid canonical difficulty fields and structure")
 
 def validate_reputation_sanity(dialogues: Dict[str, Any], result: ValidationResult):
     """Validate reputation amounts and totals."""

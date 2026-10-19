@@ -64,7 +64,7 @@ func _create_slot_panel(slot: int) -> PanelContainer:
 
 	# Build button text
 	var slot_name := "Autosave" if slot == -1 else "Save Slot %d" % (slot + 1)
-	var button_text := "[b]%s[/b]\n" % slot_name
+	var button_text := "%s\n" % slot_name
 
 	if has_save:
 		var timestamp: String = save_info.get("timestamp", "Unknown")
@@ -79,7 +79,7 @@ func _create_slot_panel(slot: int) -> PanelContainer:
 
 		button_text += "%s | %s | %s" % [chapter_info, playtime, timestamp]
 	else:
-		button_text += "[i]Empty Slot[/i]"
+		button_text += "Empty Slot"
 
 	button.text = button_text
 

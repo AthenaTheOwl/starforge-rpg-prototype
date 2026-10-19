@@ -12,6 +12,12 @@
 			"next": "elia_opens"
 		},
 		"elia_opens": {
+			"echoes": [
+				{
+					"flag": "act1_team_briefing_complete",
+					"text": "We already argued out the split. If this target forces a change, name it now. Nobody learns a new assignment through a wall."
+				}
+			],
 			"speaker": "Elia",
 			"text": "Floor check. Everyone's here. Good. [i][She activates the display.][/i] This is the target. Aurum Extraction forward station. Four levels, heavy security, civilian workers mixed with corporate enforcement.",
 			"next": "elia_opens_2"
@@ -73,6 +79,12 @@
 			"next": "jalen_intel_4"
 		},
 		"jalen_intel_4": {
+			"echoes": [
+				{
+					"flag": "chose_defiance",
+					"text": "I asked what you needed. Here's what I can give you: a room full of their own records. We bring them out intact."
+				}
+			],
 			"speaker": "Jalen",
 			"text": "[i][His voice drops.][/i] Top floor is the data core. That's where the extraction records live. Hardened servers, physical airgap, no remote access. To get the data, someone has to be in the room.",
 			"next": "jalen_timeline"
@@ -521,6 +533,20 @@
 		},
 
 		"approach_decided": {
+			"echoes": [
+				{
+					"flag": "approach_assault",
+					"text": "If we're making the first noise, we make it on the call. Nobody starts the breach ahead of it."
+				},
+				{
+					"flag": "approach_hybrid",
+					"text": "The dark is our opening, not our cover forever. Call positions before the lights come back."
+				},
+				{
+					"flag": "approach_stealth",
+					"text": "Quiet entry means no one fires to hurry a lock. If we lose concealment, call it before you answer it."
+				}
+			],
 			"speaker": "Elia",
 			"text": "Approach is set. Now the hard part. [i][She dims the display, leaving only the station outline.][/i] We split into two teams. This isn't optional—one team takes the data core, one team holds extraction. If the hold team fails, nobody gets out.",
 			"next": "elisira_plan"
@@ -1212,6 +1238,12 @@
 			"next": "jalen_personal_truth"
 		},
 		"jalen_personal_truth": {
+			"echoes": [
+				{
+					"flag": "avyanna_knows_extraction",
+					"text": "If my voice drops off the comm, you know the sequence now. Insert, confirm, wait. Ninety seconds, even when it feels longer."
+				}
+			],
 			"speaker": "Jalen",
 			"text": "[i]After the tutorial, quieter:[/i] You know what scares me? It's not the guns or the wards. It's the data. What if we get in there and the records show something we can't undo? What if Avyanna's extraction history is worse than we think?",
 			"next": "jalen_personal_truth_2"
@@ -1461,6 +1493,12 @@
 		},
 
 		"elia_speech_setup": {
+			"echoes": [
+				{
+					"flag": "insight_crew_reads",
+					"text": "[i]You stop waiting for a steadier pair of hands. They're frightened too; they're checking the next piece of gear anyway.[/i]"
+				}
+			],
 			"speaker": "Narration",
 			"text": "[i]The crew stands in the briefing room. Armed. Armored. Ready. The holographic station turns between them like a ghost they're about to make real. Elia steps to the head of the table. She doesn't lean on it this time. She stands straight.[/i]",
 			"next": "elia_speech_1"

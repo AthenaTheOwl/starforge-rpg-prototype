@@ -1072,7 +1072,13 @@
     "nyx_sees_bee": {
       "speaker": "Nyx",
       "text": "[i]Staring at your chest, where the shard's faint glow pulses beneath your clothing.[/i] It's listening. Your shard — Bee. It's been listening this whole time.",
-      "next": "avyanna_confirms_bee"
+      "next": "avyanna_confirms_bee",
+      "echoes": [
+        {
+          "flag": "nyx_shared_writbound",
+          "text": "The gaps I told you about started with people deciding they knew what I needed."
+        }
+      ]
     },
     "avyanna_confirms_bee": {
       "speaker": "Avyanna",
@@ -1082,7 +1088,17 @@
     "nyx_bee_fear": {
       "speaker": "Nyx",
       "text": "[i]She draws back slightly. The fear in her eyes is sharp, immediate.[/i] Avyanna... do you understand what Bee is? What it's doing to you?",
-      "next": "choice_bee_challenge"
+      "next": "choice_bee_challenge",
+      "echoes": [
+        {
+          "flag": "nyx_forgiven",
+          "text": "You didn't reduce me to what they did. Don't let a bond do that to you."
+        },
+        {
+          "flag": "nyx_validated",
+          "text": "You called leaving a choice. Keep one open. Even here."
+        }
+      ]
     },
     "choice_bee_challenge": {
       "speaker": "SYSTEM",
@@ -1186,6 +1202,10 @@
           "reputation": {
             "nyx": 1
           }
+        },
+        {
+          "text": "'Then teach me how to tell. A connection from a leash. Before either of us gets hurt.'",
+          "next": "offer_training_path"
         }
       ]
     },
@@ -1248,7 +1268,13 @@
     "nyx_teaching_offer": {
       "speaker": "Nyx",
       "text": "[i]She stands, offering you a hand up.[/i] Since we're both awake and I've thoroughly ruined the mood for sleep — [i]A trace of her usual dry humor.[/i] — let me show you something. Something real about the lattice. Not theory. Practice.",
-      "next": "choice_teaching"
+      "next": "choice_teaching",
+      "echoes": [
+        {
+          "flag": "nyx_bee_watchguard",
+          "text": "Before we start, tell me what feels like you. We need something to compare."
+        }
+      ]
     },
     "choice_teaching": {
       "speaker": "SYSTEM",
@@ -1377,7 +1403,13 @@
     "nyx_agrees_sharing": {
       "speaker": "Nyx",
       "text": "We'll start slow. Meditation and sensing first, then basic reinforcement. I'll monitor your lattice pathways — watch for degradation. [i]Firm.[/i] If I see any damage, we stop. No arguments. Agreed?",
-      "next": "avyanna_agrees_sharing"
+      "next": "avyanna_agrees_sharing",
+      "echoes": [
+        {
+          "flag": "nyx_lattice_training",
+          "text": "Tomorrow we log your baseline before you touch a conduit. No silent damage."
+        }
+      ]
     },
     "avyanna_agrees_sharing": {
       "speaker": "Avyanna",
@@ -1460,7 +1492,13 @@
     "nyx_offers_ward": {
       "speaker": "Nyx",
       "text": "[i]She reaches into the alcove and produces a small crystal — not the teaching one, but something different. Darker, denser, with a faint inner light that pulses in time with her heartbeat.[/i] This is a ward-stone. I grew it from my own lattice resonance. It took three months.",
-      "next": "nyx_ward_explanation"
+      "next": "nyx_ward_explanation",
+      "echoes": [
+        {
+          "flag": "nyx_anniversary_promise",
+          "text": "Same deck. Same hour. I'll put it on the calendar."
+        }
+      ]
     },
     "nyx_ward_explanation": {
       "speaker": "Nyx",
@@ -1508,7 +1546,13 @@
     "nyx_ward_final": {
       "speaker": "Nyx",
       "text": "[i]She watches you hold the ward-stone, and her expression holds something you've never seen in Nyx before: peace. Imperfect, temporary, fragile — but real.[/i] You already have. [i]Quietly.[/i] You already have.",
-      "next": "final_truth"
+      "next": "final_truth",
+      "echoes": [
+        {
+          "flag": "nyx_ward_accepted",
+          "text": "If it cracks, leave. We can establish what happened after you're clear."
+        }
+      ]
     },
     "final_truth": {
       "speaker": "SYSTEM",
@@ -1724,7 +1768,13 @@
       "speaker": "Nyx",
       "text": "[i]She opens her eyes, still holding your hand.[/i] Yes. That's the lattice. That's what the Writbound tried to control and what we're going to protect. [i]A pause.[/i] Together.",
       "set_flag": "deep_nyx_complete",
-      "next": "end"
+      "next": "end",
+      "echoes": [
+        {
+          "flag": "nyx_lattice_training",
+          "text": "Tomorrow's lesson starts with stopping. You need to know you can."
+        }
+      ]
     },
     "express_training_fear": {
       "speaker": "Avyanna",
