@@ -19,6 +19,20 @@ const FORBIDDEN_RECRUITMENT_PHRASES = [
 	"offer you a position",
 	"welcome to the crew"
 ]
+## Decisions and events whose only callback was an echo on a node every path
+## reached with the flag already set, so the line could never vary with play.
+## Those lines now test a choice that does vary, or were removed. The flags
+## stay recorded for saves and later scenes.
+const RECORDED_WITHOUT_CALLBACK = [
+	"act1_team_briefing_complete", "ai_illegality_revealed", "asked_name_cost",
+	"bee_communion", "briefing_elisira_corrected", "briefing_tactics_passed",
+	"briefing_ward_insight", "completed_night_watch", "dinner_elisira_elia_insight",
+	"dinner_nyx_opened_up", "elia_rescued", "knows_ai_illegal", "left_site_k9",
+	"mentor_contacted", "mentor_rejected", "mentor_traced", "mentor_trusted",
+	"mentor_warning_heard", "nyx_shared_writbound", "rho_combat_coordination",
+	"rho_solidified", "souffle_citizen", "trust_crisis_resolved",
+	"vesper_coping_seen", "vesper_guilt_understood",
+]
 
 var all_dialogue_files: Array = []
 
@@ -243,13 +257,17 @@ func test_every_flag_is_echoed():
 				if action.has(key):
 					all_flags_referenced.append(action[key])
 
+	for flag in RECORDED_WITHOUT_CALLBACK:
+		assert_true(flag in all_flags_set, "Listed flag '%s' is no longer set; drop it from RECORDED_WITHOUT_CALLBACK" % flag)
+		assert_false(flag in all_flags_referenced, "Listed flag '%s' now has a consumer; drop it from RECORDED_WITHOUT_CALLBACK" % flag)
+
 	for flag in all_flags_set:
 		var is_system := false
 		for prefix in system_flag_prefixes:
 			if flag.begins_with(prefix):
 				is_system = true
 				break
-		if is_system:
+		if is_system or flag in RECORDED_WITHOUT_CALLBACK:
 			continue
 		assert_true(
 			flag in all_flags_referenced,
@@ -281,31 +299,127 @@ func _node_flag_readers(node: Dictionary) -> Array:
 	return flags
 
 
-func test_authored_echoes_are_counterfactually_rendered_and_compose():
+func test_authored_echoes_render_in_reachable_states():
+	## Walk each scene the way DialogueManager runs it and render every echo node
+	## in each flag state the walk actually reaches there, instead of states play
+	## cannot produce (a false flag, or rival choices set at once). Flags written
+	## by other scenes enter either unset or set; tools/validate_project.py checks
+	## across the whole act that each echo can be reached both ways.
 	var original_flags := GameManager.story_flags.duplicate(true)
-	var tested := 0
+	var observed := {}
+	var mismatches: Array = []
 	for file_path in all_dialogue_files:
-		for node in _load_dialogue(file_path).get("nodes", {}).values():
-			var echoes: Array = node.get("echoes", [])
-			if echoes.is_empty(): continue
-			GameManager.story_flags.clear()
-			for echo in echoes:
-				var flag: String = echo["flag"]
-				var text: String = echo["text"]
-				GameManager.story_flags = {flag: true}
-				assert_eq(DialogueManager._get_node_text(node).count(text), 1, "%s/%s true renders once" % [file_path, flag])
-				GameManager.story_flags = {flag: false}
-				assert_eq(DialogueManager._get_node_text(node).count(text), 0, "%s/%s false is absent" % [file_path, flag])
-				GameManager.story_flags.clear()
-				assert_eq(DialogueManager._get_node_text(node).count(text), 0, "%s/%s unset is absent" % [file_path, flag])
-				tested += 1
-			for echo in echoes: GameManager.story_flags[echo["flag"]] = true
-			var combined := DialogueManager._get_node_text(node)
-			assert_eq(DialogueManager._get_node_text(node), combined, "Repeated render cannot accumulate state")
-			for echo in echoes:
-				assert_eq(combined.count(echo["text"]), 1, "All simultaneous callbacks survive composition")
+		var data := _load_dialogue(file_path)
+		var nodes: Dictionary = data.get("nodes", {})
+		var written := _flags_written(nodes)
+		var entries: Array = [{}]
+		for node in nodes.values():
+			for echo in node.get("echoes", []):
+				if not written.has(echo["flag"]):
+					entries.append({echo["flag"]: true})
+		for entry in entries:
+			for reached in _reachable_echo_states(data, entry):
+				var node_id: String = reached[0]
+				var node: Dictionary = reached[2]
+				GameManager.story_flags = reached[1]
+				var text := DialogueManager._get_node_text(node)
+				if DialogueManager._get_node_text(node) != text:
+					mismatches.append("%s:%s changes on a repeated render" % [file_path.get_file(), node_id])
+				for echo in node["echoes"]:
+					var chosen := bool(GameManager.get_flag(echo["flag"], false))
+					var key := "%s:%s:%s" % [file_path.get_file(), node_id, echo["flag"]]
+					if not observed.has(key):
+						observed[key] = {}
+					observed[key][chosen] = true
+					if text.count(echo["text"]) != (1 if chosen else 0):
+						mismatches.append("%s renders %d times with the flag %s" % [key, text.count(echo["text"]), "set" if chosen else "unset"])
 	GameManager.story_flags = original_flags
-	assert_gt(tested, 0, "Counterfactual checks must execute authored echo entries")
+	assert_gt(observed.size(), 0, "Reachable-state checks must execute authored echo entries")
+	assert_eq(mismatches, [], "Each echo renders once exactly when its flag is set in a reached state")
+	var constant: Array = []
+	for key in observed:
+		if observed[key].size() != 2:
+			constant.append(key)
+	assert_eq(constant, [], "Each echo must be reached with its flag both set and unset")
+
+
+func _flags_written(nodes: Dictionary) -> Dictionary:
+	var written := {}
+	for node in nodes.values():
+		for holder in [node] + node.get("choices", []) + node.get("variants", []):
+			if holder.has("set_flag"):
+				written[holder["set_flag"]] = true
+	return written
+
+
+## Mirror DialogueManager's dispatch (checks roll either way, first matching
+## variant, text before node effects, available choices or next) and return
+## [node_id, flags, resolved node] for every echo node display reached from
+## `entry`. Only flags the scene reads are tracked, so states stay distinct.
+func _reachable_echo_states(data: Dictionary, entry: Dictionary) -> Array:
+	var nodes: Dictionary = data.get("nodes", {})
+	var tracked := entry.duplicate()
+	for node in nodes.values():
+		for echo in node.get("echoes", []):
+			tracked[echo["flag"]] = true
+		for variant in node.get("variants", []):
+			for flag in _condition_flags(variant):
+				tracked[flag] = true
+		for choice in node.get("choices", []):
+			if choice.has("requires_flag"):
+				tracked[choice["requires_flag"]] = true
+	var reached: Array = []
+	var seen := {}
+	var pending: Array = [[data.get("start_node", "start"), entry.duplicate()]]
+	while not pending.is_empty():
+		var item: Array = pending.pop_back()
+		var node_id: String = item[0]
+		var flags: Dictionary = item[1]
+		var names := flags.keys()
+		names.sort()
+		var key := node_id + "|" + ",".join(names)
+		if seen.has(key) or not nodes.has(node_id):
+			continue
+		seen[key] = true
+		var node: Dictionary = nodes[node_id]
+		if node.get("type", "") == "skill_check" or node.has("skill_check"):
+			var check := DialogueManager._normalize_skill_check(node.get("check", node.get("skill_check", {})))
+			for outcome in ["on_success", "on_failure"]:
+				pending.append([node.get(outcome, check.get(outcome, "end")), flags])
+			continue
+		GameManager.story_flags = flags.duplicate()
+		var resolved := node.duplicate(true)
+		for variant in node.get("variants", []):
+			if DialogueManager._check_variant_conditions(variant):
+				for field in variant:
+					if field != "conditions":
+						resolved[field] = variant[field]
+				break
+		if resolved.has("echoes"):
+			reached.append([node_id, flags.duplicate(), resolved])
+		var after := _with_flag(flags, resolved, tracked)
+		GameManager.story_flags = after.duplicate()
+		var choices := DialogueManager._get_available_choices(resolved)
+		if choices.is_empty():
+			pending.append([resolved.get("next", "end"), after])
+		for choice in choices:
+			var chosen := _with_flag(after, choice, tracked)
+			if choice.has("skill_check") and DialogueManager._skill_check_has_outcomes(choice["skill_check"]):
+				var check := DialogueManager._normalize_skill_check(choice["skill_check"])
+				for outcome in ["on_success", "on_failure"]:
+					pending.append([check.get(outcome, "end"), chosen])
+			else:
+				pending.append([choice.get("next", "end"), chosen])
+	return reached
+
+
+func _with_flag(flags: Dictionary, holder: Dictionary, tracked: Dictionary) -> Dictionary:
+	var flag = holder.get("set_flag")
+	if typeof(flag) != TYPE_STRING or not tracked.has(flag) or not holder.get("flag_value", true):
+		return flags
+	var result := flags.duplicate()
+	result[flag] = true
+	return result
 
 
 func test_minimum_choices_per_large_dialogue():

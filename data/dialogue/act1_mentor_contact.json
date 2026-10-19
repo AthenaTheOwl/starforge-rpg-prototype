@@ -89,12 +89,6 @@
 			]
 		},
 		"trust_response": {
-			"echoes": [
-				{
-					"flag": "mentor_trusted",
-					"text": "Trust the warning enough to check it. Don't give me more than that."
-				}
-			],
 			"speaker": "???",
 			"text": "[i]A pause. The static shifts—something like relief.[/i] Smart. Keep her off station registries. Stay mobile. Don't let her touch Compact medical scanners. And when the time comes... trust the shard.",
 			"next": "trust_followup"
@@ -111,12 +105,6 @@
 			"next": "demand_followup"
 		},
 		"demand_followup": {
-			"echoes": [
-				{
-					"flag": "mentor_questioned",
-					"text": "No name you'll accept over this channel. The filing will have one. Start there."
-				}
-			],
 			"speaker": "???",
 			"text": "Believe me or don't. But [b]watch the corporate feeds[/b]. Watch for Aurum Extraction filing debt recovery claims. You'll see I'm right.",
 			"next": "mentor_crew_warning",
@@ -160,12 +148,6 @@
 			"next": "trace_reaction"
 		},
 		"trace_reaction": {
-			"echoes": [
-				{
-					"flag": "mentor_traced",
-					"text": "Tracing me won't take her name off a recovery claim."
-				}
-			],
 			"speaker": "???",
 			"text": "[i]The voice turns colder.[/i] Clever. Doesn't matter. You won't find me unless I want to be found. But I'll forgive the attempt—because you're going to need what I say next.",
 			"next": "mentor_crew_warning",
@@ -190,7 +172,7 @@
 		"bee_react_full": {
 			"echoes": [
 				{
-					"flag": "mentor_contacted",
+					"flag": "mentor_questioned",
 					"text": "{BEE:: source identity unresolved | matching words are not proof of a friendly source}"
 				}
 			],
@@ -199,12 +181,6 @@
 			"next": "elia_aftermath"
 		},
 		"elia_aftermath": {
-			"echoes": [
-				{
-					"flag": "mentor_warning_heard",
-					"text": "They gave us no name to check. Just a reason to start watching our own doors."
-				}
-			],
 			"speaker": "Elia",
 			"text": "[i]She stares at the dead comms panel for a long moment.[/i] Someone on the crew. That's a hell of a parting gift. Could be nothing. Could be the kind of nothing that gets us killed.",
 			"next": "aftermath_choice"
@@ -246,23 +222,11 @@
 			"set_flag": "mentor_warning_dismissed"
 		},
 		"bee_react_cut": {
-			"echoes": [
-				{
-					"flag": "mentor_contacted",
-					"text": "{BEE:: source identity unresolved | matching words are not proof of a friendly source}"
-				}
-			],
 			"speaker": "SYSTEM",
 			"text": "{BEE:: transmission terminated prematurely | AGITATED | partial data captured — lattice resonance claims flagged for review — insufficient information to assess threat level}",
 			"next": "elia_aftermath_cut"
 		},
 		"elia_aftermath_cut": {
-			"echoes": [
-				{
-					"flag": "mentor_rejected",
-					"text": "If they call back, they don't get to pick how long we listen. You do."
-				}
-			],
 			"speaker": "Elia",
 			"text": "[i]She flexes her hand, knuckles white.[/i] We cut them off before they finished. Might have been the right call. Might have cost us something. Either way—we watch our backs.",
 			"next": "end"

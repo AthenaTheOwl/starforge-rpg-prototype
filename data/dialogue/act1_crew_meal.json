@@ -439,12 +439,6 @@
       "next": "nyx_empathy_bond"
     },
     "nyx_empathy_bond": {
-      "echoes": [
-        {
-          "flag": "dinner_nyx_opened_up",
-          "text": "I'm going to try another spoonful before I decide what to call it."
-        }
-      ],
       "speaker": "Nyx",
       "text": "[i]The smallest nod. Almost imperceptible.[/i] Different. Yes. Not bad different. Just... new variables.",
       "next": "conversation_return"
@@ -541,12 +535,6 @@
       "next": "elisira_notices"
     },
     "elisira_notices": {
-      "echoes": [
-        {
-          "flag": "dinner_elisira_elia_insight",
-          "text": "If you want to help, pass the coffee. You don't need the name."
-        }
-      ],
       "speaker": "Elisira",
       "text": "[i]Catching your eye. Not hostile — assessing.[/i] You're perceptive. That's useful. Just remember — perceptive people have a responsibility to be kind with what they see.",
       "next": "conversation_return"

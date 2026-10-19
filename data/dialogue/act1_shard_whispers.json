@@ -254,7 +254,7 @@
 		"physical_effects": {
 			"echoes": [
 				{
-					"flag": "bee_communion",
+					"flag": "shard_open",
 					"text": "[i]Your fingers curl toward the warmth before you lay them flat on the blanket. Reaching back was a choice; you can stop reaching now.[/i]"
 				}
 			],

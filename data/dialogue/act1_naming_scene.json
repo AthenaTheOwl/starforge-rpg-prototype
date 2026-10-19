@@ -216,9 +216,6 @@
     "accept_after_question": {
       "speaker": "SYSTEM",
       "text": "[i]The presence behind your eyes pulses warmly. No cost. No invoice. Just a name, offered freely.[/i]",
-      "echoes": [
-        {"flag": "asked_name_cost", "text": "[i]You look at Elia's empty hand on the table. Nothing to sign. You can take another breath before deciding.[/i]"}
-      ],
       "choices": [
         {
           "text": "'Then yes. Avyanna Lagrange.'",
@@ -370,7 +367,7 @@
       "speaker": "SYSTEM",
       "text": "[i]You turn back to your dinner.[/i]",
       "echoes": [
-        {"flag": "naming_complete", "text": "[i]Your next mouthful has gone cold. You eat it among them anyway; no one is waiting for another answer.[/i]"}
+        {"flag": "has_lagrange_name", "text": "[i]Your next mouthful has gone cold. You eat it among them anyway; no one is waiting for another answer.[/i]"}
       ],
       "next": "end"
     }

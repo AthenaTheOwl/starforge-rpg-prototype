@@ -168,12 +168,6 @@
       "next": "play_out_break"
     },
     "play_out_break": {
-      "echoes": [
-        {
-          "flag": "trust_crisis_witnessed",
-          "text": "[i]You stay where Vesper can see you when she lifts her head. There is no neat answer to offer her.[/i]"
-        }
-      ],
       "speaker": "SYSTEM",
       "text": "[i]Elia leaves. Vesper sits, head in hands. Rho exhales. The crisis passes—unresolved, but not broken. You witnessed it. That matters too.[/i]",
       "next": "waffle_crisis_log"

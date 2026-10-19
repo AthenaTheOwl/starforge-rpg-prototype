@@ -1312,7 +1312,7 @@
       "speaker": "SYSTEM",
       "text": "[i]The corridor is quiet again.[/i]",
       "echoes": [
-        {"flag": "souffle_citizen", "text": "[i]You keep your footsteps light past the speaker. Souffle can sleep without having to answer for the quiet.[/i]"}
+        {"flag": "shared_silence_with_souffle", "text": "[i]You keep your footsteps light past the speaker. Souffle can sleep without having to answer for the quiet.[/i]"}
       ],
       "next": "end"
     }

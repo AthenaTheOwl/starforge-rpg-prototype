@@ -221,12 +221,6 @@
       "next": "full_commitment_end"
     },
     "full_commitment_end": {
-      "echoes": [
-        {
-          "flag": "rho_solidified",
-          "text": "[i]He holds the door with his free hand. No test, no speech. Just room for you to walk beside him.[/i]"
-        }
-      ],
       "speaker": "SYSTEM",
       "text": "Rho stands, picking up his cannon with practiced ease. He pauses at the doorway, looking back. The weight of his seventy-three souls seems lighter, somehow. Shared.",
       "next": "end"
@@ -238,12 +232,6 @@
       "next": "honest_commitment_end"
     },
     "honest_commitment_end": {
-      "echoes": [
-        {
-          "flag": "rho_solidified",
-          "text": "[i]He holds the door with his free hand. No test, no speech. Just room for you to walk beside him.[/i]"
-        }
-      ],
       "speaker": "SYSTEM",
       "text": "Rho stands, picking up his cannon with practiced ease. He pauses at the doorway, looking back. The weight of his seventy-three souls seems lighter, somehow. Shared.",
       "next": "end"

@@ -12,12 +12,6 @@
 			"next": "elia_opens"
 		},
 		"elia_opens": {
-			"echoes": [
-				{
-					"flag": "act1_team_briefing_complete",
-					"text": "We already argued out the split. If this target forces a change, name it now. Nobody learns a new assignment through a wall."
-				}
-			],
 			"speaker": "Elia",
 			"text": "Floor check. Everyone's here. Good. [i][She activates the display.][/i] This is the target. Aurum Extraction forward station. Four levels, heavy security, civilian workers mixed with corporate enforcement.",
 			"next": "elia_opens_2"

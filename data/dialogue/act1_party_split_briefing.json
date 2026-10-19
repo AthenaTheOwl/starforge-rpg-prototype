@@ -142,7 +142,7 @@
 		"elia_takes_control": {
 			"echoes": [
 				{
-					"flag": "trust_crisis_resolved",
+					"flag": "trust_crisis_witnessed",
 					"text": "We left a conversation unfinished last time. We can disagree in this room; we don't leave without knowing what the others are doing."
 				}
 			],
@@ -186,12 +186,6 @@
 			"next": "crew_impressed"
 		},
 		"crew_impressed": {
-			"echoes": [
-				{
-					"flag": "briefing_tactics_passed",
-					"text": "I'll mark each escalation on the overlay. If the eastern response stalls, we hold the western move."
-				}
-			],
 			"speaker": "Elisira",
 			"text": "[i]Studying the overlay. A single nod.[/i] Staggered escalation. The garrison commits deeper with each wave, pulling further from the western approach. It's clean.",
 			"next": "elia_approves_tactics"
@@ -218,12 +212,6 @@
 			"next": "elia_approves_corrected"
 		},
 		"elia_approves_corrected": {
-			"echoes": [
-				{
-					"flag": "briefing_elisira_corrected",
-					"text": "Ninety seconds goes on everyone's clock. We use the corrected number, not the one we wanted."
-				}
-			],
 			"speaker": "Elia",
 			"text": "Good bones. Elisira's adjustment seals it. We run with this.",
 			"next": "jalen_tech_options"
@@ -415,12 +403,6 @@
 			"next": "nyx_confirms_insight"
 		},
 		"nyx_confirms_insight": {
-			"echoes": [
-				{
-					"flag": "briefing_ward_insight",
-					"text": "If the inner lights brighten, ease off outside. More force would be feeding the lock."
-				}
-			],
 			"speaker": "Nyx",
 			"text": "[i]Eyes widening.[/i] She's right. Sympathetic resonance. The outer wards are tethered to the inner ones. Kinetic disruption on the perimeter would cascade inward as reinforcement. The assault team needs to suppress, not destroy—or I'll be cracking twice the barriers underground.",
 			"reputation": {

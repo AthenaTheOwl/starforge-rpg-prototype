@@ -686,7 +686,7 @@
       "next": "elia_final",
       "echoes": [
         {
-          "flag": "knows_ai_illegal",
+          "flag": "ai_secret_keeper",
           "text": "I won't say their names where the Compact can hear. I can start with that."
         }
       ]
@@ -720,13 +720,7 @@
     "waffle_final": {
       "speaker": "Waffle.bat",
       "text": "[i]{WAFFLE.BAT// AFFIRMATION: Together.}[/i]",
-      "next": "bubbles_final",
-      "echoes": [
-        {
-          "flag": "ai_illegality_revealed",
-          "text": "[i]{WAFFLE.BAT// RESPONSE: You may speak to me directly. There is no need to pretend I am a malfunction.}[/i]"
-        }
-      ]
+      "next": "bubbles_final"
     },
     "bubbles_final": {
       "speaker": "Bubbles",
