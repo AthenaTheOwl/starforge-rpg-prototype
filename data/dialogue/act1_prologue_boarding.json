@@ -162,6 +162,11 @@
 		"end_prologue": {
 			"speaker": "SYSTEM",
 			"text": "[i]The boarding action is over. The coffee machine resumes its mechanical sulk, as if nothing happened. The Lumen Thief flies on.[/i]",
+			"echoes": [
+				{"flag": "prologue_nonlethal", "text": "[i]A strip of field dressing catches at Rho's glove. He frees it before reaching for the next one; there is still work to do after putting the cannon down.[/i]"},
+				{"flag": "prologue_harsh", "text": "[i]Rho's jaw is still tight. You wait for someone to say something now that the guns are quiet. The coffee machine fills the gap.[/i]"},
+				{"flag": "prologue_mercy", "text": "[i]Beyond the hatch, the pilot's ship has gone. You look once at the space it left, then turn back to your own crew.[/i]"}
+			],
 			"next": "arrival_transition"
 		},
 
@@ -438,6 +443,10 @@
 		"ftl_pre_jump": {
 			"speaker": "SYSTEM",
 			"text": "[i]You don't know what to secure. You grip the edge of the cot. The engines change pitch — the hum deepens, drops below hearing, becomes a vibration in your molars, your sternum, the shard. Especially the shard. It resonates like a tuning fork struck against the universe's spine.[/i]",
+			"echoes": [
+				{"flag": "prologue_met_rho", "text": "[i]You wedge Rho's thermos against the wall before you let go. Whatever the ship is about to do, the chamomile can stay.[/i]"},
+				{"flag": "prologue_met_elisira", "text": "[i]You look down at Elisira's tray and brace one foot beside it. The broth trembles; for a moment, keeping it from spilling is a small enough task.[/i]"}
+			],
 			"next": "ftl_jump"
 		},
 		"ftl_jump": {
@@ -463,11 +472,19 @@
 		"sleep_attempt": {
 			"speaker": "SYSTEM",
 			"text": "[i]You lie down. The cot is too soft — the Kennel used slabs, said it was better for spinal alignment, said a lot of things about what was better for you. This mattress has a dip where someone else slept before you, and you fit into the shape they left. A stranger's ghost, cradling you.[/i]",
+			"echoes": [
+				{"flag": "prologue_attitude_grateful", "text": "[i]The blanket's loose thread catches under your heel. You lift your foot to free it rather than tugging it away.[/i]"},
+				{"flag": "prologue_attitude_wary", "text": "[i]You turn onto your side with the door in view. No one outside it needs to know which way you sleep.[/i]"},
+				{"flag": "prologue_attitude_numb", "text": "[i]You press a fingertip along the mattress seam, one stitch and then the next. The blanket can stay a blanket for tonight.[/i]"}
+			],
 			"next": "sleep_sounds"
 		},
 		"sleep_sounds": {
 			"speaker": "SYSTEM",
 			"text": "[i]The ship speaks in its sleep. The heating vent ticks. The hull groans against FTL pressure. Footsteps pass your door — someone on a late watch, their stride unhurried. A murmur of voices from the galley. Laughter. The sound is so foreign it takes you a moment to identify it.[/i]",
+			"echoes": [
+				{"flag": "prologue_met_jalen", "text": "[i]You find the vent on your left and tuck a sock against its rattle, as Jalen suggested. With that one sound softened, the laughter is easier to hear.[/i]"}
+			],
 			"next": "sleep_shard"
 		},
 		"sleep_shard": {

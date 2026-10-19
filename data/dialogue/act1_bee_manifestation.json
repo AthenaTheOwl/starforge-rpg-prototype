@@ -302,6 +302,11 @@
 		"final_moment": {
 			"speaker": "SYSTEM",
 			"text": "[i]The holographic figure settles closer to your shoulder. Dimmer now—conserving energy, or perhaps just being polite. Elia watches it the way you'd watch a loaded weapon that just told you a joke. The engine room hums. Something has changed on this ship, and none of you can take it back.[/i]",
+			"echoes": [
+				{"flag": "bee_accepted", "text": "[i]You turn your palm upward beneath the faint light. An invitation, this time, instead of waiting to be shown.[/i]"},
+				{"flag": "bee_cautious", "text": "[i]You keep your hands at your sides. There is time to ask the next question before you reach for anything.[/i]"},
+				{"flag": "bee_resisted", "text": "[i]You shift away from the light. Your arms stay folded; there is no need to uncurl them for anyone's relief.[/i]"}
+			],
 			"next": "end"
 		}
 	}

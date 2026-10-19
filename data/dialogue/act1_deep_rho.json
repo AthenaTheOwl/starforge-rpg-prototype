@@ -551,6 +551,12 @@
     },
 
     "finding_crew": {
+      "echoes": [
+        {
+          "flag": "player_shared_loss_with_rho",
+          "text": "You don't have to give me your roll call. You said you had people. That's enough for me to know who I'm talking to."
+        }
+      ],
       "speaker": "Rho",
       "text": "Docked at Venn Station for a resupply. Broke. Out of contracts. Hadn't spoken to another person in eleven days. Walked into a bar and Nyx was there, arguing with a dock foreman twice her size about fuel prices.",
       "next": "finding_crew_2"
@@ -634,9 +640,7 @@
           "skill_check": {
             "stat": "empathy",
             "skill": "empathy",
-            "dc": 12,
-            "on_success": "empathy_success",
-            "on_failure": "empathy_fail_soft"
+            "dc": 12
           }
         },
         {
@@ -657,7 +661,7 @@
     "empathy_roll": {
       "speaker": "SYSTEM",
       "text": "[i]The words land in the silence between you.[/i]",
-      "next": "empathy_success"
+      "next": "empathy_roll_resolve"
     },
 
     "challenge_guilt": {
@@ -1011,6 +1015,12 @@
     },
 
     "bonded_final": {
+      "echoes": [
+        {
+          "flag": "rho_combat_coordination",
+          "text": "And when I call a direction, call yours back. Watching your back doesn't mean I stop listening."
+        }
+      ],
       "speaker": "Rho",
       "text": "You know what the best part is? I don't have to explain anymore. You just [i]get it.[/i] That's... [i]He shakes his head, almost smiling.[/i] That's everything, Avyanna. Thank you.",
       "next": "bonded_departure"
@@ -1020,6 +1030,16 @@
       "speaker": "SYSTEM",
       "text": "He picks up the cannon, settles it against his shoulder with practiced ease. At the doorway, he pauses. When he looks back, there's warmth in his eyes—the kind that comes from being truly seen. One hundred and twelve souls. Two people carrying them. The weight hasn't changed. But the burden is lighter. He nods once, a warrior's salute. Then he's gone. The armory feels less cold.",
       "next": "end"
+    },
+    "empathy_roll_resolve": {
+      "type": "skill_check",
+      "check": {
+        "stat": "empathy",
+        "skill": "empathy",
+        "dc": 12,
+        "on_success": "empathy_success",
+        "on_failure": "empathy_fail_soft"
+      }
     }
   }
 }

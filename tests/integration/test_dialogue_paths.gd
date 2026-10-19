@@ -19,7 +19,9 @@ const KNOWN_CHARACTERS = [
 	"QC-7",
 	"SYSTEM",
 	"ALL",
-	"Lead Pirate"
+	"Lead Pirate",
+	# Canonical narration, first-contact aliases and deliberately unnamed mentor.
+	"BEE", "Narration", "Soufflé", "Security Sergeant", "???"
 ]
 const FORBIDDEN_FLAGS = [
 	"recruited_vesper",
@@ -125,8 +127,8 @@ func test_skill_check_thresholds_reasonable():
 						var skill_check = choice["skill_check"]
 						if skill_check.has("threshold"):
 							var threshold = skill_check["threshold"]
-							assert_true(threshold >= 1 and threshold <= 8,
-								"Skill check threshold %d out of range (1-8) in node '%s' of %s" %
+							assert_true(threshold >= 1 and threshold <= 20,
+								"Skill check threshold %d out of range (1-20; d20 + stat) in node '%s' of %s" %
 								[threshold, node_id, file_path])
 
 ## Helper: Get all JSON files in a directory
@@ -174,125 +176,101 @@ func _load_dialogue(path: String) -> Dictionary:
 		push_warning("JSON root is not a Dictionary in %s" % path)
 		return {}
 
-## Helper: Collect all next references in dialogue
-func _get_all_next_refs(dialogue: Dictionary) -> Array:
-	var refs = []
-
-	if not dialogue.has("nodes"):
-		return refs
-
-	for node_id in dialogue["nodes"]:
-		var node = dialogue["nodes"][node_id]
-
-		# Direct next field
-		if node.has("next"):
-			if not refs.has(node["next"]):
-				refs.append(node["next"])
-
-		# Choices
-		if node.has("choices"):
-			for choice in node["choices"]:
-				if choice.has("next"):
-					if not refs.has(choice["next"]):
-						refs.append(choice["next"])
-
-				# Skill check outcomes
-				if choice.has("skill_check"):
-					var skill_check = choice["skill_check"]
-					if skill_check.has("on_success"):
-						if not refs.has(skill_check["on_success"]):
-							refs.append(skill_check["on_success"])
-					if skill_check.has("on_failure"):
-						if not refs.has(skill_check["on_failure"]):
-							refs.append(skill_check["on_failure"])
-
-		# Variants (conditional branching)
-		if node.has("variants"):
-			for variant in node["variants"]:
-				if variant.has("next"):
-					if not refs.has(variant["next"]):
-						refs.append(variant["next"])
-
-		# Node-level check (alternate skill check format)
-		if node.has("check"):
-			var check = node["check"]
-			if check.has("on_success"):
-				if not refs.has(check["on_success"]):
-					refs.append(check["on_success"])
-			if check.has("on_failure"):
-				if not refs.has(check["on_failure"]):
-					refs.append(check["on_failure"])
-
+## Follow both canonical formats, independently of runtime normalization.
+func _node_refs(value: Variant) -> Array:
+	var refs: Array = []
+	if value is Dictionary:
+		for key in ["next", "on_success", "on_failure", "success", "failure"]:
+			if value.get(key) is String:
+				refs.append(value[key])
+		for key in ["choices", "variants", "check", "skill_check"]:
+			if value.has(key):
+				refs.append_array(_node_refs(value[key]))
+	elif value is Array:
+		for child in value:
+			refs.append_array(_node_refs(child))
 	return refs
 
-## Helper: Get all reachable nodes from start_node using BFS
+
+func _get_all_next_refs(dialogue: Dictionary) -> Array:
+	var refs: Array = []
+	for node in dialogue.get("nodes", {}).values():
+		refs.append_array(_node_refs(node))
+	return refs
+
+
 func _get_reachable_nodes(dialogue: Dictionary) -> Array:
-	var reachable = []
-
-	if not dialogue.has("start_node") or not dialogue.has("nodes"):
-		return reachable
-
-	var start = dialogue["start_node"]
-	var queue = [start]
-	var visited = {}
-
-	while queue.size() > 0:
-		var current = queue.pop_front()
-
-		if visited.has(current):
+	var reachable: Array = []
+	var nodes: Dictionary = dialogue.get("nodes", {})
+	var queue: Array = [dialogue.get("start_node", "")]
+	while not queue.is_empty():
+		var current: String = queue.pop_front()
+		if current in reachable or current not in nodes:
 			continue
-
-		if current == "end":
-			continue
-
-		if not dialogue["nodes"].has(current):
-			continue
-
-		visited[current] = true
 		reachable.append(current)
-
-		var node = dialogue["nodes"][current]
-
-		# Direct next
-		if node.has("next"):
-			if not visited.has(node["next"]):
-				queue.append(node["next"])
-
-		# Choices
-		if node.has("choices"):
-			for choice in node["choices"]:
-				if choice.has("next"):
-					if not visited.has(choice["next"]):
-						queue.append(choice["next"])
-
-				# Skill check outcomes
-				if choice.has("skill_check"):
-					var skill_check = choice["skill_check"]
-					if skill_check.has("on_success"):
-						if not visited.has(skill_check["on_success"]):
-							queue.append(skill_check["on_success"])
-					if skill_check.has("on_failure"):
-						if not visited.has(skill_check["on_failure"]):
-							queue.append(skill_check["on_failure"])
-
-		# Variants (conditional branching)
-		if node.has("variants"):
-			for variant in node["variants"]:
-				if variant.has("next"):
-					if not visited.has(variant["next"]):
-						queue.append(variant["next"])
-
-		# Node-level check (alternate skill check format)
-		if node.has("check"):
-			var check = node["check"]
-			if check.has("on_success"):
-				if not visited.has(check["on_success"]):
-					queue.append(check["on_success"])
-			if check.has("on_failure"):
-				if not visited.has(check["on_failure"]):
-					queue.append(check["on_failure"])
-
+		queue.append_array(_runtime_node_refs(nodes[current]))
 	return reachable
+
+
+func _check_outcomes(check: Dictionary) -> Array:
+	return [check.get("on_success", check.get("success", "end")), check.get("on_failure", check.get("failure", "end"))]
+
+
+func _runtime_node_refs(node: Dictionary) -> Array:
+	# Standalone checks dispatch before any text/variant processing and ignore next.
+	if node.get("type", "") == "skill_check" or node.has("skill_check"):
+		var outcomes := _check_outcomes(node.get("check", node.get("skill_check", {})))
+		return [node.get("on_success", outcomes[0]), node.get("on_failure", outcomes[1])]
+	var refs := _runtime_display_refs(node)
+	for variant in node.get("variants", []):
+		var resolved := node.duplicate(true)
+		resolved.merge(variant, true)
+		refs.append_array(_runtime_display_refs(resolved))
+	return refs
+
+
+func _runtime_display_refs(node: Dictionary) -> Array:
+	var choices: Array = node.get("choices", [])
+	var refs: Array = []
+	var always_available := false
+	for choice in choices:
+		var check: Dictionary = choice.get("skill_check", {})
+		if check.has("on_success") or check.has("success") or check.has("on_failure") or check.has("failure"):
+			refs.append_array(_check_outcomes(check))
+		else:
+			refs.append(choice.get("next", "end"))
+		if not choice.has("requires_flag") and not choice.has("requires_reputation"):
+			always_available = true
+	if choices.is_empty() or not always_available:
+		refs.append(node.get("next", "end"))
+	return refs
+
+
+func test_control_graph_ignores_unused_next_but_follows_display_hints():
+	var fixture := {"start_node": "start", "nodes": {
+		"start": {"choices": [{"next": "ghost", "skill_check": {"on_success": "passed", "on_failure": "failed"}}]},
+		"passed": {"choices": [{"next": "hinted", "skill_check": {"skill": "empathy", "dc": 10}}]},
+		"hinted": {"next": "end"}, "failed": {"next": "end"}, "ghost": {"next": "end"},
+	}}
+	var reached := _get_reachable_nodes(fixture)
+	assert_false(reached.has("ghost"), "Inline check outcomes supersede a stale choice.next")
+	assert_has(reached, "hinted", "Display-only metadata delegates to choice.next")
+	assert_eq(reached.size(), 4)
+
+
+func test_graph_walker_covers_check_formats_without_hiding_orphans():
+	var fixture := {"start_node": "start", "nodes": {
+		"start": {"type": "skill_check", "on_success": "passed", "on_failure": "failed"},
+		"passed": {"choices": [{"skill_check": {"success": "legacy", "failure": "end"}}]},
+		"failed": {"next": "end"}, "legacy": {"next": "end"}, "orphan": {"next": "end"},
+	}}
+	var reached := _get_reachable_nodes(fixture)
+	assert_eq(reached.size(), 4)
+	assert_has(reached, "legacy", "Legacy check outcomes are reachable")
+	assert_false(reached.has("orphan"), "An unlinked authored node must still fail the gate")
+	fixture["nodes"]["start"]["on_failure"] = "missing"
+	assert_has(_get_all_next_refs(fixture), "missing", "Broken references remain visible to validation")
+
 
 ## Helper: Collect all set_flag values in dialogue
 func _collect_all_flags(dialogue: Dictionary) -> Array:

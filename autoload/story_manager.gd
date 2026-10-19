@@ -90,10 +90,12 @@ const CHAPTER_SEQUENCE: Dictionary = {
 ## Dialogue trigger requirements (flags that must be set before dialogue is available)
 const DIALOGUE_REQUIREMENTS: Dictionary = {
 	# Flag-only requirements (Array format)
-	"act1_first_watch": ["has_lagrange_name"],
+	# Asking for time still completes the conversation; accepting a surname is
+	# optional and must not prevent the next chapter or Bee's later appearance.
+	"act1_first_watch": ["naming_complete"],
 	"act1_ai_citizens_intro": ["completed_first_watch"],
 	"act1_forbidden_citizens": ["ai_citizens_introduced"],
-	"act1_bee_manifestation": ["has_lagrange_name"],
+	"act1_bee_manifestation": ["naming_complete"],
 	"act1_corporate_conspiracy": {"flags": ["bee_revealed"]},
 	"act1_mentor_contact": [],
 	# Relationship-gated bonding dialogues (Dictionary format)

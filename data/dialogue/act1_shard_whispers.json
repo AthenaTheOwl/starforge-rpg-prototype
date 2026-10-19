@@ -135,6 +135,20 @@
 			"next": "shard_end"
 		},
 		"shard_end": {
+			"echoes": [
+				{
+					"flag": "shard_cautious",
+					"text": "[i]You let the warmth remain without following it further. Nothing presses you to close the distance tonight.[/i]"
+				},
+				{
+					"flag": "shard_hidden",
+					"text": "[i]You keep your face to the wall. The presence does not follow you any closer.[/i]"
+				},
+				{
+					"flag": "shard_open",
+					"text": "[i]You leave your hand open on the blanket. For once, the warmth doesn't make you hide it.[/i]"
+				}
+			],
 			"speaker": "SYSTEM",
 			"text": "[i]Whatever you chose, the shard settles. The dreams continue — geometric, crystalline, ancient. But they don't hurt anymore. They just... wait.\n\nPatience is not passive. Patience is architecture.[/i]",
 			"next": "bunk_alone"
@@ -234,6 +248,12 @@
 			"next": "physical_effects"
 		},
 		"physical_effects": {
+			"echoes": [
+				{
+					"flag": "bee_communion",
+					"text": "[i]Your fingers curl toward the warmth before you lay them flat on the blanket. Reaching back was a choice; you can stop reaching now.[/i]"
+				}
+			],
 			"speaker": "SYSTEM",
 			"text": "[i]The bunk's walls shimmer. Colors bleed at the edges — steel turns violet, shadows go amber. The overhead panel flickers in a pattern that isn't random. Your reflection in the dead screen by the door shows someone whose eyes are the wrong color.\n\nThen it stops. Everything stops. The room is just a room again.\n\nExcept your hands still glow, faintly, like coals that refuse to go out.[/i]",
 			"next": "nyx_knock"

@@ -167,7 +167,7 @@ func test_apply_level_up_grants_hp():
 	var char_id := "test"
 	PartyManager.roster[char_id] = _make_test_character(char_id)
 	PartyManager.roster[char_id]["xp"] = 300
-	var old_hp_max := PartyManager.roster[char_id]["hp_max"]
+	var old_hp_max: int = PartyManager.roster[char_id]["hp_max"]
 
 	PartyManager.apply_level_up(char_id)
 
@@ -182,7 +182,7 @@ func test_apply_level_up_grants_heat_capacity():
 	var char_id := "test"
 	PartyManager.roster[char_id] = _make_test_character(char_id)
 	PartyManager.roster[char_id]["xp"] = 300
-	var old_heat_cap := PartyManager.roster[char_id]["heat_capacity"]
+	var old_heat_cap: int = PartyManager.roster[char_id]["heat_capacity"]
 
 	PartyManager.apply_level_up(char_id)
 
@@ -250,9 +250,9 @@ func test_assign_stat_point_defense():
 	var char_id := "test"
 	PartyManager.roster[char_id] = _make_test_character(char_id)
 	PartyManager.roster[char_id]["stat_points"] = 1
-	var old_armor := PartyManager.roster[char_id]["armor"]
-	var old_shields := PartyManager.roster[char_id]["shields"]
-	var old_wards := PartyManager.roster[char_id]["wards"]
+	var old_armor: int = PartyManager.roster[char_id]["armor"]
+	var old_shields: int = PartyManager.roster[char_id]["shields"]
+	var old_wards: int = PartyManager.roster[char_id]["wards"]
 
 	var success := PartyManager.assign_stat_point(char_id, "Defense")
 

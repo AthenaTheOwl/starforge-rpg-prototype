@@ -171,6 +171,45 @@ func test_round_trip_save_load() -> void:
 	assert_true(GameManager.is_location_unlocked("secret_area"), "Location should be unlocked")
 
 
+func test_old_public_flat_save_preserves_available_state_and_preview_without_rewrite() -> void:
+	PartyManager.recruit_character("avyanna")
+	PartyManager.get_character("avyanna")["hp"] = 42
+	GameManager.story_flags = {"legacy_choice": "wait", "legacy_false": false}
+	GameManager.current_act = 1
+	GameManager.current_chapter = 4
+	GameManager.play_time = 123.5
+	GameManager.faction_reputation["compact"] = 12
+	StoryManager.played_dialogues.clear()
+	StoryManager.mark_dialogue_played("act1_naming_scene")
+	assert_eq(GameManager.save_game(2), OK, "Generate the actual earlier public writer format")
+	var original_bytes := FileAccess.get_file_as_bytes("user://saves/save_2.json")
+	var preview := SaveManager.get_save_info(2)
+	assert_eq(preview["current_chapter"], 4)
+	assert_eq(preview["playtime_seconds"], 123.5)
+	assert_false(preview["save_name"].is_empty())
+	GameManager.story_flags.clear()
+	GameManager.current_chapter = 99
+	GameManager.faction_reputation["compact"] = 0
+	PartyManager.get_character("avyanna")["hp"] = 1
+	StoryManager.played_dialogues.clear()
+	assert_eq(SaveManager.load_game(2), OK)
+	assert_eq(GameManager.current_chapter, 4)
+	assert_eq(GameManager.get_flag("legacy_choice"), "wait")
+	assert_eq(GameManager.get_flag("legacy_false", true), false, "False values survive the legacy read")
+	assert_eq(GameManager.get_reputation("compact"), 12)
+	assert_eq(PartyManager.get_character("avyanna")["hp"], 42)
+	assert_true(StoryManager.has_played_dialogue("act1_naming_scene"))
+	assert_eq(GameManager.play_time, 123.5)
+	assert_eq(FileAccess.get_file_as_bytes("user://saves/save_2.json"), original_bytes, "Loading never rewrites an older save")
+	assert_true(DialogueManager.dialogue_history.is_empty(), "Missing old history is not invented")
+
+
+func test_nested_save_schema_has_precedence_over_legacy_root_fields() -> void:
+	var nested := {"game_state": {"flags": {"current": true}, "current_chapter": 3},
+		"story_flags": {"legacy": true}, "current_chapter": 9, "playtime_seconds": 45.0}
+	assert_eq(SaveManager._normalize_save_data(nested), nested, "Already nested records remain unchanged")
+
+
 func test_get_all_save_info() -> void:
 	# Create saves in different slots
 	GameManager.current_chapter = 1

@@ -177,7 +177,7 @@ func _show_abilities(character: Dictionary) -> void:
 		var heat_cost: int = ability.get("heat_cost", 0)
 		btn.text = "%s (Heat: %d, Charges: %d)" % [ability.get("name", "???"), heat_cost, charges]
 		btn.tooltip_text = ability.get("description", "")
-		var ab := ability  # capture
+		var ab: Dictionary = ability  # capture
 		btn.pressed.connect(func(): _on_ability_selected(ab))
 		ability_buttons.add_child(btn)
 
@@ -203,7 +203,7 @@ func _show_ability_bar(character: Dictionary) -> void:
 			ability.get("description", ""),
 		]
 		btn.custom_minimum_size = Vector2(100, 40)
-		var ab := ability
+		var ab: Dictionary = ability
 		btn.pressed.connect(func(): _on_ability_selected(ab))
 		ability_bar.add_child(btn)
 

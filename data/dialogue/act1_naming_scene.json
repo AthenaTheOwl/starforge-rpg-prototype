@@ -104,6 +104,11 @@
     "elia_name_offer": {
       "speaker": "Elia",
       "text": "[i]She reaches across the table. Not to touch — just to close distance.[/i] We had a name picked. Avyanna. In the same dialect, it means 'one who carries light she didn't steal.'",
+      "echoes": [
+        {"flag": "resistant_to_name", "text": "You can leave it lying here. We won't make you answer to it."},
+        {"flag": "eager_for_name", "text": "Try it as slowly as you like. We aren't going anywhere."},
+        {"flag": "confused_about_name", "text": "You can hear it a few times before you decide. It doesn't have to fix anything tonight."}
+      ],
       "next": "rho_reaction"
     },
     "rho_reaction": {
@@ -211,6 +216,9 @@
     "accept_after_question": {
       "speaker": "SYSTEM",
       "text": "[i]The presence behind your eyes pulses warmly. No cost. No invoice. Just a name, offered freely.[/i]",
+      "echoes": [
+        {"flag": "asked_name_cost", "text": "[i]You look at Elia's empty hand on the table. Nothing to sign. You can take another breath before deciding.[/i]"}
+      ],
       "choices": [
         {
           "text": "'Then yes. Avyanna Lagrange.'",
@@ -249,7 +257,10 @@
       "speaker": "SYSTEM",
       "text": "[i]The crew returns to dinner as if nothing world-changing just happened. Rho argues with Jalen about protein storage. Nyx explains something incomprehensible. Elia and Elisira sit close.\n\nAnd you sit among them, holding a name you haven't decided to keep yet, wondering if this is what belonging feels like.[/i]",
       "set_flag": "naming_complete",
-      "next": "end"
+      "echoes": [
+        {"flag": "hesitated_on_name", "text": "[i]You take a slow bite. No one leans across the table to turn the silence into an answer.[/i]"}
+      ],
+      "next": "dinner_after_answer"
     },
     "elia_welcome": {
       "speaker": "Elia",
@@ -342,12 +353,25 @@
       "speaker": "SYSTEM",
       "text": "[i]The presence behind your eyes pulses once — warm, patient, approving. Whatever it is, wherever it came from, it seems to agree: this name fits.[/i]",
       "set_flag": "has_lagrange_name",
+      "echoes": [
+        {"flag": "accepted_name_immediately", "text": "[i]You try your new name once under your breath. This time the sound gets past the tight place in your throat.[/i]"},
+        {"flag": "accepted_name", "text": "[i]You let the last name follow the first without stopping to search for the price of it.[/i]"},
+        {"flag": "suggested_name_modification", "text": "[i]You mouth the name once, testing where it bends around your own voice. No one corrects the shape you give it.[/i]"}
+      ],
       "next": "naming_complete_flag"
     },
     "naming_complete_flag": {
       "speaker": "SYSTEM",
       "text": "[i]You are Avyanna Lagrange. Not because someone filed the paperwork. Because people who owe you nothing offered you everything, and you let them.[/i]",
       "set_flag": "naming_complete",
+      "next": "dinner_after_answer"
+    },
+    "dinner_after_answer": {
+      "speaker": "SYSTEM",
+      "text": "[i]You turn back to your dinner.[/i]",
+      "echoes": [
+        {"flag": "naming_complete", "text": "[i]Your next mouthful has gone cold. You eat it among them anyway; no one is waiting for another answer.[/i]"}
+      ],
       "next": "end"
     }
   }

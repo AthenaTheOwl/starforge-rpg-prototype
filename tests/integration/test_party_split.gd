@@ -52,8 +52,8 @@ func after_each() -> void:
 
 
 func test_setup_split_assigns_teams() -> void:
-	var team_a := ["avyanna", "rho", "kael", "cipher"]
-	var team_b := ["char5", "char6", "char7"]
+	var team_a: Array[String] = ["avyanna", "rho", "kael", "cipher"]
+	var team_b: Array[String] = ["char5", "char6", "char7"]
 
 	split.setup_split(team_a, team_b)
 
@@ -75,7 +75,7 @@ func test_set_team_b_orders_changes_mode() -> void:
 
 func test_simulate_team_b_turn_returns_valid_report() -> void:
 	# Mock PartyManager.get_character to return test characters
-	var team_b := ["rho", "kael"]
+	var team_b: Array[String] = ["rho", "kael"]
 
 	# Manually set up team B status since we can't rely on PartyManager in tests
 	split.team_b = team_b
@@ -85,7 +85,7 @@ func test_simulate_team_b_turn_returns_valid_report() -> void:
 	}
 
 	# Add some enemies for team B to face
-	var enemies := [
+	var enemies: Array[Dictionary] = [
 		{"id": "enemy_0", "name": "Raider A", "hp": 50, "hp_max": 50},
 		{"id": "enemy_1", "name": "Raider B", "hp": 50, "hp_max": 50},
 	]
@@ -108,15 +108,15 @@ func test_hold_mode_reduces_damage_taken() -> void:
 	}
 
 	# Set up enemies
-	var enemies := [
+	var enemies: Array[Dictionary] = [
 		{"id": "enemy_0", "name": "Raider", "hp": 50, "hp_max": 50},
 	]
 	split.set_team_b_enemies(enemies)
 
 	# HOLD mode
 	split.set_team_b_orders(PartySplit.TeamBMode.HOLD)
-	var rho_hp_before := split.team_b_status["rho"]["hp"]
-	var kael_hp_before := split.team_b_status["kael"]["hp"]
+	var rho_hp_before: int = split.team_b_status["rho"]["hp"]
+	var kael_hp_before: int = split.team_b_status["kael"]["hp"]
 
 	var report_hold: Dictionary = split.simulate_team_b_turn()
 	var damage_hold: int = report_hold.get("damage_taken", 0)
@@ -281,7 +281,7 @@ func test_team_b_takes_damage_over_multiple_turns() -> void:
 	}
 
 	# Add enemies
-	var enemies := [
+	var enemies: Array[Dictionary] = [
 		{"id": "enemy_0", "name": "Raider", "hp": 50, "hp_max": 50},
 	]
 	split.set_team_b_enemies(enemies)
@@ -305,7 +305,7 @@ func test_team_b_defeats_enemies_in_advance_mode() -> void:
 	}
 
 	# Add weak enemies that can be defeated
-	var enemies := [
+	var enemies: Array[Dictionary] = [
 		{"id": "enemy_0", "name": "Weak Raider", "hp": 30, "hp_max": 30},
 	]
 	split.set_team_b_enemies(enemies)

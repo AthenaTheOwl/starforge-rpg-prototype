@@ -53,7 +53,7 @@ func _populate_actions() -> void:
 		var btn := Button.new()
 		btn.text = action.get("label", "???")
 		btn.tooltip_text = action.get("tooltip", "")
-		var action_data := action  # capture for lambda
+		var action_data: Dictionary = action  # capture for lambda
 		btn.pressed.connect(func(): _execute_action(action_data))
 		action_buttons.add_child(btn)
 
@@ -151,7 +151,7 @@ func _update_info_label() -> void:
 
 
 func _on_save() -> void:
-	var err := GameManager.save_game(0)
+	var err := SaveManager.save_game(0)
 	if err == OK:
 		description_text.text += "\n\n[i]Game saved.[/i]"
 	else:
