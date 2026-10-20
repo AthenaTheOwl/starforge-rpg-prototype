@@ -145,6 +145,22 @@ func test_no_recruitment_flags_in_bonding_files():
 	)
 
 
+func test_bond_commitments_autosave():
+	## Committing to a bond is a major story beat; GameManager autosaves on it.
+	var bond_flags: Array = []
+	for file_path in _get_bonding_files():
+		var dialogue = _load_dialogue(file_path)
+		for node in dialogue.get("nodes", {}).values():
+			for holder in [node] + node.get("choices", []):
+				var flag = holder.get("set_flag", "")
+				if typeof(flag) == TYPE_STRING and flag.ends_with("_bonded") and not (flag in bond_flags):
+					bond_flags.append(flag)
+	assert_eq(bond_flags.size(), 5, "Each of the five bonding scenes sets its bond flag: " + str(bond_flags))
+	for flag in bond_flags:
+		assert_true(GameManager._is_major_story_flag(flag), "%s should trigger an autosave" % flag)
+	assert_true(GameManager._is_major_story_flag("bonded_with_nyx"), "Older bond flag names still count as major")
+
+
 func test_bbcode_formatting_consistency():
 	var mismatches: Array = []
 
@@ -223,7 +239,7 @@ func test_every_flag_is_echoed():
 	var all_flags_referenced: Array = []
 	# Internal/system flags that don't need dialogue echoes
 	var system_flag_prefixes = [
-		"chapter_", "act_", "recruited_", "bonded_", "_pending",
+		"chapter_", "act_", "recruited_", "_pending",
 		"met_", "first_watch_visited_", "dinner_watched_",
 		"deep_", "witnessed_", "tutorial_",
 	]

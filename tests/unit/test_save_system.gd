@@ -221,6 +221,16 @@ func test_old_public_flat_save_preserves_available_state_and_preview_without_rew
 	assert_true(DialogueManager.dialogue_history.is_empty(), "Missing old history is not invented")
 
 
+func test_older_bond_flag_names_load_as_the_names_dialogue_reads() -> void:
+	GameManager.story_flags = {"bonded_with_nyx": true, "bonded_with_rho": true, "rho_bonded": false}
+	assert_eq(SaveManager.save_game(1), OK)
+	GameManager.story_flags.clear()
+	assert_eq(SaveManager.load_game(1), OK)
+	assert_true(GameManager.get_flag("nyx_bonded", false), "bonded_with_nyx loads as nyx_bonded")
+	assert_true(GameManager.get_flag("bonded_with_nyx", false), "The saved name is kept")
+	assert_eq(GameManager.get_flag("rho_bonded", true), false, "An existing new-name flag is not overwritten")
+
+
 func test_nested_save_schema_has_precedence_over_legacy_root_fields() -> void:
 	var nested := {"game_state": {"flags": {"current": true}, "current_chapter": 3},
 		"story_flags": {"legacy": true}, "current_chapter": 9, "playtime_seconds": 45.0}

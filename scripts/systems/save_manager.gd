@@ -227,6 +227,12 @@ func _restore_save_data(data: Dictionary) -> void:
 	# Restore game state
 	var game_state: Dictionary = data.get("game_state", {})
 	GameManager.story_flags = game_state.get("flags", {})
+	# Saves made before the bond flags were renamed hold bonded_with_<name>;
+	# the dialogue reads <name>_bonded.
+	for flag in GameManager.story_flags.keys():
+		var bond := str(flag).trim_prefix("bonded_with_") + "_bonded"
+		if str(flag).begins_with("bonded_with_") and not GameManager.story_flags.has(bond):
+			GameManager.story_flags[bond] = GameManager.story_flags[flag]
 	GameManager.faction_reputation = game_state.get("reputation", GameManager.faction_reputation)
 	GameManager.current_act = game_state.get("current_act", 1)
 	GameManager.current_chapter = game_state.get("current_chapter", 1)
