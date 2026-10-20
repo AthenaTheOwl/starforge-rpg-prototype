@@ -82,3 +82,48 @@ missing tracks. Custom reputation keys `guild`, `crew_trust`, `lattice_affinity`
 have no implemented state mapping. Existing location, balance and UI TODO queues
 remain visible. The Linux CI asset SHA256 is
 `cadd3204e728a35d3f13adb7fd0d7902636b79f6b95c40c265eb73b6c35329e4`.
+
+## Correction — October 19, 2026, later review
+
+This section was added after the record above. The review first edited three
+passages above in place; they have been restored to their original wording, and
+the corrections are collected here instead.
+
+Text-bearing checks. Nine duplicate inline checks delegate after their original
+staging, as stated above. Nine more checks carried an authored line that the
+runtime never showed, because a check rolls before any text: mentor trace, shard
+communion, the Elia empathy roll, the stealth/assault/hybrid approach checks,
+Jalen's tech walkthrough, the equipment insight check and the trust-crisis
+intervene check. Each now shows its line before a separate check router rolls,
+and tests cover the staging text and a single roll for each.
+
+Echo lines. The "contextual consequences for 109 unread decisions/events" above
+are 115 echo lines. In 29 of them the flag is set on every path to the node
+inside its own scene, so the line always renders there rather than varying by
+choice. A walk of the whole act as ChapterFlow and StoryManager run it (story
+dialogues in order behind their flag gates, optional scenes played or skipped)
+finds two more that rely on an earlier mandatory scene:
+`act1_team_briefing_complete` in the climax and `trust_crisis_resolved` in the
+briefing. Of those 31 lines, 8 now test an earlier choice that varies at their
+node and 23 were removed, leaving 92 echo lines; no original prose changed.
+
+Closing-node callbacks. Of the four closing nodes above, only
+`dinner_after_answer` and `citizen_at_rest` still carry a callback; the echoes on
+`beyond_k9` and `watch_released` were among the 23 removed. The packed-UI test
+keeps all four as terminal-prose cases and now asserts which two carry a
+callback.
+
+Reputation keys. Besides `guild`, `crew_trust` and `lattice_affinity`, the keys
+`corporate_heat`, `unknown_ally` and `QC-7` also have no implemented state
+mapping; grants to any of the six are ignored.
+
+The GUT content test no longer renders authored echoes with a false flag or with
+rival choices set together, states play does not produce. It walks each scene as
+DialogueManager runs it and renders echoes only in the flag states it reaches;
+the false/unset distinction stays covered by the synthetic unit test.
+`tools/validate_project.py` now fails an echo that always or never renders, and
+any flag the game reads without a writer. The five bond flags and
+`rho_mentioned_past` gained setters; 16 dialogue flags with no clearly intended
+setter and 11 exploration gates are listed with reasons. The bond flags are now
+named `<name>_bonded`, still autosave when set, and saves holding the older
+`bonded_with_<name>` load under the new name.

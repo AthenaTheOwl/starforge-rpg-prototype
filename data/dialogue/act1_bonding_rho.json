@@ -31,7 +31,8 @@
         },
         {
           "text": "Why does loyalty matter so much to you?",
-          "next": "ask_loyalty"
+          "next": "ask_loyalty",
+          "set_flag": "rho_mentioned_past"
         },
         {
           "text": "What comes first for you\u2014mission or crew?",
@@ -192,7 +193,7 @@
         {
           "text": "I'm with you. All of you. No matter what.",
           "next": "full_commitment",
-          "set_flag": "bonded_with_rho",
+          "set_flag": "rho_bonded",
           "reputation": {
             "rho": 2
           }
@@ -200,7 +201,7 @@
         {
           "text": "I'll fight for us. But I won't lie\u2014it scares me.",
           "next": "honest_commitment",
-          "set_flag": "bonded_with_rho",
+          "set_flag": "rho_bonded",
           "reputation": {
             "rho": 1
           }
@@ -221,12 +222,6 @@
       "next": "full_commitment_end"
     },
     "full_commitment_end": {
-      "echoes": [
-        {
-          "flag": "rho_solidified",
-          "text": "[i]He holds the door with his free hand. No test, no speech. Just room for you to walk beside him.[/i]"
-        }
-      ],
       "speaker": "SYSTEM",
       "text": "Rho stands, picking up his cannon with practiced ease. He pauses at the doorway, looking back. The weight of his seventy-three souls seems lighter, somehow. Shared.",
       "next": "end"
@@ -238,12 +233,6 @@
       "next": "honest_commitment_end"
     },
     "honest_commitment_end": {
-      "echoes": [
-        {
-          "flag": "rho_solidified",
-          "text": "[i]He holds the door with his free hand. No test, no speech. Just room for you to walk beside him.[/i]"
-        }
-      ],
       "speaker": "SYSTEM",
       "text": "Rho stands, picking up his cannon with practiced ease. He pauses at the doorway, looking back. The weight of his seventy-three souls seems lighter, somehow. Shared.",
       "next": "end"

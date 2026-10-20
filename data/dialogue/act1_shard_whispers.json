@@ -226,7 +226,11 @@
 		"communion_attempt": {
 			"speaker": "SYSTEM",
 			"text": "[i]The shard flares. Heat rolls through you — not painful, but deep, tectonic. The air in the bunk tastes like ozone and old copper. Something is building. Something wants to show you more.[/i]",
-			"skill_check": {
+			"next": "communion_attempt_resolve"
+		},
+		"communion_attempt_resolve": {
+			"type": "skill_check",
+			"check": {
 				"stat": "resonance",
 				"skill": "resonance",
 				"dc": 12,
@@ -250,7 +254,7 @@
 		"physical_effects": {
 			"echoes": [
 				{
-					"flag": "bee_communion",
+					"flag": "shard_open",
 					"text": "[i]Your fingers curl toward the warmth before you lay them flat on the blanket. Reaching back was a choice; you can stop reaching now.[/i]"
 				}
 			],

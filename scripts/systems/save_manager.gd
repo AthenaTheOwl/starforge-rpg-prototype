@@ -227,6 +227,12 @@ func _restore_save_data(data: Dictionary) -> void:
 	# Restore game state
 	var game_state: Dictionary = data.get("game_state", {})
 	GameManager.story_flags = game_state.get("flags", {})
+	# Saves made before the bond flags were renamed hold bonded_with_<name>;
+	# the dialogue reads <name>_bonded.
+	for flag in GameManager.story_flags.keys():
+		var bond := str(flag).trim_prefix("bonded_with_") + "_bonded"
+		if str(flag).begins_with("bonded_with_") and not GameManager.story_flags.has(bond):
+			GameManager.story_flags[bond] = GameManager.story_flags[flag]
 	GameManager.faction_reputation = game_state.get("reputation", GameManager.faction_reputation)
 	GameManager.current_act = game_state.get("current_act", 1)
 	GameManager.current_chapter = game_state.get("current_chapter", 1)
@@ -256,9 +262,12 @@ func _restore_save_data(data: Dictionary) -> void:
 	if data.has("story_progress"):
 		StoryManager.deserialize(data["story_progress"])
 
-	# Restore relationships
+	# Restore relationships. Older flat saves never stored affinity, so start
+	# from the defaults (as New Game does) rather than keep this session's.
 	if data.has("relationships"):
 		RelationshipManager.deserialize(data["relationships"])
+	else:
+		RelationshipManager._initialize_affinity()
 
 	# Navigate to chapter flow to resume story
 	GameManager.change_state(GameManager.GameState.EXPLORATION)

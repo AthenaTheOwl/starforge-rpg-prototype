@@ -933,7 +933,8 @@
         },
         {
           "text": "In combat, I'll watch your back. Always.",
-          "next": "combat_coordination_path"
+          "next": "combat_coordination_path",
+          "set_flag": "rho_watch_back_promised"
         },
         {
           "text": "When it gets heavy, you tell me. Deal?",
@@ -1017,7 +1018,7 @@
     "bonded_final": {
       "echoes": [
         {
-          "flag": "rho_combat_coordination",
+          "flag": "rho_watch_back_promised",
           "text": "And when I call a direction, call yours back. Watching your back doesn't mean I stop listening."
         }
       ],

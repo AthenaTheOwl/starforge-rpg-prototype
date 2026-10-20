@@ -108,7 +108,7 @@
 				{
 					"text": "Accept. 'I want to learn. Teach me.'",
 					"next": "accept_immediate",
-					"set_flag": "bonded_with_jalen",
+					"set_flag": "jalen_bonded",
 					"reputation": {"jalen": 2, "elia": 1}
 				},
 				{
@@ -149,7 +149,7 @@
 				{
 					"text": "'Then yes. I want to learn.'",
 					"next": "accept_after_crew",
-					"set_flag": "bonded_with_jalen",
+					"set_flag": "jalen_bonded",
 					"reputation": {"jalen": 3}
 				},
 				{
@@ -181,7 +181,7 @@
 				{
 					"text": "'Then teach me. I want to try.'",
 					"next": "accept_after_doubt",
-					"set_flag": "bonded_with_jalen",
+					"set_flag": "jalen_bonded",
 					"reputation": {"jalen": 4}
 				},
 				{

@@ -21,7 +21,7 @@ const KNOWN_CHARACTERS = [
 	"ALL",
 	"Lead Pirate",
 	# Canonical narration, first-contact aliases and deliberately unnamed mentor.
-	"BEE", "Narration", "Soufflé", "Security Sergeant", "???"
+	"BEE", "Narration", "Security Sergeant", "???"
 ]
 const FORBIDDEN_FLAGS = [
 	"recruited_vesper",

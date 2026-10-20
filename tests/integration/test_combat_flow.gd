@@ -3,6 +3,11 @@ extends GutTest
 ## status persistence, victory/defeat conditions.
 
 
+## Combat victory autosaves to user://saves.
+func should_skip_script():
+	return preload("res://tests/user_state_guard.gd").skip_reason()
+
+
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------

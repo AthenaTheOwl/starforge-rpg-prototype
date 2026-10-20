@@ -7,7 +7,9 @@ and GUT for engine behavior, with Python reserved for static project hygiene.
 
 - `python -m pytest` runs lightweight repo and static-validation tests.
 - `python tools/validate_project.py` checks JSON, dialogue graph links, callback
-  schema and downstream writer provenance, quest references, Godot resource
+  schema and downstream writer provenance, that each callback can render on one
+  route through the act and stay silent on another, that every flag the game
+  reads has a writer (listed exceptions aside), quest references, Godot resource
   paths, and cleanup boundaries.
 - `python tools/playtest_audit.py` checks Act 1 location graph reachability,
   story-unlock queues, quest target links, encounter threat scores, and

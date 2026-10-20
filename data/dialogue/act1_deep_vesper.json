@@ -251,12 +251,6 @@
       "next": "what_happened"
     },
     "blame_confirmed": {
-      "echoes": [
-        {
-          "flag": "vesper_guilt_understood",
-          "text": "You've seen the way I grip it. Then let me put it down long enough to tell you why."
-        }
-      ],
       "speaker": "Vesper",
       "text": "[i]She stops cleaning the rifle. Her hands are very still.[/i]\n\nYeah. I do.",
       "next": "blame_story"
@@ -548,12 +542,6 @@
       "next": "survived_response"
     },
     "still_doing_it_response": {
-      "echoes": [
-        {
-          "flag": "vesper_coping_seen",
-          "text": "Don't let 'checking the route' pass for an answer when you ask if I've slept."
-        }
-      ],
       "speaker": "Vesper",
       "text": "[i]She turns from the viewport. In the starlight, her expression is stripped bare — no wit, no armor, no angles. Just a woman who's been running from a shuttle pad for twelve years.[/i]\n\nYeah. I am. And I don't know how to stop. Because stopping means feeling it. All of it. Every meter of those thirty-seven.",
       "next": "debt_response"

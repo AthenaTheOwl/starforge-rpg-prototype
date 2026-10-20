@@ -1050,9 +1050,6 @@
 		"watch_released": {
 			"speaker": "SYSTEM",
 			"text": "[i]Your fingers loosen around the empty cup.[/i]",
-			"echoes": [
-				{"flag": "completed_night_watch", "text": "[i]There is no console waiting for your hands now. You set the cup down and let the bunk take your weight.[/i]"}
-			],
 			"next": "end"
 		}
 	}

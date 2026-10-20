@@ -1072,13 +1072,7 @@
     "nyx_sees_bee": {
       "speaker": "Nyx",
       "text": "[i]Staring at your chest, where the shard's faint glow pulses beneath your clothing.[/i] It's listening. Your shard — Bee. It's been listening this whole time.",
-      "next": "avyanna_confirms_bee",
-      "echoes": [
-        {
-          "flag": "nyx_shared_writbound",
-          "text": "The gaps I told you about started with people deciding they knew what I needed."
-        }
-      ]
+      "next": "avyanna_confirms_bee"
     },
     "avyanna_confirms_bee": {
       "speaker": "Avyanna",
@@ -1406,7 +1400,7 @@
       "next": "avyanna_agrees_sharing",
       "echoes": [
         {
-          "flag": "nyx_lattice_training",
+          "flag": "nyx_bee_watchguard",
           "text": "Tomorrow we log your baseline before you touch a conduit. No silent damage."
         }
       ]

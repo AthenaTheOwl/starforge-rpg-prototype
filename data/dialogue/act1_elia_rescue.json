@@ -432,17 +432,11 @@
 			"speaker": "Narration",
 			"text": "The shuttle climbs through low cloud cover, and Site K-9 vanishes.\n\nBelow, the fire still burns. Behind you, the old life collapses in on itself. Ahead, the dark, and whatever waits in it.\n\nThe Lattice hums. BEE:: hums with it. And Elia—the woman with the blade called Mourning, who cut through a building to find you—sits in the co-pilot seat with her eyes half-closed, already planning the next extraction.\n\n[i]You are free. You do not yet know what that means.[/i]",
 			"set_flag": "left_site_k9",
-			"echoes": [
-				{"flag": "elia_rescued", "text": "You keep waiting for the next order to run. None comes."}
-			],
 			"next": "beyond_k9"
 		},
 		"beyond_k9": {
 			"speaker": "Narration",
 			"text": "The shuttle keeps climbing.",
-			"echoes": [
-				{"flag": "left_site_k9", "text": "Your fingers are still curled as if around a door handle. You open them against your knees."}
-			],
 			"next": "end"
 		}
 	}

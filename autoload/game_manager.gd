@@ -203,6 +203,7 @@ func transition_to_dialogue(dialogue_id: String) -> void:
 func _is_major_story_flag(flag_name: String) -> bool:
 	return (
 		flag_name.begins_with("bonded_") or
+		flag_name.ends_with("_bonded") or
 		flag_name.begins_with("act_") or
 		flag_name.begins_with("chapter_") or
 		flag_name.begins_with("milestone_") or

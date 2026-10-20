@@ -116,7 +116,7 @@
         {
           "text": "Accept. 'I want to understand. Teach me.'",
           "next": "accept_immediate",
-          "set_flag": "bonded_with_nyx",
+          "set_flag": "nyx_bonded",
           "reputation": {
             "nyx": 2,
             "elia": 1
@@ -162,7 +162,7 @@
         {
           "text": "'That's fair. I'll work to earn more than provisional trust.'",
           "next": "accept_after_trust",
-          "set_flag": "bonded_with_nyx",
+          "set_flag": "nyx_bonded",
           "reputation": {
             "nyx": 3
           }
@@ -206,7 +206,7 @@
         {
           "text": "'Then I'll trust you to help me. I accept.'",
           "next": "accept_after_fear",
-          "set_flag": "bonded_with_nyx",
+          "set_flag": "nyx_bonded",
           "reputation": {
             "nyx": 2
           }

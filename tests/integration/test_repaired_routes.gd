@@ -2,6 +2,11 @@ extends GutTest
 ## Exercise the public entrances through actual available DialogueManager choices.
 ## A graph-only reference cannot prove a gated choice is selectable at runtime.
 
+
+## Accepting the surname sets a major story flag, which autosaves to user://saves.
+func should_skip_script():
+	return preload("res://tests/user_state_guard.gd").skip_reason()
+
 var saved_flags: Dictionary
 var saved_reputation: Dictionary
 var saved_played: Array[String]
@@ -151,7 +156,16 @@ func test_authored_staging_is_displayed_before_one_check_in_both_outcomes():
 		["act1_deep_vesper", "night_aftermath_response", 2, ["insight_check_math"], "insight_check_math_resolve"],
 		["act1_deep_vesper", "coping_response", 1, ["empathy_check_2"], "empathy_check_2_resolve"],
 		["act1_deep_vesper", "vesper_fear_response", 2, ["insight_check_caring"], "insight_check_caring_resolve"],
-		["act1_forbidden_citizens", "choice_early_reaction", 2, ["empathy_check"], "empathy_check_resolve"],
+		["act1_forbidden_citizens", "choice_early_reaction", 2, ["empathy_check", "empathy_check_resolve"], "empathy_check_roll"],
+		# Text-bearing checks keep their authored line visible before the roll.
+		["act1_mentor_contact", "player_choice", 3, ["trace_attempt"], "trace_attempt_resolve"],
+		["act1_shard_whispers", "bee_what_are_you", 2, ["communion_attempt"], "communion_attempt_resolve"],
+		["act1_climax_setup", "approach_player_choice", 0, ["stealth_choice_check"], "stealth_choice_check_resolve"],
+		["act1_climax_setup", "approach_player_choice", 1, ["assault_choice_check"], "assault_choice_check_resolve"],
+		["act1_climax_setup", "approach_player_choice", 2, ["hybrid_choice_check"], "hybrid_choice_check_resolve"],
+		["act1_climax_setup", "jalen_personal_choice", 0, ["jalen_tech_detail_2", "jalen_tech_check"], "jalen_tech_check_resolve"],
+		["act1_climax_setup", "personal_return", 1, ["bee_equipment_scan", "equipment_insight_check"], "equipment_insight_check_resolve"],
+		["act1_trust_breaking_point", "player_choice", 0, ["intervene_check"], "intervene_check_resolve"],
 	]
 	for route in routes:
 		var data := DialogueManager._load_dialogue(route[0])
@@ -168,7 +182,7 @@ func test_authored_staging_is_displayed_before_one_check_in_both_outcomes():
 			_seed_exact_roll(roll)
 			DialogueManager.select_choice(route[2])
 			var expected: String = check["on_failure"] if roll == 1 else check["on_success"]
-			for _step in range(10):
+			for _step in range(20):
 				if DialogueManager.get_history().back().get("node_id") == expected or not DialogueManager.is_active:
 					break
 				DialogueManager._display_node(DialogueManager.current_node_id)

@@ -70,8 +70,12 @@ character stats and the 14 encounters, then WARN that the Cult Hierophant is an
 all her dialogues when 50 is the sane ceiling. Balance is a number that drifts; this
 catches the drift before a playtester does.
 
-With Godot installed, run the GUT suite from the editor or CLI using the included
-`.gutconfig.json`.
+With Godot installed, run the GUT suite through `tools/check_release.py` (the
+native gate command below). It points Godot's `user://` at the ignored
+`reports/native-state/` before any test runs. The save tests overwrite and delete
+save slots and the autosave, and the combat and repaired-route tests trigger the
+autosave, so all three skip themselves when GUT is started directly from the
+editor or CLI against your real `user://`.
 
 For the full native release gate on a machine with Godot installed:
 
@@ -83,8 +87,10 @@ python tools\check_release.py --clean --fail-on-generated --require-godot --godo
 checks cover static project/data validation, the path/dead-letter audit, and balance.
 Godot/GUT is the engine-native gate. It imports a fresh class/resource cache,
 requires every checked-in GUT method to assert and pass, then runs a seeded
-scene/combat/save smoke through real UI controls. Each engine step has a timeout;
-script errors and ignored or risky tests fail even on a zero exit code.
+scene/combat/save smoke that emits the loaded scenes' control signals (and calls
+the dialogue click handler) directly rather than clicking; only Escape is sent as
+a key event. Each engine step has a timeout; script errors and ignored or risky
+tests fail even on a zero exit code.
 The `--clean` flag removes known Godot editor artifacts before and after the run.
 See `docs/deterministic-orchestration.md` for the proof gates.
 

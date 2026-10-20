@@ -2,6 +2,11 @@ extends GutTest
 ## Unit tests for SaveManager — save/load system.
 
 
+## These tests overwrite and delete user://saves.
+func should_skip_script():
+	return preload("res://tests/user_state_guard.gd").skip_reason()
+
+
 func before_each() -> void:
 	# Clean up any existing test saves
 	_cleanup_test_saves()
@@ -192,7 +197,10 @@ func test_old_public_flat_save_preserves_available_state_and_preview_without_rew
 	GameManager.faction_reputation["compact"] = 0
 	PartyManager.get_character("avyanna")["hp"] = 1
 	StoryManager.played_dialogues.clear()
+	RelationshipManager.change_affinity("nyx", 80)
 	assert_eq(SaveManager.load_game(2), OK)
+	assert_eq(RelationshipManager.get_affinity("nyx"), RelationshipManager.CHARACTERS["nyx"]["starting_affinity"],
+		"Flat saves never stored affinity; loading one does not keep this session's")
 	assert_eq(GameManager.current_chapter, 4)
 	assert_eq(GameManager.get_flag("legacy_choice"), "wait")
 	assert_eq(GameManager.get_flag("legacy_false", true), false, "False values survive the legacy read")
@@ -204,10 +212,33 @@ func test_old_public_flat_save_preserves_available_state_and_preview_without_rew
 	assert_true(DialogueManager.dialogue_history.is_empty(), "Missing old history is not invented")
 
 
+func test_older_bond_flag_names_load_as_the_names_dialogue_reads() -> void:
+	GameManager.story_flags = {"bonded_with_nyx": true, "bonded_with_rho": true, "rho_bonded": false}
+	assert_eq(SaveManager.save_game(1), OK)
+	GameManager.story_flags.clear()
+	assert_eq(SaveManager.load_game(1), OK)
+	assert_true(GameManager.get_flag("nyx_bonded", false), "bonded_with_nyx loads as nyx_bonded")
+	assert_true(GameManager.get_flag("bonded_with_nyx", false), "The saved name is kept")
+	assert_eq(GameManager.get_flag("rho_bonded", true), false, "An existing new-name flag is not overwritten")
+
+
 func test_nested_save_schema_has_precedence_over_legacy_root_fields() -> void:
 	var nested := {"game_state": {"flags": {"current": true}, "current_chapter": 3},
 		"story_flags": {"legacy": true}, "current_chapter": 9, "playtime_seconds": 45.0}
 	assert_eq(SaveManager._normalize_save_data(nested), nested, "Already nested records remain unchanged")
+
+
+func test_slot_labels_are_plain_text_for_buttons() -> void:
+	assert_eq(SaveManager.save_game(0), OK)
+	var screen: Control = load("res://scenes/menus/save_load_screen.tscn").instantiate()
+	add_child_autofree(screen)
+	var saved: String = screen.slots_container.get_child(0).get_child(0).text
+	var empty: String = screen.slots_container.get_child(1).get_child(0).text
+	assert_true(saved.begins_with("Save Slot 1\n"), "Saved slot keeps its name")
+	assert_true(saved.contains("Act ") and not saved.contains("Empty Slot"), "Saved slot shows save metadata")
+	assert_eq(empty, "Save Slot 2\nEmpty Slot", "Empty slot reads as plain text")
+	for label in [saved, empty]:
+		assert_false(label.contains("[b]") or label.contains("[i]"), "Button text does not render BBCode tags")
 
 
 func test_get_all_save_info() -> void:
