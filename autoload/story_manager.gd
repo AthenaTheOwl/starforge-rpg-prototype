@@ -94,7 +94,9 @@ const DIALOGUE_REQUIREMENTS: Dictionary = {
 	# optional and must not prevent the next chapter or Bee's later appearance.
 	"act1_first_watch": ["naming_complete"],
 	"act1_ai_citizens_intro": ["completed_first_watch"],
-	"act1_forbidden_citizens": ["ai_citizens_introduced"],
+	# The crew's AIs are met on the main path in First Watch; the optional
+	# "Meet the Citizens" scene deepens that and must not gate chapter 6.
+	"act1_forbidden_citizens": ["completed_first_watch"],
 	"act1_bee_manifestation": ["naming_complete"],
 	"act1_corporate_conspiracy": {"flags": ["bee_revealed"]},
 	"act1_mentor_contact": [],
