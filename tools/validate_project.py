@@ -378,6 +378,79 @@ def echo_variation_errors(dialogues: dict, story_source: str) -> list[str]:
     return errors
 
 
+def validate_story_progression() -> list[str]:
+    dialogue_root = ROOT / "data" / "dialogue"
+    dialogues = {path.stem: json.loads(path.read_text(encoding="utf-8")) for path in sorted(dialogue_root.glob("*.json"))}
+    source = (ROOT / "autoload/story_manager.gd").read_text(encoding="utf-8")
+    return [f"autoload/story_manager.gd: {error}" for error in story_softlocks(dialogues, source)]
+
+
+def story_softlocks(dialogues: dict, story_source: str) -> list[str]:
+    """The act must be finishable on every route while every optional dialogue is skipped.
+
+    Plays only the story dialogues, as ChapterFlow auto-plays them: the first
+    unplayed one whose StoryManager flag gates hold, in chapter order, with
+    each chapter's chapter_N_complete flag set on advancing. Every branch of
+    each scene is followed. A chapter whose remaining story dialogues are all
+    gated shows a hub with a disabled Continue button and nothing to play: a
+    softlock. A gate flag written only by optional content is exactly this bug.
+    """
+    chapters = chapter_sequence(story_source)
+    requirements = story_flag_requirements(story_source)
+    optional_scenes = {scene for _, optional in chapters for scene in optional}
+    tracked = {flag for flags in requirements.values() for flag in flags}
+    for payload in dialogues.values():
+        for node in payload.get("nodes", {}).values():
+            if not isinstance(node, dict):
+                continue
+            for variant in node.get("variants", []):
+                tracked |= condition_flags(variant)
+            tracked |= {choice["requires_flag"] for choice in node.get("choices", []) if "requires_flag" in choice}
+    tracked_flags = frozenset(tracked)
+    writers: dict[str, set[str]] = {}
+    for scene, payload in dialogues.items():
+        for flag in dialogue_flag_writes(payload.get("nodes", {})):
+            writers.setdefault(flag, set()).add(scene)
+    cache: dict[tuple[str, frozenset], set[frozenset]] = {}
+    errors: list[str] = []
+    seen: set[tuple[int, frozenset, frozenset]] = set()
+    pending = [(0, frozenset(), frozenset())]
+    while pending:
+        state = pending.pop()
+        if state in seen or state[0] >= len(chapters):
+            continue
+        seen.add(state)
+        index, played, flags = state
+        remaining = [scene for scene in chapters[index][0] if scene in dialogues and scene not in played]
+        if not remaining:
+            pending.append((index + 1, frozenset(), flags | {f"chapter_{index}_complete"}))
+            continue
+        ready = [scene for scene in remaining if all(gate in flags for gate in requirements.get(scene, []))]
+        if ready:
+            scene = ready[0]
+            payload = dialogues[scene]
+            key = (scene, flags & tracked_flags)
+            if key not in cache:
+                cache[key] = explore_scene(payload.get("nodes", {}), payload.get("start_node", "start"), key[1], tracked_flags)[0]
+            carried = flags - tracked_flags
+            pending.extend((index, played | {scene}, exit_flags | carried) for exit_flags in cache[key])
+            continue
+        for scene in remaining:
+            for gate in requirements.get(scene, []):
+                if gate in flags:
+                    continue
+                sources = sorted(writers.get(gate, set()))
+                optional_only = sources and all(source in optional_scenes for source in sources)
+                detail = (f"written only by optional {', '.join(sources)}" if optional_only
+                          else f"written by {', '.join(sources)}, but not on this route" if sources
+                          else "written by no dialogue")
+                message = (f"chapter {index}: story dialogue {scene} waits on flag {gate!r} ({detail}); "
+                           "with optional content skipped the chapter cannot be completed")
+                if message not in errors:
+                    errors.append(message)
+    return errors
+
+
 # Read by authored dialogue but set nowhere in this port or the Ren'Py port, and
 # no earlier choice clearly earns them, so their lines wait until the author
 # decides where each is set. shard_whispers_heard is read at the start of
@@ -521,6 +594,7 @@ def main() -> int:
         parse_json_files,
         validate_dialogue_graphs,
         validate_echo_variation,
+        validate_story_progression,
         validate_flag_writers,
         validate_quest_locations,
         validate_project_paths,
