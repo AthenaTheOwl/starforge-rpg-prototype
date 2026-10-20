@@ -43,6 +43,16 @@
     "elia_reveal_start": {
       "speaker": "Elia",
       "text": "Waffle. Bubbles. Cinnamon. The others.",
+      "text_variants": [
+        {
+          "conditions": {
+            "flags": [
+              "ai_citizens_introduced"
+            ]
+          },
+          "text": "Waffle. Bubbles. Cinnamon. The others. The ones who introduced themselves to you."
+        }
+      ],
       "next": "elia_reveal_illegal"
     },
     "elia_reveal_illegal": {

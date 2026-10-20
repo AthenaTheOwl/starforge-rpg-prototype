@@ -6,7 +6,11 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 DIALOGUE = ROOT / "data" / "dialogue"
 sys.path.insert(0, str(ROOT / "tools"))
-from validate_project import dialogue_flag_reads, unwritten_flag_reads  # noqa: E402
+from validate_project import (  # noqa: E402
+    dialogue_flag_reads,
+    story_softlocks,
+    unwritten_flag_reads,
+)
 
 
 def nodes(scene: str) -> dict:
@@ -54,3 +58,55 @@ def test_unwritten_reads_fail_unless_listed_and_the_list_cannot_go_stale() -> No
         "known-unset flag 'known' is now written or no longer read; drop it from the list"]
     assert unwritten_flag_reads({"real": {"a.json:n3"}}, {"real"}, {"known"}) == [
         "known-unset flag 'known' is now written or no longer read; drop it from the list"]
+
+
+def softlock(chapter: int, scene: str, flag: str, detail: str) -> str:
+    return (f"chapter {chapter}: story dialogue {scene} waits on flag {flag!r} ({detail}); "
+            "with optional content skipped the chapter cannot be completed")
+
+
+def test_skipping_meet_the_citizens_still_reaches_the_end_of_the_act() -> None:
+    dialogues = {path.stem: json.loads(path.read_text(encoding="utf-8")) for path in DIALOGUE.glob("*.json")}
+    source = (ROOT / "autoload" / "story_manager.gd").read_text(encoding="utf-8")
+    assert story_softlocks(dialogues, source) == []
+    # Restoring the old chapter 6 gate must be reported as the softlock it was.
+    old_gate = source.replace('"act1_forbidden_citizens": ["completed_first_watch"]',
+                              '"act1_forbidden_citizens": ["ai_citizens_introduced"]')
+    assert old_gate != source
+    assert story_softlocks(dialogues, old_gate) == [softlock(
+        6, "act1_forbidden_citizens", "ai_citizens_introduced", "written only by optional act1_ai_citizens_intro")]
+
+
+def test_story_softlocks_follow_every_branch_of_the_main_path() -> None:
+    source = """const CHAPTER_SEQUENCE: Dictionary = {
+\t0: {
+\t\t"story_dialogues": ["act1_a"],
+\t\t"optional_dialogues": ["act1_side"],
+\t},
+\t1: {
+\t\t"story_dialogues": ["act1_b", "act1_c"],
+\t\t"optional_dialogues": [],
+\t},
+}
+
+const DIALOGUE_REQUIREMENTS: Dictionary = {
+\t"act1_b": ["%s"],
+\t"act1_c": {"flags": ["chapter_0_complete"]},
+}
+"""
+    branching = {"start": {"text": "?", "choices": [
+        {"text": "Yes", "next": "yes"}, {"text": "No", "next": "end"}]},
+        "yes": {"text": "!", "set_flag": "branch_flag", "next": "end"}}
+    dialogues = {
+        "act1_a": {"nodes": branching},
+        "act1_side": {"nodes": {"start": {"text": "hi", "set_flag": "side_flag", "next": "end"}}},
+        "act1_b": {"nodes": {"start": {"text": "b", "next": "end"}}},
+        "act1_c": {"nodes": {"start": {"text": "c", "next": "end"}}},
+    }
+    assert story_softlocks(dialogues, source % "chapter_0_complete") == []
+    assert story_softlocks(dialogues, source % "side_flag") == [
+        softlock(1, "act1_b", "side_flag", "written only by optional act1_side")]
+    assert story_softlocks(dialogues, source % "branch_flag") == [
+        softlock(1, "act1_b", "branch_flag", "written by act1_a, but not on this route")]
+    assert story_softlocks(dialogues, source % "ghost_flag") == [
+        softlock(1, "act1_b", "ghost_flag", "written by no dialogue")]

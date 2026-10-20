@@ -56,6 +56,18 @@ func test_accepting_name_preserves_both_name_and_progression():
 	assert_eq(DialogueManager._get_node_text(observation), observation["text"], "The original accepted-name line is preserved exactly")
 
 
+func test_skipping_meet_the_citizens_does_not_softlock_chapter_six():
+	GameManager.story_flags["naming_complete"] = true
+	DialogueManager.start_dialogue("act1_first_watch")
+	_finish_dialogue()
+	assert_true(StoryManager.has_played_dialogue("act1_first_watch"))
+	assert_true(GameManager.has_flag("completed_first_watch"))
+	assert_false(StoryManager.has_played_dialogue("act1_ai_citizens_intro"), "Meet the Citizens is skipped")
+	assert_false(GameManager.has_flag("ai_citizens_introduced"))
+	StoryManager.mark_dialogue_played("act1_crew_meal")
+	assert_has(StoryManager.get_available_story_dialogues(6), "act1_forbidden_citizens", "Chapter 6 must not wait on optional content")
+
+
 func _finish_dialogue() -> void:
 	for _step in range(500):
 		if not DialogueManager.is_active:
