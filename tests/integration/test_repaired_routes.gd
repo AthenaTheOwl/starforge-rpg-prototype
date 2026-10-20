@@ -2,6 +2,11 @@ extends GutTest
 ## Exercise the public entrances through actual available DialogueManager choices.
 ## A graph-only reference cannot prove a gated choice is selectable at runtime.
 
+
+## Accepting the surname sets a major story flag, which autosaves to user://saves.
+func should_skip_script():
+	return preload("res://tests/user_state_guard.gd").skip_reason()
+
 var saved_flags: Dictionary
 var saved_reputation: Dictionary
 var saved_played: Array[String]

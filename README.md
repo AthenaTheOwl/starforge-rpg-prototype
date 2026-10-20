@@ -73,8 +73,9 @@ catches the drift before a playtester does.
 With Godot installed, run the GUT suite through `tools/check_release.py` (the
 native gate command below). It points Godot's `user://` at the ignored
 `reports/native-state/` before any test runs. The save tests overwrite and delete
-save slots and the autosave, so they skip themselves when GUT is started directly
-from the editor or CLI against your real `user://`.
+save slots and the autosave, and the combat and repaired-route tests trigger the
+autosave, so all three skip themselves when GUT is started directly from the
+editor or CLI against your real `user://`.
 
 For the full native release gate on a machine with Godot installed:
 
