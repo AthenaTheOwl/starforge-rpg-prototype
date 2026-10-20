@@ -65,10 +65,14 @@ func test_terminal_text_and_authored_callbacks_wait_for_actual_continue():
 		["terminal_filtered", "final", {"speaker": "Elia", "text": "No available answers.", "choices": [
 			{"text": "Unavailable", "requires_flag": "unavailable_terminal_flag", "next": "end"}]}],
 	]
-	for route in [["act1_naming_scene", "dinner_after_answer"], ["act1_elia_rescue", "beyond_k9"],
-			["act1_first_watch", "watch_released"], ["act1_souffle_becoming", "citizen_at_rest"]]:
+	# Closing nodes from the story: two carry authored callbacks, two are plain prose.
+	for route in [["act1_naming_scene", "dinner_after_answer", true], ["act1_elia_rescue", "beyond_k9", false],
+			["act1_first_watch", "watch_released", false], ["act1_souffle_becoming", "citizen_at_rest", true]]:
 		var data := DialogueManager._load_dialogue(route[0])
-		cases.append([route[0], route[1], data["nodes"][route[1]]])
+		var closing: Dictionary = data["nodes"][route[1]]
+		assert_eq(not closing.get("echoes", []).is_empty(), route[2],
+			"%s:%s callback presence matches this case's label" % [route[0], route[1]])
+		cases.append([route[0], route[1], closing])
 	for fixture in cases:
 		var scene: String = fixture[0]
 		var node: Dictionary = fixture[2]
